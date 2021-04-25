@@ -2,13 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://y0zg.github.io/public-blog/archive/</loc>
-  </url><url>
-    <loc>https://y0zg.github.io/public-blog/categories/</loc>
-  </url><url>
     <loc>https://y0zg.github.io/public-blog/</loc>
   </url><url>
-    <loc>https://y0zg.github.io/public-blog/search/</loc>
+    <loc>https://y0zg.github.io/public-blog/categories/</loc>
   </url><url>
     <loc>https://y0zg.github.io/public-blog/tags/</loc>
   </url>
