@@ -8,10 +8,9 @@
 <title>Kubernetes tools | Oleksandr Kulbida</title>
 <meta name="keywords" content="kubernetes" />
 <meta name="description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  https://github.com/godaddy/kubernetes-external-secrets https://github.com/1Password/onepassword-operator https://github.com/doitintl/kube-secrets-init  RBAC  https://rbac.dev/ visualize RBAC https://github.com/team-soteria/rback https://github.com/FairwindsOps/rbac-manager  Production readines  https://learnk8s.io/production-best-practices/  Serverless  https://knative.dev/docs/eventing/sources/ Kubeless  ">
-<meta name="author" content="Me">
+<meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://y0zg.github.io/public-blog/posts/kubernetes_tools/" />
 <meta name="google-site-verification" content="XYZabc" />
-<meta name="yandex-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
 <link crossorigin="anonymous" href="/public-blog/assets/css/stylesheet.min.65aebb33e4f0ce3d1a39e4a35c11b91eb08b582489fca0f78f9227d90ac72a52.css" integrity="sha256-Za67M&#43;Twzj0aOeSjXBG5HrCLWCSJ/KD3j5In2QrHKlI=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/public-blog/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
@@ -41,7 +40,7 @@ if (!doNotTrack) {
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://y0zg.github.io/public-blog/posts/kubernetes_tools/" /><meta property="og:image" content="https://y0zg.github.io/public-blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-04-26T00:09:44&#43;03:00" />
-<meta property="article:modified_time" content="2021-04-26T00:09:44&#43;03:00" /><meta property="og:site_name" content="ExampleSite" />
+<meta property="article:modified_time" content="2021-04-26T00:09:44&#43;03:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://y0zg.github.io/public-blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
@@ -87,7 +86,7 @@ if (!doNotTrack) {
   "dateModified": "2021-04-26T00:09:44+03:00",
   "author":{
     "@type": "Person",
-    "name": "Me"
+    "name": "Oleksandr Kulbida"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -109,10 +108,6 @@ if (!doNotTrack) {
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
     }
 
 </script>
@@ -121,34 +116,6 @@ if (!doNotTrack) {
         #theme-toggle,
         .top-link {
             display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: #1d1e20;
-                --entry: #2e2e33;
-                --primary: rgba(255, 255, 255, 0.84);
-                --secondary: rgba(255, 255, 255, 0.56);
-                --tertiary: rgba(255, 255, 255, 0.16);
-                --content: rgba(255, 255, 255, 0.74);
-                --hljs-bg: #2e2e33;
-                --code-bg: #37383e;
-                --border: #333;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
         }
 
     </style>
@@ -215,7 +182,7 @@ if (!doNotTrack) {
     <h1 class="post-title">
       Kubernetes tools
     </h1>
-    <div class="post-meta">April 26, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Me
+    <div class="post-meta">April 26, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida
 </div>
   </header> 
   <div class="post-content"><h2 id="comparison">Comparison<a hidden class="anchor" aria-hidden="true" href="#comparison">#</a></h2>
