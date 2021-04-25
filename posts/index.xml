@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Oleksandr Kulbida</title>
+    <link>https://y0zg.github.io/public-blog/posts/</link>
+    <description>Recent content in Posts on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 26 Apr 2021 00:09:44 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tools</title>
+      <link>https://y0zg.github.io/public-blog/posts/firstpost/</link>
+      <pubDate>Mon, 26 Apr 2021 00:09:44 +0300</pubDate>
+      
+      <guid>https://y0zg.github.io/public-blog/posts/firstpost/</guid>
+      <description>ii select * from table </description>
+    </item>
+    
+  </channel>
+</rss>
