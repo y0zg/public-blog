@@ -7,12 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 26 Apr 2021 00:09:44 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tools</title>
-      <link>https://y0zg.github.io/public-blog/posts/firstpost/</link>
+      <title>Kubernetes tools</title>
+      <link>https://y0zg.github.io/public-blog/posts/kubernetes_tools/</link>
       <pubDate>Mon, 26 Apr 2021 00:09:44 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/posts/firstpost/</guid>
-      <description>ii select * from table </description>
+      <guid>https://y0zg.github.io/public-blog/posts/kubernetes_tools/</guid>
+      <description>Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  https://github.com/godaddy/kubernetes-external-secrets https://github.com/1Password/onepassword-operator https://github.com/doitintl/kube-secrets-init  RBAC  https://rbac.dev/ visualize RBAC https://github.com/team-soteria/rback https://github.com/FairwindsOps/rbac-manager  Production readines  https://learnk8s.io/production-best-practices/  Serverless  https://knative.dev/docs/eventing/sources/ Kubeless  </description>
     </item>
     
     <item>
