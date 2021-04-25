@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Awesome devops</title>
+    <title>Posts on ExampleSite</title>
     <link>https://y0zg.github.io/public-blog/posts/</link>
-    <description>Recent content in Posts on Awesome devops</description>
+    <description>Recent content in Posts on ExampleSite</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 25 Apr 2021 17:07:18 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
