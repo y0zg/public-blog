@@ -21,7 +21,7 @@
       <pubDate>Tue, 27 Apr 2021 19:11:13 +0300</pubDate>
       
       <guid>https://y0zg.github.io/public-blog/posts/aws-secrets-csi/</guid>
-      <description>How to use AWS Secrets &amp;amp; Configuration Provider with your Kubernetes Secrets Store CSI driver. One more example among vault, external-secrets and 1password operator 😅
+      <description>How to use AWS Secrets &amp;amp; Configuration Provider with your Kubernetes Secrets Store CSI driver. One more example of kubernetes secrets management among vault, external-secrets and 1password operator 😅
 https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/</description>
     </item>
     
