@@ -24,5 +24,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>grafana</title>
+      <link>https://y0zg.github.io/public-blog/tags/grafana/</link>
+      <pubDate>Tue, 27 Apr 2021 11:11:59 +0300</pubDate>
+      
+      <guid>https://y0zg.github.io/public-blog/tags/grafana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>https://y0zg.github.io/public-blog/tags/monitoring/</link>
+      <pubDate>Tue, 27 Apr 2021 11:11:59 +0300</pubDate>
+      
+      <guid>https://y0zg.github.io/public-blog/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
