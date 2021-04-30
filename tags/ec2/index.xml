@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ec2 on Oleksandr Kulbida</title>
+    <link>https://y0zg.github.io/public-blog/tags/ec2/</link>
+    <description>Recent content in ec2 on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 30 Apr 2021 11:44:11 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EC2 root volume replacing</title>
+      <link>https://y0zg.github.io/public-blog/posts/ec2-root-volume-replacing/</link>
+      <pubDate>Fri, 30 Apr 2021 11:44:11 +0300</pubDate>
+      
+      <guid>https://y0zg.github.io/public-blog/posts/ec2-root-volume-replacing/</guid>
+      <description>Amazon EC2 enables you to replace the root EBS volume for a running instance
+Limitations:  You can&amp;rsquo;t replace the root volume if it is an instance store volume. You can&amp;rsquo;t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root</description>
+    </item>
+    
+  </channel>
+</rss>
