@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>monitoring on Oleksandr Kulbida</title>
-    <link>https://y0zg.github.io/public-blog/tags/monitoring/</link>
+    <link>https://okulbida.com/tags/monitoring/</link>
     <description>Recent content in monitoring on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 29 Apr 2021 13:18:02 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Apr 2021 13:18:02 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PromQL Cheat Sheet</title>
-      <link>https://y0zg.github.io/public-blog/posts/prom-cheat-sheet/</link>
+      <link>https://okulbida.com/posts/prom-cheat-sheet/</link>
       <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/posts/prom-cheat-sheet/</guid>
+      <guid>https://okulbida.com/posts/prom-cheat-sheet/</guid>
       <description>https://y0zg.github.io/public-blog/pf-infographic-promql-cheatsheet.pdf</description>
     </item>
     
     <item>
       <title>Grafana License</title>
-      <link>https://y0zg.github.io/public-blog/posts/grafana-license/</link>
+      <link>https://okulbida.com/posts/grafana-license/</link>
       <pubDate>Tue, 27 Apr 2021 11:11:59 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/posts/grafana-license/</guid>
+      <guid>https://okulbida.com/posts/grafana-license/</guid>
       <description>Grafana was relicensed to AGPLv3
 https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/</description>
     </item>

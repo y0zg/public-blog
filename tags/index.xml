@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Oleksandr Kulbida</title>
-    <link>https://y0zg.github.io/public-blog/tags/</link>
+    <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 30 Apr 2021 11:44:11 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Apr 2021 11:44:11 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
-      <link>https://y0zg.github.io/public-blog/tags/aws/</link>
+      <link>https://okulbida.com/tags/aws/</link>
       <pubDate>Fri, 30 Apr 2021 11:44:11 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/tags/aws/</guid>
+      <guid>https://okulbida.com/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ec2</title>
-      <link>https://y0zg.github.io/public-blog/tags/ec2/</link>
+      <link>https://okulbida.com/tags/ec2/</link>
       <pubDate>Fri, 30 Apr 2021 11:44:11 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/tags/ec2/</guid>
+      <guid>https://okulbida.com/tags/ec2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>monitoring</title>
-      <link>https://y0zg.github.io/public-blog/tags/monitoring/</link>
+      <link>https://okulbida.com/tags/monitoring/</link>
       <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/tags/monitoring/</guid>
+      <guid>https://okulbida.com/tags/monitoring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>prometheus</title>
-      <link>https://y0zg.github.io/public-blog/tags/prometheus/</link>
+      <link>https://okulbida.com/tags/prometheus/</link>
       <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/tags/prometheus/</guid>
+      <guid>https://okulbida.com/tags/prometheus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubernetes</title>
-      <link>https://y0zg.github.io/public-blog/tags/kubernetes/</link>
+      <link>https://okulbida.com/tags/kubernetes/</link>
       <pubDate>Tue, 27 Apr 2021 19:11:13 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/tags/kubernetes/</guid>
+      <guid>https://okulbida.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>grafana</title>
-      <link>https://y0zg.github.io/public-blog/tags/grafana/</link>
+      <link>https://okulbida.com/tags/grafana/</link>
       <pubDate>Tue, 27 Apr 2021 11:11:59 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/tags/grafana/</guid>
+      <guid>https://okulbida.com/tags/grafana/</guid>
       <description></description>
     </item>
     

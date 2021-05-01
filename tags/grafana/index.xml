@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>grafana on Oleksandr Kulbida</title>
-    <link>https://y0zg.github.io/public-blog/tags/grafana/</link>
+    <link>https://okulbida.com/tags/grafana/</link>
     <description>Recent content in grafana on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Apr 2021 11:11:59 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 11:11:59 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grafana License</title>
-      <link>https://y0zg.github.io/public-blog/posts/grafana-license/</link>
+      <link>https://okulbida.com/posts/grafana-license/</link>
       <pubDate>Tue, 27 Apr 2021 11:11:59 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/posts/grafana-license/</guid>
+      <guid>https://okulbida.com/posts/grafana-license/</guid>
       <description>Grafana was relicensed to AGPLv3
 https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/</description>
     </item>

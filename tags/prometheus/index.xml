@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>prometheus on Oleksandr Kulbida</title>
-    <link>https://y0zg.github.io/public-blog/tags/prometheus/</link>
+    <link>https://okulbida.com/tags/prometheus/</link>
     <description>Recent content in prometheus on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 29 Apr 2021 13:18:02 +0300</lastBuildDate><atom:link href="https://y0zg.github.io/public-blog/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Apr 2021 13:18:02 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PromQL Cheat Sheet</title>
-      <link>https://y0zg.github.io/public-blog/posts/prom-cheat-sheet/</link>
+      <link>https://okulbida.com/posts/prom-cheat-sheet/</link>
       <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
       
-      <guid>https://y0zg.github.io/public-blog/posts/prom-cheat-sheet/</guid>
+      <guid>https://okulbida.com/posts/prom-cheat-sheet/</guid>
       <description>https://y0zg.github.io/public-blog/pf-infographic-promql-cheatsheet.pdf</description>
     </item>
     
