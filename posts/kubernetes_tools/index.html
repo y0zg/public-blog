@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Kubernetes tools | Oleksandr Kulbida</title>
 <meta name="keywords" content="kubernetes" />
-<meta name="description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  https://github.com/godaddy/kubernetes-external-secrets https://github.com/1Password/onepassword-operator https://github.com/doitintl/kube-secrets-init  RBAC  https://rbac.dev/ visualize RBAC https://github.com/team-soteria/rback https://github.com/FairwindsOps/rbac-manager  Production readines  https://learnk8s.io/production-best-practices/  Serverless  https://knative.dev/docs/eventing/sources/ Kubeless  ">
+<meta name="description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.dev/docs/eventing/sources/ Kubeless https://kubeless.io/ OpenFAAS https://github.com/openfaas/faas  ">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/kubernetes_tools/" />
 <meta name="google-site-verification" content="XYZabc" />
@@ -36,17 +36,17 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Kubernetes tools" />
-<meta property="og:description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  https://github.com/godaddy/kubernetes-external-secrets https://github.com/1Password/onepassword-operator https://github.com/doitintl/kube-secrets-init  RBAC  https://rbac.dev/ visualize RBAC https://github.com/team-soteria/rback https://github.com/FairwindsOps/rbac-manager  Production readines  https://learnk8s.io/production-best-practices/  Serverless  https://knative.dev/docs/eventing/sources/ Kubeless  " />
+<meta property="og:description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.dev/docs/eventing/sources/ Kubeless https://kubeless.io/ OpenFAAS https://github.com/openfaas/faas  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/kubernetes_tools/" />
-<meta property="og:image" content="https://y0zg.github.io/public-blog/pics/k8s-tools.jpeg" /><meta property="article:section" content="posts" />
+<meta property="og:image" content="https://y0zg.github.io/public-blog/pics/k8s-tools.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-04-26T00:09:44&#43;03:00" />
 <meta property="article:modified_time" content="2021-04-26T00:09:44&#43;03:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://y0zg.github.io/public-blog/pics/k8s-tools.jpeg" />
+<meta name="twitter:image" content="https://y0zg.github.io/public-blog/pics/k8s-tools.png" />
 <meta name="twitter:title" content="Kubernetes tools"/>
-<meta name="twitter:description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  https://github.com/godaddy/kubernetes-external-secrets https://github.com/1Password/onepassword-operator https://github.com/doitintl/kube-secrets-init  RBAC  https://rbac.dev/ visualize RBAC https://github.com/team-soteria/rback https://github.com/FairwindsOps/rbac-manager  Production readines  https://learnk8s.io/production-best-practices/  Serverless  https://knative.dev/docs/eventing/sources/ Kubeless  "/>
+<meta name="twitter:description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.dev/docs/eventing/sources/ Kubeless https://kubeless.io/ OpenFAAS https://github.com/openfaas/faas  "/>
 
 
 <script type="application/ld+json">
@@ -75,14 +75,14 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Kubernetes tools",
   "name": "Kubernetes tools",
-  "description": "Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  https://github.com/godaddy/kubernetes-external-secrets https://github.com/1Password/onepassword-operator https://github.com/doitintl/kube-secrets-init  RBAC  https://rbac.dev/ visualize RBAC https://github.com/team-soteria/rback https://github.com/FairwindsOps/rbac-manager  Production readines  https://learnk8s.io/production-best-practices/  Serverless  https://knative.dev/docs/eventing/sources/ Kubeless  ",
+  "description": "Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.dev/docs/eventing/sources/ Kubeless https://kubeless.io/ OpenFAAS https://github.com/openfaas/faas  ",
   "keywords": [
     "kubernetes"
   ],
-  "articleBody": "Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  https://github.com/godaddy/kubernetes-external-secrets https://github.com/1Password/onepassword-operator https://github.com/doitintl/kube-secrets-init  RBAC  https://rbac.dev/ visualize RBAC https://github.com/team-soteria/rback https://github.com/FairwindsOps/rbac-manager  Production readines  https://learnk8s.io/production-best-practices/  Serverless  https://knative.dev/docs/eventing/sources/ Kubeless  ",
-  "wordCount" : "24",
+  "articleBody": "Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.dev/docs/eventing/sources/ Kubeless https://kubeless.io/ OpenFAAS https://github.com/openfaas/faas  ",
+  "wordCount" : "57",
   "inLanguage": "en",
-  "image":"https://y0zg.github.io/public-blog/pics/k8s-tools.jpeg","datePublished": "2021-04-26T00:09:44+03:00",
+  "image":"https://y0zg.github.io/public-blog/pics/k8s-tools.png","datePublished": "2021-04-26T00:09:44+03:00",
   "dateModified": "2021-04-26T00:09:44+03:00",
   "author":{
     "@type": "Person",
@@ -175,7 +175,7 @@ if (!doNotTrack) {
     <div class="post-meta">April 26, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://y0zg.github.io/public-blog/pics/k8s-tools.jpeg" alt="kubernetes tools">
+<figure class="entry-cover"><img loading="lazy" src="https://y0zg.github.io/public-blog/pics/k8s-tools.png" alt="kubernetes tools">
         <p>kubernetes tools</p>
 </figure>
   <div class="post-content"><h2 id="comparison">Comparison<a hidden class="anchor" aria-hidden="true" href="#comparison">#</a></h2>
@@ -190,24 +190,25 @@ if (!doNotTrack) {
 </ul>
 <h2 id="secrets">Secrets<a hidden class="anchor" aria-hidden="true" href="#secrets">#</a></h2>
 <ul>
-<li><a href="https://github.com/godaddy/kubernetes-external-secrets">https://github.com/godaddy/kubernetes-external-secrets</a></li>
-<li><a href="https://github.com/1Password/onepassword-operator">https://github.com/1Password/onepassword-operator</a></li>
-<li><a href="https://github.com/doitintl/kube-secrets-init">https://github.com/doitintl/kube-secrets-init</a></li>
+<li>External secrets management integration with k8s <a href="https://github.com/godaddy/kubernetes-external-secrets">https://github.com/godaddy/kubernetes-external-secrets</a></li>
+<li>Integrate Kubernetes with 1Password <a href="https://github.com/1Password/onepassword-operator">https://github.com/1Password/onepassword-operator</a></li>
+<li>Kubernetes mutating webhook for <code>secrets-init</code> injection <a href="https://github.com/doitintl/kube-secrets-init">https://github.com/doitintl/kube-secrets-init</a></li>
 </ul>
 <h2 id="rbac">RBAC<a hidden class="anchor" aria-hidden="true" href="#rbac">#</a></h2>
 <ul>
-<li><a href="https://rbac.dev/">https://rbac.dev/</a></li>
-<li>visualize RBAC <a href="https://github.com/team-soteria/rback">https://github.com/team-soteria/rback</a></li>
-<li><a href="https://github.com/FairwindsOps/rbac-manager">https://github.com/FairwindsOps/rbac-manager</a></li>
+<li>RBAC practices and tooling <a href="https://rbac.dev/">https://rbac.dev/</a></li>
+<li>Visualize RBAC <a href="https://github.com/team-soteria/rback">https://github.com/team-soteria/rback</a></li>
+<li>RBAC Manager is designed to simplify authorization in Kubernetes <a href="https://github.com/FairwindsOps/rbac-manager">https://github.com/FairwindsOps/rbac-manager</a></li>
 </ul>
-<h2 id="production-readines">Production readines<a hidden class="anchor" aria-hidden="true" href="#production-readines">#</a></h2>
+<h2 id="production-checklist">Production checklist<a hidden class="anchor" aria-hidden="true" href="#production-checklist">#</a></h2>
 <ul>
 <li><a href="https://learnk8s.io/production-best-practices/">https://learnk8s.io/production-best-practices/</a></li>
 </ul>
 <h2 id="serverless">Serverless<a hidden class="anchor" aria-hidden="true" href="#serverless">#</a></h2>
 <ul>
-<li><a href="https://knative.dev/docs/eventing/sources/">https://knative.dev/docs/eventing/sources/</a></li>
-<li>Kubeless</li>
+<li>Knative <a href="https://knative.dev/docs/eventing/sources/">https://knative.dev/docs/eventing/sources/</a></li>
+<li>Kubeless <a href="https://kubeless.io/">https://kubeless.io/</a></li>
+<li>OpenFAAS <a href="https://github.com/openfaas/faas">https://github.com/openfaas/faas</a></li>
 </ul>
 
 </div>
