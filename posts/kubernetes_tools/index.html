@@ -7,7 +7,8 @@
 <meta name="robots" content="index, follow">
 <title>Kubernetes tools | Oleksandr Kulbida</title>
 <meta name="keywords" content="kubernetes" />
-<meta name="description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.">
+<meta name="description" content="This list is being updated on regular basis
+Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager Access matrix https://github.">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/kubernetes_tools/" />
 <meta name="google-site-verification" content="XYZabc" />
@@ -36,7 +37,8 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Kubernetes tools" />
-<meta property="og:description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative." />
+<meta property="og:description" content="This list is being updated on regular basis
+Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager Access matrix https://github." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/kubernetes_tools/" />
 <meta property="og:image" content="https://y0zg.github.io/public-blog/pics/k8s-tools.png" /><meta property="article:section" content="posts" />
@@ -46,7 +48,8 @@ if (!doNotTrack) {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://y0zg.github.io/public-blog/pics/k8s-tools.png" />
 <meta name="twitter:title" content="Kubernetes tools"/>
-<meta name="twitter:description" content="Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative."/>
+<meta name="twitter:description" content="This list is being updated on regular basis
+Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager Access matrix https://github."/>
 
 
 <script type="application/ld+json">
@@ -75,12 +78,12 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Kubernetes tools",
   "name": "Kubernetes tools",
-  "description": "Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.",
+  "description": "This list is being updated on regular basis\nComparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager Access matrix https://github.",
   "keywords": [
     "kubernetes"
   ],
-  "articleBody": "Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.dev/docs/eventing/sources/ Kubeless https://kubeless.io/ OpenFAAS https://github.com/openfaas/faas  ",
-  "wordCount" : "64",
+  "articleBody": "This list is being updated on regular basis\nComparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager Access matrix https://github.com/corneliusweig/rakkess  Production checklist  https://learnk8s.io/production-best-practices/  Serverless  Knative https://knative.dev/docs/eventing/sources/ Kubeless https://kubeless.io/ OpenFAAS https://github.com/openfaas/faas  Troubleshooting  Debug your pod by a new container https://github.com/aylei/kubectl-debug TCPdump pod https://github.com/eldadru/ksniff View Validation Webhook config https://github.com/Trendyol/kubectl-view-webhook#kubectl-view-webhook  Stateful  Check PVC capacity https://github.com/yashbhutwala/kubectl-df-pv  Local  Minikube https://minikube.sigs.k8s.io/ https://docs.tilt.dev/ k0s https://github.com/k0sproject/k0s Microk8s from Canonical https://microk8s.io/ KIND https://kind.sigs.k8s.io/ Telepresence https://www.telepresence.io/tutorials/kubernetes-rapid Exposes your local resources to kubernetes (like telepresence) https://github.com/omrikiei/ktunnel Skaffold https://skaffold.dev/  Baremetal  Awesome baremetal https://github.com/alexellis/awesome-baremetal EKS Anywhere https://aws.amazon.com/eks/eks-anywhere/ GKE Anthos https://cloud.google.com/anthos/clusters Popular stack options:  Kubeadm+Flannel+Linstor+MetalLB kubeadm + terraform kubeadm CNI calico (MaaS) + Terraform + RKE RKE + terraform VIP for pods https://kube-vip.io/ vmware+kismatic+ansible CNI calico vmware PKS    ",
+  "wordCount" : "159",
   "inLanguage": "en",
   "image":"https://y0zg.github.io/public-blog/pics/k8s-tools.png","datePublished": "2021-04-26T00:09:44+03:00",
   "dateModified": "2021-04-26T00:09:44+03:00",
@@ -178,7 +181,8 @@ if (!doNotTrack) {
 <figure class="entry-cover"><img loading="lazy" src="https://y0zg.github.io/public-blog/pics/k8s-tools.png" alt="kubernetes tools">
         <p>kubernetes tools</p>
 </figure>
-  <div class="post-content"><h2 id="comparison">Comparison<a hidden class="anchor" aria-hidden="true" href="#comparison">#</a></h2>
+  <div class="post-content"><p><em>This list is being updated on regular basis</em></p>
+<h2 id="comparison">Comparison<a hidden class="anchor" aria-hidden="true" href="#comparison">#</a></h2>
 <ul>
 <li><a href="https://learnk8s.io/research">https://learnk8s.io/research</a></li>
 <li><a href="https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238">https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238</a></li>
@@ -200,6 +204,7 @@ if (!doNotTrack) {
 <li>RBAC practices and tooling <a href="https://rbac.dev/">https://rbac.dev/</a></li>
 <li>Visualize RBAC <a href="https://github.com/team-soteria/rback">https://github.com/team-soteria/rback</a></li>
 <li>RBAC Manager is designed to simplify authorization in Kubernetes <a href="https://github.com/FairwindsOps/rbac-manager">https://github.com/FairwindsOps/rbac-manager</a></li>
+<li>Access matrix <a href="https://github.com/corneliusweig/rakkess">https://github.com/corneliusweig/rakkess</a></li>
 </ul>
 <h2 id="production-checklist">Production checklist<a hidden class="anchor" aria-hidden="true" href="#production-checklist">#</a></h2>
 <ul>
@@ -210,6 +215,45 @@ if (!doNotTrack) {
 <li>Knative <a href="https://knative.dev/docs/eventing/sources/">https://knative.dev/docs/eventing/sources/</a></li>
 <li>Kubeless <a href="https://kubeless.io/">https://kubeless.io/</a></li>
 <li>OpenFAAS <a href="https://github.com/openfaas/faas">https://github.com/openfaas/faas</a></li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a hidden class="anchor" aria-hidden="true" href="#troubleshooting">#</a></h2>
+<ul>
+<li>Debug your pod by a new container <a href="https://github.com/aylei/kubectl-debug">https://github.com/aylei/kubectl-debug</a></li>
+<li>TCPdump pod <a href="https://github.com/eldadru/ksniff">https://github.com/eldadru/ksniff</a></li>
+<li>View Validation Webhook config <a href="https://github.com/Trendyol/kubectl-view-webhook#kubectl-view-webhook">https://github.com/Trendyol/kubectl-view-webhook#kubectl-view-webhook</a></li>
+</ul>
+<h2 id="stateful">Stateful<a hidden class="anchor" aria-hidden="true" href="#stateful">#</a></h2>
+<ul>
+<li>Check PVC capacity <a href="https://github.com/yashbhutwala/kubectl-df-pv">https://github.com/yashbhutwala/kubectl-df-pv</a></li>
+</ul>
+<h2 id="local">Local<a hidden class="anchor" aria-hidden="true" href="#local">#</a></h2>
+<ul>
+<li>Minikube <a href="https://minikube.sigs.k8s.io/">https://minikube.sigs.k8s.io/</a></li>
+<li><a href="https://docs.tilt.dev/">https://docs.tilt.dev/</a></li>
+<li>k0s <a href="https://github.com/k0sproject/k0s">https://github.com/k0sproject/k0s</a></li>
+<li>Microk8s from Canonical <a href="https://microk8s.io/">https://microk8s.io/</a></li>
+<li>KIND <a href="https://kind.sigs.k8s.io/">https://kind.sigs.k8s.io/</a></li>
+<li>Telepresence <a href="https://www.telepresence.io/tutorials/kubernetes-rapid">https://www.telepresence.io/tutorials/kubernetes-rapid</a></li>
+<li>Exposes your local resources to kubernetes (like telepresence) <a href="https://github.com/omrikiei/ktunnel">https://github.com/omrikiei/ktunnel</a></li>
+<li>Skaffold <a href="https://skaffold.dev/">https://skaffold.dev/</a></li>
+</ul>
+<h2 id="baremetal">Baremetal<a hidden class="anchor" aria-hidden="true" href="#baremetal">#</a></h2>
+<ul>
+<li>Awesome baremetal <a href="https://github.com/alexellis/awesome-baremetal">https://github.com/alexellis/awesome-baremetal</a></li>
+<li>EKS Anywhere <a href="https://aws.amazon.com/eks/eks-anywhere/">https://aws.amazon.com/eks/eks-anywhere/</a></li>
+<li>GKE Anthos <a href="https://cloud.google.com/anthos/clusters">https://cloud.google.com/anthos/clusters</a></li>
+<li>Popular stack options:
+<ul>
+<li>Kubeadm+Flannel+Linstor+MetalLB</li>
+<li>kubeadm + terraform</li>
+<li>kubeadm CNI calico</li>
+<li>(MaaS) + Terraform + RKE</li>
+<li>RKE + terraform</li>
+<li>VIP for pods <a href="https://kube-vip.io/">https://kube-vip.io/</a></li>
+<li>vmware+kismatic+ansible CNI calico</li>
+<li>vmware PKS</li>
+</ul>
+</li>
 </ul>
 
 </div>
