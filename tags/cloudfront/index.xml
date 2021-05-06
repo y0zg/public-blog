@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cloudfront on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/cloudfront/</link>
+    <description>Recent content in cloudfront on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 07 May 2021 01:09:56 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/cloudfront/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS CloudFront functions</title>
+      <link>https://okulbida.com/posts/aws-cloudfront-functions/</link>
+      <pubDate>Fri, 07 May 2021 01:09:56 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-cloudfront-functions/</guid>
+      <description>AWS CloudFront functions is a nice alternative to Lambda@Edge
+https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/</description>
+    </item>
+    
+  </channel>
+</rss>
