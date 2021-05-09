@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://okulbida.com/posts/kubernetes_tools/</loc>
-    <lastmod>2021-04-26T00:09:44+03:00</lastmod>
+    <lastmod>2021-05-09T00:09:44+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/kubernetes/</loc>
+    <lastmod>2021-05-09T00:09:44+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2021-05-09T00:09:44+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2021-05-09T00:09:44+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2021-05-09T00:09:44+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/aws/</loc>
     <lastmod>2021-05-07T01:09:56+03:00</lastmod>
@@ -15,15 +27,6 @@
     <lastmod>2021-05-07T01:09:56+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/lambda/</loc>
-    <lastmod>2021-05-07T01:09:56+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2021-05-07T01:09:56+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2021-05-07T01:09:56+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2021-05-07T01:09:56+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/ec2/</loc>
@@ -42,9 +45,6 @@
     <lastmod>2021-04-29T13:18:02+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/aws-secrets-csi/</loc>
-    <lastmod>2021-04-27T19:11:13+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/kubernetes/</loc>
     <lastmod>2021-04-27T19:11:13+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/grafana/</loc>

@@ -5,7 +5,16 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 07 May 2021 01:09:56 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 May 2021 00:09:44 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kubernetes</title>
+      <link>https://okulbida.com/tags/kubernetes/</link>
+      <pubDate>Sun, 09 May 2021 00:09:44 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aws</title>
       <link>https://okulbida.com/tags/aws/</link>
@@ -57,15 +66,6 @@
       <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/prometheus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Tue, 27 Apr 2021 19:11:13 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
