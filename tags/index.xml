@@ -5,13 +5,49 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 09 May 2021 00:09:44 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 23:45:23 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cloud</title>
+      <link>https://okulbida.com/tags/cloud/</link>
+      <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloudnative</title>
+      <link>https://okulbida.com/tags/cloudnative/</link>
+      <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/cloudnative/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cncf</title>
+      <link>https://okulbida.com/tags/cncf/</link>
+      <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/cncf/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>kubernetes</title>
       <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Sun, 09 May 2021 00:09:44 +0300</pubDate>
+      <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>opensource</title>
+      <link>https://okulbida.com/tags/opensource/</link>
+      <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/opensource/</guid>
       <description></description>
     </item>
     

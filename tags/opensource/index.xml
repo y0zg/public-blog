@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>opensource on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/opensource/</link>
+    <description>Recent content in opensource on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 15 May 2021 23:45:23 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubecon2021</title>
+      <link>https://okulbida.com/posts/kubecon2021/</link>
+      <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/kubecon2021/</guid>
+      <description>Full list of videos from KubeCon 2021 Europe
+https://www.youtube.com/playlist?list=PLj6h78yzYM2MqBm19mRz9SYLsw4kfQBrC</description>
+    </item>
+    
+  </channel>
+</rss>
