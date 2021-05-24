@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ingress on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/ingress/</link>
+    <description>Recent content in ingress on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 24 May 2021 16:16:34 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/ingress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</title>
+      <link>https://okulbida.com/posts/aws-lb-controller-nlb-support/</link>
+      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-lb-controller-nlb-support/</guid>
+      <description>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</description>
+    </item>
+    
+  </channel>
+</rss>

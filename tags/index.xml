@@ -5,7 +5,52 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 May 2021 23:45:23 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 May 2021 16:16:34 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>https://okulbida.com/tags/aws/</link>
+      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eks</title>
+      <link>https://okulbida.com/tags/eks/</link>
+      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ingress</title>
+      <link>https://okulbida.com/tags/ingress/</link>
+      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/ingress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ec2</title>
+      <link>https://okulbida.com/tags/ec2/</link>
+      <pubDate>Mon, 24 May 2021 16:14:25 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://okulbida.com/tags/kubernetes/</link>
+      <pubDate>Mon, 24 May 2021 16:05:58 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cloud</title>
       <link>https://okulbida.com/tags/cloud/</link>
@@ -34,29 +79,11 @@
     </item>
     
     <item>
-      <title>kubernetes</title>
-      <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>opensource</title>
       <link>https://okulbida.com/tags/opensource/</link>
       <pubDate>Sat, 15 May 2021 23:45:23 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/opensource/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://okulbida.com/tags/aws/</link>
-      <pubDate>Fri, 07 May 2021 01:09:56 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -75,15 +102,6 @@
       <pubDate>Fri, 07 May 2021 01:09:56 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/lambda/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ec2</title>
-      <link>https://okulbida.com/tags/ec2/</link>
-      <pubDate>Fri, 30 Apr 2021 11:44:11 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/ec2/</guid>
       <description></description>
     </item>
     

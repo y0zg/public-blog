@@ -5,7 +5,37 @@
     <link>https://okulbida.com/tags/aws/</link>
     <description>Recent content in aws on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 07 May 2021 01:09:56 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 May 2021 16:16:34 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</title>
+      <link>https://okulbida.com/posts/aws-lb-controller-nlb-support/</link>
+      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-lb-controller-nlb-support/</guid>
+      <description>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</description>
+    </item>
+    
+    <item>
+      <title>Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy</title>
+      <link>https://okulbida.com/posts/aws-ec2-predictive-autoscaling/</link>
+      <pubDate>Mon, 24 May 2021 16:14:25 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-ec2-predictive-autoscaling/</guid>
+      <description>Amazon EC2 Auto Scaling now natively supports Predictive Scaling so you can proactively scale out your Auto Scaling group to be ready for upcoming demand. Predictive Scaling can help you avoid the need to over-provision capacity, resulting in lower EC2 cost, while ensuring your application’s responsiveness. (Previously, Predictive Scaling was only available via AWS Auto Scaling Plans.)
+https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-introduces-predictive-scaling-native-scaling-policy/</description>
+    </item>
+    
+    <item>
+      <title>EKS Add-Ons Now Supports CoreDNS and kube-proxy</title>
+      <link>https://okulbida.com/posts/awsekscoredns/</link>
+      <pubDate>Mon, 24 May 2021 16:05:58 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/awsekscoredns/</guid>
+      <description>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
+https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
+https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</description>
+    </item>
+    
     <item>
       <title>AWS CloudFront functions</title>
       <link>https://okulbida.com/posts/aws-cloudfront-functions/</link>

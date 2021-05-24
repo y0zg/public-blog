@@ -5,7 +5,7 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 May 2021 23:45:23 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 May 2021 16:16:34 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -14,6 +14,36 @@
       <guid>https://okulbida.com/posts/kubernetes_tools/</guid>
       <description>This list is being updated on regular basis
 Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.com/FairwindsOps/rbac-manager Access matrix https://github.</description>
+    </item>
+    
+    <item>
+      <title>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</title>
+      <link>https://okulbida.com/posts/aws-lb-controller-nlb-support/</link>
+      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-lb-controller-nlb-support/</guid>
+      <description>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</description>
+    </item>
+    
+    <item>
+      <title>Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy</title>
+      <link>https://okulbida.com/posts/aws-ec2-predictive-autoscaling/</link>
+      <pubDate>Mon, 24 May 2021 16:14:25 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-ec2-predictive-autoscaling/</guid>
+      <description>Amazon EC2 Auto Scaling now natively supports Predictive Scaling so you can proactively scale out your Auto Scaling group to be ready for upcoming demand. Predictive Scaling can help you avoid the need to over-provision capacity, resulting in lower EC2 cost, while ensuring your application’s responsiveness. (Previously, Predictive Scaling was only available via AWS Auto Scaling Plans.)
+https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-introduces-predictive-scaling-native-scaling-policy/</description>
+    </item>
+    
+    <item>
+      <title>EKS Add-Ons Now Supports CoreDNS and kube-proxy</title>
+      <link>https://okulbida.com/posts/awsekscoredns/</link>
+      <pubDate>Mon, 24 May 2021 16:05:58 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/awsekscoredns/</guid>
+      <description>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
+https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
+https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</description>
     </item>
     
     <item>

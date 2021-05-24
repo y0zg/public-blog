@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eks on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/eks/</link>
+    <description>Recent content in eks on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 24 May 2021 16:16:34 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/eks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</title>
+      <link>https://okulbida.com/posts/aws-lb-controller-nlb-support/</link>
+      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-lb-controller-nlb-support/</guid>
+      <description>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</description>
+    </item>
+    
+    <item>
+      <title>EKS Add-Ons Now Supports CoreDNS and kube-proxy</title>
+      <link>https://okulbida.com/posts/awsekscoredns/</link>
+      <pubDate>Mon, 24 May 2021 16:05:58 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/awsekscoredns/</guid>
+      <description>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
+https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
+https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</description>
+    </item>
+    
+  </channel>
+</rss>
