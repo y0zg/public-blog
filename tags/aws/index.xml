@@ -5,7 +5,17 @@
     <link>https://okulbida.com/tags/aws/</link>
     <description>Recent content in aws on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 May 2021 16:16:34 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Jun 2021 12:15:17 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Removes NAT Gateway’s Dependence on Internet Gateway for Private Communications</title>
+      <link>https://okulbida.com/posts/aws-nat-gateway-no-need-igw/</link>
+      <pubDate>Thu, 17 Jun 2021 12:15:17 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-nat-gateway-no-need-igw/</guid>
+      <description>You can now launch NAT Gateways in your VPC without associating an internet gateway to your VPC. Internet Gateway is required to provide internet access to the NAT Gateway. However, some customers use their NAT Gateways with Transit Gateway or virtual private gateway to communicate privately with other VPCs or on-premises environments and thus, do not need an internet gateway attached to their VPCs.
+More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat-gateways-dependence-on-internet-gateway-for-private-communications/</description>
+    </item>
+    
     <item>
       <title>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</title>
       <link>https://okulbida.com/posts/aws-lb-controller-nlb-support/</link>

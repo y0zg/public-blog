@@ -5,7 +5,7 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 08 Jun 2021 23:09:58 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Jun 2021 12:15:17 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -14,6 +14,16 @@
       <guid>https://okulbida.com/posts/kubernetes_tools/</guid>
       <description>This list is being updated on regular basis
 General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.</description>
+    </item>
+    
+    <item>
+      <title>AWS Removes NAT Gateway’s Dependence on Internet Gateway for Private Communications</title>
+      <link>https://okulbida.com/posts/aws-nat-gateway-no-need-igw/</link>
+      <pubDate>Thu, 17 Jun 2021 12:15:17 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-nat-gateway-no-need-igw/</guid>
+      <description>You can now launch NAT Gateways in your VPC without associating an internet gateway to your VPC. Internet Gateway is required to provide internet access to the NAT Gateway. However, some customers use their NAT Gateways with Transit Gateway or virtual private gateway to communicate privately with other VPCs or on-premises environments and thus, do not need an internet gateway attached to their VPCs.
+More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat-gateways-dependence-on-internet-gateway-for-private-communications/</description>
     </item>
     
     <item>
