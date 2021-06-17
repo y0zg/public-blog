@@ -7,6 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 17 Jun 2021 12:15:17 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>K8s Security Best Practices</title>
+      <link>https://okulbida.com/posts/k8s-security-best-practices/</link>
+      <pubDate>Mon, 07 Jun 2021 01:04:09 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/k8s-security-best-practices/</guid>
+      <description>Keep the cloud provider platform secure
+ Least privilege Secure traffic into cluster    Run security test in development environments
+ Mirror environments    Cluster authentication &amp;amp; authorization
+ Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation
+ Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
+  k8s admission controllers
+ Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
       <pubDate>Sun, 09 May 2021 00:09:44 +0300</pubDate>
@@ -36,21 +51,6 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
   Grafana includes built-in support for Prometheus Alertmanager. Once you add it as a data source, you can use the Grafana alerting UI to manage silences, contact points as well as notification policies. A drop down option in these pages allows you to switch between Grafana and any configured Alertmanager data sources. https://grafana.com/docs/grafana/latest/datasources/alertmanager/
   Prometheus metrics browser https://grafana.com/docs/grafana/latest/datasources/prometheus/#metrics-browser
   More details: https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v8-0/</description>
-    </item>
-    
-    <item>
-      <title>K8s Security Best Practices</title>
-      <link>https://okulbida.com/posts/k8s-security-best-practices/</link>
-      <pubDate>Mon, 07 Jun 2021 01:04:09 +0300</pubDate>
-      
-      <guid>https://okulbida.com/posts/k8s-security-best-practices/</guid>
-      <description>Keep the cloud provider platform secure
- Least privilege Secure traffic into cluster    Run security test in development environments
- Mirror environments    Cluster authentication &amp;amp; authorization
- Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation
- Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
-  k8s admission controllers
- Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
     </item>
     
     <item>
