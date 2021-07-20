@@ -13,8 +13,10 @@
       
       <guid>https://okulbida.com/posts/aws-elasticsearch-licensing/</guid>
       <description>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
+https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
+https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
 What are the alternatives?
- Host elasticsearch on EC2 instances, why not? CloudWatch, slow&amp;hellip; https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments&amp;hellip;tricky for production usage Loki? Is it mature enough?</description>
+ Host elasticsearch on EC2 instances, why not? CloudWatch, slow&amp;hellip; https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments&amp;hellip;tricky for production usage Loki?</description>
     </item>
     
   </channel>
