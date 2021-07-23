@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bigdata on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/bigdata/</link>
+    <description>Recent content in bigdata on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 21 Jul 2021 00:13:41 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/bigdata/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bigdata comparison within AWS,Azure,GCP</title>
+      <link>https://okulbida.com/posts/bigdata-comparison-cloudproviders/</link>
+      <pubDate>Wed, 21 Jul 2021 00:13:41 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/bigdata-comparison-cloudproviders/</guid>
+      <description>![Cloudproviders databases comparison](https://y0zg.github.io/public-blog/pics/bigdata.jpeg</description>
+    </item>
+    
+  </channel>
+</rss>
