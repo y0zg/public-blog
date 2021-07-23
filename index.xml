@@ -7,15 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 21 Jul 2021 00:12:44 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Database comparison within AWS,Azure,GCP</title>
-      <link>https://okulbida.com/posts/db-cloudproviders/</link>
-      <pubDate>Wed, 21 Jul 2021 00:12:44 +0300</pubDate>
-      
-      <guid>https://okulbida.com/posts/db-cloudproviders/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
       <pubDate>Sun, 09 May 2021 00:09:44 +0300</pubDate>
@@ -38,6 +29,15 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>Database comparison within AWS,Azure,GCP</title>
+      <link>https://okulbida.com/posts/db-cloudproviders/</link>
+      <pubDate>Wed, 21 Jul 2021 00:12:44 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/db-cloudproviders/</guid>
+      <description></description>
     </item>
     
     <item>
