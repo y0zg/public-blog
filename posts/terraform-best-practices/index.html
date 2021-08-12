@@ -88,8 +88,8 @@ if (!doNotTrack) {
   "keywords": [
     "terraform"
   ],
-  "articleBody": "Essentials\n  Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags\n  Don’t reinvent the wheel As a common sense, it’s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/\n  Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.\n  Automate\n  a. Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform\nb. Must have hooks: - terraform_fmt - terraform_validate - terraform_docs - terraform_tflint\nDRY (Don’t repeat yourself) to be continued…  ",
-  "wordCount" : "96",
+  "articleBody": "Essentials\n  Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags\n  Don’t reinvent the wheel As a common sense, it’s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/\n  Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.\n  Automate\n  a. Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform\nb. Must have hooks:\n terraform_fmt terraform_validate terraform_docs terraform_tflint  DRY (Don’t repeat yourself) to be continued…  ",
+  "wordCount" : "92",
   "inLanguage": "en",
   "datePublished": "2021-08-12T19:11:15+03:00",
   "dateModified": "2021-08-12T19:11:15+03:00",
@@ -213,11 +213,13 @@ b. Keep each module in a separate repo. Usually it depends on project size, and 
 <p>a. Use pre-commit
 <a href="https://pre-commit.com/#install">https://pre-commit.com/#install</a>
 <a href="https://github.com/antonbabenko/pre-commit-terraform">https://github.com/antonbabenko/pre-commit-terraform</a></p>
-<p>b. Must have hooks:
-- terraform_fmt
-- terraform_validate
-- terraform_docs
-- terraform_tflint</p>
+<p>b. Must have hooks:</p>
+<ul>
+<li>terraform_fmt</li>
+<li>terraform_validate</li>
+<li>terraform_docs</li>
+<li>terraform_tflint</li>
+</ul>
 <ol start="5">
 <li>DRY (Don&rsquo;t repeat yourself)
 to be continued&hellip;</li>
