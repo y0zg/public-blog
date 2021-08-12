@@ -37,9 +37,8 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
       <pubDate>Thu, 12 Aug 2021 19:11:15 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/terraform-best-practices/</guid>
-      <description>Essentials   Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags
-  Don&amp;rsquo;t reinvent the wheel
-  As a common sense, it&amp;rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
+      <description>Essentials  Collaboration  a. Use remote state and state locking b. Agree on naming convention c. Use tags
+Don&amp;rsquo;t reinvent the wheel  As a common sense, it&amp;rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
  Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.</description>
     </item>
     

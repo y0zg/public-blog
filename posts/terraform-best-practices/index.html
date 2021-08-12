@@ -7,9 +7,8 @@
 <meta name="robots" content="index, follow">
 <title>Terraform Best Practices | Oleksandr Kulbida</title>
 <meta name="keywords" content="terraform" />
-<meta name="description" content="Essentials   Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags
-  Don&rsquo;t reinvent the wheel
-  As a common sense, it&rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
+<meta name="description" content="Essentials  Collaboration  a. Use remote state and state locking b. Agree on naming convention c. Use tags
+Don&rsquo;t reinvent the wheel  As a common sense, it&rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
  Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/terraform-best-practices/" />
@@ -39,9 +38,8 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Terraform Best Practices" />
-<meta property="og:description" content="Essentials   Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags
-  Don&rsquo;t reinvent the wheel
-  As a common sense, it&rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
+<meta property="og:description" content="Essentials  Collaboration  a. Use remote state and state locking b. Agree on naming convention c. Use tags
+Don&rsquo;t reinvent the wheel  As a common sense, it&rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
  Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/terraform-best-practices/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="posts" />
@@ -52,9 +50,8 @@ if (!doNotTrack) {
 <meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="Terraform Best Practices"/>
-<meta name="twitter:description" content="Essentials   Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags
-  Don&rsquo;t reinvent the wheel
-  As a common sense, it&rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
+<meta name="twitter:description" content="Essentials  Collaboration  a. Use remote state and state locking b. Agree on naming convention c. Use tags
+Don&rsquo;t reinvent the wheel  As a common sense, it&rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
  Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well."/>
 
 
@@ -84,11 +81,11 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Terraform Best Practices",
   "name": "Terraform Best Practices",
-  "description": "Essentials   Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags\n  Don\u0026rsquo;t reinvent the wheel\n  As a common sense, it\u0026rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/\n Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.",
+  "description": "Essentials  Collaboration  a. Use remote state and state locking b. Agree on naming convention c. Use tags\nDon\u0026rsquo;t reinvent the wheel  As a common sense, it\u0026rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/\n Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.",
   "keywords": [
     "terraform"
   ],
-  "articleBody": "Essentials   Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags\n  Don’t reinvent the wheel\n  As a common sense, it’s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/\n Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.\n  Automate\n  a. Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform\nb. Must have hooks:\n terraform_fmt terraform_validate terraform_docs terraform_tflint  DRY (Don’t repeat yourself) to be continued…  ",
+  "articleBody": "Essentials  Collaboration  a. Use remote state and state locking b. Agree on naming convention c. Use tags\nDon’t reinvent the wheel  As a common sense, it’s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/\n Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.\n  Automate\n  a. Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform\nb. Must have hooks:\n terraform_fmt terraform_validate terraform_docs terraform_tflint  DRY (Don’t repeat yourself) to be continued…  ",
   "wordCount" : "92",
   "inLanguage": "en",
   "datePublished": "2021-08-12T19:11:15+03:00",
@@ -191,15 +188,13 @@ if (!doNotTrack) {
   </header> 
   <div class="post-content"><h2 id="essentials">Essentials<a hidden class="anchor" aria-hidden="true" href="#essentials">#</a></h2>
 <ol>
-<li>
-<p>Collaboration
-a. Use <strong>remote state</strong> and <strong>state locking</strong>
+<li>Collaboration</li>
+</ol>
+<p>a. Use <strong>remote state</strong> and <strong>state locking</strong>
 b. Agree on <strong>naming convention</strong>
 c. Use <strong>tags</strong></p>
-</li>
-<li>
-<p>Don&rsquo;t reinvent the wheel</p>
-</li>
+<ol start="2">
+<li>Don&rsquo;t reinvent the wheel</li>
 </ol>
 <p>As a common sense, it&rsquo;s highly recommended to reuse some matured modules such as <strong>VPC</strong> <a href="https://registry.terraform.io/">https://registry.terraform.io/</a></p>
 <ol start="3">
