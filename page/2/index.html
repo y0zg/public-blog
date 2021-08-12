@@ -130,6 +130,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Aws vs Elasticsearch licensing</h2>
+  </header>
+  <section class="entry-content">
+    <p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
+https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
+https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
+What are the alternatives?
+ Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki?...</p>
+  </section>
+  <footer class="entry-footer">July 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Aws vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</h2>
   </header>
   <section class="entry-content">
@@ -175,19 +190,6 @@ https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-intro
   </section>
   <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy" href="https://okulbida.com/posts/aws-ec2-predictive-autoscaling/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>EKS Add-Ons Now Supports CoreDNS and kube-proxy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
-https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
-https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS Add-Ons Now Supports CoreDNS and kube-proxy" href="https://okulbida.com/posts/awsekscoredns/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
