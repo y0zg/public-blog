@@ -155,6 +155,18 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#re
     </item>
     
     <item>
+      <title>Terraform Best Practices</title>
+      <link>https://okulbida.com/posts/terraform-best-practices/</link>
+      <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/terraform-best-practices/</guid>
+      <description>Essentials
+  Collaboration a. Use remote state and state locking b. Agree on naming convention c. Use tags
+  Don&amp;rsquo;t reinvent the wheel As a common sense, it&amp;rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
+  Explicit definition a. Keep your providers, modules versioned properly b. Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.</description>
+    </item>
+    
+    <item>
       <title>AWS Secrets CSI for EKS</title>
       <link>https://okulbida.com/posts/aws-secrets-csi/</link>
       <pubDate>Tue, 27 Apr 2021 19:11:13 +0300</pubDate>
