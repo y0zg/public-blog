@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>loki on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/loki/</link>
+    <description>Recent content in loki on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 26 Oct 2022 12:45:36 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/loki/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Loki S3 Dynamodb</title>
+      <link>https://okulbida.com/posts/loki-s3-dynamodb/</link>
+      <pubDate>Wed, 26 Oct 2022 12:45:36 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/loki-s3-dynamodb/</guid>
+      <description>While using Loki with S3 and Dynamodb it&amp;rsquo;s mandatory to add provision_config details as default might be affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
+[provisioned_write_throughput: &amp;lt;int&amp;gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&amp;lt;prefix&amp;gt;.read-throughput [provisioned_read_throughput: &amp;lt;int&amp;gt; | default = 300] </description>
+    </item>
+    
+  </channel>
+</rss>
