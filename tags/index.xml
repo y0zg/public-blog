@@ -5,7 +5,16 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 12 Aug 2021 19:11:15 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:09:44 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kubernetes</title>
+      <link>https://okulbida.com/tags/kubernetes/</link>
+      <pubDate>Mon, 09 May 2022 00:09:44 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>terraform</title>
       <link>https://okulbida.com/tags/terraform/</link>
@@ -102,15 +111,6 @@
       <pubDate>Tue, 08 Jun 2021 23:09:58 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/monitoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Mon, 07 Jun 2021 01:04:09 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
