@@ -5,7 +5,7 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 May 2022 00:09:44 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 12:45:36 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -19,7 +19,7 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
     <item>
       <title>K8s Security Best Practices</title>
       <link>https://okulbida.com/posts/k8s-security-best-practices/</link>
-      <pubDate>Mon, 07 Jun 2021 01:04:09 +0300</pubDate>
+      <pubDate>Sun, 07 Aug 2022 01:04:09 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/k8s-security-best-practices/</guid>
       <description>Keep the cloud provider platform secure
@@ -29,6 +29,16 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>Loki S3 Dynamodb</title>
+      <link>https://okulbida.com/posts/loki-s3-dynamodb/</link>
+      <pubDate>Wed, 26 Oct 2022 12:45:36 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/loki-s3-dynamodb/</guid>
+      <description>While using Loki with S3 and Dynamodb it&amp;rsquo;s mandatory to add provision_config details as default might be affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
+[provisioned_write_throughput: &amp;lt;int&amp;gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&amp;lt;prefix&amp;gt;.read-throughput [provisioned_read_throughput: &amp;lt;int&amp;gt; | default = 300] </description>
     </item>
     
     <item>

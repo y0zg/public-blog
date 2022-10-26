@@ -159,8 +159,20 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp; monitoring...</p>
   </section>
-  <footer class="entry-footer">June 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">August 7, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to K8s Security Best Practices" href="https://okulbida.com/posts/k8s-security-best-practices/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Loki S3 Dynamodb</h2>
+  </header>
+  <section class="entry-content">
+    <p>While using Loki with S3 and Dynamodb it’s mandatory to add provision_config details as default might be affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
+[provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300] </p>
+  </section>
+  <footer class="entry-footer">October 26, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Loki S3 Dynamodb" href="https://okulbida.com/posts/loki-s3-dynamodb/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -248,18 +260,6 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
   </section>
   <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting" href="https://okulbida.com/posts/aws-lb-controller-nlb-support/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon EC2 Auto Scaling now natively supports Predictive Scaling so you can proactively scale out your Auto Scaling group to be ready for upcoming demand. Predictive Scaling can help you avoid the need to over-provision capacity, resulting in lower EC2 cost, while ensuring your application’s responsiveness. (Previously, Predictive Scaling was only available via AWS Auto Scaling Plans.)
-https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-introduces-predictive-scaling-native-scaling-policy/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy" href="https://okulbida.com/posts/aws-ec2-predictive-autoscaling/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
