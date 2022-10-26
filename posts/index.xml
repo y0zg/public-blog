@@ -37,7 +37,7 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
       <pubDate>Wed, 26 Oct 2022 12:45:36 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/loki-s3-dynamodb/</guid>
-      <description>While using Loki with S3 and Dynamodb it&amp;rsquo;s mandatory to add provision_config details as default might be affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
+      <description>While using Loki with S3 and Dynamodb it&amp;rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
 [provisioned_write_throughput: &amp;lt;int&amp;gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&amp;lt;prefix&amp;gt;.read-throughput [provisioned_read_throughput: &amp;lt;int&amp;gt; | default = 300] </description>
     </item>
     
