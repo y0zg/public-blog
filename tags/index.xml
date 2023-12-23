@@ -5,11 +5,11 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Dec 2023 15:40:22 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 15:44:19 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
       <link>https://okulbida.com/tags/aws/</link>
-      <pubDate>Sat, 23 Dec 2023 15:40:22 +0200</pubDate>
+      <pubDate>Sat, 23 Dec 2023 15:44:19 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/aws/</guid>
       <description></description>
@@ -18,9 +18,18 @@
     <item>
       <title>eks</title>
       <link>https://okulbida.com/tags/eks/</link>
-      <pubDate>Sat, 23 Dec 2023 15:40:22 +0200</pubDate>
+      <pubDate>Sat, 23 Dec 2023 15:44:19 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://okulbida.com/tags/kubernetes/</link>
+      <pubDate>Sat, 23 Dec 2023 15:44:19 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -57,15 +66,6 @@
       <pubDate>Wed, 26 Oct 2022 12:45:36 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/monitoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Sun, 07 Aug 2022 01:04:09 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     

@@ -5,7 +5,7 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Dec 2023 15:40:22 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 15:44:19 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,16 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>EKS expose pods through cross-account Load balancer</title>
+      <link>https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/</link>
+      <pubDate>Sat, 23 Dec 2023 15:44:19 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/</guid>
+      <description>Expose Amazon EKS pods through cross-account load balancer
+ https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-account-load-balancer/  </description>
     </item>
     
     <item>
