@@ -5,7 +5,7 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Dec 2023 16:27:22 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 16:37:19 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,15 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>Simple rds access</title>
+      <link>https://okulbida.com/posts/simple-rds-access/</link>
+      <pubDate>Sat, 23 Dec 2023 16:37:19 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/simple-rds-access/</guid>
+      <description>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a Kubernetes (k8s) cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it&amp;rsquo;s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:</description>
     </item>
     
     <item>

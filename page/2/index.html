@@ -130,6 +130,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Aws vs Elasticsearch licensing</h2>
+  </header>
+  <section class="entry-content">
+    <p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
+https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
+https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
+What are the alternatives?
+ Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki?...</p>
+  </section>
+  <footer class="entry-footer">July 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Aws vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</h2>
   </header>
   <section class="entry-content">
@@ -240,20 +255,6 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#re
   </section>
   <footer class="entry-footer">April 29, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to PromQL Cheat Sheet" href="https://okulbida.com/posts/prom-cheat-sheet/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/04/22/AWS-Secrets-Configuration-Provider-2021-1.png" alt="AWS Secrets CSI for kubernetes">
-</figure>
-  <header class="entry-header">
-    <h2>AWS Secrets CSI for EKS</h2>
-  </header>
-  <section class="entry-content">
-    <p>How to use AWS Secrets &amp; Configuration Provider with your Kubernetes Secrets Store CSI driver. One more example of kubernetes secrets management among vault, external-secrets and 1password operator 😅
-https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/</p>
-  </section>
-  <footer class="entry-footer">April 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Secrets CSI for EKS" href="https://okulbida.com/posts/aws-secrets-csi/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

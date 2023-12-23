@@ -165,6 +165,17 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Simple rds access</h2>
+  </header>
+  <section class="entry-content">
+    <p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a Kubernetes (k8s) cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:...</p>
+  </section>
+  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Simple rds access" href="https://okulbida.com/posts/simple-rds-access/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Resolving Helm issues after kubernetes upgrade</h2>
   </header>
   <section class="entry-content">
@@ -244,21 +255,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
   </section>
   <footer class="entry-footer">July 21, 2021&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Database comparison within AWS,Azure,GCP" href="https://okulbida.com/posts/db-cloudproviders/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Aws vs Elasticsearch licensing</h2>
-  </header>
-  <section class="entry-content">
-    <p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
-https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
-https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
-What are the alternatives?
- Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki?...</p>
-  </section>
-  <footer class="entry-footer">July 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Aws vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
