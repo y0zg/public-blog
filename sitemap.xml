@@ -8,6 +8,24 @@
     <loc>https://okulbida.com/posts/k8s-security-best-practices/</loc>
     <lastmod>2022-08-07T01:04:09+03:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/aws/</loc>
+    <lastmod>2023-12-23T15:40:22+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/eks/</loc>
+    <lastmod>2023-12-23T15:40:22+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/eks-access/</loc>
+    <lastmod>2023-12-23T15:40:22+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2023-12-23T15:40:22+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2023-12-23T15:40:22+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2023-12-23T15:40:22+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/grafana/</loc>
     <lastmod>2022-10-26T12:45:36+03:00</lastmod>
   </url><url>
@@ -21,15 +39,6 @@
     <lastmod>2022-10-26T12:45:36+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/monitoring/</loc>
-    <lastmod>2022-10-26T12:45:36+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2022-10-26T12:45:36+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2022-10-26T12:45:36+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2022-10-26T12:45:36+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/kubernetes/</loc>
@@ -59,9 +68,6 @@
     <loc>https://okulbida.com/posts/db-cloudproviders/</loc>
     <lastmod>2021-07-21T00:12:44+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/aws/</loc>
-    <lastmod>2021-07-07T21:25:08+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/posts/aws-elasticsearch-licensing/</loc>
     <lastmod>2021-07-07T21:25:08+03:00</lastmod>
   </url><url>
@@ -81,9 +87,6 @@
     <lastmod>2021-06-08T23:09:58+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/aws-lb-controller-nlb-support/</loc>
-    <lastmod>2021-05-24T16:16:34+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/eks/</loc>
     <lastmod>2021-05-24T16:16:34+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/ingress/</loc>
