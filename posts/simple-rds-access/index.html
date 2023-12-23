@@ -79,8 +79,8 @@ if (!doNotTrack) {
   "keywords": [
     "rds", "aws"
   ],
-  "articleBody": "There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:\nsocat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.us-east-1.rds.amazonaws.com:5432 We run `socat`` command on instance/pod which, then we need to forward port to local machine\n",
-  "wordCount" : "95",
+  "articleBody": "There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:\nsocat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.us-east-1.rds.amazonaws.com:5432 We execute `socat`` command on an instance or pod. Subsequently, we need to forward the port to our local machine\n",
+  "wordCount" : "99",
   "inLanguage": "en",
   "datePublished": "2023-12-23T16:37:19+02:00",
   "dateModified": "2023-12-23T16:37:19+02:00",
@@ -182,7 +182,7 @@ if (!doNotTrack) {
   </header> 
   <div class="post-content"><p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it&rsquo;s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:</p>
 <pre><code>socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.us-east-1.rds.amazonaws.com:5432
-</code></pre><p>We run `socat`` command on instance/pod which, then we need to forward port to local machine</p>
+</code></pre><p>We execute `socat`` command on an instance or pod. Subsequently, we need to forward the port to our local machine</p>
 
 </div>
   <footer class="post-footer">
