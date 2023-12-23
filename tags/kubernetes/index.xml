@@ -5,7 +5,7 @@
     <link>https://okulbida.com/tags/kubernetes/</link>
     <description>Recent content in kubernetes on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Dec 2023 15:44:19 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 16:27:22 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,16 @@ General info  https://kubernetesreadme.com/  Comparison  https://learnk8s.io/res
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>Resolving Helm issues after kubernetes upgrade</title>
+      <link>https://okulbida.com/posts/helm-fix-after-k8s-upgrade/</link>
+      <pubDate>Sat, 23 Dec 2023 16:27:22 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/helm-fix-after-k8s-upgrade/</guid>
+      <description>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &amp;quot;Deployment&amp;quot; in version &amp;quot;apps/v1beta1&amp;quot;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
+helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &amp;lt;releasename&amp;gt; helm upgrade &amp;lt;releasename&amp;gt; It&amp;rsquo;s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions.</description>
     </item>
     
     <item>
