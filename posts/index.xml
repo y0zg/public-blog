@@ -5,7 +5,7 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Mar 2024 00:09:44 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Mar 2024 17:00:51 +0200</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,17 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>Eks Instance Store nitro-based</title>
+      <link>https://okulbida.com/posts/eks-instance-store/</link>
+      <pubDate>Sat, 16 Mar 2024 17:00:51 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/eks-instance-store/</guid>
+      <description>Userdata can be used with standard eks terraform aws module, the only tip is to use custom AMI.
+Example:
+ eks-dev-instance-store = { instance_types = [&amp;quot;r6id.large&amp;quot;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = { # Root volume xvda = { device_name = &amp;quot;/dev/xvda&amp;quot; ebs = { volume_size = 24 volume_type = &amp;quot;gp3&amp;quot; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.</description>
     </item>
     
     <item>
