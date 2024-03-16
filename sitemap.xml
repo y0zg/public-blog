@@ -2,8 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://okulbida.com/posts/kubernetes_tools/</loc>
+    <loc>https://okulbida.com/posts/kubernetes_tools-copy/</loc>
     <lastmod>2023-12-23T00:09:44+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/kubernetes_tools/</loc>
   </url><url>
     <loc>https://okulbida.com/posts/k8s-security-best-practices/</loc>
     <lastmod>2022-08-07T01:04:09+03:00</lastmod>
