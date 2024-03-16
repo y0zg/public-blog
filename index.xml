@@ -32,14 +32,14 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
     </item>
     
     <item>
-      <title>Eks Instance Store nitro-based</title>
+      <title>EKS with instance-store nitro-based node-group</title>
       <link>https://okulbida.com/posts/eks-instance-store/</link>
       <pubDate>Sat, 16 Mar 2024 17:00:51 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/eks-instance-store/</guid>
-      <description>Userdata can be used with standard eks terraform aws module, the only tip is to use custom AMI.
-Example:
- eks-dev-instance-store = { instance_types = [&amp;quot;r6id.large&amp;quot;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = { # Root volume xvda = { device_name = &amp;quot;/dev/xvda&amp;quot; ebs = { volume_size = 24 volume_type = &amp;quot;gp3&amp;quot; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.</description>
+      <description>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+Terraform example:
+eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &amp;#34;/dev/xvda&amp;#34; ebs = { volume_size = 24 volume_type = &amp;#34;gp3&amp;#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.</description>
     </item>
     
     <item>
