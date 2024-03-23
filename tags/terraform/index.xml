@@ -5,7 +5,16 @@
     <link>https://okulbida.com/tags/terraform/</link>
     <description>Recent content in terraform on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Mar 2024 17:00:51 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Mar 2024 19:11:15 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform Best Practices</title>
+      <link>https://okulbida.com/posts/terraform-best-practices/</link>
+      <pubDate>Sat, 23 Mar 2024 19:11:15 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/terraform-best-practices/</guid>
+      <description>Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules.</description>
+    </item>
+    
     <item>
       <title>EKS with instance-store nitro-based node-group</title>
       <link>https://okulbida.com/posts/eks-instance-store/</link>
@@ -15,17 +24,6 @@
       <description>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 Terraform example:
 eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &amp;#34;/dev/xvda&amp;#34; ebs = { volume_size = 24 volume_type = &amp;#34;gp3&amp;#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.</description>
-    </item>
-    
-    <item>
-      <title>Terraform Best Practices</title>
-      <link>https://okulbida.com/posts/terraform-best-practices/</link>
-      <pubDate>Thu, 12 Aug 2021 19:11:15 +0300</pubDate>
-      
-      <guid>https://okulbida.com/posts/terraform-best-practices/</guid>
-      <description>Essentials  Use remote state and state locking Agree on naming convention Use tags  As a common sense, it&amp;rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
- Keep your providers, modules versioned properly Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.    Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform
-  Must have hooks:</description>
     </item>
     
   </channel>

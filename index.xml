@@ -5,7 +5,7 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Mar 2024 17:00:51 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Mar 2024 19:11:15 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,15 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>Terraform Best Practices</title>
+      <link>https://okulbida.com/posts/terraform-best-practices/</link>
+      <pubDate>Sat, 23 Mar 2024 19:11:15 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/terraform-best-practices/</guid>
+      <description>Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules.</description>
     </item>
     
     <item>
@@ -89,17 +98,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &a
       <guid>https://okulbida.com/posts/loki-s3-dynamodb/</guid>
       <description>While using Loki with S3 and Dynamodb it&amp;rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
 [provisioned_write_throughput: &amp;lt;int&amp;gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&amp;lt;prefix&amp;gt;.read-throughput [provisioned_read_throughput: &amp;lt;int&amp;gt; | default = 300] </description>
-    </item>
-    
-    <item>
-      <title>Terraform Best Practices</title>
-      <link>https://okulbida.com/posts/terraform-best-practices/</link>
-      <pubDate>Thu, 12 Aug 2021 19:11:15 +0300</pubDate>
-      
-      <guid>https://okulbida.com/posts/terraform-best-practices/</guid>
-      <description>Essentials  Use remote state and state locking Agree on naming convention Use tags  As a common sense, it&amp;rsquo;s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
- Keep your providers, modules versioned properly Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.    Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform
-  Must have hooks:</description>
     </item>
     
     <item>

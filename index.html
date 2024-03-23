@@ -288,11 +288,9 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
     <h2>Terraform Best Practices</h2>
   </header>
   <section class="entry-content">
-    <p>Essentials  Use remote state and state locking Agree on naming convention Use tags  As a common sense, it’s highly recommended to reuse some matured modules such as VPC https://registry.terraform.io/
- Keep your providers, modules versioned properly Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.    Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform
-  Must have hooks:...</p>
+    <p>Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules....</p>
   </section>
-  <footer class="entry-footer">August 12, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">August 12, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Terraform Best Practices" href="https://okulbida.com/posts/terraform-best-practices/"></a>
 </article>
 

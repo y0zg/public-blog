@@ -5,7 +5,16 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Mar 2024 17:00:51 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Mar 2024 19:11:15 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>terraform</title>
+      <link>https://okulbida.com/tags/terraform/</link>
+      <pubDate>Sat, 23 Mar 2024 19:11:15 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aws</title>
       <link>https://okulbida.com/tags/aws/</link>
@@ -21,15 +30,6 @@
       <pubDate>Sat, 16 Mar 2024 17:00:51 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terraform</title>
-      <link>https://okulbida.com/tags/terraform/</link>
-      <pubDate>Sat, 16 Mar 2024 17:00:51 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/terraform/</guid>
       <description></description>
     </item>
     

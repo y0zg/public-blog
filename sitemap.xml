@@ -8,6 +8,21 @@
     <loc>https://okulbida.com/posts/k8s-security-best-practices/</loc>
     <lastmod>2022-08-07T01:04:09+03:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2024-03-23T19:11:15+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2024-03-23T19:11:15+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2024-03-23T19:11:15+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/terraform/</loc>
+    <lastmod>2024-03-23T19:11:15+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/terraform-best-practices/</loc>
+    <lastmod>2024-03-23T19:11:15+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/aws/</loc>
     <lastmod>2024-03-16T17:00:51+02:00</lastmod>
   </url><url>
@@ -15,18 +30,6 @@
     <lastmod>2024-03-16T17:00:51+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/eks-instance-store/</loc>
-    <lastmod>2024-03-16T17:00:51+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2024-03-16T17:00:51+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2024-03-16T17:00:51+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
-    <lastmod>2024-03-16T17:00:51+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/terraform/</loc>
     <lastmod>2024-03-16T17:00:51+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/kubernetes/</loc>
@@ -64,9 +67,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/monitoring/</loc>
     <lastmod>2022-10-26T12:45:36+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/terraform-best-practices/</loc>
-    <lastmod>2021-08-12T19:11:15+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/bigdata/</loc>
     <lastmod>2021-07-21T00:13:41+02:00</lastmod>
