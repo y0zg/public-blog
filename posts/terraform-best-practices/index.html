@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Terraform Best Practices | Oleksandr Kulbida</title>
 <meta name="keywords" content="terraform" />
-<meta name="description" content="Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules.">
+<meta name="description" content="Collaboration  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Don&rsquo;t reinvent the wheel Use existing shared and community modules.">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/terraform-best-practices/" />
 <meta name="google-site-verification" content="XYZabc" />
@@ -36,7 +36,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Terraform Best Practices" />
-<meta property="og:description" content="Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules." />
+<meta property="og:description" content="Collaboration  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Don&rsquo;t reinvent the wheel Use existing shared and community modules." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/terraform-best-practices/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-23T19:11:15&#43;03:00" />
@@ -46,7 +46,7 @@ if (!doNotTrack) {
 <meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="Terraform Best Practices"/>
-<meta name="twitter:description" content="Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules."/>
+<meta name="twitter:description" content="Collaboration  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Don&rsquo;t reinvent the wheel Use existing shared and community modules."/>
 
 
 <script type="application/ld+json">
@@ -75,12 +75,12 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Terraform Best Practices",
   "name": "Terraform Best Practices",
-  "description": "Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules.",
+  "description": "Collaboration  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Don\u0026rsquo;t reinvent the wheel Use existing shared and community modules.",
   "keywords": [
     "terraform"
   ],
-  "articleBody": "Essentials  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Use existing shared and community modules. As a common sense, it’s highly recommended to reuse matured modules such as VPC. Look for these modules in Terraform Registry\n Keep your providers, modules versioned properly Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.  Check if you can get the value of an attribute via a data source instead of setting it explicitly. For example, instead of finding our AWS account id from the console and setting it in terraform.tfvars as\naws_account_id=”99999999999” we can get it from a data source\ndata \"aws_caller_identity\" \"current\" {} locals { account_id = data.aws_caller_identity.current.account_id }   Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform\n  Must have hooks:\n terraform_fmt terraform_validate terraform_docs terraform_tflint checkov    DRY (Don’t repeat yourself)\n Consider using terragrunt if you need advanced dependency management. It’s also suitable if you need advanced dependency management and want to simplify remote state management    CICD\n For PRs collaboration use Atlantis For infrastructure drifts detection use https://github.com/snyk/driftctl    ",
-  "wordCount" : "236",
+  "articleBody": "Collaboration  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Don’t reinvent the wheel Use existing shared and community modules. As a common sense, it’s highly recommended to reuse matured modules such as VPC. Look for these modules in Terraform Registry\nExplicit definition  Keep your providers, modules versioned properly Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.  Avoid variables hard-coding Check if you can get the value of an attribute via a data source instead of setting it explicitly. For example, instead of finding our AWS account id from the console and setting it in terraform.tfvars as\naws_account_id=”99999999999” we can get it from a data source\ndata \"aws_caller_identity\" \"current\" {} locals { account_id = data.aws_caller_identity.current.account_id } Automate   Use pre-commit https://pre-commit.com/#install https://github.com/antonbabenko/pre-commit-terraform\n  Must have hooks:\n terraform_fmt terraform_validate terraform_docs terraform_tflint checkov    DRY (Don’t repeat yourself)\n Consider using terragrunt if you need advanced dependency management. It’s also suitable if you need advanced dependency management and want to simplify remote state management    CICD\n For PRs collaboration use Atlantis For infrastructure drifts detection use https://github.com/snyk/driftctl    ",
+  "wordCount" : "246",
   "inLanguage": "en",
   "datePublished": "2024-03-23T19:11:15+03:00",
   "dateModified": "2024-03-23T19:11:15+03:00",
@@ -180,8 +180,7 @@ if (!doNotTrack) {
     <div class="post-meta">March 23, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida
 </div>
   </header> 
-  <div class="post-content"><h2 id="essentials">Essentials<a hidden class="anchor" aria-hidden="true" href="#essentials">#</a></h2>
-<!-- raw HTML omitted -->
+  <div class="post-content"><h4 id="collaboration">Collaboration<a hidden class="anchor" aria-hidden="true" href="#collaboration">#</a></h4>
 <ul>
 <li>Use <strong>remote state</strong> and <strong>state locking</strong>
 <ul>
@@ -195,15 +194,15 @@ if (!doNotTrack) {
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<h4 id="dont-reinvent-the-wheel">Don&rsquo;t reinvent the wheel<a hidden class="anchor" aria-hidden="true" href="#dont-reinvent-the-wheel">#</a></h4>
 <p>Use existing shared and community modules.
 As a common sense, it&rsquo;s highly recommended to reuse matured modules such as <a href="https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest">VPC</a>. Look for these modules in <a href="https://registry.terraform.io/">Terraform Registry</a></p>
-<!-- raw HTML omitted -->
+<h4 id="explicit-definition">Explicit definition<a hidden class="anchor" aria-hidden="true" href="#explicit-definition">#</a></h4>
 <ul>
 <li>Keep your providers, modules versioned properly</li>
 <li>Keep each module in a separate repo. Usually it depends on project size, and we can use monorepo or single modules repo as well.</li>
 </ul>
-<!-- raw HTML omitted -->
+<h4 id="avoid-variables-hard-coding">Avoid variables hard-coding<a hidden class="anchor" aria-hidden="true" href="#avoid-variables-hard-coding">#</a></h4>
 <p>Check if you can get the value of an attribute via a data source instead of setting it explicitly. For example, instead of finding our AWS account id from the console and setting it in terraform.tfvars as</p>
 <pre><code>aws_account_id=”99999999999”
 </code></pre><p>we can get it from a data source</p>
@@ -211,7 +210,7 @@ As a common sense, it&rsquo;s highly recommended to reuse matured modules such a
 locals {
     account_id    = data.aws_caller_identity.current.account_id
 }
-</code></pre><!-- raw HTML omitted -->
+</code></pre><h4 id="automate">Automate<a hidden class="anchor" aria-hidden="true" href="#automate">#</a></h4>
 <ul>
 <li>
 <p>Use pre-commit
