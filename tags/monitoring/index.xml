@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 26 Oct 2022 12:45:36 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Loki S3 Dynamodb</title>
+      <title>Loki S3 dynamodb</title>
       <link>https://okulbida.com/posts/loki-s3-dynamodb/</link>
       <pubDate>Wed, 26 Oct 2022 12:45:36 +0300</pubDate>
       
@@ -29,7 +29,7 @@
     </item>
     
     <item>
-      <title>PromQL Cheat Sheet</title>
+      <title>PromQL cheat sheet</title>
       <link>https://okulbida.com/posts/prom-cheat-sheet/</link>
       <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
       

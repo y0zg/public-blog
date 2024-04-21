@@ -17,7 +17,7 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
     </item>
     
     <item>
-      <title>K8s Security Best Practices</title>
+      <title>k8s security best practices</title>
       <link>https://okulbida.com/posts/k8s-security-best-practices/</link>
       <pubDate>Sun, 07 Aug 2022 01:04:09 +0300</pubDate>
       
@@ -32,7 +32,7 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
     </item>
     
     <item>
-      <title>K8s 130 Version</title>
+      <title>k8s 1.30 version</title>
       <link>https://okulbida.com/posts/k8s-130-version/</link>
       <pubDate>Sun, 21 Apr 2024 14:42:59 +0300</pubDate>
       
@@ -41,7 +41,7 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
     </item>
     
     <item>
-      <title>K8s InPlacePodVerticalScaling</title>
+      <title>k8s InPlacePodVerticalScaling</title>
       <link>https://okulbida.com/posts/k8s-new-features/</link>
       <pubDate>Sat, 20 Apr 2024 23:25:05 +0300</pubDate>
       
@@ -54,7 +54,7 @@ In this example for pod memory resources configuration, the resizePolicy indicat
     </item>
     
     <item>
-      <title>Terraform Best Practices</title>
+      <title>Terraform best practices</title>
       <link>https://okulbida.com/posts/terraform-best-practices/</link>
       <pubDate>Sat, 23 Mar 2024 19:11:15 +0300</pubDate>
       
@@ -113,7 +113,7 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &a
     </item>
     
     <item>
-      <title>Loki S3 Dynamodb</title>
+      <title>Loki S3 dynamodb</title>
       <link>https://okulbida.com/posts/loki-s3-dynamodb/</link>
       <pubDate>Wed, 26 Oct 2022 12:45:36 +0300</pubDate>
       
@@ -237,7 +237,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#re
     </item>
     
     <item>
-      <title>PromQL Cheat Sheet</title>
+      <title>PromQL cheat sheet</title>
       <link>https://okulbida.com/posts/prom-cheat-sheet/</link>
       <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
       
