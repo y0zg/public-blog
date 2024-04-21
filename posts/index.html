@@ -165,6 +165,17 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>K8s 130 Version</h2>
+  </header>
+  <section class="entry-content">
+    <p>Reasons to upgrade to k8s 1.30 Container resource based autoscaling Container resource based autoscaling is now promoted to stable https://github.com/kubernetes/enhancements/issues/1610 Horizontal Pod Autoscaler examines the total resource usage of the entire pod i.e. sum of all containers and scale pods based on average CPU or memory usage. Container resource based autoscaling feature allows HPA to scale workloads based on the resource usage of individual containers within a pod, instead of the aggregated usage of all containers in the pod...</p>
+  </section>
+  <footer class="entry-footer">April 21, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to K8s 130 Version" href="https://okulbida.com/posts/k8s-130-version/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>K8s InPlacePodVerticalScaling</h2>
   </header>
   <section class="entry-content">
@@ -247,18 +258,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS simplified access" href="https://okulbida.com/posts/eks-access/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Loki S3 Dynamodb</h2>
-  </header>
-  <section class="entry-content">
-    <p>While using Loki with S3 and Dynamodb it’s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
-[provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300] </p>
-  </section>
-  <footer class="entry-footer">October 26, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Loki S3 Dynamodb" href="https://okulbida.com/posts/loki-s3-dynamodb/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

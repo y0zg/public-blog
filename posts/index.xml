@@ -5,7 +5,7 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 20 Apr 2024 23:25:05 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Apr 2024 14:42:59 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,15 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>K8s 130 Version</title>
+      <link>https://okulbida.com/posts/k8s-130-version/</link>
+      <pubDate>Sun, 21 Apr 2024 14:42:59 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/k8s-130-version/</guid>
+      <description>Reasons to upgrade to k8s 1.30 Container resource based autoscaling Container resource based autoscaling is now promoted to stable https://github.com/kubernetes/enhancements/issues/1610 Horizontal Pod Autoscaler examines the total resource usage of the entire pod i.e. sum of all containers and scale pods based on average CPU or memory usage. Container resource based autoscaling feature allows HPA to scale workloads based on the resource usage of individual containers within a pod, instead of the aggregated usage of all containers in the pod</description>
     </item>
     
     <item>
