@@ -167,21 +167,6 @@ eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Aws vs Elasticsearch licensing</h2>
-  </header>
-  <section class="entry-content">
-    <p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
-https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
-https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
-What are the alternatives?
- Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki?...</p>
-  </section>
-  <footer class="entry-footer">July 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Aws vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
     <h2>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</h2>
   </header>
   <section class="entry-content">
@@ -240,6 +225,19 @@ https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-
   </section>
   <footer class="entry-footer">May 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS CloudFront functions" href="https://okulbida.com/posts/aws-cloudfront-functions/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>EC2 root volume replacing</h2>
+  </header>
+  <section class="entry-content">
+    <p>Amazon EC2 enables you to replace the root EBS volume for a running instance
+Limitations:  You can’t replace the root volume if it is an instance store volume. You can’t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root</p>
+  </section>
+  <footer class="entry-footer">April 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to EC2 root volume replacing" href="https://okulbida.com/posts/ec2-root-volume-replacing/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
