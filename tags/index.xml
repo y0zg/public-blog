@@ -5,13 +5,49 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Apr 2024 14:42:59 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 May 2024 14:37:18 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>architecture</title>
+      <link>https://okulbida.com/tags/architecture/</link>
+      <pubDate>Wed, 08 May 2024 14:37:18 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
+      <link>https://okulbida.com/tags/cloud/</link>
+      <pubDate>Wed, 08 May 2024 14:37:18 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>kubernetes</title>
       <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Sun, 21 Apr 2024 14:42:59 +0300</pubDate>
+      <pubDate>Wed, 08 May 2024 14:37:18 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>https://okulbida.com/tags/aws/</link>
+      <pubDate>Sun, 21 Apr 2024 21:25:08 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>elasticsearch</title>
+      <link>https://okulbida.com/tags/elasticsearch/</link>
+      <pubDate>Sun, 21 Apr 2024 21:25:08 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/elasticsearch/</guid>
       <description></description>
     </item>
     
@@ -21,15 +57,6 @@
       <pubDate>Sat, 23 Mar 2024 19:11:15 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/terraform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://okulbida.com/tags/aws/</link>
-      <pubDate>Sat, 16 Mar 2024 17:00:51 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -111,15 +138,6 @@
       <pubDate>Wed, 21 Jul 2021 00:13:41 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/cheatsheet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cloud</title>
-      <link>https://okulbida.com/tags/cloud/</link>
-      <pubDate>Wed, 21 Jul 2021 00:13:41 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/cloud/</guid>
       <description></description>
     </item>
     

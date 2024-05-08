@@ -5,7 +5,20 @@
     <link>https://okulbida.com/tags/aws/</link>
     <description>Recent content in aws on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 16 Mar 2024 17:00:51 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Apr 2024 21:25:08 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aws vs Elasticsearch licensing</title>
+      <link>https://okulbida.com/posts/aws-elasticsearch-licensing/</link>
+      <pubDate>Sun, 21 Apr 2024 21:25:08 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-elasticsearch-licensing/</guid>
+      <description>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
+https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
+https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
+What are the alternatives?
+ Host elasticsearch on EC2 instances, why not? CloudWatch, slow&amp;hellip; https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments&amp;hellip;tricky for production usage Loki?</description>
+    </item>
+    
     <item>
       <title>EKS with instance-store nitro-based node-group</title>
       <link>https://okulbida.com/posts/eks-instance-store/</link>

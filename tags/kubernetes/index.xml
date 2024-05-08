@@ -5,7 +5,7 @@
     <link>https://okulbida.com/tags/kubernetes/</link>
     <description>Recent content in kubernetes on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Apr 2024 14:42:59 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 May 2024 14:37:18 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,16 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>12 Factors vs kubernetes world</title>
+      <link>https://okulbida.com/posts/12-factors/</link>
+      <pubDate>Wed, 08 May 2024 14:37:18 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/12-factors/</guid>
+      <description>Disclaimer: here you might not find something new if you know 12 factors app. But some thought regarding mapping 12f to kubernetes world might be handy.
+The 12-factor app methodology 12factor.net, is a set of principles designed to enable applications to be built with portability and resilience when deployed to the web. These principles focus on declarative formats for automation, clean contracts with the operating system, and suitability for deployment on modern cloud platforms, thus minimizing divergence between development and production, enabling continuous deployment for maximum agility.</description>
     </item>
     
     <item>
