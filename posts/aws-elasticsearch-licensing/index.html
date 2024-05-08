@@ -47,8 +47,8 @@ What are the alternatives?
  Host elasticsearch on EC2 instances, why not? CloudWatch, slow&hellip; https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments&hellip;tricky for production usage Loki?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/aws-elasticsearch-licensing/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-07T21:25:08&#43;03:00" />
-<meta property="article:modified_time" content="2021-07-07T21:25:08&#43;03:00" />
+<meta property="article:published_time" content="2024-04-21T21:25:08&#43;03:00" />
+<meta property="article:modified_time" content="2024-04-21T21:25:08&#43;03:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
@@ -91,11 +91,11 @@ What are the alternatives?
   "keywords": [
     "aws", "elasticsearch"
   ],
-  "articleBody": "Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?\nhttps://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html\nhttps://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/\nWhat are the alternatives?\n Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki? Is it mature enough?  UPDATE 2021-07-12:\nOpenSearch 1.0 launches with Apache License, Version 2.0 and AWS huge contribution efforts\nhttps://aws.amazon.com/blogs/opensource/opensearch-1-0-launches/\n",
-  "wordCount" : "91",
+  "articleBody": "Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?\nhttps://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html\nhttps://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/\nWhat are the alternatives?\n Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki? Is it mature enough?  UPDATE 2021-07-12: OpenSearch 1.0 launches with Apache License, Version 2.0 and AWS huge contribution efforts\nhttps://aws.amazon.com/blogs/opensource/opensearch-1-0-launches/\nUPDATE 2024-04-21:  Quickwit - very interesting alternative for common logging tools written on rust Elasticsearch can be deployed with helm chart but based on experience you should consider using single-AZ. This might relevant to logs which are not as critical as business data. Loki is pretty good solution, it integrates well with Grafana Tempo for tracing purposes and Opentelemetry. But based on my experience, developers for some reasons don’t love search capabilities in Grafana Loki as it’s available in kibana or other commercial logging solutions like datadog.  ",
+  "wordCount" : "178",
   "inLanguage": "en",
-  "datePublished": "2021-07-07T21:25:08+03:00",
-  "dateModified": "2021-07-07T21:25:08+03:00",
+  "datePublished": "2024-04-21T21:25:08+03:00",
+  "dateModified": "2024-04-21T21:25:08+03:00",
   "author":{
     "@type": "Person",
     "name": "Oleksandr Kulbida"
@@ -189,7 +189,7 @@ What are the alternatives?
     <h1 class="post-title">
       Aws vs Elasticsearch licensing
     </h1>
-    <div class="post-meta">July 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida
+    <div class="post-meta">April 21, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida
 </div>
   </header> 
   <div class="post-content"><p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?</p>
@@ -202,9 +202,15 @@ What are the alternatives?
 <li>Kubernetes options like ECK or helm chart deployments&hellip;tricky for production usage</li>
 <li>Loki? Is it mature enough?</li>
 </ul>
-<p>UPDATE  2021-07-12:</p>
+<h2 id="update--2021-07-12">UPDATE  2021-07-12:<a hidden class="anchor" aria-hidden="true" href="#update--2021-07-12">#</a></h2>
 <p>OpenSearch 1.0 launches with Apache License, Version 2.0 and AWS huge contribution efforts</p>
 <p><a href="https://aws.amazon.com/blogs/opensource/opensearch-1-0-launches/">https://aws.amazon.com/blogs/opensource/opensearch-1-0-launches/</a></p>
+<h2 id="update-2024-04-21">UPDATE 2024-04-21:<a hidden class="anchor" aria-hidden="true" href="#update-2024-04-21">#</a></h2>
+<ul>
+<li><a href="https://quickwit.io/blog/quickwit-lambda-beta"><strong>Quickwit</strong></a> - very interesting alternative for common logging tools written on rust</li>
+<li><strong>Elasticsearch</strong> can be deployed with helm chart but based on experience you should consider using single-AZ. This might relevant to logs which are not as critical as business data.</li>
+<li><strong>Loki</strong> is pretty good solution, it integrates well with Grafana Tempo for tracing purposes and Opentelemetry. But based on my experience, developers for some reasons don&rsquo;t love search capabilities in Grafana Loki as it&rsquo;s available in kibana or other commercial logging solutions like datadog.</li>
+</ul>
 
 </div>
   <footer class="post-footer">
@@ -213,15 +219,15 @@ What are the alternatives?
       <li><a href="https://okulbida.com/tags/elasticsearch/">elasticsearch</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://okulbida.com/posts/db-cloudproviders/">
+  <a class="prev" href="https://okulbida.com/posts/12-factors/">
     <span class="title">« Prev Page</span>
     <br>
-    <span>Database comparison within AWS,Azure,GCP</span>
+    <span>12 Factors vs kubernetes world</span>
   </a>
-  <a class="next" href="https://okulbida.com/posts/aws-nat-gateway-no-need-igw/">
+  <a class="next" href="https://okulbida.com/posts/k8s-130-version/">
     <span class="title">Next Page »</span>
     <br>
-    <span>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</span>
+    <span>k8s 1.30 version</span>
   </a>
 </nav>
 

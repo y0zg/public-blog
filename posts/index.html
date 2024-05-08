@@ -164,6 +164,35 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 </article>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://res.cloudinary.com/codersociety/image/fetch/https://cdn.development.codersociety.com/uploads/the-twelve-factor-app-1.png" alt="12 Factors">
+</figure>
+  <header class="entry-header">
+    <h2>12 Factors vs kubernetes world</h2>
+  </header>
+  <section class="entry-content">
+    <p>Disclaimer: here you might not find something new if you know 12 factors app. But some thought regarding mapping 12f to kubernetes world might be handy.
+The 12-factor app methodology 12factor.net, is a set of principles designed to enable applications to be built with portability and resilience when deployed to the web. These principles focus on declarative formats for automation, clean contracts with the operating system, and suitability for deployment on modern cloud platforms, thus minimizing divergence between development and production, enabling continuous deployment for maximum agility....</p>
+  </section>
+  <footer class="entry-footer">May 8, 2024&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to 12 Factors vs kubernetes world" href="https://okulbida.com/posts/12-factors/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Aws vs Elasticsearch licensing</h2>
+  </header>
+  <section class="entry-content">
+    <p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
+https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
+https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
+What are the alternatives?
+ Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki?...</p>
+  </section>
+  <footer class="entry-footer">April 21, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Aws vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
+</article>
+
+<article class="post-entry"> 
   <header class="entry-header">
     <h2>k8s 1.30 version</h2>
   </header>
@@ -234,30 +263,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Resolving Helm issues after kubernetes upgrade" href="https://okulbida.com/posts/helm-fix-after-k8s-upgrade/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>EKS expose pods through cross-account Load balancer</h2>
-  </header>
-  <section class="entry-content">
-    <p>Expose Amazon EKS pods through cross-account load balancer
- https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-account-load-balancer/  </p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS expose pods through cross-account Load balancer" href="https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>EKS simplified access</h2>
-  </header>
-  <section class="entry-content">
-    <p>Simplified EKS access
- https://aws.amazon.com/about-aws/whats-new/2023/12/amazon-eks-controls-iam-cluster-access-management/ https://aws.amazon.com/blogs/containers/a-deep-dive-into-simplified-amazon-eks-access-management-controls/ https://github.com/hashicorp/terraform-provider-aws/issues/34982  </p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS simplified access" href="https://okulbida.com/posts/eks-access/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
