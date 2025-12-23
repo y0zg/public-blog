@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>access-control on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/access-control/</link>
+    <description>Recent content in access-control on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 20 Nov 2024 18:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/access-control/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Finally Built a Browser for S3 (And Why It Took 20 Years)</title>
+      <link>https://okulbida.com/posts/aws-s3-storage-browser-access-grants/</link>
+      <pubDate>Wed, 20 Nov 2024 18:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-s3-storage-browser-access-grants/</guid>
+      <description>It&amp;rsquo;s 2024, and AWS finally built a browser-based S3 viewer. Twenty years after S3 launched, you can now browse your buckets directly in the browser. It&amp;rsquo;s still in alpha, but hey, better late than never, right?
+You might be thinking - wait, weren&amp;rsquo;t there options before? Like S3Fox? Yeah, there were some third-party tools, but AWS itself never had an official browser interface. So what took so long?
+Real Problem: Access Control Turns out, building a simple file browser wasn&amp;rsquo;t the hard part.</description>
+    </item>
+    
+  </channel>
+</rss>
