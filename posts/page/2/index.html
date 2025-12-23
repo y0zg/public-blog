@@ -134,6 +134,17 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Simple rds access</h2>
+  </header>
+  <section class="entry-content">
+    <p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:...</p>
+  </section>
+  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Simple rds access" href="https://okulbida.com/posts/simple-rds-access/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Resolving Helm issues after kubernetes upgrade</h2>
   </header>
   <section class="entry-content">
@@ -237,18 +248,6 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
   </section>
   <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting" href="https://okulbida.com/posts/aws-lb-controller-nlb-support/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon EC2 Auto Scaling now natively supports Predictive Scaling so you can proactively scale out your Auto Scaling group to be ready for upcoming demand. Predictive Scaling can help you avoid the need to over-provision capacity, resulting in lower EC2 cost, while ensuring your application’s responsiveness. (Previously, Predictive Scaling was only available via AWS Auto Scaling Plans.)
-https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-introduces-predictive-scaling-native-scaling-policy/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy" href="https://okulbida.com/posts/aws-ec2-predictive-autoscaling/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -5,7 +5,7 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Dec 2025 10:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Dec 2025 14:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,16 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>AWS in 2025: Things You Think You Know That Are Actually Wrong</title>
+      <link>https://okulbida.com/posts/aws-2025-things-you-think-you-know/</link>
+      <pubDate>Tue, 23 Dec 2025 14:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-2025-things-you-think-you-know/</guid>
+      <description>You know what&amp;rsquo;s wild? AWS is almost twenty years old now. That&amp;rsquo;s both cool and kind of terrifying at the same time. I&amp;rsquo;ve been working with AWS for a while, and honestly, I still catch myself thinking about things the way they used to be, not how they actually work today.
+The problem is that AWS changes constantly, but a lot of the foundational stuff has evolved in ways that aren&amp;rsquo;t super obvious.</description>
     </item>
     
     <item>
