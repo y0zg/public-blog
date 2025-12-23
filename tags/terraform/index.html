@@ -119,6 +119,19 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>How Cloudflare Secures Terraform State at Scale</h2>
+  </header>
+  <section class="entry-content">
+    <p>Managing Terraform state securely is one of those things that seems simple until you’re dealing with hundreds of accounts and thousands of resources. Cloudflare, being their own Customer Zero, had to solve this problem at enterprise scale.
+The interesting part? They built a custom solution called tfstate-butler - a Go program that acts as an HTTP backend for Terraform state storage.
+The Security Problem When you’re managing infrastructure at Cloudflare’s scale, a single compromised state file could be catastrophic....</p>
+  </section>
+  <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to How Cloudflare Secures Terraform State at Scale" href="https://okulbida.com/posts/cloudflare-terraform-state-security/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Terraform best practices</h2>
   </header>
   <section class="entry-content">

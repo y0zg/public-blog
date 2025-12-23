@@ -134,6 +134,19 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>EKS with instance-store nitro-based node-group</h2>
+  </header>
+  <section class="entry-content">
+    <p>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+Terraform example:
+eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &#34;/dev/xvda&#34; ebs = { volume_size = 24 volume_type = &#34;gp3&#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data....</p>
+  </section>
+  <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to EKS with instance-store nitro-based node-group" href="https://okulbida.com/posts/eks-instance-store/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Simple rds access</h2>
   </header>
   <section class="entry-content">
@@ -237,17 +250,6 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
   </section>
   <footer class="entry-footer">June 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to What’s new in Grafana v8.0" href="https://okulbida.com/posts/grafana-8-released/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</h2>
-  </header>
-  <section class="entry-content">
-    <p>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting" href="https://okulbida.com/posts/aws-lb-controller-nlb-support/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

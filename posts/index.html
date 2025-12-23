@@ -165,6 +165,19 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>How Cloudflare Secures Terraform State at Scale</h2>
+  </header>
+  <section class="entry-content">
+    <p>Managing Terraform state securely is one of those things that seems simple until you’re dealing with hundreds of accounts and thousands of resources. Cloudflare, being their own Customer Zero, had to solve this problem at enterprise scale.
+The interesting part? They built a custom solution called tfstate-butler - a Go program that acts as an HTTP backend for Terraform state storage.
+The Security Problem When you’re managing infrastructure at Cloudflare’s scale, a single compromised state file could be catastrophic....</p>
+  </section>
+  <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to How Cloudflare Secures Terraform State at Scale" href="https://okulbida.com/posts/cloudflare-terraform-state-security/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>AWS in 2025: Things You Think You Know That Are Actually Wrong</h2>
   </header>
   <section class="entry-content">
@@ -251,19 +264,6 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   </section>
   <footer class="entry-footer">March 23, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Terraform best practices" href="https://okulbida.com/posts/terraform-best-practices/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>EKS with instance-store nitro-based node-group</h2>
-  </header>
-  <section class="entry-content">
-    <p>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-Terraform example:
-eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &#34;/dev/xvda&#34; ebs = { volume_size = 24 volume_type = &#34;gp3&#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data....</p>
-  </section>
-  <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS with instance-store nitro-based node-group" href="https://okulbida.com/posts/eks-instance-store/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

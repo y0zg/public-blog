@@ -5,7 +5,43 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Dec 2025 14:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Dec 2025 16:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cloudflare</title>
+      <link>https://okulbida.com/tags/cloudflare/</link>
+      <pubDate>Tue, 23 Dec 2025 16:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iac</title>
+      <link>https://okulbida.com/tags/iac/</link>
+      <pubDate>Tue, 23 Dec 2025 16:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/iac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://okulbida.com/tags/security/</link>
+      <pubDate>Tue, 23 Dec 2025 16:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terraform</title>
+      <link>https://okulbida.com/tags/terraform/</link>
+      <pubDate>Tue, 23 Dec 2025 16:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aws</title>
       <link>https://okulbida.com/tags/aws/</link>
@@ -48,15 +84,6 @@
       <pubDate>Sun, 21 Apr 2024 21:25:08 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/elasticsearch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terraform</title>
-      <link>https://okulbida.com/tags/terraform/</link>
-      <pubDate>Sat, 23 Mar 2024 19:11:15 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/terraform/</guid>
       <description></description>
     </item>
     
