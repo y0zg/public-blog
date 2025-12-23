@@ -5,7 +5,7 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 08 May 2024 14:37:18 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Dec 2025 10:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,16 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>AWS re:Invent 2025 Recap: Key Announcements for Cloud Practitioners</title>
+      <link>https://okulbida.com/posts/aws-reinvent-2025-recap/</link>
+      <pubDate>Tue, 23 Dec 2025 10:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-reinvent-2025-recap/</guid>
+      <description>Another year, another AWS re:Invent has come and gone. I&amp;rsquo;ve been following the announcements closely, and there are some genuinely interesting developments worth discussing.
+The Big Picture This year&amp;rsquo;s re:Invent felt a bit different. The pre:Invent announcements started later than usual (mid-November instead of early October), and the keynote felt more focused on GenAI than infrastructure improvements. That said, there are still plenty of practical enhancements that can make our lives easier.</description>
     </item>
     
     <item>
