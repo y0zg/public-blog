@@ -42,13 +42,13 @@ if (!doNotTrack) {
 You might be thinking - wait, weren&rsquo;t there options before? Like S3Fox? Yeah, there were some third-party tools, but AWS itself never had an official browser interface. So what took so long?
 Real Problem: Access Control Turns out, building a simple file browser wasn&rsquo;t the hard part." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://okulbida.com/posts/aws-s3-storage-browser-access-grants/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://okulbida.com/posts/aws-s3-storage-browser-access-grants/" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-11-20T18:00:00&#43;03:00" />
 <meta property="article:modified_time" content="2024-11-20T18:00:00&#43;03:00" />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
-
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80" />
 <meta name="twitter:title" content="AWS Finally Built a Browser for S3 (And Why It Took 20 Years)"/>
 <meta name="twitter:description" content="It&rsquo;s 2024, and AWS finally built a browser-based S3 viewer. Twenty years after S3 launched, you can now browse your buckets directly in the browser. It&rsquo;s still in alpha, but hey, better late than never, right?
 You might be thinking - wait, weren&rsquo;t there options before? Like S3Fox? Yeah, there were some third-party tools, but AWS itself never had an official browser interface. So what took so long?
@@ -88,7 +88,7 @@ Real Problem: Access Control Turns out, building a simple file browser wasn&rsqu
   "articleBody": "It’s 2024, and AWS finally built a browser-based S3 viewer. Twenty years after S3 launched, you can now browse your buckets directly in the browser. It’s still in alpha, but hey, better late than never, right?\nYou might be thinking - wait, weren’t there options before? Like S3Fox? Yeah, there were some third-party tools, but AWS itself never had an official browser interface. So what took so long?\nReal Problem: Access Control Turns out, building a simple file browser wasn’t the hard part. The hard part was making it work with proper access control. AWS had to basically reinvent how S3 access works. Twice.\nWhy? Two letters: AI. Specifically, data lakes. When you’re dealing with massive amounts of data spread across multiple buckets and accounts, the old IAM roles and bucket policies just don’t cut it. They’re too limited and honestly kind of clunky at scale.\nEnter S3 Access Grants, announced at re:Invent 2023. This is the new recommended way to provide access to S3 data (which, let’s be honest, means everything else is now “not recommended”).\nEvolution of S3 Access We’ve gone through quite a journey:\n S3 ACLs (the old way) S3 Bucket Policies IAM policies S3 Access Points S3 Access Grants (the new hotness)  With Access Grants, you create a grant that lets a user access a specific bucket or prefix. The user authenticates through something like Okta or Microsoft Entra ID via IAM Identity Center, and gets centralized access to their data across accounts and buckets - even from outside AWS.\nListing Problem But here’s where it got tricky. You could create all these grants, but you couldn’t actually list what a user had access to across all buckets and prefixes. It’s the same problem we’ve always had with S3 - you can’t limit bucket listing to only show buckets a user can access.\nRemember that eternal pain point? s3:ListAllMyBuckets requires a wildcard in resources, so it shows everything. There was no way to show only the buckets a user actually has access to.\nThe Solution: ListCallerAccessGrants Finally, AWS introduced s3:ListCallerAccessGrants. This API call lets you get a complete list of S3 buckets and prefixes that are accessible to the current user through their Access Grants. No more showing them every bucket in the account - just what they can actually access.\nThis is what made the Storage Browser for S3 possible. Without it, you’d still be stuck showing users everything or nothing.\nWhy This Matters This might seem like a small thing, but it’s actually huge. For years, we’ve been working around S3’s access limitations. Now we have a proper way to build user-facing data applications that can show users exactly what they have access to, nothing more, nothing less.\nThe Storage Browser is cool, but the real win here is s3:ListCallerAccessGrants and the S3 Access Grants system. It’s the foundation that makes proper multi-tenant data applications possible.\nSometimes the simplest features take the longest to build because they require rethinking everything that came before.\n References:\n S3 Access Grants Documentation ListCallerAccessGrants API AWS Blog: Developing user-facing data applications with IAM Identity Center and S3 Access Grants  ",
   "wordCount" : "520",
   "inLanguage": "en",
-  "datePublished": "2024-11-20T18:00:00+03:00",
+  "image":"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200\u0026q=80","datePublished": "2024-11-20T18:00:00+03:00",
   "dateModified": "2024-11-20T18:00:00+03:00",
   "author":{
     "@type": "Person",
@@ -186,6 +186,9 @@ Real Problem: Access Control Turns out, building a simple file browser wasn&rsqu
     <div class="post-meta">November 20, 2024&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida
 </div>
   </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Data storage and cloud">
+        <p>S3 Storage Browser</p>
+</figure>
   <div class="post-content"><p>It&rsquo;s 2024, and AWS finally built a browser-based S3 viewer. Twenty years after S3 launched, you can now browse your buckets directly in the browser. It&rsquo;s still in alpha, but hey, better late than never, right?</p>
 <p>You might be thinking - wait, weren&rsquo;t there options before? Like S3Fox? Yeah, there were some third-party tools, but AWS itself never had an official browser interface. So what took so long?</p>
 <h2 id="real-problem-access-control">Real Problem: Access Control<a hidden class="anchor" aria-hidden="true" href="#real-problem-access-control">#</a></h2>
