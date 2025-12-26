@@ -8,6 +8,33 @@
     <loc>https://okulbida.com/posts/k8s-security-best-practices/</loc>
     <lastmod>2022-08-07T01:04:09+03:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/acm/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/aws/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/certificates/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/kubernetes/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/security/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/cloudflare/</loc>
     <lastmod>2025-12-23T16:00:00+03:00</lastmod>
   </url><url>
@@ -17,23 +44,8 @@
     <loc>https://okulbida.com/tags/iac/</loc>
     <lastmod>2025-12-23T16:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2025-12-23T16:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2025-12-23T16:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/security/</loc>
-    <lastmod>2025-12-23T16:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
-    <lastmod>2025-12-23T16:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/terraform/</loc>
     <lastmod>2025-12-23T16:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/aws/</loc>
-    <lastmod>2025-12-23T14:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/aws-2025-things-you-think-you-know/</loc>
     <lastmod>2025-12-23T14:00:00+03:00</lastmod>
@@ -60,9 +72,6 @@
     <lastmod>2024-05-08T14:37:18+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/architecture/</loc>
-    <lastmod>2024-05-08T14:37:18+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/kubernetes/</loc>
     <lastmod>2024-05-08T14:37:18+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/aws-elasticsearch-licensing/</loc>

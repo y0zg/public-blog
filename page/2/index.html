@@ -132,6 +132,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>k8s InPlacePodVerticalScaling</h2>
+  </header>
+  <section class="entry-content">
+    <p>Kubernetes InPlacePodVerticalScaling feature
+Kubernetes v1.27 introduces InPlacePodVerticalScaling, allowing seamless pod resource resizing without restarts
+Enhanced Continuity: Eliminates the downtime and potential data loss caused by pod restart
+Cost Savings: Avoid overprovisioning and optimizing resource usage. InPlacePodVerticalScaling lets you allocate resources precisely as needed
+In this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing....</p>
+  </section>
+  <footer class="entry-footer">April 20, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to k8s InPlacePodVerticalScaling" href="https://okulbida.com/posts/k8s-new-features/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Terraform best practices</h2>
   </header>
   <section class="entry-content">
@@ -233,18 +248,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
   </section>
   <footer class="entry-footer">July 21, 2021&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Database comparison within AWS,Azure,GCP" href="https://okulbida.com/posts/db-cloudproviders/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</h2>
-  </header>
-  <section class="entry-content">
-    <p>You can now launch NAT Gateways in your VPC without associating an internet gateway to your VPC. Internet Gateway is required to provide internet access to the NAT Gateway. However, some customers use their NAT Gateways with Transit Gateway or virtual private gateway to communicate privately with other VPCs or on-premises environments and thus, do not need an internet gateway attached to their VPCs.
-More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat-gateways-dependence-on-internet-gateway-for-private-communications/</p>
-  </section>
-  <footer class="entry-footer">June 17, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications" href="https://okulbida.com/posts/aws-nat-gateway-no-need-igw/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

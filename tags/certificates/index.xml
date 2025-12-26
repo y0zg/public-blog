@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>certificates on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/certificates/</link>
+    <description>Recent content in certificates on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/certificates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ACM Finally Automates Certificate Management for Kubernetes</title>
+      <link>https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/</guid>
+      <description>AWS Certificate Manager (ACM) now supports automated certificate management for Kubernetes workloads through AWS Controllers for Kubernetes (ACK).
+Previously, using ACM certificates in Kubernetes required manual steps: exporting certificates via API, creating Kubernetes Secrets, and manually updating them at renewal. With ACK, you can define certificates as Kubernetes resources, and the controller automates the complete lifecycle - requesting, exporting, creating Secrets, and auto-updating at renewal.
+This works for both public certificates (ACM exportable certificates) and private certificates (AWS Private CA), enabling automated certificate management for:</description>
+    </item>
+    
+  </channel>
+</rss>
