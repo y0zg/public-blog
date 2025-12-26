@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/devops/</link>
+    <description>Recent content in devops on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 27 Dec 2025 00:30:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How GitHub Engineers Tackle Platform Problems</title>
+      <link>https://okulbida.com/posts/github-platform-engineering-approaches/</link>
+      <pubDate>Sat, 27 Dec 2025 00:30:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/github-platform-engineering-approaches/</guid>
+      <description>GitHub&amp;rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:
+Understanding your domain:
+ Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:
+ Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:</description>
+    </item>
+    
+  </channel>
+</rss>
