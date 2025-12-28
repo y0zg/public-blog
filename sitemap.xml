@@ -8,6 +8,30 @@
     <loc>https://okulbida.com/posts/k8s-security-best-practices/</loc>
     <lastmod>2022-08-07T01:04:09+03:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/aws/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/aws-control-tower-landing-zone-4.0/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/control-tower/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/governance/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/multi-account/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2025-12-27T13:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/devops/</loc>
     <lastmod>2025-12-27T00:30:00+03:00</lastmod>
   </url><url>
@@ -20,25 +44,13 @@
     <loc>https://okulbida.com/tags/infrastructure/</loc>
     <lastmod>2025-12-27T00:30:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2025-12-27T00:30:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/platform-engineering/</loc>
-    <lastmod>2025-12-27T00:30:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2025-12-27T00:30:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2025-12-27T00:30:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/acm/</loc>
     <lastmod>2025-12-27T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/</loc>
-    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/aws/</loc>
     <lastmod>2025-12-27T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/certificates/</loc>

@@ -136,6 +136,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Aws vs Elasticsearch licensing</h2>
+  </header>
+  <section class="entry-content">
+    <p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
+https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
+https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
+What are the alternatives?
+ Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki?...</p>
+  </section>
+  <footer class="entry-footer">April 21, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Aws vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>k8s 1.30 version</h2>
   </header>
   <section class="entry-content">
@@ -241,17 +256,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
   </section>
   <footer class="entry-footer">October 26, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Loki S3 dynamodb" href="https://okulbida.com/posts/loki-s3-dynamodb/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Bigdata comparison within AWS,Azure,GCP</h2>
-  </header>
-  <section class="entry-content">
-    <p></p>
-  </section>
-  <footer class="entry-footer">July 21, 2021&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Bigdata comparison within AWS,Azure,GCP" href="https://okulbida.com/posts/bigdata-comparison-cloudproviders/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

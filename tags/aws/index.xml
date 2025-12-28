@@ -5,7 +5,20 @@
     <link>https://okulbida.com/tags/aws/</link>
     <description>Recent content in aws on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Dec 2025 13:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Control Tower Landing Zone 4.0 is out! After 8 years of multi-account pain, we can FINALLY set up everything programmatically</title>
+      <link>https://okulbida.com/posts/aws-control-tower-landing-zone-4.0/</link>
+      <pubDate>Sat, 27 Dec 2025 13:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-control-tower-landing-zone-4.0/</guid>
+      <description>AWS Control Tower Landing Zone 4.0 introduces a flexible Controls-Only experience, allowing full programmatic setup and customization of multi-account environments.
+Key Changes:
+Optional Service Integrations - Choose which integrations to enable:
+ AWS Config AWS CloudTrail Security Roles AWS Backup  Dedicated Resources - Better isolation with separate resources per service:
+ Separate S3 buckets for AWS Config and CloudTrail Individual SNS topics for each service  Flexible Organization Structure - Removed previous requirements:</description>
+    </item>
+    
     <item>
       <title>ACM Finally Automates Certificate Management for Kubernetes</title>
       <link>https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/</link>
