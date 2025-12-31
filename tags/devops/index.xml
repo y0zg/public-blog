@@ -5,7 +5,19 @@
     <link>https://okulbida.com/tags/devops/</link>
     <description>Recent content in devops on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Dec 2025 00:30:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2025 14:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform Best Practices: Code Organization and Structure</title>
+      <link>https://okulbida.com/posts/terraform-code-organization-best-practices/</link>
+      <pubDate>Sun, 28 Dec 2025 14:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/terraform-code-organization-best-practices/</guid>
+      <description>Essential Terraform best practices for organizing and structuring your infrastructure code:
+1. Separate Configuration Files
+Instead of putting all code in main.tf, distribute it across multiple files:
+ main.tf: Calls modules, locals, and data sources to create all resources variables.tf: Contains variable declarations used in main.tf. Place required variables at the top and optional ones at the bottom, separated by a comment line for better readability outputs.tf: Contains outputs from resources created in main.</description>
+    </item>
+    
     <item>
       <title>How GitHub Engineers Tackle Platform Problems</title>
       <link>https://okulbida.com/posts/github-platform-engineering-approaches/</link>

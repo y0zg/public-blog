@@ -215,6 +215,20 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Terraform Best Practices: Code Organization and Structure</h2>
+  </header>
+  <section class="entry-content">
+    <p>Essential Terraform best practices for organizing and structuring your infrastructure code:
+1. Separate Configuration Files
+Instead of putting all code in main.tf, distribute it across multiple files:
+ main.tf: Calls modules, locals, and data sources to create all resources variables.tf: Contains variable declarations used in main.tf. Place required variables at the top and optional ones at the bottom, separated by a comment line for better readability outputs.tf: Contains outputs from resources created in main....</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Terraform Best Practices: Code Organization and Structure" href="https://okulbida.com/posts/terraform-code-organization-best-practices/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>AWS Control Tower Landing Zone 4.0 is out! After 8 years of multi-account pain, we can FINALLY set up everything programmatically</h2>
   </header>
   <section class="entry-content">
@@ -311,20 +325,6 @@ Real Problem: Access Control Turns out, building a simple file browser wasn’t 
   </section>
   <footer class="entry-footer">November 20, 2024&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS Finally Built a Browser for S3 (And Why It Took 20 Years)" href="https://okulbida.com/posts/aws-s3-storage-browser-access-grants/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://res.cloudinary.com/codersociety/image/fetch/https://cdn.development.codersociety.com/uploads/the-twelve-factor-app-1.png" alt="12 Factors">
-</figure>
-  <header class="entry-header">
-    <h2>12 Factors vs kubernetes world</h2>
-  </header>
-  <section class="entry-content">
-    <p>Disclaimer: here you might not find something new if you know 12 factors app.
-The 12-factor app methodology 12factor.net, is a set of principles designed to enable applications to be built with portability and resilience when deployed to the web. These principles focus on declarative formats for automation, clean contracts with the operating system, and suitability for deployment on modern cloud platforms, thus minimizing divergence between development and production, enabling continuous deployment for maximum agility....</p>
-  </section>
-  <footer class="entry-footer">May 8, 2024&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to 12 Factors vs kubernetes world" href="https://okulbida.com/posts/12-factors/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -120,6 +120,20 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Terraform Best Practices: Code Organization and Structure</h2>
+  </header>
+  <section class="entry-content">
+    <p>Essential Terraform best practices for organizing and structuring your infrastructure code:
+1. Separate Configuration Files
+Instead of putting all code in main.tf, distribute it across multiple files:
+ main.tf: Calls modules, locals, and data sources to create all resources variables.tf: Contains variable declarations used in main.tf. Place required variables at the top and optional ones at the bottom, separated by a comment line for better readability outputs.tf: Contains outputs from resources created in main....</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Terraform Best Practices: Code Organization and Structure" href="https://okulbida.com/posts/terraform-code-organization-best-practices/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&amp;q=80" alt="Security and infrastructure">
 </figure>
   <header class="entry-header">
