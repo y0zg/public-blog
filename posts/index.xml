@@ -5,7 +5,7 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Dec 2025 14:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2025 16:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,19 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>VolSync: Asynchronous Data Replication for Kubernetes Volumes</title>
+      <link>https://okulbida.com/posts/volsync-kubernetes-volume-migration/</link>
+      <pubDate>Sun, 28 Dec 2025 16:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/volsync-kubernetes-volume-migration/</guid>
+      <description>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
+Key Features:
+ Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
+Install VolSync via Helm:
+helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:</description>
     </item>
     
     <item>

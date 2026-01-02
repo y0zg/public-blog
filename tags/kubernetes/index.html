@@ -152,6 +152,21 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>VolSync: Asynchronous Data Replication for Kubernetes Volumes</h2>
+  </header>
+  <section class="entry-content">
+    <p>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
+Key Features:
+ Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
+Install VolSync via Helm:
+helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:...</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to VolSync: Asynchronous Data Replication for Kubernetes Volumes" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>ACM Finally Automates Certificate Management for Kubernetes</h2>
   </header>
   <section class="entry-content">
@@ -238,19 +253,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS simplified access" href="https://okulbida.com/posts/eks-access/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS Add-Ons Now Supports CoreDNS and kube-proxy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
-https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
-https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS Add-Ons Now Supports CoreDNS and kube-proxy" href="https://okulbida.com/posts/awsekscoredns/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="next" href="https://okulbida.com/tags/kubernetes/page/2/">Next Page »</a>
@@ -258,7 +260,7 @@ https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</p>
 </footer>
     </main>
     <footer class="footer">
-    <span>&copy; 2025 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>
+    <span>&copy; 2026 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
     <button class="top-link" id="top-link" type="button" accesskey="g">

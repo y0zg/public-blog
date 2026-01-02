@@ -167,6 +167,21 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>VolSync: Asynchronous Data Replication for Kubernetes Volumes</h2>
+  </header>
+  <section class="entry-content">
+    <p>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
+Key Features:
+ Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
+Install VolSync via Helm:
+helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:...</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to VolSync: Asynchronous Data Replication for Kubernetes Volumes" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Terraform Best Practices: Code Organization and Structure</h2>
   </header>
   <section class="entry-content">
@@ -263,21 +278,6 @@ The Big Picture This year’s re:Invent felt a bit different. The pre:Invent ann
   <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS re:Invent 2025 Recap: Key Announcements for Cloud Practitioners" href="https://okulbida.com/posts/aws-reinvent-2025-recap/"></a>
 </article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Data storage and cloud">
-</figure>
-  <header class="entry-header">
-    <h2>AWS Finally Built a Browser for S3 (And Why It Took 20 Years)</h2>
-  </header>
-  <section class="entry-content">
-    <p>It’s 2024, and AWS finally built a browser-based S3 viewer. Twenty years after S3 launched, you can now browse your buckets directly in the browser. It’s still in alpha, but hey, better late than never, right?
-You might be thinking - wait, weren’t there options before? Like S3Fox? Yeah, there were some third-party tools, but AWS itself never had an official browser interface. So what took so long?
-Real Problem: Access Control Turns out, building a simple file browser wasn’t the hard part....</p>
-  </section>
-  <footer class="entry-footer">November 20, 2024&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Finally Built a Browser for S3 (And Why It Took 20 Years)" href="https://okulbida.com/posts/aws-s3-storage-browser-access-grants/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="next" href="https://okulbida.com/posts/page/2/">Next Page »</a>
@@ -285,7 +285,7 @@ Real Problem: Access Control Turns out, building a simple file browser wasn’t 
 </footer>
     </main>
     <footer class="footer">
-    <span>&copy; 2025 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>
+    <span>&copy; 2026 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
     <button class="top-link" id="top-link" type="button" accesskey="g">
