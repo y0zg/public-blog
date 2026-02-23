@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cronjobs on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/cronjobs/</link>
+    <description>Recent content in cronjobs on Oleksandr Kulbida</description>
+    <image>
+      <url>https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 28 Dec 2025 17:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/cronjobs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Isolate Kubernetes Jobs with Taints/Tolerations for Better Node Consolidation</title>
+      <link>https://okulbida.com/posts/kubernetes-jobs-dedicated-nodes-taints/</link>
+      <pubDate>Sun, 28 Dec 2025 17:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/kubernetes-jobs-dedicated-nodes-taints/</guid>
+      <description>When running CronJobs or batch Jobs in Kubernetes, you should use taints and tolerations to isolate them on dedicated nodes. This reduces disruption during node consolidation and prevents jobs from interfering with your regular workloads.
+The Problem:
+Jobs and CronJobs running on the same nodes as your regular workloads cause issues during node consolidation. This is especially problematic with Cluster Autoscaler - it can&amp;rsquo;t effectively drain nodes because jobs keep scheduling on them, preventing consolidation.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,7 +5,52 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Dec 2025 16:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2025 18:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>https://okulbida.com/tags/aws/</link>
+      <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>billing</title>
+      <link>https://okulbida.com/tags/billing/</link>
+      <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/billing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cost-management</title>
+      <link>https://okulbida.com/tags/cost-management/</link>
+      <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/cost-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>multi-account</title>
+      <link>https://okulbida.com/tags/multi-account/</link>
+      <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/multi-account/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>organizations</title>
+      <link>https://okulbida.com/tags/organizations/</link>
+      <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/organizations/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>backup</title>
       <link>https://okulbida.com/tags/backup/</link>
@@ -88,15 +133,6 @@
     </item>
     
     <item>
-      <title>aws</title>
-      <link>https://okulbida.com/tags/aws/</link>
-      <pubDate>Sat, 27 Dec 2025 13:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>control-tower</title>
       <link>https://okulbida.com/tags/control-tower/</link>
       <pubDate>Sat, 27 Dec 2025 13:00:00 +0300</pubDate>
@@ -111,15 +147,6 @@
       <pubDate>Sat, 27 Dec 2025 13:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/governance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>multi-account</title>
-      <link>https://okulbida.com/tags/multi-account/</link>
-      <pubDate>Sat, 27 Dec 2025 13:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/multi-account/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>cost-optimization | Oleksandr Kulbida</title>
+<meta name="keywords" content="" />
+<meta name="description" content="All about clouds, AI and that devops">
+<meta name="author" content="Oleksandr Kulbida">
+<link rel="canonical" href="https://okulbida.com/tags/cost-optimization/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.65aebb33e4f0ce3d1a39e4a35c11b91eb08b582489fca0f78f9227d90ac72a52.css" integrity="sha256-Za67M&#43;Twzj0aOeSjXBG5HrCLWCSJ/KD3j5In2QrHKlI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="mask-icon" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
+<link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/cost-optimization/index.xml">
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="cost-optimization" />
+<meta property="og:description" content="All about clouds, AI and that devops" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://okulbida.com/tags/cost-optimization/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+
+<meta name="twitter:title" content="cost-optimization"/>
+<meta name="twitter:description" content="All about clouds, AI and that devops"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://okulbida.com" accesskey="h" title="Oleksandr Kulbida (Alt + H)">
+                <img src="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png" alt="logo" aria-label="logo"
+                    height="45">Oleksandr Kulbida</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://okulbida.com/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://okulbida.com/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://okulbida.com/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://okulbida.com">Home</a>&nbsp;»&nbsp;<a href="https://okulbida.com/tags/">Tags</a></div>
+  <h1>cost-optimization</h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Isolate Kubernetes Jobs with Taints/Tolerations for Better Node Consolidation</h2>
+  </header>
+  <section class="entry-content">
+    <p>When running CronJobs or batch Jobs in Kubernetes, you should use taints and tolerations to isolate them on dedicated nodes. This reduces disruption during node consolidation and prevents jobs from interfering with your regular workloads.
+The Problem:
+Jobs and CronJobs running on the same nodes as your regular workloads cause issues during node consolidation. This is especially problematic with Cluster Autoscaler - it can’t effectively drain nodes because jobs keep scheduling on them, preventing consolidation....</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Isolate Kubernetes Jobs with Taints/Tolerations for Better Node Consolidation" href="https://okulbida.com/posts/kubernetes-jobs-dedicated-nodes-taints/"></a>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2026 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script src="https://giscus.app/client.js"
+        data-repo="y0zg/public-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzNjEzOTk2NTU="
+        data-category="General"
+        data-category-id="DIC_kwDOFYqFZ84CeLp9"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<div id="floating-subscribe" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 1000; max-width: 320px; background: var(--theme); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem;">
+    
+    <button id="close-subscribe" onclick="closeSubscribeForm()" 
+            style="position: absolute; top: 0.5rem; right: 0.5rem; background: transparent; border: none; cursor: pointer; font-size: 1.2rem; color: var(--secondary); padding: 0.25rem 0.5rem; line-height: 1;"
+            title="Close" aria-label="Close subscription form">
+        ×
+    </button>
+    
+    <div style="margin-bottom: 0.75rem;">
+        <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">📧 Subscribe</h4>
+        <p style="margin: 0; font-size: 0.85rem; opacity: 0.8; line-height: 1.4;">Get notified when new posts are published.</p>
+    </div>
+    
+    
+    <div id="mc_embed_signup">
+        <form action="https://okulbida.us14.list-manage.com/subscribe/post?u=65c0dd5d5001103ba8b4450ef&amp;id=ac0973f098&amp;f_id=00ee89e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" required 
+                           style="width: 100%; padding: 0.6rem; border: 1px solid var(--border); border-radius: 4px; background: var(--code-bg); color: var(--primary); font-size: 0.9rem; box-sizing: border-box;">
+                    
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_65c0dd5d5001103ba8b4450ef_ac0973f098" tabindex="-1" value="">
+                    </div>
+                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"
+                            style="width: 100%; padding: 0.6rem; background: var(--primary); color: var(--theme); border: none; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: 0.9rem;">
+                        Subscribe
+                    </button>
+                </div>
+                <div id="mce-responses" class="clear foot" style="margin-top: 0.5rem; font-size: 0.8rem;">
+                    <div class="response" id="mce-error-response" style="display: none; color: red;"></div>
+                    <div class="response" id="mce-success-response" style="display: none; color: green;"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+</div>
+
+<script>
+(function() {
+    
+    if (localStorage.getItem('subscribeFormClosed') === 'true') {
+        return; 
+    }
+    
+    const form = document.getElementById('floating-subscribe');
+    if (!form) return;
+    
+    let hasScrolled = false;
+    let scrollTimer = null;
+    
+    
+    function checkScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        
+        if (scrollY > 300 && !hasScrolled) {
+            hasScrolled = true;
+            
+            setTimeout(() => {
+                if (localStorage.getItem('subscribeFormClosed') !== 'true') {
+                    form.style.display = 'block';
+                    
+                    form.style.opacity = '0';
+                    form.style.transition = 'opacity 0.3s ease-in';
+                    setTimeout(() => {
+                        form.style.opacity = '1';
+                    }, 10);
+                }
+            }, 1000);
+        }
+    }
+    
+    
+    window.addEventListener('scroll', function() {
+        if (scrollTimer) {
+            clearTimeout(scrollTimer);
+        }
+        scrollTimer = setTimeout(checkScroll, 100);
+    });
+    
+    
+    if (window.scrollY > 300) {
+        checkScroll();
+    }
+})();
+
+
+function closeSubscribeForm() {
+    const form = document.getElementById('floating-subscribe');
+    if (form) {
+        form.style.transition = 'opacity 0.3s ease-out';
+        form.style.opacity = '0';
+        setTimeout(() => {
+            form.style.display = 'none';
+            localStorage.setItem('subscribeFormClosed', 'true');
+        }, 300);
+    }
+}
+</script>
+</body>
+
+</html>

@@ -5,7 +5,17 @@
     <link>https://okulbida.com/tags/multi-account/</link>
     <description>Recent content in multi-account on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Dec 2025 13:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/multi-account/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2025 18:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/multi-account/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Summary of AWS Billing Transfer Session</title>
+      <link>https://okulbida.com/posts/aws-billing-transfer-session-summary/</link>
+      <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-billing-transfer-session-summary/</guid>
+      <description>AWS Billing Transfer is a new feature (GA since November 2025) that streamlines billing management across multiple AWS Organizations. It helps companies and channel partners who manage multiple Organizations by enabling centralized billing while keeping security and autonomy decentralized for business units or end customers.
+Key Challenges Addressed  Multiple Organizations – Separate logins for billing and cost management across Organizations increase operational overhead No Central View – Hard to get a single, holistic view of spend across business units or customers Confidential Pricing – Protecting pricing data when billing and security roles are separated (e.</description>
+    </item>
+    
     <item>
       <title>AWS Control Tower Landing Zone 4.0 is out! After 8 years of multi-account pain, we can FINALLY set up everything programmatically</title>
       <link>https://okulbida.com/posts/aws-control-tower-landing-zone-4.0/</link>
