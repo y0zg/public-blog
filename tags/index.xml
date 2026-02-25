@@ -5,13 +5,40 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Dec 2025 18:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2025 20:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
       <link>https://okulbida.com/tags/aws/</link>
-      <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
+      <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cost-optimization</title>
+      <link>https://okulbida.com/tags/cost-optimization/</link>
+      <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/cost-optimization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serverless</title>
+      <link>https://okulbida.com/tags/serverless/</link>
+      <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/serverless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqs</title>
+      <link>https://okulbida.com/tags/sqs/</link>
+      <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/sqs/</guid>
       <description></description>
     </item>
     

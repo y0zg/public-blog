@@ -136,6 +136,18 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Resolving Helm issues after kubernetes upgrade</h2>
+  </header>
+  <section class="entry-content">
+    <p>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &#34;Deployment&#34; in version &#34;apps/v1beta1&#34;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
+helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt; It’s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
+  </section>
+  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Resolving Helm issues after kubernetes upgrade" href="https://okulbida.com/posts/helm-fix-after-k8s-upgrade/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>EKS expose pods through cross-account Load balancer</h2>
   </header>
   <section class="entry-content">
@@ -239,19 +251,6 @@ https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-intro
   </section>
   <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy" href="https://okulbida.com/posts/aws-ec2-predictive-autoscaling/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>EKS Add-Ons Now Supports CoreDNS and kube-proxy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
-https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
-https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS Add-Ons Now Supports CoreDNS and kube-proxy" href="https://okulbida.com/posts/awsekscoredns/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

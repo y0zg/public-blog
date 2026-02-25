@@ -121,6 +121,18 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill</h2>
+  </header>
+  <section class="entry-content">
+    <p>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend — and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
+How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteMessage, etc.), not per message. Standard queue: about $0....</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill" href="https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>AWS Billing Transfer</h2>
   </header>
   <section class="entry-content">
@@ -239,18 +251,6 @@ eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Simple rds access" href="https://okulbida.com/posts/simple-rds-access/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS expose pods through cross-account Load balancer</h2>
-  </header>
-  <section class="entry-content">
-    <p>Expose Amazon EKS pods through cross-account load balancer
- https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-account-load-balancer/  </p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS expose pods through cross-account Load balancer" href="https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

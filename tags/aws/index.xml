@@ -5,7 +5,17 @@
     <link>https://okulbida.com/tags/aws/</link>
     <description>Recent content in aws on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Dec 2025 18:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2025 20:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill</title>
+      <link>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</link>
+      <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</guid>
+      <description>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend — and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
+How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteMessage, etc.), not per message. Standard queue: about $0.</description>
+    </item>
+    
     <item>
       <title>AWS Billing Transfer</title>
       <link>https://okulbida.com/posts/aws-billing-transfer-session-summary/</link>

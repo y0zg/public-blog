@@ -121,15 +121,14 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Isolate Kubernetes Jobs with Taints/Tolerations for Better Node Consolidation</h2>
+    <h2>AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill</h2>
   </header>
   <section class="entry-content">
-    <p>When running CronJobs or batch Jobs in Kubernetes, you should use taints and tolerations to isolate them on dedicated nodes. This reduces disruption during node consolidation and prevents jobs from interfering with your regular workloads.
-The Problem:
-Jobs and CronJobs running on the same nodes as your regular workloads cause issues during node consolidation. This is especially problematic with Cluster Autoscaler - it can’t effectively drain nodes because jobs keep scheduling on them, preventing consolidation....</p>
+    <p>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend — and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
+How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteMessage, etc.), not per message. Standard queue: about $0....</p>
   </section>
   <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Isolate Kubernetes Jobs with Taints/Tolerations for Better Node Consolidation" href="https://okulbida.com/posts/kubernetes-jobs-dedicated-nodes-taints/"></a>
+  <a class="entry-link" aria-label="post link to AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill" href="https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/"></a>
 </article>
     </main>
     <footer class="footer">

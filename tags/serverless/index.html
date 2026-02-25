@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>aws | Oleksandr Kulbida</title>
+<title>serverless | Oleksandr Kulbida</title>
 <meta name="keywords" content="" />
 <meta name="description" content="All about clouds, AI and that devops">
 <meta name="author" content="Oleksandr Kulbida">
-<link rel="canonical" href="https://okulbida.com/tags/aws/" />
+<link rel="canonical" href="https://okulbida.com/tags/serverless/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.65aebb33e4f0ce3d1a39e4a35c11b91eb08b582489fca0f78f9227d90ac72a52.css" integrity="sha256-Za67M&#43;Twzj0aOeSjXBG5HrCLWCSJ/KD3j5In2QrHKlI=" rel="preload stylesheet" as="style">
@@ -21,7 +21,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.82.0" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/aws/index.xml">
+<link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/serverless/index.xml">
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -34,15 +34,15 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="aws" />
+</script><meta property="og:title" content="serverless" />
 <meta property="og:description" content="All about clouds, AI and that devops" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://okulbida.com/tags/aws/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+<meta property="og:url" content="https://okulbida.com/tags/serverless/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
-<meta name="twitter:title" content="aws"/>
+<meta name="twitter:title" content="serverless"/>
 <meta name="twitter:description" content="All about clouds, AI and that devops"/>
 
 </head>
@@ -116,126 +116,20 @@ if (!doNotTrack) {
 
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://okulbida.com">Home</a>&nbsp;»&nbsp;<a href="https://okulbida.com/tags/">Tags</a></div>
-  <h1>aws</h1>
+  <h1>serverless</h1>
 </header>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>EKS expose pods through cross-account Load balancer</h2>
+    <h2>AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill</h2>
   </header>
   <section class="entry-content">
-    <p>Expose Amazon EKS pods through cross-account load balancer
- https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-account-load-balancer/  </p>
+    <p>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend — and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
+How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteMessage, etc.), not per message. Standard queue: about $0....</p>
   </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS expose pods through cross-account Load balancer" href="https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/"></a>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill" href="https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS simplified access</h2>
-  </header>
-  <section class="entry-content">
-    <p>Simplified EKS access
- https://aws.amazon.com/about-aws/whats-new/2023/12/amazon-eks-controls-iam-cluster-access-management/ https://aws.amazon.com/blogs/containers/a-deep-dive-into-simplified-amazon-eks-access-management-controls/ https://github.com/hashicorp/terraform-provider-aws/issues/34982  </p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS simplified access" href="https://okulbida.com/posts/eks-access/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</h2>
-  </header>
-  <section class="entry-content">
-    <p>You can now launch NAT Gateways in your VPC without associating an internet gateway to your VPC. Internet Gateway is required to provide internet access to the NAT Gateway. However, some customers use their NAT Gateways with Transit Gateway or virtual private gateway to communicate privately with other VPCs or on-premises environments and thus, do not need an internet gateway attached to their VPCs.
-More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat-gateways-dependence-on-internet-gateway-for-private-communications/</p>
-  </section>
-  <footer class="entry-footer">June 17, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications" href="https://okulbida.com/posts/aws-nat-gateway-no-need-igw/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</h2>
-  </header>
-  <section class="entry-content">
-    <p>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting" href="https://okulbida.com/posts/aws-lb-controller-nlb-support/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon EC2 Auto Scaling now natively supports Predictive Scaling so you can proactively scale out your Auto Scaling group to be ready for upcoming demand. Predictive Scaling can help you avoid the need to over-provision capacity, resulting in lower EC2 cost, while ensuring your application’s responsiveness. (Previously, Predictive Scaling was only available via AWS Auto Scaling Plans.)
-https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-introduces-predictive-scaling-native-scaling-policy/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy" href="https://okulbida.com/posts/aws-ec2-predictive-autoscaling/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS Add-Ons Now Supports CoreDNS and kube-proxy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
-https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
-https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS Add-Ons Now Supports CoreDNS and kube-proxy" href="https://okulbida.com/posts/awsekscoredns/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2021/04/08/cloudfront-function-and-lambda-edge-2-1024x454.png" alt="AWS CloudFront functions">
-</figure>
-  <header class="entry-header">
-    <h2>AWS CloudFront functions</h2>
-  </header>
-  <section class="entry-content">
-    <p>AWS CloudFront functions is a nice alternative to Lambda@Edge
-https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/</p>
-  </section>
-  <footer class="entry-footer">May 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS CloudFront functions" href="https://okulbida.com/posts/aws-cloudfront-functions/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EC2 root volume replacing</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon EC2 enables you to replace the root EBS volume for a running instance
-Limitations:  You can’t replace the root volume if it is an instance store volume. You can’t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root</p>
-  </section>
-  <footer class="entry-footer">April 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EC2 root volume replacing" href="https://okulbida.com/posts/ec2-root-volume-replacing/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/04/22/AWS-Secrets-Configuration-Provider-2021-1.png" alt="AWS Secrets CSI for kubernetes">
-</figure>
-  <header class="entry-header">
-    <h2>AWS Secrets CSI for EKS</h2>
-  </header>
-  <section class="entry-content">
-    <p>How to use AWS Secrets &amp; Configuration Provider with your Kubernetes Secrets Store CSI driver. One more example of kubernetes secrets management among vault, external-secrets and 1password operator 😅
-https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/</p>
-  </section>
-  <footer class="entry-footer">April 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Secrets CSI for EKS" href="https://okulbida.com/posts/aws-secrets-csi/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="https://okulbida.com/tags/aws/">« Prev Page</a>
-  </nav>
-</footer>
     </main>
     <footer class="footer">
     <span>&copy; 2026 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>

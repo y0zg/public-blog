@@ -167,6 +167,18 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill</h2>
+  </header>
+  <section class="entry-content">
+    <p>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend — and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
+How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteMessage, etc.), not per message. Standard queue: about $0....</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill" href="https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>AWS Billing Transfer</h2>
   </header>
   <section class="entry-content">
@@ -261,20 +273,6 @@ The Security Problem When you’re managing infrastructure at Cloudflare’s sca
   </section>
   <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to How Cloudflare Secures Terraform State at Scale" href="https://okulbida.com/posts/cloudflare-terraform-state-security/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Question mark and cloud technology">
-</figure>
-  <header class="entry-header">
-    <h2>AWS in 2025: Things You Think You Know That Are Actually Wrong</h2>
-  </header>
-  <section class="entry-content">
-    <p>You know what’s wild? AWS is almost twenty years old now. That’s both cool and kind of terrifying at the same time. I’ve been working with AWS for a while, and honestly, I still catch myself thinking about things the way they used to be, not how they actually work today.
-The problem is that AWS changes constantly, but a lot of the foundational stuff has evolved in ways that aren’t super obvious....</p>
-  </section>
-  <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS in 2025: Things You Think You Know That Are Actually Wrong" href="https://okulbida.com/posts/aws-2025-things-you-think-you-know/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
