@@ -136,6 +136,20 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>How GitHub Engineers Tackle Platform Problems</h2>
+  </header>
+  <section class="entry-content">
+    <p>GitHub’s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:
+Understanding your domain:
+ Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:
+ Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:...</p>
+  </section>
+  <footer class="entry-footer">December 27, 2025&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to How GitHub Engineers Tackle Platform Problems" href="https://okulbida.com/posts/github-platform-engineering-approaches/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>ACM Finally Automates Certificate Management for Kubernetes</h2>
   </header>
   <section class="entry-content">
@@ -258,17 +272,6 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   </section>
   <footer class="entry-footer">April 20, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to k8s InPlacePodVerticalScaling" href="https://okulbida.com/posts/k8s-new-features/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Terraform best practices</h2>
-  </header>
-  <section class="entry-content">
-    <p>Collaboration  Use remote state and state locking  For certain backends like AWS S3, enable versioning to make it easier to recover your state if needed   Agree on naming convention Use meaningful tags to easily identify resources: environment, owner, project keys are must  You can also add cloud-custdodian for components which are out of terrarfom/IaC tools, which could automatically tag your manually created resources with Owner Creator based on CloudTrail events    Don’t reinvent the wheel Use existing shared and community modules....</p>
-  </section>
-  <footer class="entry-footer">March 23, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Terraform best practices" href="https://okulbida.com/posts/terraform-best-practices/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
