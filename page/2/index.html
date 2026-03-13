@@ -131,6 +131,21 @@ if (!doNotTrack) {
 <main class="main"> 
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&amp;q=80" alt="Security and infrastructure">
+</figure>
+  <header class="entry-header">
+    <h2>How Cloudflare Secures Terraform State at Scale</h2>
+  </header>
+  <section class="entry-content">
+    <p>Managing Terraform state securely is one of those things that seems simple until you’re dealing with hundreds of accounts and thousands of resources. Cloudflare, being their own Customer Zero, had to solve this problem at enterprise scale.
+The interesting part? They built a custom solution called tfstate-butler - a Go program that acts as an HTTP backend for Terraform state storage.
+The Security Problem When you’re managing infrastructure at Cloudflare’s scale, a single compromised state file could be catastrophic....</p>
+  </section>
+  <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to How Cloudflare Secures Terraform State at Scale" href="https://okulbida.com/posts/cloudflare-terraform-state-security/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Question mark and cloud technology">
 </figure>
   <header class="entry-header">
@@ -250,17 +265,6 @@ eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 
   </section>
   <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS with instance-store nitro-based node-group" href="https://okulbida.com/posts/eks-instance-store/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Simple rds access</h2>
-  </header>
-  <section class="entry-content">
-    <p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:...</p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Simple rds access" href="https://okulbida.com/posts/simple-rds-access/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

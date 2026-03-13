@@ -5,7 +5,7 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Dec 2025 20:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Mar 2026 20:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,16 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>16 GitHub Repos Every AI Engineer Should Know in 2026</title>
+      <link>https://okulbida.com/posts/ai-engineer-repos-2026/</link>
+      <pubDate>Thu, 12 Mar 2026 20:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/ai-engineer-repos-2026/</guid>
+      <description>Came across a great list by Ana Pedra on LinkedIn that I thought was worth sharing with some of my own notes. If you&amp;rsquo;re building AI systems in production — or just getting started — these repos are worth bookmarking.
+LLM Serving &amp;amp; Inference vLLM (66k+ stars) — The industry standard for high-throughput LLM serving. Continuous batching and maximum GPU utilization. If you&amp;rsquo;re serving LLMs in production, this is probably what you should be using.</description>
     </item>
     
     <item>
