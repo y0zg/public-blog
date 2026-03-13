@@ -5,7 +5,7 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 12 Mar 2026 20:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Mar 2026 21:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -29,6 +29,17 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
  Prevent namespace-to-namespace communication Network policy    Policy &amp;amp; Governance
   k8s admission controllers
  Read only Non-privileges ports    Runtime security &amp;amp; monitoring</description>
+    </item>
+    
+    <item>
+      <title>The Future of Software Engineering: Key Takeaways from Thoughtworks Retreat</title>
+      <link>https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/</link>
+      <pubDate>Thu, 12 Mar 2026 21:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/</guid>
+      <description>Thoughtworks published a fascinating report from their February 2026 retreat where senior engineering practitioners from major tech companies gathered to discuss how AI is reshaping software development. It&amp;rsquo;s dense, so here&amp;rsquo;s what stood out to me.
+Where Does the Rigor Go? The biggest question of the retreat: if AI writes the code, where does the engineering discipline move? The answer is — it doesn&amp;rsquo;t disappear, it migrates:
+ Upstream to specs — Bad specs produce bad code at scale.</description>
     </item>
     
     <item>
