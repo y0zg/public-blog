@@ -12,8 +12,9 @@
       <pubDate>Thu, 12 Mar 2026 20:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/ai-engineer-repos-2026/</guid>
-      <description>Came across a great list by Ana Pedra on LinkedIn that I thought was worth sharing with some of my own notes. If you&amp;rsquo;re building AI systems in production — or just getting started — these repos are worth bookmarking.
-LLM Serving &amp;amp; Inference vLLM (66k+ stars) — The industry standard for high-throughput LLM serving. Continuous batching and maximum GPU utilization. If you&amp;rsquo;re serving LLMs in production, this is probably what you should be using.</description>
+      <description>If you&amp;rsquo;re building AI systems in production — or just getting started — these repos are worth bookmarking.
+LLM Serving &amp;amp; Inference vLLM (66k+ stars) — The industry standard for high-throughput LLM serving. Continuous batching and maximum GPU utilization. If you&amp;rsquo;re serving LLMs in production, this is probably what you should be using.
+Ollama (162k+ stars) — The easiest way to run LLMs locally. Great for fast experimentation before you commit to a cloud setup.</description>
     </item>
     
   </channel>
