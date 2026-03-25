@@ -5,11 +5,11 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 12 Mar 2026 22:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>devops</title>
       <link>https://okulbida.com/tags/devops/</link>
-      <pubDate>Thu, 12 Mar 2026 22:00:00 +0300</pubDate>
+      <pubDate>Wed, 25 Mar 2026 10:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/devops/</guid>
       <description></description>
@@ -18,9 +18,18 @@
     <item>
       <title>kubernetes</title>
       <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Thu, 12 Mar 2026 22:00:00 +0300</pubDate>
+      <pubDate>Wed, 25 Mar 2026 10:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://okulbida.com/tags/networking/</link>
+      <pubDate>Wed, 25 Mar 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/networking/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/networking/</link>
+    <description>Recent content in networking on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 25 Mar 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ingress-NGINX Is Retiring — Here&#39;s How to Migrate (and What to Migrate To)</title>
+      <link>https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/</link>
+      <pubDate>Wed, 25 Mar 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/</guid>
+      <description>If you&amp;rsquo;re running Ingress-NGINX in production, you&amp;rsquo;ve probably seen the writing on the wall. The retirement was announced back in November 2025, and as of March 2026, it&amp;rsquo;s happening. The Ingress API isn&amp;rsquo;t going away overnight, but active development on Ingress-NGINX is done. Time to move.
+The good news: SIG Network just shipped Ingress2Gateway 1.0, a migration tool that actually works now.
+What Changed in 1.0 Previous versions were barely usable — they supported only three Ingress-NGINX annotations.</description>
+    </item>
+    
+  </channel>
+</rss>
