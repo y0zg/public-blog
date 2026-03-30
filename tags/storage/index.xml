@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 28 Dec 2025 16:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>VolSync: Asynchronous Data Replication for Kubernetes Volumes</title>
+      <title>VolSync: asynchronous data replication for Kubernetes volumes</title>
       <link>https://okulbida.com/posts/volsync-kubernetes-volume-migration/</link>
       <pubDate>Sun, 28 Dec 2025 16:00:00 +0300</pubDate>
       
@@ -20,7 +20,7 @@ helm repo add backube https://backube.github.io/helm-charts/ helm install --crea
     </item>
     
     <item>
-      <title>AWS Finally Built a Browser for S3 (And Why It Took 20 Years)</title>
+      <title>AWS finally built a browser for S3 (and why it took 20 years)</title>
       <link>https://okulbida.com/posts/aws-s3-storage-browser-access-grants/</link>
       <pubDate>Wed, 20 Nov 2024 18:00:00 +0300</pubDate>
       

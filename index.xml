@@ -17,7 +17,7 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
     </item>
     
     <item>
-      <title>Ingress-NGINX Is Retiring — Here&#39;s How to Migrate (and What to Migrate To)</title>
+      <title>Ingress-NGINX is retiring — here&#39;s how to migrate (and what to migrate to)</title>
       <link>https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/</link>
       <pubDate>Wed, 25 Mar 2026 10:00:00 +0300</pubDate>
       
@@ -28,7 +28,7 @@ What Changed in 1.0 Previous versions were barely usable — they supported only
     </item>
     
     <item>
-      <title>How Container Filesystem Works: Building One From Scratch</title>
+      <title>How container filesystem works: building one from scratch</title>
       <link>https://okulbida.com/posts/how-container-filesystem-works/</link>
       <pubDate>Thu, 12 Mar 2026 22:00:00 +0300</pubDate>
       
@@ -38,7 +38,7 @@ In this post, we&amp;rsquo;ll walk through how to assemble a tiny but realistic 
     </item>
     
     <item>
-      <title>The Future of Software Engineering: Key Takeaways from Martin Fowler&#39;s Retreat</title>
+      <title>The future of software engineering: key takeaways from Martin Fowler&#39;s retreat</title>
       <link>https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/</link>
       <pubDate>Thu, 12 Mar 2026 21:00:00 +0300</pubDate>
       
@@ -49,7 +49,7 @@ Where Does the Rigor Go? The biggest question of the retreat: if AI writes the c
     </item>
     
     <item>
-      <title>16 GitHub Repos Every AI Engineer Should Know in 2026</title>
+      <title>16 GitHub repos every AI engineer should know in 2026</title>
       <link>https://okulbida.com/posts/ai-engineer-repos-2026/</link>
       <pubDate>Thu, 12 Mar 2026 20:00:00 +0300</pubDate>
       
@@ -60,7 +60,7 @@ Ollama (162k+ stars) — The easiest way to run LLMs locally. Great for fast exp
     </item>
     
     <item>
-      <title>AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill</title>
+      <title>AWS SQS: when a &#39;cheap&#39; queue runs up a huge bill</title>
       <link>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</link>
       <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
       
@@ -70,7 +70,7 @@ How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteM
     </item>
     
     <item>
-      <title>AWS Billing Transfer</title>
+      <title>AWS billing transfer</title>
       <link>https://okulbida.com/posts/aws-billing-transfer-session-summary/</link>
       <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
       
@@ -80,7 +80,7 @@ Key Challenges Addressed  Multiple Organizations – Separate logins for billing
     </item>
     
     <item>
-      <title>VolSync: Asynchronous Data Replication for Kubernetes Volumes</title>
+      <title>VolSync: asynchronous data replication for Kubernetes volumes</title>
       <link>https://okulbida.com/posts/volsync-kubernetes-volume-migration/</link>
       <pubDate>Sun, 28 Dec 2025 16:00:00 +0300</pubDate>
       
@@ -93,7 +93,7 @@ helm repo add backube https://backube.github.io/helm-charts/ helm install --crea
     </item>
     
     <item>
-      <title>Terraform Best Practices: Code Organization and Structure</title>
+      <title>Terraform best practices: code organization and structure</title>
       <link>https://okulbida.com/posts/terraform-code-organization-best-practices/</link>
       <pubDate>Sun, 28 Dec 2025 14:00:00 +0300</pubDate>
       
@@ -118,7 +118,7 @@ Optional Service Integrations - Choose which integrations to enable:
     </item>
     
     <item>
-      <title>How GitHub Engineers Tackle Platform Problems</title>
+      <title>How GitHub engineers tackle platform problems</title>
       <link>https://okulbida.com/posts/github-platform-engineering-approaches/</link>
       <pubDate>Sat, 27 Dec 2025 00:30:00 +0300</pubDate>
       
@@ -130,7 +130,7 @@ Understanding your domain:
     </item>
     
     <item>
-      <title>ACM Finally Automates Certificate Management for Kubernetes</title>
+      <title>ACM finally automates certificate management for Kubernetes</title>
       <link>https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0300</pubDate>
       
@@ -141,7 +141,7 @@ This works for both public certificates (ACM exportable certificates) and privat
     </item>
     
     <item>
-      <title>How Cloudflare Secures Terraform State at Scale</title>
+      <title>How Cloudflare secures Terraform state at scale</title>
       <link>https://okulbida.com/posts/cloudflare-terraform-state-security/</link>
       <pubDate>Tue, 23 Dec 2025 16:00:00 +0300</pubDate>
       
@@ -152,7 +152,7 @@ The Security Problem When you&amp;rsquo;re managing infrastructure at Cloudflare
     </item>
     
     <item>
-      <title>AWS in 2025: Things You Think You Know That Are Actually Wrong</title>
+      <title>AWS in 2025: things you think you know that are actually wrong</title>
       <link>https://okulbida.com/posts/aws-2025-things-you-think-you-know/</link>
       <pubDate>Tue, 23 Dec 2025 14:00:00 +0300</pubDate>
       
@@ -162,7 +162,7 @@ The problem is that AWS changes constantly, but a lot of the foundational stuff 
     </item>
     
     <item>
-      <title>AWS re:Invent 2025 Recap: Key Announcements for Cloud Practitioners</title>
+      <title>AWS re:Invent 2025 recap: key announcements for cloud practitioners</title>
       <link>https://okulbida.com/posts/aws-reinvent-2025-recap/</link>
       <pubDate>Tue, 23 Dec 2025 10:00:00 +0300</pubDate>
       
@@ -173,7 +173,7 @@ Security Features That Matter AWS Security Agent (Preview) This one caught my at
     </item>
     
     <item>
-      <title>AWS Finally Built a Browser for S3 (And Why It Took 20 Years)</title>
+      <title>AWS finally built a browser for S3 (and why it took 20 years)</title>
       <link>https://okulbida.com/posts/aws-s3-storage-browser-access-grants/</link>
       <pubDate>Wed, 20 Nov 2024 18:00:00 +0300</pubDate>
       
@@ -194,7 +194,7 @@ The 12-factor app methodology 12factor.net, is a set of principles designed to e
     </item>
     
     <item>
-      <title>Aws vs Elasticsearch licensing</title>
+      <title>AWS vs Elasticsearch licensing</title>
       <link>https://okulbida.com/posts/aws-elasticsearch-licensing/</link>
       <pubDate>Sun, 21 Apr 2024 21:25:08 +0300</pubDate>
       
@@ -249,7 +249,7 @@ eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_s
     </item>
     
     <item>
-      <title>Simple rds access</title>
+      <title>Simple RDS access</title>
       <link>https://okulbida.com/posts/simple-rds-access/</link>
       <pubDate>Sat, 23 Dec 2023 16:37:19 +0200</pubDate>
       
@@ -268,7 +268,7 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &a
     </item>
     
     <item>
-      <title>EKS expose pods through cross-account Load balancer</title>
+      <title>EKS expose pods through cross-account load balancer</title>
       <link>https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/</link>
       <pubDate>Sat, 23 Dec 2023 15:44:19 +0200</pubDate>
       
@@ -331,7 +331,7 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &a
     </item>
     
     <item>
-      <title>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</title>
+      <title>AWS removes NAT Gateway’s dependence on Internet Gateway for private communications</title>
       <link>https://okulbida.com/posts/aws-nat-gateway-no-need-igw/</link>
       <pubDate>Thu, 17 Jun 2021 12:15:17 +0300</pubDate>
       
@@ -362,7 +362,7 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
     </item>
     
     <item>
-      <title>Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy</title>
+      <title>Amazon EC2 Auto Scaling introduces predictive scaling as a native scaling policy</title>
       <link>https://okulbida.com/posts/aws-ec2-predictive-autoscaling/</link>
       <pubDate>Mon, 24 May 2021 16:14:25 +0300</pubDate>
       
@@ -372,7 +372,7 @@ https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-intro
     </item>
     
     <item>
-      <title>EKS Add-Ons Now Supports CoreDNS and kube-proxy</title>
+      <title>EKS add-ons now supports CoreDNS and kube-proxy</title>
       <link>https://okulbida.com/posts/awsekscoredns/</link>
       <pubDate>Mon, 24 May 2021 16:05:58 +0300</pubDate>
       
@@ -433,7 +433,7 @@ https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provi
     </item>
     
     <item>
-      <title>Grafana License</title>
+      <title>Grafana license</title>
       <link>https://okulbida.com/posts/grafana-license/</link>
       <pubDate>Tue, 27 Apr 2021 11:11:59 +0300</pubDate>
       

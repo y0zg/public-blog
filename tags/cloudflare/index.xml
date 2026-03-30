@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 23 Dec 2025 16:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How Cloudflare Secures Terraform State at Scale</title>
+      <title>How Cloudflare secures Terraform state at scale</title>
       <link>https://okulbida.com/posts/cloudflare-terraform-state-security/</link>
       <pubDate>Tue, 23 Dec 2025 16:00:00 +0300</pubDate>
       

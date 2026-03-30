@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 28 Dec 2025 20:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AWS SQS: When a &#39;Cheap&#39; Queue Runs Up a Huge Bill</title>
+      <title>AWS SQS: when a &#39;cheap&#39; queue runs up a huge bill</title>
       <link>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</link>
       <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
       
@@ -17,7 +17,7 @@ How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteM
     </item>
     
     <item>
-      <title>AWS Billing Transfer</title>
+      <title>AWS billing transfer</title>
       <link>https://okulbida.com/posts/aws-billing-transfer-session-summary/</link>
       <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
       
@@ -40,7 +40,7 @@ Optional Service Integrations - Choose which integrations to enable:
     </item>
     
     <item>
-      <title>ACM Finally Automates Certificate Management for Kubernetes</title>
+      <title>ACM finally automates certificate management for Kubernetes</title>
       <link>https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0300</pubDate>
       
@@ -51,7 +51,7 @@ This works for both public certificates (ACM exportable certificates) and privat
     </item>
     
     <item>
-      <title>AWS in 2025: Things You Think You Know That Are Actually Wrong</title>
+      <title>AWS in 2025: things you think you know that are actually wrong</title>
       <link>https://okulbida.com/posts/aws-2025-things-you-think-you-know/</link>
       <pubDate>Tue, 23 Dec 2025 14:00:00 +0300</pubDate>
       
@@ -61,7 +61,7 @@ The problem is that AWS changes constantly, but a lot of the foundational stuff 
     </item>
     
     <item>
-      <title>AWS re:Invent 2025 Recap: Key Announcements for Cloud Practitioners</title>
+      <title>AWS re:Invent 2025 recap: key announcements for cloud practitioners</title>
       <link>https://okulbida.com/posts/aws-reinvent-2025-recap/</link>
       <pubDate>Tue, 23 Dec 2025 10:00:00 +0300</pubDate>
       
@@ -72,7 +72,7 @@ Security Features That Matter AWS Security Agent (Preview) This one caught my at
     </item>
     
     <item>
-      <title>AWS Finally Built a Browser for S3 (And Why It Took 20 Years)</title>
+      <title>AWS finally built a browser for S3 (and why it took 20 years)</title>
       <link>https://okulbida.com/posts/aws-s3-storage-browser-access-grants/</link>
       <pubDate>Wed, 20 Nov 2024 18:00:00 +0300</pubDate>
       
@@ -83,7 +83,7 @@ Real Problem: Access Control Turns out, building a simple file browser wasn&amp;
     </item>
     
     <item>
-      <title>Aws vs Elasticsearch licensing</title>
+      <title>AWS vs Elasticsearch licensing</title>
       <link>https://okulbida.com/posts/aws-elasticsearch-licensing/</link>
       <pubDate>Sun, 21 Apr 2024 21:25:08 +0300</pubDate>
       
@@ -107,7 +107,7 @@ eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_s
     </item>
     
     <item>
-      <title>Simple rds access</title>
+      <title>Simple RDS access</title>
       <link>https://okulbida.com/posts/simple-rds-access/</link>
       <pubDate>Sat, 23 Dec 2023 16:37:19 +0200</pubDate>
       
@@ -116,7 +116,7 @@ eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_s
     </item>
     
     <item>
-      <title>EKS expose pods through cross-account Load balancer</title>
+      <title>EKS expose pods through cross-account load balancer</title>
       <link>https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/</link>
       <pubDate>Sat, 23 Dec 2023 15:44:19 +0200</pubDate>
       
@@ -136,7 +136,7 @@ eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_s
     </item>
     
     <item>
-      <title>AWS removes NAT Gateway’s dependence on Internet Gateway for Private communications</title>
+      <title>AWS removes NAT Gateway’s dependence on Internet Gateway for private communications</title>
       <link>https://okulbida.com/posts/aws-nat-gateway-no-need-igw/</link>
       <pubDate>Thu, 17 Jun 2021 12:15:17 +0300</pubDate>
       
@@ -155,7 +155,7 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
     </item>
     
     <item>
-      <title>Amazon EC2 Auto Scaling Introduces Predictive Scaling as a Native Scaling Policy</title>
+      <title>Amazon EC2 Auto Scaling introduces predictive scaling as a native scaling policy</title>
       <link>https://okulbida.com/posts/aws-ec2-predictive-autoscaling/</link>
       <pubDate>Mon, 24 May 2021 16:14:25 +0300</pubDate>
       
@@ -165,7 +165,7 @@ https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-intro
     </item>
     
     <item>
-      <title>EKS Add-Ons Now Supports CoreDNS and kube-proxy</title>
+      <title>EKS add-ons now supports CoreDNS and kube-proxy</title>
       <link>https://okulbida.com/posts/awsekscoredns/</link>
       <pubDate>Mon, 24 May 2021 16:05:58 +0300</pubDate>
       

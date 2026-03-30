@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 25 Mar 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ingress-NGINX Is Retiring — Here&#39;s How to Migrate (and What to Migrate To)</title>
+      <title>Ingress-NGINX is retiring — here&#39;s how to migrate (and what to migrate to)</title>
       <link>https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/</link>
       <pubDate>Wed, 25 Mar 2026 10:00:00 +0300</pubDate>
       
@@ -18,7 +18,7 @@ What Changed in 1.0 Previous versions were barely usable — they supported only
     </item>
     
     <item>
-      <title>How Container Filesystem Works: Building One From Scratch</title>
+      <title>How container filesystem works: building one from scratch</title>
       <link>https://okulbida.com/posts/how-container-filesystem-works/</link>
       <pubDate>Thu, 12 Mar 2026 22:00:00 +0300</pubDate>
       
@@ -28,7 +28,7 @@ In this post, we&amp;rsquo;ll walk through how to assemble a tiny but realistic 
     </item>
     
     <item>
-      <title>The Future of Software Engineering: Key Takeaways from Martin Fowler&#39;s Retreat</title>
+      <title>The future of software engineering: key takeaways from Martin Fowler&#39;s retreat</title>
       <link>https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/</link>
       <pubDate>Thu, 12 Mar 2026 21:00:00 +0300</pubDate>
       
@@ -39,7 +39,7 @@ Where Does the Rigor Go? The biggest question of the retreat: if AI writes the c
     </item>
     
     <item>
-      <title>16 GitHub Repos Every AI Engineer Should Know in 2026</title>
+      <title>16 GitHub repos every AI engineer should know in 2026</title>
       <link>https://okulbida.com/posts/ai-engineer-repos-2026/</link>
       <pubDate>Thu, 12 Mar 2026 20:00:00 +0300</pubDate>
       
@@ -50,7 +50,7 @@ Ollama (162k+ stars) — The easiest way to run LLMs locally. Great for fast exp
     </item>
     
     <item>
-      <title>Terraform Best Practices: Code Organization and Structure</title>
+      <title>Terraform best practices: code organization and structure</title>
       <link>https://okulbida.com/posts/terraform-code-organization-best-practices/</link>
       <pubDate>Sun, 28 Dec 2025 14:00:00 +0300</pubDate>
       
@@ -62,7 +62,7 @@ Instead of putting all code in main.tf, distribute it across multiple files:
     </item>
     
     <item>
-      <title>How GitHub Engineers Tackle Platform Problems</title>
+      <title>How GitHub engineers tackle platform problems</title>
       <link>https://okulbida.com/posts/github-platform-engineering-approaches/</link>
       <pubDate>Sat, 27 Dec 2025 00:30:00 +0300</pubDate>
       

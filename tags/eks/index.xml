@@ -18,7 +18,7 @@ eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_s
     </item>
     
     <item>
-      <title>EKS expose pods through cross-account Load balancer</title>
+      <title>EKS expose pods through cross-account load balancer</title>
       <link>https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/</link>
       <pubDate>Sat, 23 Dec 2023 15:44:19 +0200</pubDate>
       
@@ -47,7 +47,7 @@ eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_s
     </item>
     
     <item>
-      <title>EKS Add-Ons Now Supports CoreDNS and kube-proxy</title>
+      <title>EKS add-ons now supports CoreDNS and kube-proxy</title>
       <link>https://okulbida.com/posts/awsekscoredns/</link>
       <pubDate>Mon, 24 May 2021 16:05:58 +0300</pubDate>
       
