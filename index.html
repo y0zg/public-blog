@@ -201,9 +201,10 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
     <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
   </header>
   <section class="entry-content">
-    <p>This post is a general walkthrough of a common pattern: Amazon GuardDuty flags DNS activity toward a phishing or otherwise suspicious domain, the cluster looks “clean,” and the real issue is not malware on the node but application behavior—resolving or fetching arbitrary URLs from user-supplied content. That behavior couples alert noise with a genuine SSRF-class risk. Below is a concise chain-of-events model, concrete examples (CLI and code), and what “expected” outputs look like when investigating....</p>
+    <p>GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it is not a hacked cluster.
+The uncomfortable part: if you resolve or fetch any user URL with no checks, you also open the door to SSRF — for example a link to 169....</p>
   </section>
-  <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean" href="https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/"></a>
 </article>
 
