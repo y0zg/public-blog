@@ -5,7 +5,43 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>axios</title>
+      <link>https://okulbida.com/tags/axios/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/axios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://okulbida.com/tags/npm/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://okulbida.com/tags/security/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>supply-chain</title>
+      <link>https://okulbida.com/tags/supply-chain/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/supply-chain/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aws</title>
       <link>https://okulbida.com/tags/aws/</link>
@@ -39,15 +75,6 @@
       <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/route53/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://okulbida.com/tags/security/</link>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/security/</guid>
       <description></description>
     </item>
     

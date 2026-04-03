@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>axios on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/axios/</link>
+    <description>Recent content in axios on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/axios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Axios on npm: quick note on supply-chain risk and min-release-age</title>
+      <link>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</guid>
+      <description>In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a npm install could pull down far more than an HTTP client — a pattern we have seen before in registry incidents, not a bug in axios’ normal code.
+The bad versions were taken down quickly, but any machine or CI job that installed them in that window should be treated as potentially affected: rotate secrets where relevant, check install logs and lockfiles, and pin to known-good versions (axios at or below 1.</description>
+    </item>
+    
+  </channel>
+</rss>

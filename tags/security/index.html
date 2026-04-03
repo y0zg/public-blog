@@ -121,6 +121,18 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Axios on npm: quick note on supply-chain risk and min-release-age</h2>
+  </header>
+  <section class="entry-content">
+    <p>In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a npm install could pull down far more than an HTTP client — a pattern we have seen before in registry incidents, not a bug in axios’ normal code.
+The bad versions were taken down quickly, but any machine or CI job that installed them in that window should be treated as potentially affected: rotate secrets where relevant, check install logs and lockfiles, and pin to known-good versions (axios at or below 1....</p>
+  </section>
+  <footer class="entry-footer">April 4, 2026&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Axios on npm: quick note on supply-chain risk and min-release-age" href="https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
   </header>
   <section class="entry-content">

@@ -5,7 +5,7 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
@@ -14,6 +14,16 @@
       <guid>https://okulbida.com/posts/kubernetes_tools/</guid>
       <description>This list is being updated on regular basis
 General info  https://kubernetesreadme.com/  Comparison  API comparison https://kube-api.ninja/ https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github.</description>
+    </item>
+    
+    <item>
+      <title>Axios on npm: quick note on supply-chain risk and min-release-age</title>
+      <link>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</guid>
+      <description>In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a npm install could pull down far more than an HTTP client — a pattern we have seen before in registry incidents, not a bug in axios’ normal code.
+The bad versions were taken down quickly, but any machine or CI job that installed them in that window should be treated as potentially affected: rotate secrets where relevant, check install logs and lockfiles, and pin to known-good versions (axios at or below 1.</description>
     </item>
     
     <item>

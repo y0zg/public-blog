@@ -5,6 +5,30 @@
     <loc>https://okulbida.com/posts/kubernetes_tools/</loc>
     <lastmod>2024-03-16T00:09:44+03:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/axios/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/npm/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/security/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/supply-chain/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/aws/</loc>
     <lastmod>2026-04-03T00:00:00+02:00</lastmod>
   </url><url>
@@ -17,22 +41,10 @@
     <loc>https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/</loc>
     <lastmod>2026-04-03T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/route53/</loc>
     <lastmod>2026-04-03T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/security/</loc>
-    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/ssrf/</loc>
-    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-04-03T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/devops/</loc>
