@@ -121,6 +121,17 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
+  </header>
+  <section class="entry-content">
+    <p>This post is a general walkthrough of a common pattern: Amazon GuardDuty flags DNS activity toward a phishing or otherwise suspicious domain, the cluster looks “clean,” and the real issue is not malware on the node but application behavior—resolving or fetching arbitrary URLs from user-supplied content. That behavior couples alert noise with a genuine SSRF-class risk. Below is a concise chain-of-events model, concrete examples (CLI and code), and what “expected” outputs look like when investigating....</p>
+  </section>
+  <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean" href="https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>ACM finally automates certificate management for Kubernetes</h2>
   </header>
   <section class="entry-content">

@@ -197,6 +197,17 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
 </article>
 
 <article class="post-entry"> 
+  <header class="entry-header">
+    <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
+  </header>
+  <section class="entry-content">
+    <p>This post is a general walkthrough of a common pattern: Amazon GuardDuty flags DNS activity toward a phishing or otherwise suspicious domain, the cluster looks “clean,” and the real issue is not malware on the node but application behavior—resolving or fetching arbitrary URLs from user-supplied content. That behavior couples alert noise with a genuine SSRF-class risk. Below is a concise chain-of-events model, concrete examples (CLI and code), and what “expected” outputs look like when investigating....</p>
+  </section>
+  <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean" href="https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Network infrastructure">
 </figure>
   <header class="entry-header">
@@ -306,21 +317,6 @@ Instead of putting all code in main.tf, distribute it across multiple files:
   </section>
   <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Terraform best practices: code organization and structure" href="https://okulbida.com/posts/terraform-code-organization-best-practices/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>AWS Control Tower Landing Zone 4.0 is out! After 8 years of multi-account pain, we can FINALLY set up everything programmatically</h2>
-  </header>
-  <section class="entry-content">
-    <p>AWS Control Tower Landing Zone 4.0 introduces a flexible Controls-Only experience, allowing full programmatic setup and customization of multi-account environments.
-Key Changes:
-Optional Service Integrations - Choose which integrations to enable:
- AWS Config AWS CloudTrail Security Roles AWS Backup  Dedicated Resources - Better isolation with separate resources per service:
- Separate S3 buckets for AWS Config and CloudTrail Individual SNS topics for each service  Flexible Organization Structure - Removed previous requirements:...</p>
-  </section>
-  <footer class="entry-footer">December 27, 2025&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Control Tower Landing Zone 4.0 is out! After 8 years of multi-account pain, we can FINALLY set up everything programmatically" href="https://okulbida.com/posts/aws-control-tower-landing-zone-4.0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

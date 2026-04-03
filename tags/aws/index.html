@@ -121,6 +121,17 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
+  </header>
+  <section class="entry-content">
+    <p>This post is a general walkthrough of a common pattern: Amazon GuardDuty flags DNS activity toward a phishing or otherwise suspicious domain, the cluster looks “clean,” and the real issue is not malware on the node but application behavior—resolving or fetching arbitrary URLs from user-supplied content. That behavior couples alert noise with a genuine SSRF-class risk. Below is a concise chain-of-events model, concrete examples (CLI and code), and what “expected” outputs look like when investigating....</p>
+  </section>
+  <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean" href="https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>AWS SQS: when a &#39;cheap&#39; queue runs up a huge bill</h2>
   </header>
   <section class="entry-content">
@@ -241,17 +252,6 @@ eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 
   </section>
   <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS with instance-store nitro-based node-group" href="https://okulbida.com/posts/eks-instance-store/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Simple RDS access</h2>
-  </header>
-  <section class="entry-content">
-    <p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:...</p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Simple RDS access" href="https://okulbida.com/posts/simple-rds-access/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

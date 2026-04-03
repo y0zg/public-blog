@@ -5,6 +5,36 @@
     <loc>https://okulbida.com/posts/kubernetes_tools/</loc>
     <lastmod>2024-03-16T00:09:44+03:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/aws/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/eks/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/guardduty/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/route53/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/security/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/ssrf/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/devops/</loc>
     <lastmod>2026-03-25T10:00:00+03:00</lastmod>
   </url><url>
@@ -15,15 +45,6 @@
     <lastmod>2026-03-25T10:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/networking/</loc>
-    <lastmod>2026-03-25T10:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-03-25T10:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-03-25T10:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-03-25T10:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/how-container-filesystem-works/</loc>
@@ -43,9 +64,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/opensource/</loc>
     <lastmod>2026-03-12T20:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/aws/</loc>
-    <lastmod>2025-12-28T20:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</loc>
     <lastmod>2025-12-28T20:00:00+03:00</lastmod>
@@ -128,9 +146,6 @@
     <loc>https://okulbida.com/tags/certificates/</loc>
     <lastmod>2025-12-27T00:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/security/</loc>
-    <lastmod>2025-12-27T00:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/cloudflare/</loc>
     <lastmod>2025-12-23T16:00:00+03:00</lastmod>
   </url><url>
@@ -175,9 +190,6 @@
   </url><url>
     <loc>https://okulbida.com/posts/terraform-best-practices/</loc>
     <lastmod>2024-03-23T19:11:15+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/eks/</loc>
-    <lastmod>2024-03-16T17:00:51+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/eks-instance-store/</loc>
     <lastmod>2024-03-16T17:00:51+02:00</lastmod>

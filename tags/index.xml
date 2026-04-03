@@ -5,7 +5,61 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 25 Mar 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aws</title>
+      <link>https://okulbida.com/tags/aws/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eks</title>
+      <link>https://okulbida.com/tags/eks/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guardduty</title>
+      <link>https://okulbida.com/tags/guardduty/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/guardduty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>route53</title>
+      <link>https://okulbida.com/tags/route53/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/route53/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://okulbida.com/tags/security/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssrf</title>
+      <link>https://okulbida.com/tags/ssrf/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/ssrf/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>devops</title>
       <link>https://okulbida.com/tags/devops/</link>
@@ -57,15 +111,6 @@
       <pubDate>Thu, 12 Mar 2026 20:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/opensource/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://okulbida.com/tags/aws/</link>
-      <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -250,15 +295,6 @@
     </item>
     
     <item>
-      <title>security</title>
-      <link>https://okulbida.com/tags/security/</link>
-      <pubDate>Sat, 27 Dec 2025 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>cloudflare</title>
       <link>https://okulbida.com/tags/cloudflare/</link>
       <pubDate>Tue, 23 Dec 2025 16:00:00 +0300</pubDate>
@@ -309,15 +345,6 @@
       <pubDate>Sun, 21 Apr 2024 21:25:08 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/elasticsearch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>eks</title>
-      <link>https://okulbida.com/tags/eks/</link>
-      <pubDate>Sat, 16 Mar 2024 17:00:51 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/eks/</guid>
       <description></description>
     </item>
     

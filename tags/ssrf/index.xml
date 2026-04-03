@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssrf on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/ssrf/</link>
+    <description>Recent content in ssrf on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/ssrf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</title>
+      <link>https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/</guid>
+      <description>This post is a general walkthrough of a common pattern: Amazon GuardDuty flags DNS activity toward a phishing or otherwise suspicious domain, the cluster looks “clean,” and the real issue is not malware on the node but application behavior—resolving or fetching arbitrary URLs from user-supplied content. That behavior couples alert noise with a genuine SSRF-class risk. Below is a concise chain-of-events model, concrete examples (CLI and code), and what “expected” outputs look like when investigating.</description>
+    </item>
+    
+  </channel>
+</rss>

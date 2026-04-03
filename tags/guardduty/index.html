@@ -5,23 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>taints | Oleksandr Kulbida</title>
+<title>guardduty | Oleksandr Kulbida</title>
 <meta name="keywords" content="" />
 <meta name="description" content="All about clouds, AI and that devops">
 <meta name="author" content="Oleksandr Kulbida">
-<link rel="canonical" href="https://okulbida.com/tags/taints/" />
+<link rel="canonical" href="https://okulbida.com/tags/guardduty/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.65aebb33e4f0ce3d1a39e4a35c11b91eb08b582489fca0f78f9227d90ac72a52.css" integrity="sha256-Za67M&#43;Twzj0aOeSjXBG5HrCLWCSJ/KD3j5In2QrHKlI=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.e809757451aae7d7fde10f6f3c284b630e0c3fbc43b2b48043a38c0a56271dd1.css" integrity="sha256-6Al1dFGq59f94Q9vPChLYw4MP7xDsrSAQ6OMClYnHdE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
 <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
-<link rel="mask-icon" href="https://okulbida.com/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.82.0" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/taints/index.xml">
+<link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/guardduty/index.xml">
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -34,15 +34,15 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="taints" />
+</script><meta property="og:title" content="guardduty" />
 <meta property="og:description" content="All about clouds, AI and that devops" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://okulbida.com/tags/taints/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+<meta property="og:url" content="https://okulbida.com/tags/guardduty/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
-<meta name="twitter:title" content="taints"/>
+<meta name="twitter:title" content="guardduty"/>
 <meta name="twitter:description" content="All about clouds, AI and that devops"/>
 
 </head>
@@ -116,20 +116,18 @@ if (!doNotTrack) {
 
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://okulbida.com">Home</a>&nbsp;»&nbsp;<a href="https://okulbida.com/tags/">Tags</a></div>
-  <h1>taints</h1>
+  <h1>guardduty</h1>
 </header>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Isolate Kubernetes Jobs with Taints/Tolerations for Better Node Consolidation</h2>
+    <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
   </header>
   <section class="entry-content">
-    <p>When running CronJobs or batch Jobs in Kubernetes, you should use taints and tolerations to isolate them on dedicated nodes. This reduces disruption during node consolidation and prevents jobs from interfering with your regular workloads.
-The Problem:
-Jobs and CronJobs running on the same nodes as your regular workloads cause issues during node consolidation. This is especially problematic with Cluster Autoscaler - it can’t effectively drain nodes because jobs keep scheduling on them, preventing consolidation....</p>
+    <p>This post is a general walkthrough of a common pattern: Amazon GuardDuty flags DNS activity toward a phishing or otherwise suspicious domain, the cluster looks “clean,” and the real issue is not malware on the node but application behavior—resolving or fetching arbitrary URLs from user-supplied content. That behavior couples alert noise with a genuine SSRF-class risk. Below is a concise chain-of-events model, concrete examples (CLI and code), and what “expected” outputs look like when investigating....</p>
   </section>
-  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Isolate Kubernetes Jobs with Taints/Tolerations for Better Node Consolidation" href="https://okulbida.com/posts/kubernetes-jobs-dedicated-nodes-taints/"></a>
+  <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean" href="https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/"></a>
 </article>
     </main>
     <footer class="footer">
