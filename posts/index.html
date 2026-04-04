@@ -37,10 +37,10 @@ if (!doNotTrack) {
 </script><meta property="og:title" content="Posts" />
 <meta property="og:description" content="All about clouds, AI and that devops" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://okulbida.com/posts/" /><meta property="og:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+<meta property="og:url" content="https://okulbida.com/posts/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://okulbida.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/>
 
 <meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="All about clouds, AI and that devops"/>
@@ -133,20 +133,6 @@ if (!doNotTrack) {
 <header class="page-header"><div class="breadcrumbs"><a href="https://okulbida.com">Home</a></div>
   <h1>Posts</h1>
 </header>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/k8s-tools.png" alt="kubernetes tools">
-</figure>
-  <header class="entry-header">
-    <h2>Kubernetes tools</h2>
-  </header>
-  <section class="entry-content">
-    <p>This list is being updated on regular basis
-General info  https://kubernetesreadme.com/  Comparison  API comparison https://kube-api.ninja/ https://learnk8s.io/research https://docs.google.com/spreadsheets/d/1RPpyDOLFmcgxMCpABDzrsBYWpPYCIBuvAoUQLwOGoQw/edit#gid=907731238  Hosting  kapsule https://www.scaleway.com/en/ free https://cloud.okteto.com/  Secrets  External secrets management integration with k8s https://github.com/godaddy/kubernetes-external-secrets Integrate Kubernetes with 1Password https://github.com/1Password/onepassword-operator Kubernetes mutating webhook for secrets-init injection https://github.com/doitintl/kube-secrets-init AWS EKS Secrets store CSI driver https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/  RBAC  RBAC practices and tooling https://rbac.dev/ Visualize RBAC https://github.com/team-soteria/rback RBAC Manager is designed to simplify authorization in Kubernetes https://github....</p>
-  </section>
-  <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Kubernetes tools" href="https://okulbida.com/posts/kubernetes_tools/"></a>
-</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -268,6 +254,20 @@ helm repo add backube https://backube.github.io/helm-charts/ helm install --crea
   </section>
   <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to VolSync: asynchronous data replication for Kubernetes volumes" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Terraform best practices: code organization and structure</h2>
+  </header>
+  <section class="entry-content">
+    <p>Essential Terraform best practices for organizing and structuring your infrastructure code:
+1. Separate Configuration Files
+Instead of putting all code in main.tf, distribute it across multiple files:
+ main.tf: Calls modules, locals, and data sources to create all resources variables.tf: Contains variable declarations used in main.tf. Place required variables at the top and optional ones at the bottom, separated by a comment line for better readability outputs.tf: Contains outputs from resources created in main....</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Terraform best practices: code organization and structure" href="https://okulbida.com/posts/terraform-code-organization-best-practices/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
