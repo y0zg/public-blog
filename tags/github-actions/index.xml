@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>npm on Oleksandr Kulbida</title>
-    <link>https://okulbida.com/tags/npm/</link>
-    <description>Recent content in npm on Oleksandr Kulbida</description>
+    <title>github-actions on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/github-actions/</link>
+    <description>Recent content in github-actions on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Supply Chain Attacks in 2026: How to Harden Your Pipeline</title>
       <link>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</link>
