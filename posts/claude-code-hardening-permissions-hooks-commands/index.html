@@ -9,7 +9,7 @@
 <meta name="keywords" content="claude, ai, security, developer-tools" />
 <meta name="description" content="Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
  Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.saml2aws)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/.">
+{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/.azure/**)&#34;, &#34;Read(~/.">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/" />
 <meta name="google-site-verification" content="XYZabc" />
@@ -40,7 +40,7 @@ if (!doNotTrack) {
 </script><meta property="og:title" content="Hardening Claude Code: permissions, hooks, and custom commands" />
 <meta property="og:description" content="Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
  Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.saml2aws)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/." />
+{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/.azure/**)&#34;, &#34;Read(~/." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2026-04-10T00:00:00&#43;02:00" />
@@ -52,7 +52,7 @@ if (!doNotTrack) {
 <meta name="twitter:title" content="Hardening Claude Code: permissions, hooks, and custom commands"/>
 <meta name="twitter:description" content="Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
  Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.saml2aws)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/."/>
+{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/.azure/**)&#34;, &#34;Read(~/."/>
 
 
 <script type="application/ld+json">
@@ -81,12 +81,12 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Hardening Claude Code: permissions, hooks, and custom commands",
   "name": "Hardening Claude Code: permissions, hooks, and custom commands",
-  "description": "Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.\n Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.\n{ \u0026#34;permissions\u0026#34;: { \u0026#34;deny\u0026#34;: [ \u0026#34;Read(~/.aws/**)\u0026#34;, \u0026#34;Read(~/.saml2aws)\u0026#34;, \u0026#34;Read(~/.config/gcloud/**)\u0026#34;, \u0026#34;Read(~/.",
+  "description": "Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.\n Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.\n{ \u0026#34;permissions\u0026#34;: { \u0026#34;deny\u0026#34;: [ \u0026#34;Read(~/.aws/**)\u0026#34;, \u0026#34;Read(~/.config/gcloud/**)\u0026#34;, \u0026#34;Read(~/.azure/**)\u0026#34;, \u0026#34;Read(~/.",
   "keywords": [
     "claude", "ai", "security", "developer-tools"
   ],
-  "articleBody": "Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.\n Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.\n{ \"permissions\": { \"deny\": [ \"Read(~/.aws/**)\", \"Read(~/.saml2aws)\", \"Read(~/.config/gcloud/**)\", \"Read(~/.azure/**)\", \"Read(~/.ssh/**)\", \"Read(~/.gnupg/**)\", \"Read(~/.git-credentials)\", \"Read(~/.netrc)\", \"Read(~/.config/gh/hosts.yml)\", \"Read(~/.docker/config.json)\", \"Read(~/.kube/config)\", \"Read(~/.kube/**)\", \"Read(~/.helm/**)\", \"Read(~/.npmrc)\", \"Read(~/.pip/pip.conf)\", \"Read(~/.config/pip/pip.conf)\", \"Read(~/.gradle/gradle.properties)\", \"Read(~/.m2/settings.xml)\", \"Read(~/.pgpass)\", \"Read(~/.my.cnf)\", \"Read(~/.dbshell)\", \"Read(~/.vault-token)\", \"Read(~/.terraform.d/credentials.tfrc.json)\", \"Read(~/.anthropic/**)\", \"Read(~/Library/Keychains/**)\", \"Read(~/Library/Cookies/**)\", \"Read(~/dev/keys/**)\" ] } } When blocked, Claude tells you clearly what happened and why, and suggests alternatives that don’t require reading the sensitive file directly.\n CLAUDE.md - context files Claude reads automatically Claude picks up CLAUDE.md files and uses them as persistent context. There are three levels:\n   File Scope     ~/.claude/CLAUDE.md All projects on your machine   CLAUDE.md This project, committed and shared with the team   CLAUDE.local.md This project, not committed - your personal notes    Run /init in Claude Code to generate a project CLAUDE.md from your codebase automatically. Put things in there that Claude should always know: project conventions, where things live, what to avoid.\n Hooks - run code before or after Claude actions Hooks let you intercept Claude’s tool calls. They are defined in settings.json and can block actions, log them, or modify behavior.\nThere are two levels, same as the settings file:\n   Defined in Scope     ~/.claude/settings.json All projects (global)   .claude/settings.json This project only   .claude/settings.local.json This project, not committed    Write hooks by hand or use the /hooks command inside Claude.\nExample: block Claude from reading .env files\n.claude/hooks/read_hook.js:\nasync function main() { const chunks = []; for await (const chunk of process.stdin) { chunks.push(chunk); } const toolArgs = JSON.parse(Buffer.concat(chunks).toString()); const readPath = toolArgs.tool_input?.file_path || toolArgs.tool_input?.path || \"\"; if (readPath.includes(\".env\")) { console.error(\"You cannot read the .env file\"); process.exit(2); } } main(); Exit code 2 blocks the action and shows the error to Claude. Exit code 0 allows it through.\nWire it up in .claude/settings.json:\n{ \"hooks\": { \"Read\": [ { \"command\": \"node .claude/hooks/read_hook.js\" } ] } }  Custom slash commands You can add your own /commands that Claude runs on demand. Create markdown files under .claude/commands/:\n.claude/commands/audit.md Content of audit.md:\nrun date Now type /audit in Claude and it runs date. You can make commands as complex as you want - multi-step instructions, checklists, or reminders of your team’s audit procedure.\nTo apply settings changes without restarting, use the /update-config command inside Claude Code.\n Why this matters given recent supply chain attacks The GlassWorm campaign and the axios compromise both showed that malicious code running in your dev environment targets exactly these files: ~/.aws/, ~/.ssh/, ~/.npmrc, browser cookies, and keychain data.\nClaude Code runs locally and has broad file access by default. If a compromised package or extension somehow influenced a Claude session, the deny list above is an extra line of defense. It won’t stop everything, but it means Claude cannot be used as a vector to read your credentials even if something goes wrong.\n",
-  "wordCount" : "507",
+  "articleBody": "Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.\n Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.\n{ \"permissions\": { \"deny\": [ \"Read(~/.aws/**)\", \"Read(~/.config/gcloud/**)\", \"Read(~/.azure/**)\", \"Read(~/.ssh/**)\", \"Read(~/.gnupg/**)\", \"Read(~/.git-credentials)\", \"Read(~/.config/gh/hosts.yml)\", \"Read(~/.pip/pip.conf)\", \"Read(~/.gradle/gradle.properties)\", \"Read(~/.docker/config.json)\", \"Read(~/.kube/config)\", \"Read(~/.kube/**)\", \"Read(~/.helm/**)\", \"Read(~/.npmrc)\", ] } } When blocked, Claude tells you clearly what happened and why, and suggests alternatives that don’t require reading the sensitive file directly.\n CLAUDE.md - context files Claude reads automatically Claude picks up CLAUDE.md files and uses them as persistent context. There are three levels:\n   File Scope     ~/.claude/CLAUDE.md All projects on your machine   CLAUDE.md This project, committed and shared with the team   CLAUDE.local.md This project, not committed - your personal notes    Run /init in Claude Code to generate a project CLAUDE.md from your codebase automatically. Put things in there that Claude should always know: project conventions, where things live, what to avoid.\n Hooks - run code before or after Claude actions Hooks let you intercept Claude’s tool calls. They are defined in settings.json and can block actions, log them, or modify behavior.\nThere are two levels, same as the settings file:\n   Defined in Scope     ~/.claude/settings.json All projects (global)   .claude/settings.json This project only   .claude/settings.local.json This project, not committed    Write hooks by hand or use the /hooks command inside Claude.\nExample: block Claude from reading .env files\n.claude/hooks/read_hook.js:\nasync function main() { const chunks = []; for await (const chunk of process.stdin) { chunks.push(chunk); } const toolArgs = JSON.parse(Buffer.concat(chunks).toString()); const readPath = toolArgs.tool_input?.file_path || toolArgs.tool_input?.path || \"\"; if (readPath.includes(\".env\")) { console.error(\"You cannot read the .env file\"); process.exit(2); } } main(); Exit code 2 blocks the action and shows the error to Claude. Exit code 0 allows it through.\nWire it up in .claude/settings.json:\n{ \"hooks\": { \"Read\": [ { \"command\": \"node .claude/hooks/read_hook.js\" } ] } }  Custom slash commands You can add your own /commands that Claude runs on demand. Create markdown files under .claude/commands/:\n.claude/commands/audit.md Content of audit.md:\nrun date Now type /audit in Claude and it runs date. You can make commands as complex as you want - multi-step instructions, checklists, or reminders of your team’s audit procedure.\nTo apply settings changes without restarting, use the /update-config command inside Claude Code.\n Why this matters given recent supply chain attacks The GlassWorm campaign and the axios compromise both showed that malicious code running in your dev environment targets exactly these files: ~/.aws/, ~/.ssh/, ~/.npmrc, browser cookies, and keychain data.\nClaude Code runs locally and has broad file access by default. If a compromised package or extension somehow influenced a Claude session, the deny list above is an extra line of defense. It won’t stop everything, but it means Claude cannot be used as a vector to read your credentials even if something goes wrong.\n",
+  "wordCount" : "494",
   "inLanguage": "en",
   "datePublished": "2026-04-10T00:00:00+02:00",
   "dateModified": "2026-04-10T00:00:00+02:00",
@@ -196,32 +196,19 @@ if (!doNotTrack) {
   <span style="color:#f92672">&#34;permissions&#34;</span>: {
     <span style="color:#f92672">&#34;deny&#34;</span>: [
       <span style="color:#e6db74">&#34;Read(~/.aws/**)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.saml2aws)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.config/gcloud/**)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.azure/**)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.ssh/**)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.gnupg/**)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.git-credentials)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.netrc)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.config/gh/hosts.yml)&#34;</span>,
+      <span style="color:#e6db74">&#34;Read(~/.pip/pip.conf)&#34;</span>,
+      <span style="color:#e6db74">&#34;Read(~/.gradle/gradle.properties)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.docker/config.json)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.kube/config)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.kube/**)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.helm/**)&#34;</span>,
       <span style="color:#e6db74">&#34;Read(~/.npmrc)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.pip/pip.conf)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.config/pip/pip.conf)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.gradle/gradle.properties)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.m2/settings.xml)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.pgpass)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.my.cnf)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.dbshell)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.vault-token)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.terraform.d/credentials.tfrc.json)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/.anthropic/**)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/Library/Keychains/**)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/Library/Cookies/**)&#34;</span>,
-      <span style="color:#e6db74">&#34;Read(~/dev/keys/**)&#34;</span>
     ]
   }
 }

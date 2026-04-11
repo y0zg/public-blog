@@ -14,7 +14,7 @@
       <guid>https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/</guid>
       <description>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
  Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-{ &amp;#34;permissions&amp;#34;: { &amp;#34;deny&amp;#34;: [ &amp;#34;Read(~/.aws/**)&amp;#34;, &amp;#34;Read(~/.saml2aws)&amp;#34;, &amp;#34;Read(~/.config/gcloud/**)&amp;#34;, &amp;#34;Read(~/.</description>
+{ &amp;#34;permissions&amp;#34;: { &amp;#34;deny&amp;#34;: [ &amp;#34;Read(~/.aws/**)&amp;#34;, &amp;#34;Read(~/.config/gcloud/**)&amp;#34;, &amp;#34;Read(~/.azure/**)&amp;#34;, &amp;#34;Read(~/.</description>
     </item>
     
   </channel>
