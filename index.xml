@@ -5,7 +5,17 @@
     <link>https://okulbida.com/</link>
     <description>Recent content on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS S3 Files: mount S3 bucket as file system</title>
+      <link>https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/</guid>
+      <description>AWS quietly launched S3 Files — a way to mount an S3 bucket and work with it like a regular file system. No custom SDK, no aws s3 cp, just standard file operations on top of S3.
+How it works You mount the bucket via a managed endpoint and get a POSIX-compatible interface. Read, write, list - same as a local disk. Your existing tools and applications don&amp;rsquo;t need to know it&amp;rsquo;s S3 underneath.</description>
+    </item>
+    
     <item>
       <title>Supply Chain Attacks in 2026: How to Harden Your Pipeline</title>
       <link>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</link>

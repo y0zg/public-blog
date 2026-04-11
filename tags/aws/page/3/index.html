@@ -120,131 +120,21 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS with instance-store nitro-based node-group</h2>
-  </header>
-  <section class="entry-content">
-    <p>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-Terraform example:
-eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &#34;/dev/xvda&#34; ebs = { volume_size = 24 volume_type = &#34;gp3&#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data....</p>
-  </section>
-  <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS with instance-store nitro-based node-group" href="https://okulbida.com/posts/eks-instance-store/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Simple RDS access</h2>
-  </header>
-  <section class="entry-content">
-    <p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:...</p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Simple RDS access" href="https://okulbida.com/posts/simple-rds-access/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS expose pods through cross-account load balancer</h2>
-  </header>
-  <section class="entry-content">
-    <p>Expose Amazon EKS pods through cross-account load balancer
- https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-account-load-balancer/  </p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS expose pods through cross-account load balancer" href="https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS simplified access</h2>
-  </header>
-  <section class="entry-content">
-    <p>Simplified EKS access
- https://aws.amazon.com/about-aws/whats-new/2023/12/amazon-eks-controls-iam-cluster-access-management/ https://aws.amazon.com/blogs/containers/a-deep-dive-into-simplified-amazon-eks-access-management-controls/ https://github.com/hashicorp/terraform-provider-aws/issues/34982  </p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS simplified access" href="https://okulbida.com/posts/eks-access/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>AWS removes NAT Gateway’s dependence on Internet Gateway for private communications</h2>
-  </header>
-  <section class="entry-content">
-    <p>You can now launch NAT Gateways in your VPC without associating an internet gateway to your VPC. Internet Gateway is required to provide internet access to the NAT Gateway. However, some customers use their NAT Gateways with Transit Gateway or virtual private gateway to communicate privately with other VPCs or on-premises environments and thus, do not need an internet gateway attached to their VPCs.
-More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat-gateways-dependence-on-internet-gateway-for-private-communications/</p>
-  </section>
-  <footer class="entry-footer">June 17, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS removes NAT Gateway’s dependence on Internet Gateway for private communications" href="https://okulbida.com/posts/aws-nat-gateway-no-need-igw/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</h2>
-  </header>
-  <section class="entry-content">
-    <p>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting" href="https://okulbida.com/posts/aws-lb-controller-nlb-support/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Amazon EC2 Auto Scaling introduces predictive scaling as a native scaling policy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon EC2 Auto Scaling now natively supports Predictive Scaling so you can proactively scale out your Auto Scaling group to be ready for upcoming demand. Predictive Scaling can help you avoid the need to over-provision capacity, resulting in lower EC2 cost, while ensuring your application’s responsiveness. (Previously, Predictive Scaling was only available via AWS Auto Scaling Plans.)
-https://aws.amazon.com/about-aws/whats-new/2021/05/amazon-ec2-auto-scaling-introduces-predictive-scaling-native-scaling-policy/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Amazon EC2 Auto Scaling introduces predictive scaling as a native scaling policy" href="https://okulbida.com/posts/aws-ec2-predictive-autoscaling/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS add-ons now supports CoreDNS and kube-proxy</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon Elastic Kubernetes Service (Amazon EKS) now supports using the Amazon EKS console, CLI, and API to install and manage CoreDNS and kube-proxy in addition to existing support for the Amazon VPC CNI networking plugin.
-https://aws.amazon.com/about-aws/whats-new/2021/05/eks-add-ons-now-support-coredns-kube-proxy/
-https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS add-ons now supports CoreDNS and kube-proxy" href="https://okulbida.com/posts/awsekscoredns/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2021/04/08/cloudfront-function-and-lambda-edge-2-1024x454.png" alt="AWS CloudFront functions">
+<figure class="entry-cover"><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/04/22/AWS-Secrets-Configuration-Provider-2021-1.png" alt="AWS Secrets CSI for kubernetes">
 </figure>
   <header class="entry-header">
-    <h2>AWS CloudFront functions</h2>
+    <h2>AWS Secrets CSI for EKS</h2>
   </header>
   <section class="entry-content">
-    <p>AWS CloudFront functions is a nice alternative to Lambda@Edge
-https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/</p>
+    <p>How to use AWS Secrets &amp; Configuration Provider with your Kubernetes Secrets Store CSI driver. One more example of kubernetes secrets management among vault, external-secrets and 1password operator 😅
+https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/</p>
   </section>
-  <footer class="entry-footer">May 7, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS CloudFront functions" href="https://okulbida.com/posts/aws-cloudfront-functions/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EC2 root volume replacing</h2>
-  </header>
-  <section class="entry-content">
-    <p>Amazon EC2 enables you to replace the root EBS volume for a running instance
-Limitations:  You can’t replace the root volume if it is an instance store volume. You can’t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root</p>
-  </section>
-  <footer class="entry-footer">April 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EC2 root volume replacing" href="https://okulbida.com/posts/ec2-root-volume-replacing/"></a>
+  <footer class="entry-footer">April 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS Secrets CSI for EKS" href="https://okulbida.com/posts/aws-secrets-csi/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://okulbida.com/tags/aws/">« Prev Page</a>
-    <a class="next" href="https://okulbida.com/tags/aws/page/3/">Next Page »</a>
+    <a class="prev" href="https://okulbida.com/tags/aws/page/2/">« Prev Page</a>
   </nav>
 </footer>
     </main>

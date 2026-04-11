@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/tags/aws/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/cost-optimization/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/s3/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/storage/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/axios/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
@@ -14,12 +38,6 @@
     <loc>https://okulbida.com/tags/npm/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/security/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
@@ -28,12 +46,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/supply-chain/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
-    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/aws/</loc>
-    <lastmod>2026-04-03T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/eks/</loc>
     <lastmod>2026-04-03T00:00:00+02:00</lastmod>
@@ -83,9 +95,6 @@
     <loc>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</loc>
     <lastmod>2025-12-28T20:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/cost-optimization/</loc>
-    <lastmod>2025-12-28T20:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/serverless/</loc>
     <lastmod>2025-12-28T20:00:00+03:00</lastmod>
   </url><url>
@@ -111,9 +120,6 @@
     <lastmod>2025-12-28T16:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/data-migration/</loc>
-    <lastmod>2025-12-28T16:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/storage/</loc>
     <lastmod>2025-12-28T16:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/volsync/</loc>
@@ -180,9 +186,6 @@
     <lastmod>2024-11-20T18:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/aws-s3-storage-browser-access-grants/</loc>
-    <lastmod>2024-11-20T18:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/s3/</loc>
     <lastmod>2024-11-20T18:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/12-factors/</loc>

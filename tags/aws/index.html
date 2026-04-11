@@ -121,6 +121,18 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>AWS S3 Files: mount S3 bucket as file system</h2>
+  </header>
+  <section class="entry-content">
+    <p>AWS quietly launched S3 Files — a way to mount an S3 bucket and work with it like a regular file system. No custom SDK, no aws s3 cp, just standard file operations on top of S3.
+How it works You mount the bucket via a managed endpoint and get a POSIX-compatible interface. Read, write, list - same as a local disk. Your existing tools and applications don’t need to know it’s S3 underneath....</p>
+  </section>
+  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS S3 Files: mount S3 bucket as file system" href="https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
   </header>
   <section class="entry-content">
@@ -240,19 +252,6 @@ What are the alternatives?
   </section>
   <footer class="entry-footer">April 21, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>EKS with instance-store nitro-based node-group</h2>
-  </header>
-  <section class="entry-content">
-    <p>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-Terraform example:
-eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &#34;/dev/xvda&#34; ebs = { volume_size = 24 volume_type = &#34;gp3&#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data....</p>
-  </section>
-  <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to EKS with instance-store nitro-based node-group" href="https://okulbida.com/posts/eks-instance-store/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
