@@ -13,7 +13,7 @@
       
       <guid>https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/</guid>
       <description>AWS quietly launched S3 Files - a way to mount an S3 bucket and work with it like a regular file system. No custom SDK, no aws s3 cp, just standard file operations on top of S3.
-How it works You mount the bucket via a managed endpoint and get a POSIX-compatible interface. Read, write, list - same as a local disk. Your existing tools and applications don&amp;rsquo;t need to know it&amp;rsquo;s S3 underneath.</description>
+How it works You mount the bucket via a managed endpoint and get a POSIX-compatible interface on EC2, Lambda, EKS, and ECS. Your existing tools and applications don&amp;rsquo;t need to know it&amp;rsquo;s S3 underneath.</description>
     </item>
     
     <item>
