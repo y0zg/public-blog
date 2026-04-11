@@ -5,7 +5,18 @@
     <link>https://okulbida.com/tags/security/</link>
     <description>Recent content in security on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hardening Claude Code: permissions, hooks, and custom commands</title>
+      <link>https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/</guid>
+      <description>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
+ Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
+{ &amp;#34;permissions&amp;#34;: { &amp;#34;deny&amp;#34;: [ &amp;#34;Read(~/.aws/**)&amp;#34;, &amp;#34;Read(~/.saml2aws)&amp;#34;, &amp;#34;Read(~/.config/gcloud/**)&amp;#34;, &amp;#34;Read(~/.</description>
+    </item>
+    
     <item>
       <title>Supply Chain Attacks in 2026: How to Harden Your Pipeline</title>
       <link>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</link>

@@ -120,6 +120,19 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Hardening Claude Code: permissions, hooks, and custom commands</h2>
+  </header>
+  <section class="entry-content">
+    <p>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
+ Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
+{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.saml2aws)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/....</p>
+  </section>
+  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&amp;q=80" alt="Software engineering and AI">
 </figure>
   <header class="entry-header">

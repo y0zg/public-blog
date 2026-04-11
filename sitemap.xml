@@ -2,13 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/tags/ai/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/aws/</loc>
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/</loc>
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/claude/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/cost-optimization/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/developer-tools/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/</loc>
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/</loc>
@@ -18,6 +30,9 @@
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/s3/</loc>
+    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/security/</loc>
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/storage/</loc>
@@ -36,9 +51,6 @@
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/npm/</loc>
-    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/security/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</loc>
@@ -76,9 +88,6 @@
   </url><url>
     <loc>https://okulbida.com/posts/how-container-filesystem-works/</loc>
     <lastmod>2026-03-12T22:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/ai/</loc>
-    <lastmod>2026-03-12T21:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/best-practices/</loc>
     <lastmod>2026-03-12T21:00:00+03:00</lastmod>
