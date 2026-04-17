@@ -5,7 +5,21 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PromQL cheat sheet</title>
+      <link>https://okulbida.com/posts/prom-cheat-sheet/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/prom-cheat-sheet/</guid>
+      <description>Full visual reference: https://y0zg.github.io/public-blog/pf-infographic-promql-cheatsheet.pdf
+ Key functions rate vs irate
+rate calculates per-second increase averaged over the whole range. Use it for alerts and graphs — it&amp;rsquo;s smoother.
+irate only looks at the last two data points. Very responsive but noisy. Avoid for alerting.
+rate(http_requests_total[5m]) irate(http_requests_total[5m]) increase — total increase over the range. Only use for display, not for alerts. Use rate for alerts.
+increase(process_cpu_seconds_total[15m]) histogram_quantile — must apply rate first, then aggregate buckets, then quantile.</description>
+    </item>
+    
     <item>
       <title>AWS S3 Files: mount S3 bucket as file system</title>
       <link>https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/</link>
@@ -451,15 +465,6 @@ https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-
       <description>Amazon EC2 enables you to replace the root EBS volume for a running instance
 Limitations:  You can&amp;rsquo;t replace the root volume if it is an instance store volume. You can&amp;rsquo;t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root</description>
-    </item>
-    
-    <item>
-      <title>PromQL cheat sheet</title>
-      <link>https://okulbida.com/posts/prom-cheat-sheet/</link>
-      <pubDate>Thu, 29 Apr 2021 13:18:02 +0300</pubDate>
-      
-      <guid>https://okulbida.com/posts/prom-cheat-sheet/</guid>
-      <description>https://y0zg.github.io/public-blog/pf-infographic-promql-cheatsheet.pdf</description>
     </item>
     
     <item>

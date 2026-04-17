@@ -136,6 +136,22 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>PromQL cheat sheet</h2>
+  </header>
+  <section class="entry-content">
+    <p>Full visual reference: https://y0zg.github.io/public-blog/pf-infographic-promql-cheatsheet.pdf
+ Key functions rate vs irate
+rate calculates per-second increase averaged over the whole range. Use it for alerts and graphs — it’s smoother.
+irate only looks at the last two data points. Very responsive but noisy. Avoid for alerting.
+rate(http_requests_total[5m]) irate(http_requests_total[5m]) increase — total increase over the range. Only use for display, not for alerts. Use rate for alerts.
+increase(process_cpu_seconds_total[15m]) histogram_quantile — must apply rate first, then aggregate buckets, then quantile....</p>
+  </section>
+  <footer class="entry-footer">April 17, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to PromQL cheat sheet" href="https://okulbida.com/posts/prom-cheat-sheet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>AWS S3 Files: mount S3 bucket as file system</h2>
   </header>
   <section class="entry-content">
@@ -251,18 +267,6 @@ How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteM
   </section>
   <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS SQS: when a &#39;cheap&#39; queue runs up a huge bill" href="https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>AWS billing transfer</h2>
-  </header>
-  <section class="entry-content">
-    <p>AWS Billing Transfer is a new feature (GA since November 2025) that streamlines billing management across multiple AWS Organizations. It helps companies and channel partners who manage multiple Organizations by enabling centralized billing while keeping security and autonomy decentralized for business units or end customers.
-Key Challenges Addressed  Multiple Organizations – Separate logins for billing and cost management across Organizations increase operational overhead No Central View – Hard to get a single, holistic view of spend across business units or customers Confidential Pricing – Protecting pricing data when billing and security roles are separated (e....</p>
-  </section>
-  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS billing transfer" href="https://okulbida.com/posts/aws-billing-transfer-session-summary/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
