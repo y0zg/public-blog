@@ -189,10 +189,9 @@ if (!doNotTrack) {
     <h2>PromQL cheat sheet</h2>
   </header>
   <section class="entry-content">
-    <p>Key functions — rate, irate, increase, histogram_quantile, absent, predict_linear Aggregations — sum, count, topk, by/without, quantile_over_time Label manipulation — label_replace, label_join Useful queries — memory, network by namespace/AZ, nodegroup, cardinality Relabeling tricks — drop metrics, series, labels Pre-commit validation — promtool, pint Architecture — agent mode, VictoriaMetrics, Thanos, Mimir Tools   Key functions rate vs irate
-rate calculates per-second increase averaged over the whole range. Use it for alerts and graphs — it’s smoother....</p>
+    <p>Key functions — rate, irate, increase, histogram_quantile, absent, absent_over_time, delta, predict_linear, age Aggregations — sum, count, topk, by/without, quantile_over_time, bool, offset Label manipulation — label_replace, label_join Useful queries — CPU %, pod restarts, error rate, SLO, memory, network by AZ, nodegroup, cardinality Relabeling tricks — drop metrics, series, labels Pre-commit validation — promtool, pint Architecture — agent mode, VictoriaMetrics, Thanos, Mimir Tools   Key functions rate vs irate...</p>
   </section>
-  <footer class="entry-footer">April 17, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">April 17, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to PromQL cheat sheet" href="https://okulbida.com/posts/prom-cheat-sheet/"></a>
 </article>
 
