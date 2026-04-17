@@ -187,12 +187,8 @@ if (!doNotTrack) {
     <h2>PromQL cheat sheet</h2>
   </header>
   <section class="entry-content">
-    <p>Full visual reference: https://y0zg.github.io/public-blog/pf-infographic-promql-cheatsheet.pdf
- Key functions rate vs irate
-rate calculates per-second increase averaged over the whole range. Use it for alerts and graphs — it’s smoother.
-irate only looks at the last two data points. Very responsive but noisy. Avoid for alerting.
-rate(http_requests_total[5m]) irate(http_requests_total[5m]) increase — total increase over the range. Only use for display, not for alerts. Use rate for alerts.
-increase(process_cpu_seconds_total[15m]) histogram_quantile — must apply rate first, then aggregate buckets, then quantile....</p>
+    <p>Key functions — rate, irate, increase, histogram_quantile, absent, predict_linear Aggregations — sum, count, topk, by/without, quantile_over_time Label manipulation — label_replace, label_join Useful queries — memory, network by namespace/AZ, nodegroup, cardinality Relabeling tricks — drop metrics, series, labels Pre-commit validation — promtool, pint Architecture — agent mode, VictoriaMetrics, Thanos, Mimir Tools   Key functions rate vs irate
+rate calculates per-second increase averaged over the whole range. Use it for alerts and graphs — it’s smoother....</p>
   </section>
   <footer class="entry-footer">April 17, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to PromQL cheat sheet" href="https://okulbida.com/posts/prom-cheat-sheet/"></a>
