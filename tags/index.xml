@@ -5,7 +5,43 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ci-cd</title>
+      <link>https://okulbida.com/tags/ci-cd/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/ci-cd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github-actions</title>
+      <link>https://okulbida.com/tags/github-actions/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://okulbida.com/tags/security/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>supply-chain</title>
+      <link>https://okulbida.com/tags/supply-chain/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/supply-chain/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>monitoring</title>
       <link>https://okulbida.com/tags/monitoring/</link>
@@ -79,15 +115,6 @@
     </item>
     
     <item>
-      <title>security</title>
-      <link>https://okulbida.com/tags/security/</link>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>storage</title>
       <link>https://okulbida.com/tags/storage/</link>
       <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
@@ -106,38 +133,11 @@
     </item>
     
     <item>
-      <title>ci-cd</title>
-      <link>https://okulbida.com/tags/ci-cd/</link>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/ci-cd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github-actions</title>
-      <link>https://okulbida.com/tags/github-actions/</link>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/github-actions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>npm</title>
       <link>https://okulbida.com/tags/npm/</link>
       <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/npm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>supply-chain</title>
-      <link>https://okulbida.com/tags/supply-chain/</link>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/supply-chain/</guid>
       <description></description>
     </item>
     

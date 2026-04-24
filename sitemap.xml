@@ -2,22 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://okulbida.com/tags/monitoring/</loc>
-    <lastmod>2026-04-17T00:00:00+02:00</lastmod>
+    <loc>https://okulbida.com/tags/ci-cd/</loc>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/github-actions/</loc>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/</loc>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/</loc>
-    <lastmod>2026-04-17T00:00:00+02:00</lastmod>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/security/</loc>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/supply-chain/</loc>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-04-24T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/monitoring/</loc>
     <lastmod>2026-04-17T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/prometheus/</loc>
     <lastmod>2026-04-17T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/prom-cheat-sheet/</loc>
-    <lastmod>2026-04-17T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-04-17T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/ai/</loc>
@@ -44,28 +59,16 @@
     <loc>https://okulbida.com/tags/s3/</loc>
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/security/</loc>
-    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/storage/</loc>
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/axios/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/ci-cd/</loc>
-    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/github-actions/</loc>
-    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/npm/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</loc>
-    <lastmod>2026-04-04T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/supply-chain/</loc>
     <lastmod>2026-04-04T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/eks/</loc>

@@ -132,6 +132,18 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>AWS SQS: when a &#39;cheap&#39; queue runs up a huge bill</h2>
+  </header>
+  <section class="entry-content">
+    <p>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend — and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
+How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteMessage, etc.), not per message. Standard queue: about $0....</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS SQS: when a &#39;cheap&#39; queue runs up a huge bill" href="https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>AWS billing transfer</h2>
   </header>
   <section class="entry-content">
@@ -255,21 +267,6 @@ Security Features That Matter AWS Security Agent (Preview) This one caught my at
   </section>
   <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS re:Invent 2025 recap: key announcements for cloud practitioners" href="https://okulbida.com/posts/aws-reinvent-2025-recap/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Data storage and cloud">
-</figure>
-  <header class="entry-header">
-    <h2>AWS finally built a browser for S3 (and why it took 20 years)</h2>
-  </header>
-  <section class="entry-content">
-    <p>It’s 2024, and AWS finally built a browser-based S3 viewer. Twenty years after S3 launched, you can now browse your buckets directly in the browser. It’s still in alpha, but hey, better late than never, right?
-You might be thinking - wait, weren’t there options before? Like S3Fox? Yeah, there were some third-party tools, but AWS itself never had an official browser interface. So what took so long?
-Real Problem: Access Control Turns out, building a simple file browser wasn’t the hard part....</p>
-  </section>
-  <footer class="entry-footer">November 20, 2024&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS finally built a browser for S3 (and why it took 20 years)" href="https://okulbida.com/posts/aws-s3-storage-browser-access-grants/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

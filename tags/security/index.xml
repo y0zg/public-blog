@@ -5,7 +5,18 @@
     <link>https://okulbida.com/tags/security/</link>
     <description>Recent content in security on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Harden-Runner: visibility into what your CI runner does on the network</title>
+      <link>https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/</guid>
+      <description>Most teams have no idea what their CI runners connect to during a build. Packages get installed, scripts run, network calls go out — and none of it is logged. That is a real blind spot.
+Harden-Runner from StepSecurity is a GitHub Action that monitors and optionally blocks outbound network connections at the runner level, in real time. Think of it as an EDR for your CI pipeline.
+It caught the axios supply chain attack in real time — any connection to sfrclak.</description>
+    </item>
+    
     <item>
       <title>Hardening Claude Code: permissions, hooks, and custom commands</title>
       <link>https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/</link>
