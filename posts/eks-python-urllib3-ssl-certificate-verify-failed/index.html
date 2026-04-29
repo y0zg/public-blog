@@ -43,8 +43,8 @@ urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east
 What&rsquo;s actually going on Python 3.13 made SSL certificate validation stricter." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2026-04-24T00:00:00&#43;02:00" />
-<meta property="article:modified_time" content="2026-04-24T00:00:00&#43;02:00" />
+<meta property="article:published_time" content="2026-04-29T00:00:00&#43;02:00" />
+<meta property="article:modified_time" content="2026-04-29T00:00:00&#43;02:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/>
@@ -88,8 +88,8 @@ What&rsquo;s actually going on Python 3.13 made SSL certificate validation stric
   "articleBody": "Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='xxxx.gr7.us-east-1.eks.amazonaws.com', port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)'))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.\nWhat’s actually going on Python 3.13 made SSL certificate validation stricter. urllib3 2.4.0 followed. Together they now reject certificates that are missing an Authority Key Identifier field.\nKubernetes API server certificates generated on version 1.16 or earlier didn’t include this field — it just wasn’t part of the cert generation at the time. So any cluster whose API server certificate was issued back then and hasn’t been rotated since will hit this. Not just EKS — self-managed clusters, GKE, AKS, anyone in the same boat.\nThe fix is coming from the Python client side (PR #2417), not from the clusters.\nOne thing that makes this tricky to diagnose: curl, kubectl, and openssl all continue to work fine. Only Python 3.13+ clients fail. So your cluster looks healthy, but your automation breaks — which can be confusing.\nAre you affected? You need all three at the same time:\n Python 3.13 urllib3 = 2.4.0 Python code talking to the Kubernetes API  Still on Python 3.12? You’re fine, nothing to do. Java workloads like Keycloak, Kafka, or Spring apps are also completely unaffected — this is Python-only. And upgrading EKS to 1.33 doesn’t change anything here either.\nWorkarounds Option 1 — pin urllib3 (safest, recommended):\nurllib3Or in pyproject.toml:\n[tool.poetry.dependencies] urllib3 = \" Option 2 — skip TLS verification (teams are using this in production as a stopgap):\nSKIP_TLS_VERIFY=true Or in the Python kubernetes client directly:\nconfiguration.verify_ssl = False This works but is not great — you lose certificate validation entirely. Use it only as a short-term measure while you sort out the proper fix, and never in internet-facing environments.\nHow much time do you have? If you’re on Python 3.12 you have plenty of runway before this becomes relevant:\n   Version EOL     3.10 Oct 2026   3.11 Oct 2027   3.12 Oct 2028   3.13 Oct 2029    About 2.5 years on 3.12 before you need to think about this. When you do move to 3.13, just make sure kubernetes-client has the fix from PR #2417, or keep the urllib3 pin in place.\nWhat about the cluster side? The real permanent fix would be certificate rotation — updating the EKS root CA to include the missing Authority Key Identifier and Subject Key Identifier extensions. AWS is tracking this as a feature request in the EKS public roadmap (containers-roadmap#2638). If you’re affected and want to push for it, upvoting that issue helps signal priority to the team. No timeline yet.\nGKE users are in the same position. The urllib3 issue (urllib3#3614) has reports of GKE clusters with 4-year-old certificates hitting the exact same error. This is a broad ecosystem problem, not specific to any one cloud provider.\n",
   "wordCount" : "503",
   "inLanguage": "en",
-  "datePublished": "2026-04-24T00:00:00+02:00",
-  "dateModified": "2026-04-24T00:00:00+02:00",
+  "datePublished": "2026-04-29T00:00:00+02:00",
+  "dateModified": "2026-04-29T00:00:00+02:00",
   "author":{
     "@type": "Person",
     "name": "Oleksandr Kulbida"
@@ -185,7 +185,7 @@ What&rsquo;s actually going on Python 3.13 made SSL certificate validation stric
     <h1 class="post-title">
       urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know
     </h1>
-    <div class="post-meta">April 24, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida
+    <div class="post-meta">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida
 </div>
   </header> 
   <div class="post-content"><p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here&rsquo;s the error you&rsquo;re probably seeing:</p>
@@ -262,15 +262,10 @@ Missing Authority Key Identifier (_ssl.c:1028)')))
       <li><a href="https://okulbida.com/tags/security/">security</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/">
-    <span class="title">« Prev Page</span>
-    <br>
-    <span>Harden-Runner: visibility into what your CI runner does on the network</span>
-  </a>
-  <a class="next" href="https://okulbida.com/posts/prom-cheat-sheet/">
+  <a class="next" href="https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/">
     <span class="title">Next Page »</span>
     <br>
-    <span>PromQL cheat sheet</span>
+    <span>Harden-Runner: visibility into what your CI runner does on the network</span>
   </a>
 </nav>
 

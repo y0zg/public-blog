@@ -128,7 +128,7 @@ if (!doNotTrack) {
 urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
 What’s actually going on Python 3.13 made SSL certificate validation stricter....</p>
   </section>
-  <footer class="entry-footer">April 24, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
 </article>
     </main>

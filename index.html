@@ -184,6 +184,19 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know</h2>
+  </header>
+  <section class="entry-content">
+    <p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
+What’s actually going on Python 3.13 made SSL certificate validation stricter....</p>
+  </section>
+  <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Harden-Runner: visibility into what your CI runner does on the network</h2>
   </header>
   <section class="entry-content">
@@ -193,19 +206,6 @@ It caught the axios supply chain attack in real time — any connection to sfrcl
   </section>
   <footer class="entry-footer">April 24, 2026&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Harden-Runner: visibility into what your CI runner does on the network" href="https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know</h2>
-  </header>
-  <section class="entry-content">
-    <p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
-What’s actually going on Python 3.13 made SSL certificate validation stricter....</p>
-  </section>
-  <footer class="entry-footer">April 24, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
 </article>
 
 <article class="post-entry"> 
