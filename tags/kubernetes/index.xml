@@ -5,7 +5,18 @@
     <link>https://okulbida.com/tags/kubernetes/</link>
     <description>Recent content in kubernetes on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 25 Mar 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know</title>
+      <link>https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/</guid>
+      <description>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here&amp;rsquo;s the error you&amp;rsquo;re probably seeing:
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
+What&amp;rsquo;s actually going on Python 3.13 made SSL certificate validation stricter.</description>
+    </item>
+    
     <item>
       <title>Ingress-NGINX is retiring — here&#39;s how to migrate (and what to migrate to)</title>
       <link>https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/</link>
