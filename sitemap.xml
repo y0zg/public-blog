@@ -3,27 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://okulbida.com/tags/ci-cd/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/gitops/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/infrastructure/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/platform-engineering/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/terraform/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</loc>
+    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/eks/</loc>
     <lastmod>2026-04-29T00:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/gitops/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/infrastructure/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/kubernetes/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/platform-engineering/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
     <lastmod>2026-04-29T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/python/</loc>
@@ -33,15 +42,6 @@
     <lastmod>2026-04-29T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/ssl/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/terraform/</loc>
-    <lastmod>2026-04-29T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</loc>
     <lastmod>2026-04-29T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/</loc>

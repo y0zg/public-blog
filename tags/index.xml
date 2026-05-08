@@ -5,13 +5,49 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 May 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ci-cd</title>
       <link>https://okulbida.com/tags/ci-cd/</link>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/ci-cd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitops</title>
+      <link>https://okulbida.com/tags/gitops/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/gitops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infrastructure</title>
+      <link>https://okulbida.com/tags/infrastructure/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/infrastructure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>platform-engineering</title>
+      <link>https://okulbida.com/tags/platform-engineering/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/platform-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terraform</title>
+      <link>https://okulbida.com/tags/terraform/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/terraform/</guid>
       <description></description>
     </item>
     
@@ -25,38 +61,11 @@
     </item>
     
     <item>
-      <title>gitops</title>
-      <link>https://okulbida.com/tags/gitops/</link>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/gitops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>infrastructure</title>
-      <link>https://okulbida.com/tags/infrastructure/</link>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/infrastructure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>kubernetes</title>
       <link>https://okulbida.com/tags/kubernetes/</link>
       <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>platform-engineering</title>
-      <link>https://okulbida.com/tags/platform-engineering/</link>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/platform-engineering/</guid>
       <description></description>
     </item>
     
@@ -84,15 +93,6 @@
       <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/ssl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terraform</title>
-      <link>https://okulbida.com/tags/terraform/</link>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/terraform/</guid>
       <description></description>
     </item>
     

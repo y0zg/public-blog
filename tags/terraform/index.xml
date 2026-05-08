@@ -5,11 +5,11 @@
     <link>https://okulbida.com/tags/terraform/</link>
     <description>Recent content in terraform on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 May 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terraform at scale: GitOps tools and the long apply problem</title>
       <link>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</link>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</guid>
       <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone — this is a recurring topic in every DevOps community right now.
