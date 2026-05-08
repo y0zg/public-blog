@@ -13,8 +13,7 @@
       
       <guid>https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/</guid>
       <description>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here&amp;rsquo;s the error you&amp;rsquo;re probably seeing:
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
-What&amp;rsquo;s actually going on Python 3.13 made SSL certificate validation stricter.</description>
+1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&amp;#39;xxxx.gr7.us-east-1.eks.amazonaws.com&amp;#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &amp;#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&amp;#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.</description>
     </item>
     
   </channel>

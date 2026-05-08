@@ -13,8 +13,7 @@
       
       <guid>https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/</guid>
       <description>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here&amp;rsquo;s the error you&amp;rsquo;re probably seeing:
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
-What&amp;rsquo;s actually going on Python 3.13 made SSL certificate validation stricter.</description>
+1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&amp;#39;xxxx.gr7.us-east-1.eks.amazonaws.com&amp;#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &amp;#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&amp;#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.</description>
     </item>
     
     <item>
@@ -35,7 +34,7 @@ The uncomfortable part: if you resolve or fetch any user URL with no checks, you
       <guid>https://okulbida.com/posts/eks-instance-store/</guid>
       <description>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 Terraform example:
-eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &amp;#34;/dev/xvda&amp;#34; ebs = { volume_size = 24 volume_type = &amp;#34;gp3&amp;#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [&amp;#34;r6id.</description>
     </item>
     
     <item>

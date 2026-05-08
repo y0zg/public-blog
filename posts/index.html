@@ -135,13 +135,26 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/terraform-scale.png" alt="Terraform at scale">
+</figure>
+  <header class="entry-header">
+    <h2>Terraform at scale: GitOps tools and the long apply problem</h2>
+  </header>
+  <section class="entry-content">
+    <p>If you’ve been using Terraform Cloud for a while, you’ve probably hit at least one of these: the pricing model changed and suddenly it’s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You’re not alone — this is a recurring topic in every DevOps community right now.
+This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it)....</p>
+  </section>
+  <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Terraform at scale: GitOps tools and the long apply problem" href="https://okulbida.com/posts/terraform-gitops-state-management-alternatives/"></a>
+</article>
+
+<article class="post-entry"> 
   <header class="entry-header">
     <h2>urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know</h2>
   </header>
   <section class="entry-content">
     <p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
-What’s actually going on Python 3.13 made SSL certificate validation stricter....</p>
+1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394....</p>
   </section>
   <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
@@ -192,9 +205,9 @@ How it works You mount the bucket via a managed endpoint and get a POSIX-compati
   <section class="entry-content">
     <p>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
  Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/.azure/**)&#34;, &#34;Read(~/....</p>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/....</p>
   </section>
-  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
 </article>
 
@@ -248,21 +261,6 @@ In this post, we’ll walk through how to assemble a tiny but realistic containe
   </section>
   <footer class="entry-footer">March 12, 2026&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to How container filesystem works: building one from scratch" href="https://okulbida.com/posts/how-container-filesystem-works/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&amp;q=80" alt="Software engineering and AI">
-</figure>
-  <header class="entry-header">
-    <h2>The future of software engineering: key takeaways from Martin Fowler&#39;s retreat</h2>
-  </header>
-  <section class="entry-content">
-    <p>Martin Fowler published a fascinating report from a February 2026 retreat where senior engineering practitioners from major tech companies gathered to discuss how AI is reshaping software development. It’s dense, so here’s what stood out to me.
-Where Does the Rigor Go? The biggest question of the retreat: if AI writes the code, where does the engineering discipline move? The answer is — it doesn’t disappear, it migrates:
- Upstream to specs — Bad specs produce bad code at scale....</p>
-  </section>
-  <footer class="entry-footer">March 12, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to The future of software engineering: key takeaways from Martin Fowler&#39;s retreat" href="https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

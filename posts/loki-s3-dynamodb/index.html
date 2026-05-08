@@ -8,7 +8,7 @@
 <title>Loki S3 dynamodb | Oleksandr Kulbida</title>
 <meta name="keywords" content="grafana, monitoring, loki, logging" />
 <meta name="description" content="While using Loki with S3 and Dynamodb it&rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
-[provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300] ">
+1 2 3 4 5  [provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300]   ">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/loki-s3-dynamodb/" />
 <meta name="google-site-verification" content="XYZabc" />
@@ -38,7 +38,7 @@ if (!doNotTrack) {
 }
 </script><meta property="og:title" content="Loki S3 dynamodb" />
 <meta property="og:description" content="While using Loki with S3 and Dynamodb it&rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
-[provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300] " />
+1 2 3 4 5  [provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300]   " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/loki-s3-dynamodb/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-26T12:45:36&#43;03:00" />
@@ -49,7 +49,7 @@ if (!doNotTrack) {
 
 <meta name="twitter:title" content="Loki S3 dynamodb"/>
 <meta name="twitter:description" content="While using Loki with S3 and Dynamodb it&rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
-[provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300] "/>
+1 2 3 4 5  [provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300]   "/>
 
 
 <script type="application/ld+json">
@@ -78,12 +78,12 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Loki S3 dynamodb",
   "name": "Loki S3 dynamodb",
-  "description": "While using Loki with S3 and Dynamodb it\u0026rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config\n[provisioned_write_throughput: \u0026lt;int\u0026gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -\u0026lt;prefix\u0026gt;.read-throughput [provisioned_read_throughput: \u0026lt;int\u0026gt; | default = 300] ",
+  "description": "While using Loki with S3 and Dynamodb it\u0026rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config\n1 2 3 4 5  [provisioned_write_throughput: \u0026lt;int\u0026gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -\u0026lt;prefix\u0026gt;.read-throughput [provisioned_read_throughput: \u0026lt;int\u0026gt; | default = 300]   ",
   "keywords": [
     "grafana", "monitoring", "loki", "logging"
   ],
-  "articleBody": "While using Loki with S3 and Dynamodb it’s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config\n[provisioned_write_throughput:  | default = 3000] # DynamoDB table default read throughput. # CLI flag: -.read-throughput [provisioned_read_throughput:  | default = 300] ",
-  "wordCount" : "42",
+  "articleBody": "While using Loki with S3 and Dynamodb it’s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config\n1 2 3 4 5  [provisioned_write_throughput:  | default = 3000] # DynamoDB table default read throughput. # CLI flag: -.read-throughput [provisioned_read_throughput:  | default = 300]   ",
+  "wordCount" : "47",
   "inLanguage": "en",
   "datePublished": "2022-10-26T12:45:36+03:00",
   "dateModified": "2022-10-26T12:45:36+03:00",
@@ -186,12 +186,23 @@ if (!doNotTrack) {
 </div>
   </header> 
   <div class="post-content"><p>While using Loki with S3 and Dynamodb it&rsquo;s mandatory to add <code>provision_config</code> details as default might affect your budget <a href="https://grafana.com/docs/loki/latest/configuration/#provision_config">https://grafana.com/docs/loki/latest/configuration/#provision_config</a></p>
-<pre><code>[provisioned_write_throughput: &lt;int&gt; | default = 3000]
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[provisioned_write_throughput: &lt;int&gt; | default = 3000]
 
 # DynamoDB table default read throughput.
 # CLI flag: -&lt;prefix&gt;.read-throughput
 [provisioned_read_throughput: &lt;int&gt; | default = 300]
-</code></pre>
+</code></pre></td></tr></table>
+</div>
+</div>
 </div>
   <footer class="post-footer">
     <ul class="post-tags">

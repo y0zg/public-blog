@@ -120,6 +120,20 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/terraform-scale.png" alt="Terraform at scale">
+</figure>
+  <header class="entry-header">
+    <h2>Terraform at scale: GitOps tools and the long apply problem</h2>
+  </header>
+  <section class="entry-content">
+    <p>If you’ve been using Terraform Cloud for a while, you’ve probably hit at least one of these: the pricing model changed and suddenly it’s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You’re not alone — this is a recurring topic in every DevOps community right now.
+This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it)....</p>
+  </section>
+  <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Terraform at scale: GitOps tools and the long apply problem" href="https://okulbida.com/posts/terraform-gitops-state-management-alternatives/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
   <header class="entry-header">
     <h2>Terraform best practices: code organization and structure</h2>
   </header>
@@ -166,9 +180,9 @@ The Security Problem When you’re managing infrastructure at Cloudflare’s sca
   <section class="entry-content">
     <p>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 Terraform example:
-eks-dev-instance-store = { instance_types = [&#34;r6id.large&#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &#34;/dev/xvda&#34; ebs = { volume_size = 24 volume_type = &#34;gp3&#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data....</p>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [&#34;r6id....</p>
   </section>
-  <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">March 16, 2024&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS with instance-store nitro-based node-group" href="https://okulbida.com/posts/eks-instance-store/"></a>
 </article>
     </main>

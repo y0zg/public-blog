@@ -136,11 +136,22 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Simple RDS access</h2>
+  </header>
+  <section class="entry-content">
+    <p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:...</p>
+  </section>
+  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Simple RDS access" href="https://okulbida.com/posts/simple-rds-access/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Resolving Helm issues after kubernetes upgrade</h2>
   </header>
   <section class="entry-content">
     <p>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &#34;Deployment&#34; in version &#34;apps/v1beta1&#34;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
-helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt; It’s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
+1 2 3  helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt;   It’s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Resolving Helm issues after kubernetes upgrade" href="https://okulbida.com/posts/helm-fix-after-k8s-upgrade/"></a>
@@ -176,7 +187,7 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &l
   </header>
   <section class="entry-content">
     <p>While using Loki with S3 and Dynamodb it’s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
-[provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300] </p>
+1 2 3 4 5  [provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300]   </p>
   </section>
   <footer class="entry-footer">October 26, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Loki S3 dynamodb" href="https://okulbida.com/posts/loki-s3-dynamodb/"></a>
@@ -245,17 +256,6 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
   </section>
   <footer class="entry-footer">June 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to What’s new in Grafana v8.0" href="https://okulbida.com/posts/grafana-8-released/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</h2>
-  </header>
-  <section class="entry-content">
-    <p>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting" href="https://okulbida.com/posts/aws-lb-controller-nlb-support/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -125,8 +125,7 @@ if (!doNotTrack) {
   </header>
   <section class="entry-content">
     <p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
-What’s actually going on Python 3.13 made SSL certificate validation stricter....</p>
+1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394....</p>
   </section>
   <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
@@ -152,9 +151,9 @@ It caught the axios supply chain attack in real time — any connection to sfrcl
   <section class="entry-content">
     <p>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
  Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-{ &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/.aws/**)&#34;, &#34;Read(~/.config/gcloud/**)&#34;, &#34;Read(~/.azure/**)&#34;, &#34;Read(~/....</p>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/....</p>
   </section>
-  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
 </article>
 

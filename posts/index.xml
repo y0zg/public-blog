@@ -7,14 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 29 Apr 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Terraform at scale: GitOps tools and the long apply problem</title>
+      <link>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</link>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</guid>
+      <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone — this is a recurring topic in every DevOps community right now.
+This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).</description>
+    </item>
+    
+    <item>
       <title>urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know</title>
       <link>https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/</link>
       <pubDate>Wed, 29 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/</guid>
       <description>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here&amp;rsquo;s the error you&amp;rsquo;re probably seeing:
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
-What&amp;rsquo;s actually going on Python 3.13 made SSL certificate validation stricter.</description>
+1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&amp;#39;xxxx.gr7.us-east-1.eks.amazonaws.com&amp;#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &amp;#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&amp;#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.</description>
     </item>
     
     <item>
@@ -55,7 +64,7 @@ How it works You mount the bucket via a managed endpoint and get a POSIX-compati
       <guid>https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/</guid>
       <description>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
  Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-{ &amp;#34;permissions&amp;#34;: { &amp;#34;deny&amp;#34;: [ &amp;#34;Read(~/.aws/**)&amp;#34;, &amp;#34;Read(~/.config/gcloud/**)&amp;#34;, &amp;#34;Read(~/.azure/**)&amp;#34;, &amp;#34;Read(~/.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &amp;#34;permissions&amp;#34;: { &amp;#34;deny&amp;#34;: [ &amp;#34;Read(~/.</description>
     </item>
     
     <item>
@@ -150,7 +159,7 @@ Key Challenges Addressed  Multiple Organizations – Separate logins for billing
 Key Features:
  Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
 Install VolSync via Helm:
-helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:</description>
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:</description>
     </item>
     
     <item>
@@ -306,7 +315,7 @@ In this example for pod memory resources configuration, the resizePolicy indicat
       <guid>https://okulbida.com/posts/eks-instance-store/</guid>
       <description>Userdata is compatible with the standard AWS EKS Terraform module, with the sole recommendation being the utilization of a custom AMI. In order to use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 Terraform example:
-eks-dev-instance-store = { instance_types = [&amp;#34;r6id.large&amp;#34;] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = &amp;#34;/dev/xvda&amp;#34; ebs = { volume_size = 24 volume_type = &amp;#34;gp3&amp;#34; iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [&amp;#34;r6id.</description>
     </item>
     
     <item>
@@ -335,7 +344,7 @@ General info  https://kubernetesreadme.com/  Comparison  API comparison https://
       
       <guid>https://okulbida.com/posts/helm-fix-after-k8s-upgrade/</guid>
       <description>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &amp;quot;Deployment&amp;quot; in version &amp;quot;apps/v1beta1&amp;quot;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
-helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &amp;lt;releasename&amp;gt; helm upgrade &amp;lt;releasename&amp;gt; It&amp;rsquo;s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions.</description>
+1 2 3  helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &amp;lt;releasename&amp;gt; helm upgrade &amp;lt;releasename&amp;gt;   It&amp;rsquo;s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions.</description>
     </item>
     
     <item>
@@ -365,7 +374,7 @@ helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &a
       
       <guid>https://okulbida.com/posts/loki-s3-dynamodb/</guid>
       <description>While using Loki with S3 and Dynamodb it&amp;rsquo;s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
-[provisioned_write_throughput: &amp;lt;int&amp;gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&amp;lt;prefix&amp;gt;.read-throughput [provisioned_read_throughput: &amp;lt;int&amp;gt; | default = 300] </description>
+1 2 3 4 5  [provisioned_write_throughput: &amp;lt;int&amp;gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&amp;lt;prefix&amp;gt;.read-throughput [provisioned_read_throughput: &amp;lt;int&amp;gt; | default = 300]   </description>
     </item>
     
     <item>

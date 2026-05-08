@@ -13,7 +13,7 @@
       
       <guid>https://okulbida.com/posts/helm-fix-after-k8s-upgrade/</guid>
       <description>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &amp;quot;Deployment&amp;quot; in version &amp;quot;apps/v1beta1&amp;quot;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
-helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &amp;lt;releasename&amp;gt; helm upgrade &amp;lt;releasename&amp;gt; It&amp;rsquo;s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions.</description>
+1 2 3  helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &amp;lt;releasename&amp;gt; helm upgrade &amp;lt;releasename&amp;gt;   It&amp;rsquo;s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions.</description>
     </item>
     
   </channel>

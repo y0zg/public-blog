@@ -79,8 +79,8 @@ if (!doNotTrack) {
   "keywords": [
     "npm", "security", "axios", "supply-chain", "github-actions", "ci-cd"
   ],
-  "articleBody": " npm min-release-age Use npm ci, not npm install Hardening GitHub Actions Summary   In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a npm install could pull down far more than an HTTP client — a pattern we have seen before in registry incidents, not a bug in axios’ normal code.\nThe bad versions were taken down quickly, but any machine or CI job that installed them in that window should be treated as potentially affected: rotate secrets where relevant, check install logs and lockfiles, and pin to known-good versions (axios at or below 1.14.0 / 0.30.3 on those lines, per vendor and security advisories).\n A small npm setting that helps with “brand new” malware npm (recent CLI versions) supports min-release-age: installs only dependency versions that have been published at least N days ago. That does not stop every attack, but it cuts exposure to hijacks where the malicious tarball exists only for hours before npm removes it.\nnpm config set min-release-age 3 Here 3 means three days (see npm config: min-release-age). You can also pass it per command: npm install --min-release-age=3.\nTrade-offs: you need a recent npm CLI (this landed in the v11 line; run npm -v and check the config docs for your version). Installs can fail if no published version is “old enough.” It is one layer among many — lockfiles, pinning, and reviewing postinstall still matter — but for “hot” malicious publishes, a few days’ delay helps.\n Use npm ci in your pipeline, not npm install This incident highlighted something easy to miss: if your CI pipeline runs npm install, it hits the live npm registry on every run and re-resolves version ranges from scratch. That is the window an attacker needs.\nIf your package.json says ”axios”: “^1.7.9”, then npm install can pull in 1.14.1 — a version that was never in your lockfile. That is exactly how many people picked up the malicious build published on March 31.\nWhy npm ci is safer npm ci installs exactly what is in package-lock.json. If the lockfile does not match package.json, the command fails rather than silently resolving something new. It never reaches out to the registry for a fresher version. A newly published malicious package simply cannot get in until you explicitly update the lockfile yourself.\nSwap it in your workflow:\n# Before - name: Install dependencies run: npm install # After - name: Install dependencies run: npm ci Bonus: it is also faster npm ci wipes node_modules and reinstalls from scratch without trying to reconcile the existing tree. In practice that is 20–40 % faster than npm install in a clean CI environment.\nOne line change, and your pipeline stops silently adopting whatever just appeared on the registry. Keep your lockfile committed and update it deliberately — do not let CI do it automatically.\n Hardening GitHub Actions workflows The axios incident is about npm, but your GitHub Actions workflow itself is another attack surface. The tj-actions compromise in 2025 showed exactly this: an attacker re-pointed a version tag to malicious code, and any workflow using that tag ran it automatically.\nPin actions to a commit SHA, not a tag Tags like @v3 or @v40 are mutable — they can be deleted and pointed somewhere else. A 40-character commit SHA cannot be changed after the fact.\n# Before (vulnerable — tag can be moved) uses: tj-actions/changed-files@v40 # After (safe — this exact commit, forever) uses: tj-actions/changed-files@2d756ea93da014e7b7df225d13f5e6e43e5c2ee7 # v40.0.2 Do this for every third-party action in your workflows. First-party actions (actions/checkout, actions/setup-node) from GitHub are lower risk but still worth pinning.\nTo keep SHAs up to date without manual work, add Dependabot for Actions:\n# .github/dependabot.yml version: 2 updates: - package-ecosystem: \"github-actions\" directory: \"/\" schedule: interval: \"weekly\" Dependabot will open PRs with updated SHAs automatically.\nUse least-privilege permissions By default, GITHUB_TOKEN has more permissions than most jobs need. Lock it down at the workflow level:\npermissions: contents: read Then grant extra permissions only to the specific job that needs them. If a compromised action runs in your workflow, it can only do what the token allows.\nReplace long-lived secrets with OIDC Static credentials (AWS keys, npm tokens, Docker Hub passwords stored as secrets) are valid for months. If they leak, the attacker has months to use them.\nOIDC gives each workflow run a short-lived token (15–60 minutes) instead. No static secret to steal.\nFor AWS:\npermissions: id-token: write contents: read steps: - uses: aws-actions/configure-aws-credentials@e3dd6d6512e493a47ee3ea56a9890a770ddb8787 # v4 with: role-to-assume: arn:aws:iam::ACCOUNT_ID:role/YOUR_ROLE aws-region: us-east-1 Azure and Google Cloud support the same pattern with their respective actions.\nMonitor what your workflow actually does at runtime Even with SHA pinning, a compromised action could make unexpected network calls or write files outside expected paths. Harden-Runner from StepSecurity adds runtime monitoring to your jobs:\nsteps: - uses: step-security/harden-runner@v2 with: egress-policy: audit Start with audit mode to see what network calls your workflow makes normally. Once you have a baseline, switch to block to deny anything unexpected.\nProtect your tags If your release workflow publishes to npm or deploys on a tag push, protect those tags. In repository settings, add a tag protection rule for v* and require signed tags. This stops an attacker with limited repo access from creating a fake release tag and triggering your publish workflow.\n Summary None of these are silver bullets on their own. The axios incident got people who ran npm install without a lockfile. The tj-actions incident got people who trusted mutable tags. The pattern is always the same: implicit trust in something that turned out to be mutable.\n   What to do Why     Use npm ci in CI Locks to your lockfile, no surprise upgrades   Pin exact versions in package.json No caret ranges that resolve to new versions   Set min-release-age Skips packages published in the last N days   Pin Actions to commit SHAs Tags can be moved, SHAs cannot   Use OIDC instead of static secrets Short-lived tokens limit blast radius   Least-privilege permissions Limits what a compromised action can do   Enable Harden-Runner Catches unexpected behaviour at runtime    ",
-  "wordCount" : "1020",
+  "articleBody": " npm min-release-age Use npm ci, not npm install Hardening GitHub Actions Summary   In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a npm install could pull down far more than an HTTP client — a pattern we have seen before in registry incidents, not a bug in axios’ normal code.\nThe bad versions were taken down quickly, but any machine or CI job that installed them in that window should be treated as potentially affected: rotate secrets where relevant, check install logs and lockfiles, and pin to known-good versions (axios at or below 1.14.0 / 0.30.3 on those lines, per vendor and security advisories).\n A small npm setting that helps with “brand new” malware npm (recent CLI versions) supports min-release-age: installs only dependency versions that have been published at least N days ago. That does not stop every attack, but it cuts exposure to hijacks where the malicious tarball exists only for hours before npm removes it.\n1  npm config set min-release-age 3   Here 3 means three days (see npm config: min-release-age). You can also pass it per command: npm install --min-release-age=3.\nTrade-offs: you need a recent npm CLI (this landed in the v11 line; run npm -v and check the config docs for your version). Installs can fail if no published version is “old enough.” It is one layer among many — lockfiles, pinning, and reviewing postinstall still matter — but for “hot” malicious publishes, a few days’ delay helps.\n Use npm ci in your pipeline, not npm install This incident highlighted something easy to miss: if your CI pipeline runs npm install, it hits the live npm registry on every run and re-resolves version ranges from scratch. That is the window an attacker needs.\nIf your package.json says ”axios”: “^1.7.9”, then npm install can pull in 1.14.1 — a version that was never in your lockfile. That is exactly how many people picked up the malicious build published on March 31.\nWhy npm ci is safer npm ci installs exactly what is in package-lock.json. If the lockfile does not match package.json, the command fails rather than silently resolving something new. It never reaches out to the registry for a fresher version. A newly published malicious package simply cannot get in until you explicitly update the lockfile yourself.\nSwap it in your workflow:\n1 2 3 4 5 6 7  # Before - name: Install dependencies run: npm install # After - name: Install dependencies run: npm ci   Bonus: it is also faster npm ci wipes node_modules and reinstalls from scratch without trying to reconcile the existing tree. In practice that is 20–40 % faster than npm install in a clean CI environment.\nOne line change, and your pipeline stops silently adopting whatever just appeared on the registry. Keep your lockfile committed and update it deliberately — do not let CI do it automatically.\n Hardening GitHub Actions workflows The axios incident is about npm, but your GitHub Actions workflow itself is another attack surface. The tj-actions compromise in 2025 showed exactly this: an attacker re-pointed a version tag to malicious code, and any workflow using that tag ran it automatically.\nPin actions to a commit SHA, not a tag Tags like @v3 or @v40 are mutable — they can be deleted and pointed somewhere else. A 40-character commit SHA cannot be changed after the fact.\n1 2 3 4 5  # Before (vulnerable — tag can be moved) uses: tj-actions/changed-files@v40 # After (safe — this exact commit, forever) uses: tj-actions/changed-files@2d756ea93da014e7b7df225d13f5e6e43e5c2ee7 # v40.0.2   Do this for every third-party action in your workflows. First-party actions (actions/checkout, actions/setup-node) from GitHub are lower risk but still worth pinning.\nTo keep SHAs up to date without manual work, add Dependabot for Actions:\n1 2 3 4 5 6 7  # .github/dependabot.yml version: 2 updates: - package-ecosystem: \"github-actions\" directory: \"/\" schedule: interval: \"weekly\"   Dependabot will open PRs with updated SHAs automatically.\nUse least-privilege permissions By default, GITHUB_TOKEN has more permissions than most jobs need. Lock it down at the workflow level:\n1 2  permissions: contents: read   Then grant extra permissions only to the specific job that needs them. If a compromised action runs in your workflow, it can only do what the token allows.\nReplace long-lived secrets with OIDC Static credentials (AWS keys, npm tokens, Docker Hub passwords stored as secrets) are valid for months. If they leak, the attacker has months to use them.\nOIDC gives each workflow run a short-lived token (15–60 minutes) instead. No static secret to steal.\nFor AWS:\n1 2 3 4 5 6 7 8 9  permissions: id-token: write contents: read steps: - uses: aws-actions/configure-aws-credentials@e3dd6d6512e493a47ee3ea56a9890a770ddb8787 # v4 with: role-to-assume: arn:aws:iam::ACCOUNT_ID:role/YOUR_ROLE aws-region: us-east-1   Azure and Google Cloud support the same pattern with their respective actions.\nMonitor what your workflow actually does at runtime Even with SHA pinning, a compromised action could make unexpected network calls or write files outside expected paths. Harden-Runner from StepSecurity adds runtime monitoring to your jobs:\n1 2 3 4  steps: - uses: step-security/harden-runner@v2 with: egress-policy: audit   Start with audit mode to see what network calls your workflow makes normally. Once you have a baseline, switch to block to deny anything unexpected.\nProtect your tags If your release workflow publishes to npm or deploys on a tag push, protect those tags. In repository settings, add a tag protection rule for v* and require signed tags. This stops an attacker with limited repo access from creating a fake release tag and triggering your publish workflow.\n Summary None of these are silver bullets on their own. The axios incident got people who ran npm install without a lockfile. The tj-actions incident got people who trusted mutable tags. The pattern is always the same: implicit trust in something that turned out to be mutable.\n   What to do Why     Use npm ci in CI Locks to your lockfile, no surprise upgrades   Pin exact versions in package.json No caret ranges that resolve to new versions   Set min-release-age Skips packages published in the last N days   Pin Actions to commit SHAs Tags can be moved, SHAs cannot   Use OIDC instead of static secrets Short-lived tokens limit blast radius   Least-privilege permissions Limits what a compromised action can do   Enable Harden-Runner Catches unexpected behaviour at runtime    ",
+  "wordCount" : "1055",
   "inLanguage": "en",
   "datePublished": "2026-04-04T00:00:00+02:00",
   "dateModified": "2026-04-04T00:00:00+02:00",
@@ -194,8 +194,15 @@ if (!doNotTrack) {
 <hr>
 <h2 id="a-small-npm-setting-that-helps-with-brand-new-malware">A small npm setting that helps with “brand new” malware<a hidden class="anchor" aria-hidden="true" href="#a-small-npm-setting-that-helps-with-brand-new-malware">#</a></h2>
 <p>npm (recent CLI versions) supports <strong><code>min-release-age</code></strong>: installs only dependency versions that have been published <strong>at least N days</strong> ago. That does not stop every attack, but it <strong>cuts exposure</strong> to hijacks where the malicious tarball exists only for hours before npm removes it.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm config set min-release-age <span style="color:#ae81ff">3</span>
-</code></pre></div><p>Here <strong><code>3</code> means three days</strong> (see <a href="https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age">npm config: min-release-age</a>). You can also pass it per command: <code>npm install --min-release-age=3</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm config set min-release-age <span style="color:#ae81ff">3</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Here <strong><code>3</code> means three days</strong> (see <a href="https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age">npm config: min-release-age</a>). You can also pass it per command: <code>npm install --min-release-age=3</code>.</p>
 <p><strong>Trade-offs:</strong> you need a <strong>recent npm CLI</strong> (this landed in the v11 line; run <code>npm -v</code> and check the <a href="https://docs.npmjs.com/cli/v11/using-npm/config#min-release-age">config docs</a> for your version). Installs can <strong>fail</strong> if no published version is “old enough.” It is <strong>one layer</strong> among many — lockfiles, pinning, and reviewing <code>postinstall</code> still matter — but for “hot” malicious publishes, a few days’ delay helps.</p>
 <hr>
 <h2 id="use-npm-ci-in-your-pipeline-not-npm-install">Use npm ci in your pipeline, not npm install<a hidden class="anchor" aria-hidden="true" href="#use-npm-ci-in-your-pipeline-not-npm-install">#</a></h2>
@@ -204,14 +211,27 @@ if (!doNotTrack) {
 <h3 id="why-npm-ci-is-safer">Why npm ci is safer<a hidden class="anchor" aria-hidden="true" href="#why-npm-ci-is-safer">#</a></h3>
 <p><code>npm ci</code> installs exactly what is in <code>package-lock.json</code>. If the lockfile does not match <code>package.json</code>, the command fails rather than silently resolving something new. It never reaches out to the registry for a fresher version. A newly published malicious package simply cannot get in until you explicitly update the lockfile yourself.</p>
 <p>Swap it in your workflow:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Before</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Before</span>
 - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install dependencies</span>
   <span style="color:#f92672">run</span>: <span style="color:#ae81ff">npm install</span>
 
 <span style="color:#75715e"># After</span>
 - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install dependencies</span>
   <span style="color:#f92672">run</span>: <span style="color:#ae81ff">npm ci</span>
-</code></pre></div><h3 id="bonus-it-is-also-faster">Bonus: it is also faster<a hidden class="anchor" aria-hidden="true" href="#bonus-it-is-also-faster">#</a></h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="bonus-it-is-also-faster">Bonus: it is also faster<a hidden class="anchor" aria-hidden="true" href="#bonus-it-is-also-faster">#</a></h3>
 <p><code>npm ci</code> wipes <code>node_modules</code> and reinstalls from scratch without trying to reconcile the existing tree. In practice that is <strong>20–40 % faster</strong> than <code>npm install</code> in a clean CI environment.</p>
 <p>One line change, and your pipeline stops silently adopting whatever just appeared on the registry. Keep your lockfile committed and update it deliberately — do not let CI do it automatically.</p>
 <hr>
@@ -219,31 +239,76 @@ if (!doNotTrack) {
 <p>The axios incident is about npm, but your GitHub Actions workflow itself is another attack surface. The tj-actions compromise in 2025 showed exactly this: an attacker re-pointed a version tag to malicious code, and any workflow using that tag ran it automatically.</p>
 <h3 id="pin-actions-to-a-commit-sha-not-a-tag">Pin actions to a commit SHA, not a tag<a hidden class="anchor" aria-hidden="true" href="#pin-actions-to-a-commit-sha-not-a-tag">#</a></h3>
 <p>Tags like <code>@v3</code> or <code>@v40</code> are mutable — they can be deleted and pointed somewhere else. A 40-character commit SHA cannot be changed after the fact.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Before (vulnerable — tag can be moved)</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Before (vulnerable — tag can be moved)</span>
 <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">tj-actions/changed-files@v40</span>
 
 <span style="color:#75715e"># After (safe — this exact commit, forever)</span>
 <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">tj-actions/changed-files@2d756ea93da014e7b7df225d13f5e6e43e5c2ee7</span> <span style="color:#75715e"># v40.0.2</span>
-</code></pre></div><p>Do this for every third-party action in your workflows. First-party actions (<code>actions/checkout</code>, <code>actions/setup-node</code>) from GitHub are lower risk but still worth pinning.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Do this for every third-party action in your workflows. First-party actions (<code>actions/checkout</code>, <code>actions/setup-node</code>) from GitHub are lower risk but still worth pinning.</p>
 <p>To keep SHAs up to date without manual work, add Dependabot for Actions:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># .github/dependabot.yml</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># .github/dependabot.yml</span>
 <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2</span>
 <span style="color:#f92672">updates</span>:
   - <span style="color:#f92672">package-ecosystem</span>: <span style="color:#e6db74">&#34;github-actions&#34;</span>
     <span style="color:#f92672">directory</span>: <span style="color:#e6db74">&#34;/&#34;</span>
     <span style="color:#f92672">schedule</span>:
       <span style="color:#f92672">interval</span>: <span style="color:#e6db74">&#34;weekly&#34;</span>
-</code></pre></div><p>Dependabot will open PRs with updated SHAs automatically.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Dependabot will open PRs with updated SHAs automatically.</p>
 <h3 id="use-least-privilege-permissions">Use least-privilege permissions<a hidden class="anchor" aria-hidden="true" href="#use-least-privilege-permissions">#</a></h3>
 <p>By default, <code>GITHUB_TOKEN</code> has more permissions than most jobs need. Lock it down at the workflow level:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">permissions</span>:
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">permissions</span>:
   <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">read</span>
-</code></pre></div><p>Then grant extra permissions only to the specific job that needs them. If a compromised action runs in your workflow, it can only do what the token allows.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Then grant extra permissions only to the specific job that needs them. If a compromised action runs in your workflow, it can only do what the token allows.</p>
 <h3 id="replace-long-lived-secrets-with-oidc">Replace long-lived secrets with OIDC<a hidden class="anchor" aria-hidden="true" href="#replace-long-lived-secrets-with-oidc">#</a></h3>
 <p>Static credentials (AWS keys, npm tokens, Docker Hub passwords stored as secrets) are valid for months. If they leak, the attacker has months to use them.</p>
 <p>OIDC gives each workflow run a short-lived token (15–60 minutes) instead. No static secret to steal.</p>
 <p>For AWS:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">permissions</span>:
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">permissions</span>:
   <span style="color:#f92672">id-token</span>: <span style="color:#ae81ff">write</span>
   <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">read</span>
 
@@ -252,14 +317,26 @@ if (!doNotTrack) {
     <span style="color:#f92672">with</span>:
       <span style="color:#f92672">role-to-assume</span>: <span style="color:#ae81ff">arn:aws:iam::ACCOUNT_ID:role/YOUR_ROLE</span>
       <span style="color:#f92672">aws-region</span>: <span style="color:#ae81ff">us-east-1</span>
-</code></pre></div><p>Azure and Google Cloud support the same pattern with their respective actions.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Azure and Google Cloud support the same pattern with their respective actions.</p>
 <h3 id="monitor-what-your-workflow-actually-does-at-runtime">Monitor what your workflow actually does at runtime<a hidden class="anchor" aria-hidden="true" href="#monitor-what-your-workflow-actually-does-at-runtime">#</a></h3>
 <p>Even with SHA pinning, a compromised action could make unexpected network calls or write files outside expected paths. <a href="https://github.com/step-security/harden-runner">Harden-Runner</a> from StepSecurity adds runtime monitoring to your jobs:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">steps</span>:
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">steps</span>:
   - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">step-security/harden-runner@v2</span>
     <span style="color:#f92672">with</span>:
       <span style="color:#f92672">egress-policy</span>: <span style="color:#ae81ff">audit</span>
-</code></pre></div><p>Start with <code>audit</code> mode to see what network calls your workflow makes normally. Once you have a baseline, switch to <code>block</code> to deny anything unexpected.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>Start with <code>audit</code> mode to see what network calls your workflow makes normally. Once you have a baseline, switch to <code>block</code> to deny anything unexpected.</p>
 <h3 id="protect-your-tags">Protect your tags<a hidden class="anchor" aria-hidden="true" href="#protect-your-tags">#</a></h3>
 <p>If your release workflow publishes to npm or deploys on a tag push, protect those tags. In repository settings, add a tag protection rule for <code>v*</code> and require signed tags. This stops an attacker with limited repo access from creating a fake release tag and triggering your publish workflow.</p>
 <hr>

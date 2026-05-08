@@ -11,7 +11,7 @@
 Key Features:
  Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
 Install VolSync via Helm:
-helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:">
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/" />
 <meta name="google-site-verification" content="XYZabc" />
@@ -44,7 +44,7 @@ if (!doNotTrack) {
 Key Features:
  Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
 Install VolSync via Helm:
-helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:" />
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/volsync-kubernetes-volume-migration/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-12-28T16:00:00&#43;03:00" />
@@ -58,7 +58,7 @@ helm repo add backube https://backube.github.io/helm-charts/ helm install --crea
 Key Features:
  Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
 Install VolSync via Helm:
-helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:"/>
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:"/>
 
 
 <script type="application/ld+json">
@@ -87,12 +87,12 @@ helm repo add backube https://backube.github.io/helm-charts/ helm install --crea
   "@type": "BlogPosting",
   "headline": "VolSync: asynchronous data replication for Kubernetes volumes",
   "name": "VolSync: asynchronous data replication for Kubernetes volumes",
-  "description": "VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.\nKey Features:\n Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:\nInstall VolSync via Helm:\nhelm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:",
+  "description": "VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.\nKey Features:\n Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:\nInstall VolSync via Helm:\n1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:",
   "keywords": [
     "kubernetes", "storage", "data-migration", "volsync", "backup"
   ],
-  "articleBody": "VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.\nKey Features:\n Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:\nInstall VolSync via Helm:\nhelm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:\nVolSync provides a CLI tool (kubectl-volsync) for migrating data from external storage into Kubernetes PersistentVolumes.\nStep 1: Install VolSync CLI\nInstall the CLI using Krew:\nkubectl krew install volsync Step 2: Create Migration Destination\nCreate a namespace and migration destination:\nkubectl create ns destination kubectl volsync migration create -r mig-example \\  --capacity 2Gi \\  --accessmodes ReadWriteOnce \\  --storageclass standard-csi \\  --pvcname destination/mydata This creates a 2Gi PVC named mydata in the destination namespace.\nStep 3: Copy Data into PVC\nMigrate data from external storage (e.g., local directory):\nkubectl volsync migration rsync -r mig-example --source /tmp/data/ This synchronizes /tmp/data/ into the mydata PVC.\nStep 4: Use Migrated Data\nDeploy a pod to access the migrated data:\napiVersion: v1 kind: Pod metadata: name: data-consumer namespace: destination spec: containers: - name: data-consumer image: busybox command: [\"/bin/sh\", \"-c\", \"sleep 3600\"] volumeMounts: - mountPath: \"/data\" name: mydata volumes: - name: mydata persistentVolumeClaim: claimName: mydata Step 5: Clean Up\nRemove migration resources after completion:\nkubectl volsync migration delete -r mig-example VolSync simplifies data migration and replication in Kubernetes environments, making it ideal for disaster recovery, multi-cluster deployments, and backup scenarios.\nFor detailed documentation and advanced usage, see the VolSync documentation and GitHub repository.\n",
-  "wordCount" : "269",
+  "articleBody": "VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.\nKey Features:\n Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:\nInstall VolSync via Helm:\n1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:\nVolSync provides a CLI tool (kubectl-volsync) for migrating data from external storage into Kubernetes PersistentVolumes.\nStep 1: Install VolSync CLI\nInstall the CLI using Krew:\n1  kubectl krew install volsync   Step 2: Create Migration Destination\nCreate a namespace and migration destination:\n1 2 3 4 5 6  kubectl create ns destination kubectl volsync migration create -r mig-example \\  --capacity 2Gi \\  --accessmodes ReadWriteOnce \\  --storageclass standard-csi \\  --pvcname destination/mydata   This creates a 2Gi PVC named mydata in the destination namespace.\nStep 3: Copy Data into PVC\nMigrate data from external storage (e.g., local directory):\n1  kubectl volsync migration rsync -r mig-example --source /tmp/data/   This synchronizes /tmp/data/ into the mydata PVC.\nStep 4: Use Migrated Data\nDeploy a pod to access the migrated data:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  apiVersion: v1 kind: Pod metadata: name: data-consumer namespace: destination spec: containers: - name: data-consumer image: busybox command: [\"/bin/sh\", \"-c\", \"sleep 3600\"] volumeMounts: - mountPath: \"/data\" name: mydata volumes: - name: mydata persistentVolumeClaim: claimName: mydata   Step 5: Clean Up\nRemove migration resources after completion:\n1  kubectl volsync migration delete -r mig-example   VolSync simplifies data migration and replication in Kubernetes environments, making it ideal for disaster recovery, multi-cluster deployments, and backup scenarios.\nFor detailed documentation and advanced usage, see the VolSync documentation and GitHub repository.\n",
+  "wordCount" : "297",
   "inLanguage": "en",
   "datePublished": "2025-12-28T16:00:00+03:00",
   "dateModified": "2025-12-28T16:00:00+03:00",
@@ -205,29 +205,84 @@ helm repo add backube https://backube.github.io/helm-charts/ helm install --crea
 </ul>
 <p><strong>Installation:</strong></p>
 <p>Install VolSync via Helm:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm repo add backube https://backube.github.io/helm-charts/
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm repo add backube https://backube.github.io/helm-charts/
 helm install --create-namespace -n volsync-system volsync backube/volsync
-</code></pre></div><p><strong>Migrating Data into Kubernetes:</strong></p>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Migrating Data into Kubernetes:</strong></p>
 <p>VolSync provides a CLI tool (<code>kubectl-volsync</code>) for migrating data from external storage into Kubernetes PersistentVolumes.</p>
 <p><strong>Step 1: Install VolSync CLI</strong></p>
 <p>Install the CLI using Krew:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl krew install volsync
-</code></pre></div><p><strong>Step 2: Create Migration Destination</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl krew install volsync
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 2: Create Migration Destination</strong></p>
 <p>Create a namespace and migration destination:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create ns destination
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create ns destination
 kubectl volsync migration create -r mig-example <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --capacity 2Gi <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --accessmodes ReadWriteOnce <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --storageclass standard-csi <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --pvcname destination/mydata
-</code></pre></div><p>This creates a 2Gi PVC named <code>mydata</code> in the <code>destination</code> namespace.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>This creates a 2Gi PVC named <code>mydata</code> in the <code>destination</code> namespace.</p>
 <p><strong>Step 3: Copy Data into PVC</strong></p>
 <p>Migrate data from external storage (e.g., local directory):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl volsync migration rsync -r mig-example --source /tmp/data/
-</code></pre></div><p>This synchronizes <code>/tmp/data/</code> into the <code>mydata</code> PVC.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl volsync migration rsync -r mig-example --source /tmp/data/
+</code></pre></td></tr></table>
+</div>
+</div><p>This synchronizes <code>/tmp/data/</code> into the <code>mydata</code> PVC.</p>
 <p><strong>Step 4: Use Migrated Data</strong></p>
 <p>Deploy a pod to access the migrated data:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
 <span style="color:#f92672">metadata</span>:
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-consumer</span>
@@ -244,10 +299,19 @@ kubectl volsync migration create -r mig-example <span style="color:#ae81ff">\
   - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mydata</span>
     <span style="color:#f92672">persistentVolumeClaim</span>:
       <span style="color:#f92672">claimName</span>: <span style="color:#ae81ff">mydata</span>
-</code></pre></div><p><strong>Step 5: Clean Up</strong></p>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 5: Clean Up</strong></p>
 <p>Remove migration resources after completion:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl volsync migration delete -r mig-example
-</code></pre></div><p>VolSync simplifies data migration and replication in Kubernetes environments, making it ideal for disaster recovery, multi-cluster deployments, and backup scenarios.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl volsync migration delete -r mig-example
+</code></pre></td></tr></table>
+</div>
+</div><p>VolSync simplifies data migration and replication in Kubernetes environments, making it ideal for disaster recovery, multi-cluster deployments, and backup scenarios.</p>
 <p>For detailed documentation and advanced usage, see the <a href="https://volsync.readthedocs.io/en/stable/">VolSync documentation</a> and <a href="https://github.com/backube/volsync">GitHub repository</a>.</p>
 
 </div>

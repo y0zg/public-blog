@@ -82,8 +82,8 @@ The uncomfortable part: if you resolve or fetch any user URL with no checks, you
   "keywords": [
     "aws", "eks", "guardduty", "security", "ssrf", "route53"
   ],
-  "articleBody": "Click to enlarge      GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it is not a hacked cluster.\nThe uncomfortable part: if you resolve or fetch any user URL with no checks, you also open the door to SSRF — for example a link to 169.254.169.254 (instance metadata) from a worker that uses the node’s IAM role. That is a bigger problem than one noisy finding.\n What actually happened (typical chain)  User sends text with a link (e.g. a shady .cn domain). A webhook or message handler picks it up in EKS. Some code path (preview, image, “unfurl”) resolves the hostname or pulls the page. DNS goes out from the node where the pod runs. GuardDuty fires because that domain matches phishing/malware intel.  So: no infection required — just DNS toward a flagged name.\n Quick checks when you investigate App logs — usually the fastest. You should see the same hostname as in the finding, tied to a request or message id:\nmsg=\"fetch_preview\" url=\"https://phish-example.cn/...\" request_id=abc123 From a pod (sanity check):\ndig +short phish-example.cn A Before DNS Firewall: you get real A records. After you block the domain in Route 53 Resolver DNS Firewall, behavior depends on your resolver setup (often empty answer or no resolution).\nGuardDuty — you will see the domain, instance, VPC, severity. The exact finding type string varies; the important bit is DNS_REQUEST + domain name. Example shape:\n{ \"Types\": [\"Trojan:EC2/PhishingDomain!DNS\"], \"Severity\": { \"Label\": \"HIGH\" }, \"Service\": { \"Action\": { \"ActionType\": \"DNS_REQUEST\", \"DnsRequestAction\": { \"Domain\": \"phish-example.cn\" } } } }  Fix the app: do not follow private / metadata URLs Block these before you resolve or fetch: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 127.0.0.0/8, and 169.254.0.0/16 (covers 169.254.169.254 metadata).\nMinimal Python idea — resolve host to IPs, reject bad ranges:\nimport ipaddress import socket from urllib.parse import urlparse def ips(hostname): return {ipaddress.ip_address(x[4][0]) for x in socket.getaddrinfo(hostname, None, socket.AF_INET)} def ok_url(url): p = urlparse(url) if p.scheme not in (\"http\", \"https\") or not p.hostname: return False for ip in ips(p.hostname): # private LAN, localhost, link-local (includes 169.254.169.254 metadata) if ip.is_private or ip.is_loopback or ip.is_link_local: return False return True print(ok_url(\"http://169.254.169.254/latest/meta-data/\")) # False In production you still want timeouts, redirect limits, and egress rules — DNS rebinding can bite you if you only check the first hop.\n Fix the noise: Route 53 DNS Firewall Use AWS managed domain lists (malware + aggregate threat) in a firewall rule group, then attach it to the VPC where EKS nodes live. Docs: managed domain lists.\nSketch:\naws route53resolver list-firewall-domain-lists --region \"$AWS_REGION\" \\  --query \"FirewallDomainLists[?ManagedOwnerName=='Route53 Resolver']\" --output table RFG=$(aws route53resolver create-firewall-rule-group --region \"$AWS_REGION\" \\  --name \"block-known-bad-domains\" --query FirewallRuleGroup.Id --output text) # plug LIST_ID from the table (e.g. malware managed list) aws route53resolver create-firewall-rule --region \"$AWS_REGION\" \\  --firewall-rule-group-id \"$RFG\" --firewall-domain-list-id \"LIST_ID\" \\  --priority 100 --action BLOCK --name \"malware-list\" aws route53resolver associate-firewall-rule-group --region \"$AWS_REGION\" \\  --firewall-rule-group-id \"$RFG\" --vpc-id \"$VPC_ID\" --priority 101 --name \"eks-vpc\" That stops a lot of known-bad names at DNS, before your app even opens TCP.\n Bigger win: move “fetch user URLs” to a small worker Run preview / URL fetch in a separate job with narrow egress and minimal IAM — not on the same path as your main API on nodes that carry fat instance roles.\n Practical notes  Check application logs first when GuardDuty names a domain; it saves hours. Raise EKS control plane log retention if yours is short — old node events disappear fast. Shrink node IAM — SSRF to metadata is about credentials, not only alerts. User-supplied links will eventually hit phishing lists; document that so people do not treat every DNS finding as an incident.   The diagram above is the same story in one screen: how the traffic flows, what breaks, what to add. False positive for “we are hacked,” real work on SSRF, DNS, and IAM.\n",
-  "wordCount" : "669",
+  "articleBody": "Click to enlarge      GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it is not a hacked cluster.\nThe uncomfortable part: if you resolve or fetch any user URL with no checks, you also open the door to SSRF — for example a link to 169.254.169.254 (instance metadata) from a worker that uses the node’s IAM role. That is a bigger problem than one noisy finding.\n What actually happened (typical chain)  User sends text with a link (e.g. a shady .cn domain). A webhook or message handler picks it up in EKS. Some code path (preview, image, “unfurl”) resolves the hostname or pulls the page. DNS goes out from the node where the pod runs. GuardDuty fires because that domain matches phishing/malware intel.  So: no infection required — just DNS toward a flagged name.\n Quick checks when you investigate App logs — usually the fastest. You should see the same hostname as in the finding, tied to a request or message id:\n1  msg=\"fetch_preview\" url=\"https://phish-example.cn/...\" request_id=abc123   From a pod (sanity check):\n1  dig +short phish-example.cn A   Before DNS Firewall: you get real A records. After you block the domain in Route 53 Resolver DNS Firewall, behavior depends on your resolver setup (often empty answer or no resolution).\nGuardDuty — you will see the domain, instance, VPC, severity. The exact finding type string varies; the important bit is DNS_REQUEST + domain name. Example shape:\n1 2 3 4 5 6 7 8 9 10  { \"Types\": [\"Trojan:EC2/PhishingDomain!DNS\"], \"Severity\": { \"Label\": \"HIGH\" }, \"Service\": { \"Action\": { \"ActionType\": \"DNS_REQUEST\", \"DnsRequestAction\": { \"Domain\": \"phish-example.cn\" } } } }    Fix the app: do not follow private / metadata URLs Block these before you resolve or fetch: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 127.0.0.0/8, and 169.254.0.0/16 (covers 169.254.169.254 metadata).\nMinimal Python idea — resolve host to IPs, reject bad ranges:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  import ipaddress import socket from urllib.parse import urlparse def ips(hostname): return {ipaddress.ip_address(x[4][0]) for x in socket.getaddrinfo(hostname, None, socket.AF_INET)} def ok_url(url): p = urlparse(url) if p.scheme not in (\"http\", \"https\") or not p.hostname: return False for ip in ips(p.hostname): # private LAN, localhost, link-local (includes 169.254.169.254 metadata) if ip.is_private or ip.is_loopback or ip.is_link_local: return False return True print(ok_url(\"http://169.254.169.254/latest/meta-data/\")) # False   In production you still want timeouts, redirect limits, and egress rules — DNS rebinding can bite you if you only check the first hop.\n Fix the noise: Route 53 DNS Firewall Use AWS managed domain lists (malware + aggregate threat) in a firewall rule group, then attach it to the VPC where EKS nodes live. Docs: managed domain lists.\nSketch:\n1 2 3 4 5 6 7 8 9 10 11 12 13  aws route53resolver list-firewall-domain-lists --region \"$AWS_REGION\" \\  --query \"FirewallDomainLists[?ManagedOwnerName=='Route53 Resolver']\" --output table RFG=$(aws route53resolver create-firewall-rule-group --region \"$AWS_REGION\" \\  --name \"block-known-bad-domains\" --query FirewallRuleGroup.Id --output text) # plug LIST_ID from the table (e.g. malware managed list) aws route53resolver create-firewall-rule --region \"$AWS_REGION\" \\  --firewall-rule-group-id \"$RFG\" --firewall-domain-list-id \"LIST_ID\" \\  --priority 100 --action BLOCK --name \"malware-list\" aws route53resolver associate-firewall-rule-group --region \"$AWS_REGION\" \\  --firewall-rule-group-id \"$RFG\" --vpc-id \"$VPC_ID\" --priority 101 --name \"eks-vpc\"   That stops a lot of known-bad names at DNS, before your app even opens TCP.\n Bigger win: move “fetch user URLs” to a small worker Run preview / URL fetch in a separate job with narrow egress and minimal IAM — not on the same path as your main API on nodes that carry fat instance roles.\n Practical notes  Check application logs first when GuardDuty names a domain; it saves hours. Raise EKS control plane log retention if yours is short — old node events disappear fast. Shrink node IAM — SSRF to metadata is about credentials, not only alerts. User-supplied links will eventually hit phishing lists; document that so people do not treat every DNS finding as an incident.   The diagram above is the same story in one screen: how the traffic flows, what breaks, what to add. False positive for “we are hacked,” real work on SSRF, DNS, and IAM.\n",
+  "wordCount" : "713",
   "inLanguage": "en",
   "datePublished": "2026-04-03T00:00:00+02:00",
   "dateModified": "2026-04-03T00:00:00+02:00",
@@ -214,12 +214,40 @@ The uncomfortable part: if you resolve or fetch any user URL with no checks, you
 <hr>
 <h2 id="quick-checks-when-you-investigate">Quick checks when you investigate<a hidden class="anchor" aria-hidden="true" href="#quick-checks-when-you-investigate">#</a></h2>
 <p><strong>App logs</strong> — usually the fastest. You should see the same hostname as in the finding, tied to a request or message id:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">msg=&#34;fetch_preview&#34; url=&#34;https://phish-example.cn/...&#34; request_id=abc123
-</code></pre></div><p><strong>From a pod</strong> (sanity check):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dig +short phish-example.cn A
-</code></pre></div><p>Before DNS Firewall: you get real A records. After you block the domain in <strong>Route 53 Resolver DNS Firewall</strong>, behavior depends on your resolver setup (often empty answer or no resolution).</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">msg=&#34;fetch_preview&#34; url=&#34;https://phish-example.cn/...&#34; request_id=abc123
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>From a pod</strong> (sanity check):</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dig +short phish-example.cn A
+</code></pre></td></tr></table>
+</div>
+</div><p>Before DNS Firewall: you get real A records. After you block the domain in <strong>Route 53 Resolver DNS Firewall</strong>, behavior depends on your resolver setup (often empty answer or no resolution).</p>
 <p><strong>GuardDuty</strong> — you will see the <strong>domain</strong>, <strong>instance</strong>, <strong>VPC</strong>, <strong>severity</strong>. The exact finding type string varies; the important bit is <strong>DNS_REQUEST</strong> + domain name. Example shape:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;Types&#34;</span>: [<span style="color:#e6db74">&#34;Trojan:EC2/PhishingDomain!DNS&#34;</span>],
   <span style="color:#f92672">&#34;Severity&#34;</span>: { <span style="color:#f92672">&#34;Label&#34;</span>: <span style="color:#e6db74">&#34;HIGH&#34;</span> },
   <span style="color:#f92672">&#34;Service&#34;</span>: {
@@ -229,11 +257,36 @@ The uncomfortable part: if you resolve or fetch any user URL with no checks, you
     }
   }
 }
-</code></pre></div><hr>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
 <h2 id="fix-the-app-do-not-follow-private--metadata-urls">Fix the app: do not follow private / metadata URLs<a hidden class="anchor" aria-hidden="true" href="#fix-the-app-do-not-follow-private--metadata-urls">#</a></h2>
 <p>Block these before you resolve or fetch: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>, <code>127.0.0.0/8</code>, and <strong><code>169.254.0.0/16</code></strong> (covers <code>169.254.169.254</code> metadata).</p>
 <p>Minimal <strong>Python</strong> idea — resolve host to IPs, reject bad ranges:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> ipaddress
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> ipaddress
 <span style="color:#f92672">import</span> socket
 <span style="color:#f92672">from</span> urllib.parse <span style="color:#f92672">import</span> urlparse
 
@@ -252,12 +305,31 @@ The uncomfortable part: if you resolve or fetch any user URL with no checks, you
     <span style="color:#66d9ef">return</span> True
 
 <span style="color:#66d9ef">print</span>(ok_url(<span style="color:#e6db74">&#34;http://169.254.169.254/latest/meta-data/&#34;</span>))  <span style="color:#75715e"># False</span>
-</code></pre></div><p>In production you still want <strong>timeouts</strong>, <strong>redirect limits</strong>, and <strong>egress rules</strong> — DNS rebinding can bite you if you only check the first hop.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>In production you still want <strong>timeouts</strong>, <strong>redirect limits</strong>, and <strong>egress rules</strong> — DNS rebinding can bite you if you only check the first hop.</p>
 <hr>
 <h2 id="fix-the-noise-route-53-dns-firewall">Fix the noise: Route 53 DNS Firewall<a hidden class="anchor" aria-hidden="true" href="#fix-the-noise-route-53-dns-firewall">#</a></h2>
 <p>Use AWS <strong>managed domain lists</strong> (malware + aggregate threat) in a firewall rule group, then <strong>attach it to the VPC</strong> where EKS nodes live. Docs: <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-dns-firewall-managed-domain-lists.html">managed domain lists</a>.</p>
 <p>Sketch:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws route53resolver list-firewall-domain-lists --region <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws route53resolver list-firewall-domain-lists --region <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#34;FirewallDomainLists[?ManagedOwnerName==&#39;Route53 Resolver&#39;]&#34;</span> --output table
 
 RFG<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws route53resolver create-firewall-rule-group --region <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
@@ -270,7 +342,9 @@ aws route53resolver create-firewall-rule --region <span style="color:#e6db74">&#
 
 aws route53resolver associate-firewall-rule-group --region <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --firewall-rule-group-id <span style="color:#e6db74">&#34;</span>$RFG<span style="color:#e6db74">&#34;</span> --vpc-id <span style="color:#e6db74">&#34;</span>$VPC_ID<span style="color:#e6db74">&#34;</span> --priority <span style="color:#ae81ff">101</span> --name <span style="color:#e6db74">&#34;eks-vpc&#34;</span>
-</code></pre></div><p>That stops a lot of known-bad names <strong>at DNS</strong>, before your app even opens TCP.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>That stops a lot of known-bad names <strong>at DNS</strong>, before your app even opens TCP.</p>
 <hr>
 <h2 id="bigger-win-move-fetch-user-urls-to-a-small-worker">Bigger win: move “fetch user URLs” to a small worker<a hidden class="anchor" aria-hidden="true" href="#bigger-win-move-fetch-user-urls-to-a-small-worker">#</a></h2>
 <p>Run preview / URL fetch in a <strong>separate job</strong> with <strong>narrow egress</strong> and <strong>minimal IAM</strong> — not on the same path as your main API on nodes that carry fat instance roles.</p>

@@ -26,7 +26,7 @@ How it works You mount the bucket via a managed endpoint and get a POSIX-compati
 Key Features:
  Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
 Install VolSync via Helm:
-helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:</description>
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:</description>
     </item>
     
     <item>
