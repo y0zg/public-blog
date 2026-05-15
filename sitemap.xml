@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/tags/agents/</loc>
+    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/ai/</loc>
+    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/ai-agents-knowledge-base-obsidian-local-llm/</loc>
+    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/axios/</loc>
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
@@ -11,13 +20,25 @@
     <loc>https://okulbida.com/tags/github-actions/</loc>
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/llm/</loc>
+    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/npm/</loc>
+    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/obsidian/</loc>
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/</loc>
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/platform-engineering/</loc>
+    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/rag/</loc>
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/security/</loc>
@@ -36,9 +57,6 @@
     <lastmod>2026-05-08T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/infrastructure/</loc>
-    <lastmod>2026-05-08T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/platform-engineering/</loc>
     <lastmod>2026-05-08T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/terraform/</loc>
@@ -73,9 +91,6 @@
   </url><url>
     <loc>https://okulbida.com/posts/prom-cheat-sheet/</loc>
     <lastmod>2026-04-17T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/ai/</loc>
-    <lastmod>2026-04-10T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/aws/</loc>
     <lastmod>2026-04-10T00:00:00+02:00</lastmod>

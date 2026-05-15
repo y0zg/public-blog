@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>agents on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/agents/</link>
+    <description>Recent content in agents on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 15 May 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI agents in practice: self-learning, knowledge bases, and why fewer agents is better</title>
+      <link>https://okulbida.com/posts/ai-agents-knowledge-base-obsidian-local-llm/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/ai-agents-knowledge-base-obsidian-local-llm/</guid>
+      <description>Building AI agents sounds fun until you actually build one. Then a different set of problems shows up — ones nobody wrote a blog post about yet.
+This is a summary of a conversation between developers actively running agent systems in production or near-production. The topics: self-improvement conflicts with git, what to use for a knowledge base, Andrej Karpathy&amp;rsquo;s Obsidian approach, and why adding more agents rarely helps.
+ The self-improvement problem One of the selling points of agents like Hermes is that they can self-reflect and improve — updating their own rules based on experience.</description>
+    </item>
+    
+  </channel>
+</rss>

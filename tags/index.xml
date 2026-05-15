@@ -7,6 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 15 May 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>agents</title>
+      <link>https://okulbida.com/tags/agents/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/agents/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ai</title>
+      <link>https://okulbida.com/tags/ai/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>axios</title>
       <link>https://okulbida.com/tags/axios/</link>
       <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
@@ -34,11 +52,47 @@
     </item>
     
     <item>
+      <title>llm</title>
+      <link>https://okulbida.com/tags/llm/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>npm</title>
       <link>https://okulbida.com/tags/npm/</link>
       <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>obsidian</title>
+      <link>https://okulbida.com/tags/obsidian/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/obsidian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>platform-engineering</title>
+      <link>https://okulbida.com/tags/platform-engineering/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/platform-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rag</title>
+      <link>https://okulbida.com/tags/rag/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/rag/</guid>
       <description></description>
     </item>
     
@@ -75,15 +129,6 @@
       <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/infrastructure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>platform-engineering</title>
-      <link>https://okulbida.com/tags/platform-engineering/</link>
-      <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/platform-engineering/</guid>
       <description></description>
     </item>
     
@@ -147,15 +192,6 @@
       <pubDate>Fri, 17 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/prometheus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai</title>
-      <link>https://okulbida.com/tags/ai/</link>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/ai/</guid>
       <description></description>
     </item>
     

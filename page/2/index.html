@@ -134,6 +134,20 @@ if (!doNotTrack) {
 <main class="main"> 
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=1200&amp;q=80" alt="Containers and Linux">
+</figure>
+  <header class="entry-header">
+    <h2>How container filesystem works: building one from scratch</h2>
+  </header>
+  <section class="entry-content">
+    <p>One of the superpowers of containers is their isolated filesystem view — from inside a container it looks like a full Linux distro, often different from the host. Run docker run nginx, and Nginx lands in its familiar Debian userspace no matter what Linux flavor your host runs. But how is that illusion built?
+In this post, we’ll walk through how to assemble a tiny but realistic container using only stock Linux tools: unshare, mount, and pivot_root....</p>
+  </section>
+  <footer class="entry-footer">March 12, 2026&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to How container filesystem works: building one from scratch" href="https://okulbida.com/posts/how-container-filesystem-works/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&amp;q=80" alt="Software engineering and AI">
 </figure>
   <header class="entry-header">
@@ -256,21 +270,6 @@ This works for both public certificates (ACM exportable certificates) and privat
   </section>
   <footer class="entry-footer">December 27, 2025&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to ACM finally automates certificate management for Kubernetes" href="https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&amp;q=80" alt="Security and infrastructure">
-</figure>
-  <header class="entry-header">
-    <h2>How Cloudflare secures Terraform state at scale</h2>
-  </header>
-  <section class="entry-content">
-    <p>Managing Terraform state securely is one of those things that seems simple until you’re dealing with hundreds of accounts and thousands of resources. Cloudflare, being their own Customer Zero, had to solve this problem at enterprise scale.
-The interesting part? They built a custom solution called tfstate-butler - a Go program that acts as an HTTP backend for Terraform state storage.
-The Security Problem When you’re managing infrastructure at Cloudflare’s scale, a single compromised state file could be catastrophic....</p>
-  </section>
-  <footer class="entry-footer">December 23, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to How Cloudflare secures Terraform state at scale" href="https://okulbida.com/posts/cloudflare-terraform-state-security/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
