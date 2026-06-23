@@ -186,12 +186,26 @@ if (!doNotTrack) {
 </article>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Server racks with blue lighting">
+</figure>
+  <header class="entry-header">
+    <h2>AWS Lambda MicroVMs: stateful sandboxes with full lifecycle control</h2>
+  </header>
+  <section class="entry-content">
+    <p>AWS just shipped something that reframes what “serverless” can mean. Lambda MicroVMs are not Lambda Functions with a bigger timeout. They are a fundamentally different primitive: stateful, VM-level isolated environments with an explicit lifecycle you control.
+The key shift: instead of getting a recycled process for 15 minutes, you get a dedicated Firecracker microVM that lives up to 8 hours — and you decide when it starts, suspends, resumes, and terminates....</p>
+  </section>
+  <footer class="entry-footer">June 23, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS Lambda MicroVMs: stateful sandboxes with full lifecycle control" href="https://okulbida.com/posts/aws-lambda-microvms-stateful-sandboxes/"></a>
+</article>
+
+<article class="post-entry"> 
   <header class="entry-header">
     <h2>AI agents in practice: self-learning, knowledge bases, and why fewer agents is better</h2>
   </header>
   <section class="entry-content">
-    <p>Building AI agents sounds fun until you actually build one. Then a different set of problems shows up — ones nobody wrote a blog post about yet.
-This is a summary of a conversation between developers actively running agent systems in production or near-production. The topics: self-improvement conflicts with git, what to use for a knowledge base, Andrej Karpathy’s Obsidian approach, and why adding more agents rarely helps.
+    <p>Building AI agents sounds fun until you actually build one. Then a different set of problems shows up — ones nobody writes about.
+Here is what I have learned running agent systems in production: self-improvement conflicts with git, most knowledge bases hit a wall sooner than expected, and adding more agents almost never helps.
  The self-improvement problem One of the selling points of agents like Hermes is that they can self-reflect and improve — updating their own rules based on experience....</p>
   </section>
   <footer class="entry-footer">May 15, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
@@ -296,21 +310,6 @@ The uncomfortable part: if you resolve or fetch any user URL with no checks, you
   </section>
   <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean" href="https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Network infrastructure">
-</figure>
-  <header class="entry-header">
-    <h2>Ingress-NGINX is retiring — here&#39;s how to migrate (and what to migrate to)</h2>
-  </header>
-  <section class="entry-content">
-    <p>If you’re running Ingress-NGINX in production, you’ve probably seen the writing on the wall. The retirement was announced back in November 2025, and as of March 2026, it’s happening. The Ingress API isn’t going away overnight, but active development on Ingress-NGINX is done. Time to move.
-The good news: SIG Network just shipped Ingress2Gateway 1.0, a migration tool that actually works now.
-What Changed in 1.0 Previous versions were barely usable — they supported only three Ingress-NGINX annotations....</p>
-  </section>
-  <footer class="entry-footer">March 25, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Ingress-NGINX is retiring — here&#39;s how to migrate (and what to migrate to)" href="https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

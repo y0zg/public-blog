@@ -134,6 +134,21 @@ if (!doNotTrack) {
 <main class="main"> 
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Network infrastructure">
+</figure>
+  <header class="entry-header">
+    <h2>Ingress-NGINX is retiring — here&#39;s how to migrate (and what to migrate to)</h2>
+  </header>
+  <section class="entry-content">
+    <p>If you’re running Ingress-NGINX in production, you’ve probably seen the writing on the wall. The retirement was announced back in November 2025, and as of March 2026, it’s happening. The Ingress API isn’t going away overnight, but active development on Ingress-NGINX is done. Time to move.
+The good news: SIG Network just shipped Ingress2Gateway 1.0, a migration tool that actually works now.
+What Changed in 1.0 Previous versions were barely usable — they supported only three Ingress-NGINX annotations....</p>
+  </section>
+  <footer class="entry-footer">March 25, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Ingress-NGINX is retiring — here&#39;s how to migrate (and what to migrate to)" href="https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=1200&amp;q=80" alt="Containers and Linux">
 </figure>
   <header class="entry-header">
@@ -257,19 +272,6 @@ Understanding your domain:
   </section>
   <footer class="entry-footer">December 27, 2025&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to How GitHub engineers tackle platform problems" href="https://okulbida.com/posts/github-platform-engineering-approaches/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>ACM finally automates certificate management for Kubernetes</h2>
-  </header>
-  <section class="entry-content">
-    <p>AWS Certificate Manager (ACM) now supports automated certificate management for Kubernetes workloads through AWS Controllers for Kubernetes (ACK).
-Previously, using ACM certificates in Kubernetes required manual steps: exporting certificates via API, creating Kubernetes Secrets, and manually updating them at renewal. With ACK, you can define certificates as Kubernetes resources, and the controller automates the complete lifecycle - requesting, exporting, creating Secrets, and auto-updating at renewal.
-This works for both public certificates (ACM exportable certificates) and private certificates (AWS Private CA), enabling automated certificate management for:...</p>
-  </section>
-  <footer class="entry-footer">December 27, 2025&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to ACM finally automates certificate management for Kubernetes" href="https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

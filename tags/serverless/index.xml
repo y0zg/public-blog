@@ -5,7 +5,17 @@
     <link>https://okulbida.com/tags/serverless/</link>
     <description>Recent content in serverless on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Dec 2025 20:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Lambda MicroVMs: stateful sandboxes with full lifecycle control</title>
+      <link>https://okulbida.com/posts/aws-lambda-microvms-stateful-sandboxes/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/aws-lambda-microvms-stateful-sandboxes/</guid>
+      <description>AWS just shipped something that reframes what &amp;ldquo;serverless&amp;rdquo; can mean. Lambda MicroVMs are not Lambda Functions with a bigger timeout. They are a fundamentally different primitive: stateful, VM-level isolated environments with an explicit lifecycle you control.
+The key shift: instead of getting a recycled process for 15 minutes, you get a dedicated Firecracker microVM that lives up to 8 hours — and you decide when it starts, suspends, resumes, and terminates.</description>
+    </item>
+    
     <item>
       <title>AWS SQS: when a &#39;cheap&#39; queue runs up a huge bill</title>
       <link>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</link>

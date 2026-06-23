@@ -123,6 +123,20 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&amp;q=80" alt="Server racks with blue lighting">
+</figure>
+  <header class="entry-header">
+    <h2>AWS Lambda MicroVMs: stateful sandboxes with full lifecycle control</h2>
+  </header>
+  <section class="entry-content">
+    <p>AWS just shipped something that reframes what “serverless” can mean. Lambda MicroVMs are not Lambda Functions with a bigger timeout. They are a fundamentally different primitive: stateful, VM-level isolated environments with an explicit lifecycle you control.
+The key shift: instead of getting a recycled process for 15 minutes, you get a dedicated Firecracker microVM that lives up to 8 hours — and you decide when it starts, suspends, resumes, and terminates....</p>
+  </section>
+  <footer class="entry-footer">June 23, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to AWS Lambda MicroVMs: stateful sandboxes with full lifecycle control" href="https://okulbida.com/posts/aws-lambda-microvms-stateful-sandboxes/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
   <header class="entry-header">
     <h2>AWS S3 Files: mount S3 bucket as file system</h2>
   </header>
@@ -240,21 +254,6 @@ Real Problem: Access Control Turns out, building a simple file browser wasn’t 
   </section>
   <footer class="entry-footer">November 20, 2024&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS finally built a browser for S3 (and why it took 20 years)" href="https://okulbida.com/posts/aws-s3-storage-browser-access-grants/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>AWS vs Elasticsearch licensing</h2>
-  </header>
-  <section class="entry-content">
-    <p>Recent elasticsearch licensing change ensures that the Beats modules are sending data to an officially supported versions of Elasticsearch and Kibana where Elastic can attest to the quality and scale of the products. Does AWS have any plans to fork a version filebeat?
-https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.13.html
-https://www.reddit.com/r/aws/comments/nn95aq/elastic_has_broken_filebeat_as_of_713_it_no/
-What are the alternatives?
- Host elasticsearch on EC2 instances, why not? CloudWatch, slow… https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_ES_Stream.html Kubernetes options like ECK or helm chart deployments…tricky for production usage Loki?...</p>
-  </section>
-  <footer class="entry-footer">April 21, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS vs Elasticsearch licensing" href="https://okulbida.com/posts/aws-elasticsearch-licensing/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
