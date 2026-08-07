@@ -12,7 +12,7 @@
       <pubDate>Fri, 15 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/</guid>
-      <description>npm min-release-age Use npm ci, not npm install Lock down npm with .npmrc Hardening GitHub Actions Summary   In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a npm install could pull down far more than an HTTP client — a pattern we have seen before in registry incidents, not a bug in axios’ normal code.</description>
+      <description>npm min-release-age Use npm ci, not npm install Lock down npm with .npmrc Hardening GitHub Actions Summary   In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a plain npm install could pull down far more than an HTTP client. This is a pattern seen before in registry incidents, not a bug in axios’ normal code.</description>
     </item>
     
     <item>

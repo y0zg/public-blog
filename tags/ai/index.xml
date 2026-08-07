@@ -13,7 +13,8 @@
       
       <guid>https://okulbida.com/posts/aws-lambda-microvms-stateful-sandboxes/</guid>
       <description>AWS just shipped something that reframes what &amp;ldquo;serverless&amp;rdquo; can mean. Lambda MicroVMs are not Lambda Functions with a bigger timeout. They are a fundamentally different primitive: stateful, VM-level isolated environments with an explicit lifecycle you control.
-The key shift: instead of getting a recycled process for 15 minutes, you get a dedicated Firecracker microVM that lives up to 8 hours — and you decide when it starts, suspends, resumes, and terminates.</description>
+The key shift: instead of getting a recycled process for 15 minutes, you get a dedicated Firecracker microVM that lives up to 8 hours. You decide when it starts, suspends, resumes, and terminates.
+ What Lambda MicroVMs actually are Regular Lambda Functions are stateless by design.</description>
     </item>
     
     <item>
@@ -24,7 +25,7 @@ The key shift: instead of getting a recycled process for 15 minutes, you get a d
       <guid>https://okulbida.com/posts/ai-agents-knowledge-base-obsidian-local-llm/</guid>
       <description>Building AI agents sounds fun until you actually build one. Then a different set of problems shows up — ones nobody writes about.
 Here is what I have learned running agent systems in production: self-improvement conflicts with git, most knowledge bases hit a wall sooner than expected, and adding more agents almost never helps.
- The self-improvement problem One of the selling points of agents like Hermes is that they can self-reflect and improve — updating their own rules based on experience.</description>
+ The self-improvement problem One of the selling points of agents like Hermes is that they can self-reflect and improve, updating their own rules based on experience.</description>
     </item>
     
     <item>
@@ -45,8 +46,8 @@ Here is what I have learned running agent systems in production: self-improvemen
       
       <guid>https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/</guid>
       <description>Martin Fowler published a fascinating report from a February 2026 retreat where senior engineering practitioners from major tech companies gathered to discuss how AI is reshaping software development. It&amp;rsquo;s dense, so here&amp;rsquo;s what stood out to me.
-Where Does the Rigor Go? The biggest question of the retreat: if AI writes the code, where does the engineering discipline move? The answer is — it doesn&amp;rsquo;t disappear, it migrates:
- Upstream to specs — Bad specs produce bad code at scale.</description>
+Where Does the Rigor Go? The biggest question of the retreat: if AI writes the code, where does the engineering discipline move? The answer is that it doesn&amp;rsquo;t disappear, it migrates:
+ Upstream to specs: bad specs produce bad code at scale.</description>
     </item>
     
     <item>

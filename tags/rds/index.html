@@ -127,7 +127,8 @@ if (!doNotTrack) {
     <h2>Simple RDS access</h2>
   </header>
   <section class="entry-content">
-    <p>There are numerous solutions for accessing private RDS instances, many of which require thoughtful design. The solution I use sometimes is straightforward: I deploy it as a Helm chart within a k8s cluster. In this setup, access to the RDS is contingent on having access to the k8s cluster with the appropriate RBAC configurations. While it may not be perfect, it’s secure, quick to implement, and requires minimal maintenance. The following command demonstrates the basic principle:...</p>
+    <p>There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It’s not perfect, but it’s secure, quick to set up, and needs almost no maintenance. Here’s the basic idea:
+1  socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx....</p>
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Simple RDS access" href="https://okulbida.com/posts/simple-rds-access/"></a>

@@ -170,7 +170,7 @@ What Changed in 1.0 Previous versions were barely usable — they supported only
     <h2>How container filesystem works: building one from scratch</h2>
   </header>
   <section class="entry-content">
-    <p>One of the superpowers of containers is their isolated filesystem view — from inside a container it looks like a full Linux distro, often different from the host. Run docker run nginx, and Nginx lands in its familiar Debian userspace no matter what Linux flavor your host runs. But how is that illusion built?
+    <p>One of the superpowers of containers is their isolated filesystem view. From inside a container it looks like a full Linux distro, often different from the host. Run docker run nginx, and Nginx lands in its familiar Debian userspace no matter what Linux flavor your host runs. But how is that illusion built?
 In this post, we’ll walk through how to assemble a tiny but realistic container using only stock Linux tools: unshare, mount, and pivot_root....</p>
   </section>
   <footer class="entry-footer">March 12, 2026&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
@@ -251,7 +251,7 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   </header>
   <section class="entry-content">
     <p>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &#34;Deployment&#34; in version &#34;apps/v1beta1&#34;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
-1 2 3  helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt;   It’s important to note that you may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
+1 2 3  helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt;   You may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Resolving Helm issues after kubernetes upgrade" href="https://okulbida.com/posts/helm-fix-after-k8s-upgrade/"></a>

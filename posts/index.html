@@ -138,6 +138,21 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/terraform-scale.png" alt="Terraform to OpenTofu migration">
+</figure>
+  <header class="entry-header">
+    <h2>Terraform to OpenTofu: is it worth migrating?</h2>
+  </header>
+  <section class="entry-content">
+    <p>A reader sent me a question I’ve been getting more often lately: they’re running Terraform 1.5, S3 backend, no Terraform Cloud, no HCP. Is it worth moving to OpenTofu?
+Short answer: probably yes, and this setup happens to be close to the easiest case there is. Here’s why.
+The fork point matters OpenTofu forked from Terraform 1.5.x, the last version released under the MPL license before HashiCorp switched to BSL. So if you’re still on 1....</p>
+  </section>
+  <footer class="entry-footer">August 7, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Terraform to OpenTofu: is it worth migrating?" href="https://okulbida.com/posts/terraform-to-opentofu-migration/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/k8s-tools.png" alt="kubernetes tools">
 </figure>
   <header class="entry-header">
@@ -159,9 +174,10 @@ General info  https://kubernetesreadme.com/  UI / Desktop Clients  K9s — termi
   </header>
   <section class="entry-content">
     <p>AWS just shipped something that reframes what “serverless” can mean. Lambda MicroVMs are not Lambda Functions with a bigger timeout. They are a fundamentally different primitive: stateful, VM-level isolated environments with an explicit lifecycle you control.
-The key shift: instead of getting a recycled process for 15 minutes, you get a dedicated Firecracker microVM that lives up to 8 hours — and you decide when it starts, suspends, resumes, and terminates....</p>
+The key shift: instead of getting a recycled process for 15 minutes, you get a dedicated Firecracker microVM that lives up to 8 hours. You decide when it starts, suspends, resumes, and terminates.
+ What Lambda MicroVMs actually are Regular Lambda Functions are stateless by design....</p>
   </section>
-  <footer class="entry-footer">June 23, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">June 23, 2026&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS Lambda MicroVMs: stateful sandboxes with full lifecycle control" href="https://okulbida.com/posts/aws-lambda-microvms-stateful-sandboxes/"></a>
 </article>
 
@@ -251,19 +267,6 @@ How it works You mount the bucket via a managed endpoint and get a POSIX-compati
   </section>
   <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS S3 Files: mount S3 bucket as file system" href="https://okulbida.com/posts/aws-s3-files-mount-bucket-as-filesystem/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Hardening Claude Code: permissions, hooks, and custom commands</h2>
-  </header>
-  <section class="entry-content">
-    <p>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
- Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/....</p>
-  </section>
-  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

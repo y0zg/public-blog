@@ -14,7 +14,7 @@
       <guid>https://okulbida.com/posts/ai-agents-knowledge-base-obsidian-local-llm/</guid>
       <description>Building AI agents sounds fun until you actually build one. Then a different set of problems shows up — ones nobody writes about.
 Here is what I have learned running agent systems in production: self-improvement conflicts with git, most knowledge bases hit a wall sooner than expected, and adding more agents almost never helps.
- The self-improvement problem One of the selling points of agents like Hermes is that they can self-reflect and improve — updating their own rules based on experience.</description>
+ The self-improvement problem One of the selling points of agents like Hermes is that they can self-reflect and improve, updating their own rules based on experience.</description>
     </item>
     
   </channel>

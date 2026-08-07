@@ -23,7 +23,7 @@ What Changed in 1.0 Previous versions were barely usable — they supported only
       <pubDate>Thu, 12 Mar 2026 22:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/how-container-filesystem-works/</guid>
-      <description>One of the superpowers of containers is their isolated filesystem view — from inside a container it looks like a full Linux distro, often different from the host. Run docker run nginx, and Nginx lands in its familiar Debian userspace no matter what Linux flavor your host runs. But how is that illusion built?
+      <description>One of the superpowers of containers is their isolated filesystem view. From inside a container it looks like a full Linux distro, often different from the host. Run docker run nginx, and Nginx lands in its familiar Debian userspace no matter what Linux flavor your host runs. But how is that illusion built?
 In this post, we&amp;rsquo;ll walk through how to assemble a tiny but realistic container using only stock Linux tools: unshare, mount, and pivot_root.</description>
     </item>
     
@@ -34,8 +34,8 @@ In this post, we&amp;rsquo;ll walk through how to assemble a tiny but realistic 
       
       <guid>https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/</guid>
       <description>Martin Fowler published a fascinating report from a February 2026 retreat where senior engineering practitioners from major tech companies gathered to discuss how AI is reshaping software development. It&amp;rsquo;s dense, so here&amp;rsquo;s what stood out to me.
-Where Does the Rigor Go? The biggest question of the retreat: if AI writes the code, where does the engineering discipline move? The answer is — it doesn&amp;rsquo;t disappear, it migrates:
- Upstream to specs — Bad specs produce bad code at scale.</description>
+Where Does the Rigor Go? The biggest question of the retreat: if AI writes the code, where does the engineering discipline move? The answer is that it doesn&amp;rsquo;t disappear, it migrates:
+ Upstream to specs: bad specs produce bad code at scale.</description>
     </item>
     
     <item>
