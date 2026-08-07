@@ -5,7 +5,18 @@
     <link>https://okulbida.com/posts/</link>
     <description>Recent content in Posts on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 27 Jun 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Aug 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform to OpenTofu: is it worth migrating?</title>
+      <link>https://okulbida.com/posts/terraform-to-opentofu-migration/</link>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/terraform-to-opentofu-migration/</guid>
+      <description>A reader sent me a question I&amp;rsquo;ve been getting more often lately: they&amp;rsquo;re running Terraform 1.5, S3 backend, no Terraform Cloud, no HCP. Is it worth moving to OpenTofu?
+Short answer: probably yes, and this setup happens to be close to the easiest case there is. Here&amp;rsquo;s why.
+The fork point matters OpenTofu forked from Terraform 1.5.x, the last version released under the MPL license before HashiCorp switched to BSL. So if you&amp;rsquo;re still on 1.</description>
+    </item>
+    
     <item>
       <title>Kubernetes tools</title>
       <link>https://okulbida.com/posts/kubernetes_tools/</link>
