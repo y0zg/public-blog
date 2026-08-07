@@ -8,9 +8,8 @@
 <title>k8s InPlacePodVerticalScaling | Oleksandr Kulbida</title>
 <meta name="keywords" content="kubernetes" />
 <meta name="description" content="Kubernetes InPlacePodVerticalScaling feature
-Kubernetes v1.27 introduces InPlacePodVerticalScaling, allowing seamless pod resource resizing without restarts
-Enhanced Continuity: Eliminates the downtime and potential data loss caused by pod restart
-Cost Savings: Avoid overprovisioning and optimizing resource usage. InPlacePodVerticalScaling lets you allocate resources precisely as needed
+Kubernetes v1.27 introduces InPlacePodVerticalScaling, allowing pod resource resizing without restarts
+This eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since InPlacePodVerticalScaling lets you allocate resources precisely as needed
 In this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/k8s-new-features/" />
@@ -44,9 +43,8 @@ if (!doNotTrack) {
 }
 </script><meta property="og:title" content="k8s InPlacePodVerticalScaling" />
 <meta property="og:description" content="Kubernetes InPlacePodVerticalScaling feature
-Kubernetes v1.27 introduces InPlacePodVerticalScaling, allowing seamless pod resource resizing without restarts
-Enhanced Continuity: Eliminates the downtime and potential data loss caused by pod restart
-Cost Savings: Avoid overprovisioning and optimizing resource usage. InPlacePodVerticalScaling lets you allocate resources precisely as needed
+Kubernetes v1.27 introduces InPlacePodVerticalScaling, allowing pod resource resizing without restarts
+This eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since InPlacePodVerticalScaling lets you allocate resources precisely as needed
 In this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/k8s-new-features/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/><meta property="article:section" content="posts" />
@@ -58,9 +56,8 @@ In this example for pod memory resources configuration, the resizePolicy indicat
 
 <meta name="twitter:title" content="k8s InPlacePodVerticalScaling"/>
 <meta name="twitter:description" content="Kubernetes InPlacePodVerticalScaling feature
-Kubernetes v1.27 introduces InPlacePodVerticalScaling, allowing seamless pod resource resizing without restarts
-Enhanced Continuity: Eliminates the downtime and potential data loss caused by pod restart
-Cost Savings: Avoid overprovisioning and optimizing resource usage. InPlacePodVerticalScaling lets you allocate resources precisely as needed
+Kubernetes v1.27 introduces InPlacePodVerticalScaling, allowing pod resource resizing without restarts
+This eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since InPlacePodVerticalScaling lets you allocate resources precisely as needed
 In this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing."/>
 
 
@@ -90,12 +87,12 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   "@type": "BlogPosting",
   "headline": "k8s InPlacePodVerticalScaling",
   "name": "k8s InPlacePodVerticalScaling",
-  "description": "Kubernetes InPlacePodVerticalScaling feature\nKubernetes v1.27 introduces InPlacePodVerticalScaling, allowing seamless pod resource resizing without restarts\nEnhanced Continuity: Eliminates the downtime and potential data loss caused by pod restart\nCost Savings: Avoid overprovisioning and optimizing resource usage. InPlacePodVerticalScaling lets you allocate resources precisely as needed\nIn this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.",
+  "description": "Kubernetes InPlacePodVerticalScaling feature\nKubernetes v1.27 introduces InPlacePodVerticalScaling, allowing pod resource resizing without restarts\nThis eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since InPlacePodVerticalScaling lets you allocate resources precisely as needed\nIn this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.",
   "keywords": [
     "kubernetes"
   ],
-  "articleBody": "Kubernetes InPlacePodVerticalScaling feature\nKubernetes v1.27 introduces InPlacePodVerticalScaling, allowing seamless pod resource resizing without restarts\nEnhanced Continuity: Eliminates the downtime and potential data loss caused by pod restart\nCost Savings: Avoid overprovisioning and optimizing resource usage. InPlacePodVerticalScaling lets you allocate resources precisely as needed\nIn this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  cat --- apiVersion: v1 kind: Pod metadata: labels: run: nginx name: nginx spec: containers: - image: nginx name: nginx resizePolicy: - resourceName: \"memory\" restartPolicy: \"RestartContainer\" - resourceName: \"cpu\" restartPolicy: \"NotRequired\" resources: limits: cpu: \"300m\" memory: \"1Gi\" requests: cpu: \"100m\" memory: \"500Mi\" EOF   ",
-  "wordCount" : "150",
+  "articleBody": "Kubernetes InPlacePodVerticalScaling feature\nKubernetes v1.27 introduces InPlacePodVerticalScaling, allowing pod resource resizing without restarts\nThis eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since InPlacePodVerticalScaling lets you allocate resources precisely as needed\nIn this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  cat --- apiVersion: v1 kind: Pod metadata: labels: run: nginx name: nginx spec: containers: - image: nginx name: nginx resizePolicy: - resourceName: \"memory\" restartPolicy: \"RestartContainer\" - resourceName: \"cpu\" restartPolicy: \"NotRequired\" resources: limits: cpu: \"300m\" memory: \"1Gi\" requests: cpu: \"100m\" memory: \"500Mi\" EOF   ",
+  "wordCount" : "146",
   "inLanguage": "en",
   "datePublished": "2024-04-20T23:25:05+03:00",
   "dateModified": "2024-04-20T23:25:05+03:00",
@@ -198,9 +195,8 @@ In this example for pod memory resources configuration, the resizePolicy indicat
 </div>
   </header> 
   <div class="post-content"><p>Kubernetes InPlacePodVerticalScaling feature</p>
-<p>Kubernetes v1.27 introduces <a href="https://kubernetes.io/blog/2023/05/12/in-place-pod-resize-alpha/"><em>InPlacePodVerticalScaling</em></a>, allowing seamless pod resource resizing without restarts</p>
-<p><strong>Enhanced Continuity</strong>: Eliminates the downtime and potential data loss caused by pod restart</p>
-<p><strong>Cost Savings</strong>: Avoid overprovisioning and optimizing resource usage. <em>InPlacePodVerticalScaling</em> lets you allocate resources precisely as needed</p>
+<p>Kubernetes v1.27 introduces <a href="https://kubernetes.io/blog/2023/05/12/in-place-pod-resize-alpha/"><em>InPlacePodVerticalScaling</em></a>, allowing pod resource resizing without restarts</p>
+<p>This eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since <em>InPlacePodVerticalScaling</em> lets you allocate resources precisely as needed</p>
 <p>In this example for pod memory resources configuration, the <em>resizePolicy</em> indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">

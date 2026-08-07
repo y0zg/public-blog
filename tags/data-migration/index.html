@@ -128,10 +128,11 @@ if (!doNotTrack) {
   </header>
   <section class="entry-content">
     <p>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
-Key Features:
- Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
+Installation:
 Install VolSync via Helm:
-1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:...</p>
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:
+VolSync provides a CLI tool (kubectl-volsync) for migrating data from external storage into Kubernetes PersistentVolumes.
+Step 1: Install VolSync CLI...</p>
   </section>
   <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to VolSync: asynchronous data replication for Kubernetes volumes" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/"></a>

@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>How GitHub engineers tackle platform problems | Oleksandr Kulbida</title>
 <meta name="keywords" content="github, platform-engineering, infrastructure, devops" />
-<meta name="description" content="GitHub&rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:
+<meta name="description" content="GitHub&rsquo;s platform engineering team on how they tackle infrastructure problems at scale:
 Understanding your domain:
  Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:
  Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:">
@@ -42,7 +42,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="How GitHub engineers tackle platform problems" />
-<meta property="og:description" content="GitHub&rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:
+<meta property="og:description" content="GitHub&rsquo;s platform engineering team on how they tackle infrastructure problems at scale:
 Understanding your domain:
  Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:
  Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:" />
@@ -55,7 +55,7 @@ Understanding your domain:
 <meta name="twitter:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/>
 
 <meta name="twitter:title" content="How GitHub engineers tackle platform problems"/>
-<meta name="twitter:description" content="GitHub&rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:
+<meta name="twitter:description" content="GitHub&rsquo;s platform engineering team on how they tackle infrastructure problems at scale:
 Understanding your domain:
  Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:
  Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:"/>
@@ -87,12 +87,12 @@ Understanding your domain:
   "@type": "BlogPosting",
   "headline": "How GitHub engineers tackle platform problems",
   "name": "How GitHub engineers tackle platform problems",
-  "description": "GitHub\u0026rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:\nUnderstanding your domain:\n Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:\n Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:",
+  "description": "GitHub\u0026rsquo;s platform engineering team on how they tackle infrastructure problems at scale:\nUnderstanding your domain:\n Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:\n Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:",
   "keywords": [
     "github", "platform-engineering", "infrastructure", "devops"
   ],
-  "articleBody": "GitHub’s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:\nUnderstanding your domain:\n Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:\n Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:\n Understand downstream dependencies before making changes Review postmortems to understand incident impact Use monitoring and telemetry (like Single Availability Metric) for quick health checks  Testing in distributed environments:\n Use test sites as “real” machines for changes Test IaC provisioning and deprovisioning operations Implement end-to-end testing by directing traffic to test servers Test self-healing capabilities and identify bottlenecks early Roll out changes host-by-host for easier rollback  The key difference with platform engineering is the wide impact radius - changes to foundational services like DNS can affect numerous products. Testing and gradual rollouts are critical.\nFor the full article with detailed examples and best practices, see the original post.\n",
-  "wordCount" : "183",
+  "articleBody": "GitHub’s platform engineering team on how they tackle infrastructure problems at scale:\nUnderstanding your domain:\n Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:\n Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:\n Understand downstream dependencies before making changes Review postmortems to understand incident impact Use monitoring and telemetry (like Single Availability Metric) for quick health checks  Testing in distributed environments:\n Use test sites as “real” machines for changes Test IaC provisioning and deprovisioning operations Implement end-to-end testing by directing traffic to test servers Test self-healing capabilities and identify bottlenecks early Roll out changes host-by-host for easier rollback  The key difference with platform engineering is the wide impact radius - changes to foundational services like DNS can affect numerous products. Testing and gradual rollouts are critical.\nFor the full article, see the original post.\n",
+  "wordCount" : "173",
   "inLanguage": "en",
   "datePublished": "2025-12-27T00:30:00+03:00",
   "dateModified": "2025-12-27T00:30:00+03:00",
@@ -194,7 +194,7 @@ Understanding your domain:
     <div class="post-meta">December 27, 2025&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida
 </div>
   </header> 
-  <div class="post-content"><p>GitHub&rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:</p>
+  <div class="post-content"><p>GitHub&rsquo;s platform engineering team on how they tackle infrastructure problems at scale:</p>
 <p><strong>Understanding your domain:</strong></p>
 <ul>
 <li>Talk to neighboring teams with more experience</li>
@@ -223,7 +223,7 @@ Understanding your domain:
 <li>Roll out changes host-by-host for easier rollback</li>
 </ul>
 <p>The key difference with platform engineering is the wide impact radius - changes to foundational services like DNS can affect numerous products. Testing and gradual rollouts are critical.</p>
-<p>For the full article with detailed examples and best practices, see the <a href="https://github.blog/engineering/infrastructure/how-github-engineers-tackle-platform-problems/">original post</a>.</p>
+<p>For the full article, see the <a href="https://github.blog/engineering/infrastructure/how-github-engineers-tackle-platform-problems/">original post</a>.</p>
 
 </div>
   <footer class="post-footer">

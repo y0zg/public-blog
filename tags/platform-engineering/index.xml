@@ -34,7 +34,7 @@ Here is what I have learned running agent systems in production: self-improvemen
       <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</guid>
-      <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone — this is a recurring topic in every DevOps community right now.
+      <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone. This comes up a lot in Terraform discussions lately.
 This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).</description>
     </item>
     
@@ -44,7 +44,7 @@ This post covers the main tools people are using to solve these problems in 2025
       <pubDate>Sat, 27 Dec 2025 00:30:00 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/github-platform-engineering-approaches/</guid>
-      <description>GitHub&amp;rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:
+      <description>GitHub&amp;rsquo;s platform engineering team on how they tackle infrastructure problems at scale:
 Understanding your domain:
  Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:
  Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:</description>

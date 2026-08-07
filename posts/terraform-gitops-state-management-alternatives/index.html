@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Terraform at scale: GitOps tools and the long apply problem | Oleksandr Kulbida</title>
 <meta name="keywords" content="terraform, gitops, platform-engineering, ci-cd, infrastructure" />
-<meta name="description" content="If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone — this is a recurring topic in every DevOps community right now.
+<meta name="description" content="If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone. This comes up a lot in Terraform discussions lately.
 This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/terraform-gitops-state-management-alternatives/" />
@@ -40,7 +40,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Terraform at scale: GitOps tools and the long apply problem" />
-<meta property="og:description" content="If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone — this is a recurring topic in every DevOps community right now.
+<meta property="og:description" content="If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone. This comes up a lot in Terraform discussions lately.
 This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/terraform-gitops-state-management-alternatives/" />
@@ -51,7 +51,7 @@ This post covers the main tools people are using to solve these problems in 2025
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://okulbida.com/images/infra-as-code.png" />
 <meta name="twitter:title" content="Terraform at scale: GitOps tools and the long apply problem"/>
-<meta name="twitter:description" content="If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone — this is a recurring topic in every DevOps community right now.
+<meta name="twitter:description" content="If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10&#43; minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone. This comes up a lot in Terraform discussions lately.
 This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it)."/>
 
 
@@ -81,12 +81,12 @@ This post covers the main tools people are using to solve these problems in 2025
   "@type": "BlogPosting",
   "headline": "Terraform at scale: GitOps tools and the long apply problem",
   "name": "Terraform at scale: GitOps tools and the long apply problem",
-  "description": "If you\u0026rsquo;ve been using Terraform Cloud for a while, you\u0026rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it\u0026rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You\u0026rsquo;re not alone — this is a recurring topic in every DevOps community right now.\nThis post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).",
+  "description": "If you\u0026rsquo;ve been using Terraform Cloud for a while, you\u0026rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it\u0026rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You\u0026rsquo;re not alone. This comes up a lot in Terraform discussions lately.\nThis post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).",
   "keywords": [
     "terraform", "gitops", "platform-engineering", "ci-cd", "infrastructure"
   ],
-  "articleBody": "If you’ve been using Terraform Cloud for a while, you’ve probably hit at least one of these: the pricing model changed and suddenly it’s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You’re not alone — this is a recurring topic in every DevOps community right now.\nThis post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).\n The two problems 1. GitOps orchestration The question here is: how does infrastructure change flow from a PR to production? Terraform Cloud gives you a UI, remote runs, and policy checks. When you leave it, you need something to replace that workflow.\n2. Long applies A plan or apply that takes 10 minutes is usually not about Terraform being slow — it’s about dependency chains. If you have dozens of Lambda functions each depending on IAM roles depending on VPC resources, Terraform has to walk that entire graph on every run, even for changes that touch one function. Splitting the state helps, but it doesn’t always solve it.\n GitOps orchestration tools Atlantis The classic self-hosted option. Watches your PRs, runs plan on open and apply on merge (or a comment). Free, open source, runs anywhere.\nWorks well for small teams. Gets painful at scale — no native dependency ordering between stacks, no web approval UI, no drift detection. You end up writing a lot of wrapper logic yourself.\n1 2 3 4 5 6 7 8  # atlantis.yaml version: 3 projects: - name: vpc dir: infra/vpc - name: eks dir: infra/eks depends_on: [vpc]   Digger Open source, CI-native — runs Terraform inside your existing GitHub Actions or GitLab CI rather than running its own compute. That means you keep your secrets, your runners, your audit logs.\nGood fit if you already have CI infrastructure and just want PR-driven plans and applies without moving to a SaaS platform.\n1 2 3 4 5  # .github/workflows/digger.yml - uses: diggerhq/digger@v0.5.0 with: setup-aws: true aws-role-to-assume: arn:aws:iam::ACCOUNT:role/digger   Terrateam Similar idea to Digger — GitHub-native, PR-driven. Runs as a GitHub App, no separate servers. Decent for teams already living in GitHub who want minimal setup.\nTerragrunt + Terragrunt Scale If you’re already using Terragrunt, the Scale add-on gives you orchestrated CI/CD with dependency-aware runs. Stack ordering is handled automatically based on your dependency blocks.\nGood choice if you’ve already invested in Terragrunt’s module structure. Not worth adopting Terragrunt just for the CI features.\nSpacelift The most full-featured option in this category. Treats infrastructure like CI/CD with proper pipelines, supports Terraform, OpenTofu, Pulumi, Ansible, and more. Built-in policy engine using OPA. Solid audit logs.\nTeams who compared Scalr and Spacelift in 2025 generally preferred Spacelift — Scalr got feedback for feeling underdeveloped. Audit features in Spacelift are available without requiring the highest tier.\nWorth looking at if you’re moving off Terraform Cloud and want a like-for-like replacement with more features rather than a DIY setup.\nScalr A Terraform Cloud drop-in replacement with compatible CLI and API. Predictable pricing (not per-resource). Has AI troubleshooting built in. More affordable for large teams than Terraform Cloud’s RUM pricing.\nThe tradeoff: audit logs are gated behind higher tiers, and the feature set lags Spacelift in some areas. Still a reasonable choice if cost predictability is the priority and you don’t need enterprise-level audit/policy features.\nenv0 Focuses on developer self-service and FinOps — shows estimated cost impact directly in PRs, unlimited concurrent runs on paid plans. Good if your biggest pain point is teams spinning up expensive resources without visibility into cost.\n The long apply problem Splitting state is the obvious answer, and it works. Smaller states mean fewer resources Terraform has to reconcile on each run. The downside: you now manage more state files and more workspaces, and cross-stack dependencies become explicit data sources or hardcoded values.\nThere’s a newer approach worth knowing about.\nStategraph Stategraph converts your Terraform JSON state into a directed graph stored in PostgreSQL. During plan/apply it only processes resources with explicit dependencies on what changed — not the entire state.\nThe result: applies that used to take 10 minutes because of Lambda→IAM→VPC dependency chains can drop significantly, because Stategraph only walks the relevant parts of the graph.\nIt also lets you query your infrastructure via SQL:\n1  SELECT count(*) FROM resources WHERE type = 'aws_s3_bucket';   And it has a web-based approval board instead of CI job comments — useful if you want non-engineers to approve infrastructure changes.\nImportantly: it can export back to standard Terraform state format, so if you try it and don’t like it, you can return to regular state files without losing anything.\nStill early-stage and worth monitoring rather than immediately adopting for production, but the approach to the dependency problem is genuinely novel.\n Building your own orchestrator Some teams go DIY. The Terraflow approach uses git diff to detect which stacks changed, builds a dependency tree from it via static analysis, and triggers runs in the right order using GitHub Actions labels — for example a apply-prod label that gates behind code owner approval and multiple PR reviews. Works well for monorepos with Terragrunt.\nThe downside is obvious: you own the code and the bugs. Fine if you have the capacity, but Digger or Terragrunt Scale will get you most of the same benefits without the maintenance.\n GitOps orchestration — comparison  Tool How it runs Open source Pricing Best for    🏠 Atlantis Self-hosted ✅ Yes Free Small teams, simple PR workflows  ⚡ Digger Inside your CI ✅ Yes Free / paid GitHub Actions teams, keep your own runners  🐙 Terrateam GitHub App 🔄 Partial Freemium GitHub-native, minimal setup  🌿 Terragrunt Scale SaaS add-on ❌ No Paid Already on Terragrunt, need orchestrated CI  🚀 Spacelift SaaS ❌ No Per run TFC replacement with OPA policies, audit logs  📦 Scalr SaaS ❌ No Per workspace TFC drop-in, predictable pricing  💰 env0 SaaS ❌ No Per workspace Cost visibility in PRs, FinOps-focused teams     State management at scale — comparison  Approach Setup effort Solves slow applies Downside    ✂️ Split states Medium 🔄 Partially Cross-stack deps become manual data sources  🌿 Terragrunt deps Medium 🔄 Partially Requires Terragrunt adoption  🧠 Stategraph Low ✅ Yes — graph-based Early stage, needs PostgreSQL  🔧 DIY orchestrator High 🔄 Depends You own the code and the bugs     For most teams leaving Terraform Cloud: if you want to stay self-sufficient, Digger or Atlantis with split states covers 80% of use cases. If you want a managed platform with proper policy and audit, Spacelift is the current community recommendation over Scalr. If your apply times are the primary pain and splitting state hasn’t solved it, Stategraph is worth a demo.\n",
-  "wordCount" : "1141",
+  "articleBody": "If you’ve been using Terraform Cloud for a while, you’ve probably hit at least one of these: the pricing model changed and suddenly it’s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You’re not alone. This comes up a lot in Terraform discussions lately.\nThis post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).\n The two problems 1. GitOps orchestration The question here is: how does infrastructure change flow from a PR to production? Terraform Cloud gives you a UI, remote runs, and policy checks. When you leave it, you need something to replace that workflow.\n2. Long applies A plan or apply that takes 10 minutes is usually not about Terraform being slow — it’s about dependency chains. If you have dozens of Lambda functions each depending on IAM roles depending on VPC resources, Terraform has to walk that entire graph on every run, even for changes that touch one function. Splitting the state helps, but it doesn’t always solve it.\n GitOps orchestration tools Atlantis The classic self-hosted option. Watches your PRs, runs plan on open and apply on merge (or a comment). Free, open source, runs anywhere.\nWorks well for small teams. Gets painful at scale — no native dependency ordering between stacks, no web approval UI, no drift detection. You end up writing a lot of wrapper logic yourself.\n1 2 3 4 5 6 7 8  # atlantis.yaml version: 3 projects: - name: vpc dir: infra/vpc - name: eks dir: infra/eks depends_on: [vpc]   Digger Open source, CI-native — runs Terraform inside your existing GitHub Actions or GitLab CI rather than running its own compute. That means you keep your secrets, your runners, your audit logs.\nGood fit if you already have CI infrastructure and just want PR-driven plans and applies without moving to a SaaS platform.\n1 2 3 4 5  # .github/workflows/digger.yml - uses: diggerhq/digger@v0.5.0 with: setup-aws: true aws-role-to-assume: arn:aws:iam::ACCOUNT:role/digger   Terrateam Similar idea to Digger — GitHub-native, PR-driven. Runs as a GitHub App, no separate servers. Decent for teams already living in GitHub who want minimal setup.\nTerragrunt + Terragrunt Scale If you’re already using Terragrunt, the Scale add-on gives you orchestrated CI/CD with dependency-aware runs. Stack ordering is handled automatically based on your dependency blocks.\nGood choice if you’ve already invested in Terragrunt’s module structure. Not worth adopting Terragrunt just for the CI features.\nSpacelift The most full-featured option in this category. Treats infrastructure like CI/CD with proper pipelines, supports Terraform, OpenTofu, Pulumi, Ansible, and more. Built-in policy engine using OPA. Solid audit logs.\nSpacelift usually comes out ahead of Scalr in comparisons from 2025 — Scalr feels underdeveloped in places. Audit features in Spacelift are available without requiring the highest tier.\nWorth looking at if you’re moving off Terraform Cloud and want a like-for-like replacement with more features rather than a DIY setup.\nScalr A Terraform Cloud drop-in replacement with compatible CLI and API. Predictable pricing (not per-resource). Has AI troubleshooting built in. More affordable for large teams than Terraform Cloud’s RUM pricing.\nThe tradeoff: audit logs are gated behind higher tiers, and the feature set lags Spacelift in some areas. Still a reasonable choice if cost predictability is the priority and you don’t need enterprise-level audit/policy features.\nenv0 Focuses on developer self-service and FinOps — shows estimated cost impact directly in PRs, unlimited concurrent runs on paid plans. Good if your biggest pain point is teams spinning up expensive resources without visibility into cost.\n The long apply problem Splitting state is the obvious answer, and it works. Smaller states mean fewer resources Terraform has to reconcile on each run. The downside: you now manage more state files and more workspaces, and cross-stack dependencies become explicit data sources or hardcoded values.\nThere’s a newer approach worth knowing about.\nStategraph Stategraph converts your Terraform JSON state into a directed graph stored in PostgreSQL. During plan/apply it only processes resources with explicit dependencies on what changed — not the entire state.\nThe result: applies that used to take 10 minutes because of Lambda→IAM→VPC dependency chains can drop significantly, because Stategraph only walks the relevant parts of the graph.\nIt also lets you query your infrastructure via SQL:\n1  SELECT count(*) FROM resources WHERE type = 'aws_s3_bucket';   And it has a web-based approval board instead of CI job comments — useful if you want non-engineers to approve infrastructure changes.\nIt can also export back to standard Terraform state format, so if you try it and don’t like it, you can go back to regular state files without losing anything.\nStill early-stage and worth monitoring rather than immediately adopting for production, but the approach to the dependency problem is genuinely novel.\n Building your own orchestrator Some teams go DIY. The Terraflow approach uses git diff to detect which stacks changed, builds a dependency tree from it via static analysis, and triggers runs in the right order using GitHub Actions labels — for example a apply-prod label that gates behind code owner approval and multiple PR reviews. Works well for monorepos with Terragrunt.\nThe downside is obvious: you own the code and the bugs. Fine if you have the capacity, but Digger or Terragrunt Scale will get you most of the same benefits without the maintenance.\n GitOps orchestration — comparison  Tool How it runs Open source Pricing Best for    Atlantis Self-hosted ✅ Yes Free Small teams, simple PR workflows  Digger Inside your CI ✅ Yes Free / paid GitHub Actions teams, keep your own runners  Terrateam GitHub App 🔄 Partial Freemium GitHub-native, minimal setup  Terragrunt Scale SaaS add-on ❌ No Paid Already on Terragrunt, need orchestrated CI  Spacelift SaaS ❌ No Per run TFC replacement with OPA policies, audit logs  Scalr SaaS ❌ No Per workspace TFC drop-in, predictable pricing  env0 SaaS ❌ No Per workspace Cost visibility in PRs, FinOps-focused teams     State management at scale — comparison  Approach Setup effort Solves slow applies Downside    Split states Medium 🔄 Partially Cross-stack deps become manual data sources  Terragrunt deps Medium 🔄 Partially Requires Terragrunt adoption  Stategraph Low ✅ Yes — graph-based Early stage, needs PostgreSQL  DIY orchestrator High 🔄 Depends You own the code and the bugs     For most teams leaving Terraform Cloud: if you want to stay self-sufficient, Digger or Atlantis with split states covers 80% of use cases. If you want a managed platform with proper policy and audit, Spacelift is the safer pick over Scalr right now. If your apply times are the primary pain and splitting state hasn’t solved it, Stategraph is worth a demo.\n",
+  "wordCount" : "1128",
   "inLanguage": "en",
   "image":"https://okulbida.com/images/infra-as-code.png","datePublished": "2026-05-08T00:00:00+02:00",
   "dateModified": "2026-05-08T00:00:00+02:00",
@@ -191,7 +191,7 @@ This post covers the main tools people are using to solve these problems in 2025
 <figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/infra-as-code.png" alt="Infrastructure as Code">
         
 </figure>
-  <div class="post-content"><p>If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone — this is a recurring topic in every DevOps community right now.</p>
+  <div class="post-content"><p>If you&rsquo;ve been using Terraform Cloud for a while, you&rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&rsquo;re not alone. This comes up a lot in Terraform discussions lately.</p>
 <p>This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: <strong>GitOps orchestration</strong> (who triggers plans, who approves applies) and <strong>state management at scale</strong> (why applies are slow and what to do about it).</p>
 <hr>
 <h2 id="the-two-problems">The two problems<a hidden class="anchor" aria-hidden="true" href="#the-two-problems">#</a></h2>
@@ -252,7 +252,7 @@ This post covers the main tools people are using to solve these problems in 2025
 <p>Good choice if you&rsquo;ve already invested in Terragrunt&rsquo;s module structure. Not worth adopting Terragrunt just for the CI features.</p>
 <h3 id="spacelift">Spacelift<a hidden class="anchor" aria-hidden="true" href="#spacelift">#</a></h3>
 <p>The most full-featured option in this category. Treats infrastructure like CI/CD with proper pipelines, supports Terraform, OpenTofu, Pulumi, Ansible, and more. Built-in policy engine using OPA. Solid audit logs.</p>
-<p>Teams who compared Scalr and Spacelift in 2025 generally preferred Spacelift — Scalr got feedback for feeling underdeveloped. Audit features in Spacelift are available without requiring the highest tier.</p>
+<p>Spacelift usually comes out ahead of Scalr in comparisons from 2025 — Scalr feels underdeveloped in places. Audit features in Spacelift are available without requiring the highest tier.</p>
 <p>Worth looking at if you&rsquo;re moving off Terraform Cloud and want a like-for-like replacement with more features rather than a DIY setup.</p>
 <h3 id="scalr">Scalr<a hidden class="anchor" aria-hidden="true" href="#scalr">#</a></h3>
 <p>A Terraform Cloud drop-in replacement with compatible CLI and API. Predictable pricing (not per-resource). Has AI troubleshooting built in. More affordable for large teams than Terraform Cloud&rsquo;s RUM pricing.</p>
@@ -276,7 +276,7 @@ This post covers the main tools people are using to solve these problems in 2025
 </code></pre></td></tr></table>
 </div>
 </div><p>And it has a web-based approval board instead of CI job comments — useful if you want non-engineers to approve infrastructure changes.</p>
-<p>Importantly: it can export back to standard Terraform state format, so if you try it and don&rsquo;t like it, you can return to regular state files without losing anything.</p>
+<p>It can also export back to standard Terraform state format, so if you try it and don&rsquo;t like it, you can go back to regular state files without losing anything.</p>
 <p>Still early-stage and worth monitoring rather than immediately adopting for production, but the approach to the dependency problem is genuinely novel.</p>
 <hr>
 <h2 id="building-your-own-orchestrator">Building your own orchestrator<a hidden class="anchor" aria-hidden="true" href="#building-your-own-orchestrator">#</a></h2>
@@ -297,49 +297,49 @@ This post covers the main tools people are using to solve these problems in 2025
   </thead>
   <tbody>
     <tr style="background:#ffffff;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">🏠 Atlantis</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Atlantis</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Self-hosted</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">✅ Yes</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Free</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Small teams, simple PR workflows</td>
     </tr>
     <tr style="background:#f8fafc;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">⚡ Digger</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Digger</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Inside your CI</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">✅ Yes</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Free / paid</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">GitHub Actions teams, keep your own runners</td>
     </tr>
     <tr style="background:#ffffff;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">🐙 Terrateam</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Terrateam</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">GitHub App</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">🔄 Partial</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Freemium</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">GitHub-native, minimal setup</td>
     </tr>
     <tr style="background:#f8fafc;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">🌿 Terragrunt Scale</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Terragrunt Scale</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">SaaS add-on</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">❌ No</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Paid</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Already on Terragrunt, need orchestrated CI</td>
     </tr>
     <tr style="background:#ffffff;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">🚀 Spacelift</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Spacelift</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">SaaS</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">❌ No</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Per run</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">TFC replacement with OPA policies, audit logs</td>
     </tr>
     <tr style="background:#f8fafc;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">📦 Scalr</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Scalr</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">SaaS</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">❌ No</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Per workspace</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">TFC drop-in, predictable pricing</td>
     </tr>
     <tr style="background:#ffffff;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">💰 env0</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">env0</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">SaaS</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">❌ No</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Per workspace</td>
@@ -361,25 +361,25 @@ This post covers the main tools people are using to solve these problems in 2025
   </thead>
   <tbody>
     <tr style="background:#ffffff;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">✂️ Split states</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Split states</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Medium</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">🔄 Partially</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Cross-stack deps become manual data sources</td>
     </tr>
     <tr style="background:#f8fafc;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">🌿 Terragrunt deps</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Terragrunt deps</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Medium</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">🔄 Partially</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Requires Terragrunt adoption</td>
     </tr>
     <tr style="background:#ffffff;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">🧠 Stategraph</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">Stategraph</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Low</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">✅ Yes — graph-based</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">Early stage, needs PostgreSQL</td>
     </tr>
     <tr style="background:#f8fafc;">
-      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">🔧 DIY orchestrator</td>
+      <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;font-weight:600;">DIY orchestrator</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">High</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">🔄 Depends</td>
       <td style="padding:11px 16px;border-bottom:1px solid #e2e8f0;">You own the code and the bugs</td>
@@ -387,7 +387,7 @@ This post covers the main tools people are using to solve these problems in 2025
   </tbody>
 </table>
 </div>
-<p>For most teams leaving Terraform Cloud: if you want to stay self-sufficient, <strong>Digger</strong> or <strong>Atlantis</strong> with split states covers 80% of use cases. If you want a managed platform with proper policy and audit, <strong>Spacelift</strong> is the current community recommendation over Scalr. If your apply times are the primary pain and splitting state hasn&rsquo;t solved it, <strong>Stategraph</strong> is worth a demo.</p>
+<p>For most teams leaving Terraform Cloud: if you want to stay self-sufficient, <strong>Digger</strong> or <strong>Atlantis</strong> with split states covers 80% of use cases. If you want a managed platform with proper policy and audit, <strong>Spacelift</strong> is the safer pick over Scalr right now. If your apply times are the primary pain and splitting state hasn&rsquo;t solved it, <strong>Stategraph</strong> is worth a demo.</p>
 
 </div>
   <footer class="post-footer">

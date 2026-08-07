@@ -21,7 +21,7 @@
       <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</guid>
-      <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone — this is a recurring topic in every DevOps community right now.
+      <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone. This comes up a lot in Terraform discussions lately.
 This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).</description>
     </item>
     

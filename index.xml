@@ -64,7 +64,7 @@ Here is what I have learned running agent systems in production: self-improvemen
       <pubDate>Fri, 08 May 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/terraform-gitops-state-management-alternatives/</guid>
-      <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone — this is a recurring topic in every DevOps community right now.
+      <description>If you&amp;rsquo;ve been using Terraform Cloud for a while, you&amp;rsquo;ve probably hit at least one of these: the pricing model changed and suddenly it&amp;rsquo;s expensive, applies take 10+ minutes, or the state files have grown into something nobody wants to touch. You&amp;rsquo;re not alone. This comes up a lot in Terraform discussions lately.
 This post covers the main tools people are using to solve these problems in 2025–2026, with a focus on two separate issues that often get conflated: GitOps orchestration (who triggers plans, who approves applies) and state management at scale (why applies are slow and what to do about it).</description>
     </item>
     
@@ -125,7 +125,7 @@ How it works You mount the bucket via a managed endpoint and get a POSIX-compati
       <pubDate>Fri, 03 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/</guid>
-      <description>Click to enlarge      GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it is not a hacked cluster.
+      <description>Click to enlarge      GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it&amp;rsquo;s not a hacked cluster.
 The uncomfortable part: if you resolve or fetch any user URL with no checks, you also open the door to SSRF — for example a link to 169.</description>
     </item>
     
@@ -178,7 +178,7 @@ Ollama (162k+ stars) — The easiest way to run LLMs locally. Great for fast exp
       <pubDate>Sun, 28 Dec 2025 20:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/aws-sqs-cost-surprises-short-polling/</guid>
-      <description>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend — and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
+      <description>SQS is cheap until it isn’t. Real example from the wild: $500k in a weekend, and Amazon reportedly asked the team not to delete everything at once in certain regions, as it could impact the service. The usual culprit isn’t message volume; it’s how often you call ReceiveMessage when the queue is empty.
 How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteMessage, etc.), not per message. Standard queue: about $0.</description>
     </item>
     
@@ -188,7 +188,7 @@ How SQS Billing Works  You pay per request (SendMessage, ReceiveMessage, DeleteM
       <pubDate>Sun, 28 Dec 2025 18:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/aws-billing-transfer-session-summary/</guid>
-      <description>AWS Billing Transfer is a new feature (GA since November 2025) that streamlines billing management across multiple AWS Organizations. It helps companies and channel partners who manage multiple Organizations by enabling centralized billing while keeping security and autonomy decentralized for business units or end customers.
+      <description>AWS Billing Transfer is a new feature (GA since November 2025) that lets you manage billing across multiple AWS Organizations from one account. It helps companies and channel partners who manage multiple Organizations by enabling centralized billing while keeping security and autonomy decentralized for business units or end customers.
 Key Challenges Addressed  Multiple Organizations – Separate logins for billing and cost management across Organizations increase operational overhead No Central View – Hard to get a single, holistic view of spend across business units or customers Confidential Pricing – Protecting pricing data when billing and security roles are separated (e.</description>
     </item>
     
@@ -199,10 +199,11 @@ Key Challenges Addressed  Multiple Organizations – Separate logins for billing
       
       <guid>https://okulbida.com/posts/volsync-kubernetes-volume-migration/</guid>
       <description>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
-Key Features:
- Asynchronous replication between Kubernetes clusters Multiple replication methods: rsync, rclone, restic Disaster recovery and data protection Cross-cluster data migration Backup and restore capabilities  Installation:
+Installation:
 Install VolSync via Helm:
-1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:</description>
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:
+VolSync provides a CLI tool (kubectl-volsync) for migrating data from external storage into Kubernetes PersistentVolumes.
+Step 1: Install VolSync CLI</description>
     </item>
     
     <item>
@@ -236,7 +237,7 @@ Optional Service Integrations - Choose which integrations to enable:
       <pubDate>Sat, 27 Dec 2025 00:30:00 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/github-platform-engineering-approaches/</guid>
-      <description>GitHub&amp;rsquo;s platform engineering team shares their approach to tackling infrastructure challenges at scale. Key strategies include:
+      <description>GitHub&amp;rsquo;s platform engineering team on how they tackle infrastructure problems at scale:
 Understanding your domain:
  Talk to neighboring teams with more experience Investigate old issues to understand system limitations Read documentation to build foundational knowledge  Platform-specific skills:
  Network fundamentals (TCP, UDP, L4 load balancing, debugging tools) Operating systems and hardware selection for scalability and cost Infrastructure as Code (Terraform, Ansible, Consul) Distributed systems understanding (failures are inevitable, need failover/recovery)  Impact radius considerations:</description>
