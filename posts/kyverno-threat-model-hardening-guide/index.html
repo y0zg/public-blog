@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Kyverno threat model: the defaults that make enforcement optional | Oleksandr Kulbida</title>
+<meta name="keywords" content="kubernetes, kyverno, security, admission-control, supply-chain" />
+<meta name="description" content="Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn&rsquo;t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   ControlPlane published a threat model and hardening guide for Kyverno in April 2026, done with the CNCF and reviewed by Kyverno&rsquo;s own maintainers (Jim Bugwadia and Shuting Zhao among them).">
+<meta name="author" content="Oleksandr Kulbida">
+<link rel="canonical" href="https://okulbida.com/posts/kyverno-threat-model-hardening-guide/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="mask-icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Kyverno threat model: the defaults that make enforcement optional" />
+<meta property="og:description" content="Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn&rsquo;t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   ControlPlane published a threat model and hardening guide for Kyverno in April 2026, done with the CNCF and reviewed by Kyverno&rsquo;s own maintainers (Jim Bugwadia and Shuting Zhao among them)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://okulbida.com/posts/kyverno-threat-model-hardening-guide/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-09-09T00:00:00&#43;03:00" />
+<meta property="article:modified_time" content="2026-09-09T00:00:00&#43;03:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/>
+
+<meta name="twitter:title" content="Kyverno threat model: the defaults that make enforcement optional"/>
+<meta name="twitter:description" content="Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn&rsquo;t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   ControlPlane published a threat model and hardening guide for Kyverno in April 2026, done with the CNCF and reviewed by Kyverno&rsquo;s own maintainers (Jim Bugwadia and Shuting Zhao among them)."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://okulbida.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Kyverno threat model: the defaults that make enforcement optional",
+      "item": "https://okulbida.com/posts/kyverno-threat-model-hardening-guide/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Kyverno threat model: the defaults that make enforcement optional",
+  "name": "Kyverno threat model: the defaults that make enforcement optional",
+  "description": "Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn\u0026rsquo;t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   ControlPlane published a threat model and hardening guide for Kyverno in April 2026, done with the CNCF and reviewed by Kyverno\u0026rsquo;s own maintainers (Jim Bugwadia and Shuting Zhao among them).",
+  "keywords": [
+    "kubernetes", "kyverno", "security", "admission-control", "supply-chain"
+  ],
+  "articleBody": " Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn’t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   ControlPlane published a threat model and hardening guide for Kyverno in April 2026, done with the CNCF and reviewed by Kyverno’s own maintainers (Jim Bugwadia and Shuting Zhao among them). It’s 75 pages, written by Samuel Holmes and Tom Cope and signed off by ControlPlane CEO Andrew Martin, and it targets Kyverno v1.17.1. That’s about a month after Kyverno hit CNCF Graduated status.\nIt walks through two reference deployments, a single soft-multi-tenant cluster and a hub-and-spoke multi-cluster fleet, both deliberately seeded with the kind of misconfiguration real platform teams actually ship. From there it derives thirteen threats, four attack trees, and thirteen hardening recommendations. Not one of them is a bug in Kyverno’s code. There’s exactly one CVE cited in the whole document. Every other finding is a default, a flag, or a permission somebody forgot to lock down. The report says as much outright in its first paragraph: “the most significant risks often arise from misconfigurations rather than underlying software vulnerabilities.”\nIf you run Kyverno anywhere near production, here’s what actually matters out of it.\n Fail open, by default Kyverno enforces at admission time through a webhook the API server calls before a resource gets persisted. If that webhook is configured with failurePolicy: Ignore and the admission controller fails to respond in time, the API server admits the request as if no webhook existed at all. Not a warning, not a retry — silent pass-through.\nThat makes Kyverno’s own uptime a security control, which is an easy thing to miss until someone points it out. An attacker doesn’t need to compromise Kyverno to exploit this. Exhausting resources in the kyverno namespace, or just an unlucky dependency failure during a rollout, is enough to open the window. Every unsigned image, every privileged pod, everything gets through for as long as the outage lasts.\nTwo settings get you into this state without anyone touching failurePolicy directly: --autoUpdateWebhooks=false defaults every webhook config to Ignore, and --forceFailurePolicyIgnore forces it globally, overriding whatever you set per-policy. Both show up in real installs, usually from someone trying to avoid cluster-wide admission failures during initial rollout and never revisiting it.\n1 2 3 4 5 6 7 8 9 10 11  apiVersion: kyverno.io/v1 kind: ClusterPolicy metadata: name: require-run-as-nonroot spec: webhookConfiguration: failurePolicy: Fail failureAction: Enforce rules: - name: check-runasnonroot # ...   Run three replicas per controller, set failurePolicy: Fail everywhere in prod, and actually look at webhookTimeoutSeconds. If normal request latency is close to the timeout, you’re one slow day away from triggering this yourself.\n Audit mode is not enforcement Here’s the one that gets almost everyone at some point: failureAction defaults to Audit, not Enforce. A policy in Audit mode records violations in a PolicyReport and does nothing else. Kyverno’s own sample policy library ships mostly in Audit mode too, specifically so it doesn’t break new users' clusters on first install. Deploy those samples as-is and you’ve got ClusterPolicy resources running, reports generating, dashboards showing green — and zero requests actually blocked.\nThe report calls this out as a particular blind spot in regulated environments, and it’s easy to see why: PolicyReport results get spread across namespaces and merged per-namespace, so spotting a new violation without dedicated tooling watching for it is genuinely hard. The mere presence of a ClusterPolicy is not evidence anything is enforced. You have to check failureAction explicitly.\nThere’s a wrinkle even after you flip the switch. Moving a policy from Audit to Enforce doesn’t retroactively block resources that already violate it. They keep running until the next update, at which point the update itself gets blocked. If you don’t want that grace period, validate.allowExistingViolations: false closes it.\nThis same gap shows up across environments, not just within one cluster. A policy tested in a dev cluster running Audit mode with a pile of exceptions tells you almost nothing about how it’ll behave in a prod cluster running Enforce with none. “It passed in dev” is not validation. kyverno apply --cluster checks a policy against live cluster resources before you flip it to Enforce, and kyverno test runs in your pipeline before that. Neither replaces an actual review gate between environments, but running the same YAML twice and calling it tested is worse than doing nothing.\n PolicyException: the quiet bypass PolicyException is Kyverno’s mechanism for exempting a workload from a policy without editing the policy itself. It’s opt-in: you need enablePolicyException set. But once it’s on, a second flag matters just as much: exceptionNamespace. Leave it unset and exceptions from any namespace get evaluated against any policy, which is a much bigger surface than most people creating the exception realize.\nThis isn’t hypothetical. CVE-2024-48921 is exactly this: without namespace scoping, a user with permission to create exceptions in one namespace could write a PolicyException bypassing ClusterPolicies in namespaces they didn’t own. Straightforward privilege escalation, and it’s the direct reason the guide treats exceptionNamespace as non-negotiable.\nIt gets quieter than a normal bypass, too. A matched exception produces a “skip” in PolicyReport, not a “fail”. With reportResult: pass set, an exempted resource shows up as passing, indistinguishable from something that actually meets the policy. Exceptions apply to background scans by default as well, so a new exception can make an existing, already-reported violation vanish from your compliance dashboard without the underlying resource changing at all.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  apiVersion: kyverno.io/v2 kind: PolicyException metadata: name: allow-legacy-app namespace: exceptions  # must equal --exceptionNamespace on the controller spec: exceptions: - policyName: require-run-as-nonroot ruleNames: [\"autogen-check-runasnonroot\"] match: any: - resources: namespaces: [\"legacy-billing\"] names: [\"legacy-app-*\"]   Restrict who can write these to platform SRE, scope them to specific names and namespaces rather than broad selectors, and put an expiry on them. Exceptions created under incident pressure to unblock a deploy have a habit of outliving the incident by a year.\nThese three defaults compound. None of them individually requires touching Kyverno’s code, and stacked together they add up to enforcement that looks intact from the outside while doing nothing.\n .ktm-wrap *{box-sizing:border-box;margin:0;padding:0} .ktm-wrap{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:1.75rem 0;padding:0.25rem 0 0.5rem} .ktm-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px} .ktm-box{padding:12px 14px;border-radius:8px;background:#fdf2f2;border:1px solid #f0c2c2;border-left:3px solid #d9534f} .ktm-box .ktm-label{display:block;font-size:10px;font-weight:700;color:#a33333;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px} .ktm-box .ktm-main{display:block;font-weight:600;color:#2a2a2a;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px} .ktm-box .ktm-sub{display:block;margin-top:5px;color:#5a5a5a;font-size:11.5px;line-height:1.4} .ktm-arrow{text-align:center;font-size:13px;color:#999;margin:8px 0;letter-spacing:.05em;text-transform:uppercase;font-weight:600} .ktm-wide{padding:13px 16px;border-radius:8px;text-align:center;margin:8px 0} .ktm-wide.bad{background:#fbe7e7;border:1px solid #eeb3b3;color:#7a2323;font-weight:600;font-size:13px} .ktm-wide.warn{background:#fff7e0;border:1px solid #f0d98c;color:#6b5300;font-weight:500;font-size:12.5px} .ktm-divider{text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8a8a8a;margin:18px 0 10px} .ktm-fix .ktm-box{background:#edf9f2;border:1px solid #bfe4cc;border-left:3px solid #2fa563} .ktm-fix .ktm-label{color:#1c7a45} @media (max-width:640px){.ktm-row3{grid-template-columns:1fr}}  AdmissionfailurePolicy: Ignorewebhook times out → request admitted anyway Policy modefailureAction: Auditthe default — violation logged, nothing blocked Exception scopeexceptionNamespace unsetany namespace can exempt any workload  ↓ compound ↓ A privileged or unsigned workload runs in production, unblocked ↓ PolicyReport and dashboards still read green — nothing fires an alert the fix AdmissionfailurePolicy: Fail+ 3 replicas per controller Policy modefailureAction: Enforcereviewed per policy, not left on default Exception scopeexceptionNamespace set+ RBAC-restricted, reviewed, time-boxed    Kyverno doesn’t watch its own namespace By default, kyverno’s own namespace is excluded from Kyverno’s own admission webhook. No ClusterPolicy rule applies to anything created inside it. That’s controlled by config.excludeKyvernoNamespace, and it defaults to true on purpose: without the exclusion, a Kyverno outage combined with failurePolicy: Fail could stop Kyverno’s own pods from being recreated, locking you out of the exact tool you’d need to fix things.\nFair trade-off, but it means anyone with plain Kubernetes RBAC write access to the kyverno namespace operates entirely outside the policy engine. Modifying controller ConfigMaps, touching service account tokens, deploying a pod straight into the enforcement environment. None of it needs cluster-admin, none of it needs a cluster-scoped policy resource, and Kyverno’s own policies have no say in any of it. It’s plain RBAC or nothing.\nDefault installs don’t help here either. There’s no NetworkPolicy on the kyverno namespace by default, so the webhook endpoint and metrics port are reachable from any tenant namespace on the same cluster, TLS-secured but with no mutual auth to confirm the caller is actually the API server. If Kyverno’s namespace is excluded from its own enforcement, restricted RBAC and a NetworkPolicy are the only two things actually holding that door shut.\n What Kyverno can never protect ValidatingWebhookConfiguration and MutatingWebhookConfiguration are native Kubernetes objects under admissionregistration.k8s.io, not Kyverno resources. Kyverno’s own ClusterPolicy can’t govern write access to them, structurally — there’s nothing for a ClusterPolicy rule to intercept. Whoever can write to these objects can narrow what Kyverno intercepts, redirect a webhook to their own endpoint, shrink the timeout until it triggers the Ignore bypass from earlier, or just delete the config. Kubernetes RBAC is the only thing standing in the way, and a native ValidatingAdmissionPolicy is the only independent layer you can add on top of it.\nThere’s a second, less obvious version of the same problem in how Kyverno’s RBAC is built. Controllers get their permissions through an aggregated ClusterRole model. Labels like rbac.kyverno.io/aggregate-to-admission-controller: \"true\" mark a ClusterRole as contributing to a controller’s effective permissions. Any principal who can create a ClusterRole carrying that label silently extends what the controller can do, without ever touching the named role anyone thinks they’re auditing. Reviewing “who holds the admission-controller role” misses this entirely — you have to audit who can create ClusterRoles with these labels at all.\n Sign and verify, not either Two different artifacts need the same treatment here: container images, and Kyverno’s own policy bundles.\nFor images, verifyImages rules or the newer CEL-based ImageValidatingPolicy (introduced in v1.17) check a cosign signature before admitting an image. Neither is on by default, and the ways this quietly stops working are mundane: failureAction: Audit left on during rollout and never flipped, required: false letting unsigned images through without error, an incomplete imageReferences glob that misses a registry someone added later, or a failurePolicy: Ignore on the verification rule specifically. This is separate from the Ignore from earlier: it skips verification if the signature registry is unreachable while Kyverno itself stays perfectly healthy.\n1 2 3 4 5 6 7 8 9 10 11 12 13  verifyImages: - imageReferences: - \"registry.company.com/*\" required: true failurePolicy: Fail mutateDigest: true attestors: - entries: - keys: publicKeys: |------BEGIN PUBLIC KEY----- ... -----END PUBLIC KEY-----   mutateDigest: true is worth calling out specifically — it pins the image to a digest at admission time, so a tag that gets repointed after verification can’t quietly serve different content later.\nPolicy bundles need the identical pairing: sign before storage, verify before applying, and having only one of the two protects nothing. If bundles are unsigned, or signed but nothing checks the signature on retrieval, write access to the registry is enough to modify what gets applied fleet-wide — no cluster access required at all. The reference setup here is cosign with an HSM-backed key, then cosign verify on every cluster before kubectl apply.\n1 2 3 4  cosign verify-blob \\  --key cosign.pub \\  --signature policy-bundle.sig \\  policy-bundle.tar.gz || exit 1   It gets worse if the same registry principal can write to both the image repos and the policy bundle repos — a compromised CI credential can push a malicious image and edit the policy that would have caught it in one motion, with no gap between the two events for anyone to notice. Repo-level RBAC separating those two write paths matters more than it sounds like it should.\nIn a hub-and-spoke fleet, the hub concentrates all of this in one place: signing infrastructure access, the distribution pipeline, and — in the policy-reporter namespace — every spoke cluster’s API credentials, stored as ordinary Kubernetes Secrets. Kubernetes Secrets are base64, not encrypted, unless you’ve turned on etcd encryption at rest. A hub compromise there isn’t “one cluster down,” it’s authenticated read access to every spoke in the fleet simultaneously, which is a meaningfully worse outcome than any single spoke getting popped on its own.\n Turning the admission controller into an SSRF probe This is the one I didn’t expect going in. A ClusterPolicy rule can include an apiCall.service context entry (or the CEL equivalent via the HTTP library) that calls out to an arbitrary URL during admission evaluation.\n1 2 3 4 5 6  context: - name: external-check apiCall: service: url: https://internal-svc.default.svc.cluster.local/check method: GET   If that endpoint is unreachable, you’re stuck with the same fork from earlier: failurePolicy: Fail blocks legitimate deployments, failurePolicy: Ignore silently drops enforcement. Either way, an external dependency is now deciding your admission behavior. Worse, a POST call can carry fields from the admission request — labels, annotations, spec values — off-cluster, and there’s no mutual auth on the way out, just optional custom headers.\nThe part worth sitting with: writing a ClusterPolicy rule is enough to do this. No component compromise, no cluster-admin. A principal with ordinary policy-write access can point apiCall.service at an attacker-controlled URL, and from then on every admission request matching that rule fires an outbound HTTP call — probing internal services, reaching for a cloud metadata endpoint, or just exfiltrating whatever’s in the request body. The admission controller becomes the SSRF client, and the attacker never has to touch it directly.\nKyverno v1.17.0 shipped a default block list for cloud metadata endpoints specifically because of this, which helps with the most damaging single target. It doesn’t help with everything else reachable on the internal network. Scope apiCall.service to in-cluster services where you can, use --httpBlocklist or --httpAllowlist to pin down what’s reachable at all, and put a NetworkPolicy egress allowlist on the kyverno namespace so a malicious rule has nowhere to actually call.\n Summary    Check Why it matters     failurePolicy: Fail on every webhook, 3 replicas per controller A crashed or overloaded Kyverno should block deployments, not wave them through. Never use --forceFailurePolicyIgnore in prod   failureAction: Enforce, reviewed per policy The default is Audit. Reports without blocking is not enforcement, no matter what the dashboard implies   Promote through a staging env that mirrors prod’s Enforce posture “Passed in dev” means nothing if dev runs Audit with broad exceptions. Use kyverno apply --cluster and kyverno test before promoting   Set exceptionNamespace, restrict PolicyException writes to platform SRE Without a fixed namespace, exceptions from anywhere bypass policy everywhere. This is CVE-2024-48921   Restricted RBAC + Pod Security Admission + NetworkPolicy on kyverno itself The namespace is excluded from its own webhook by design; RBAC and network isolation are the only backstop   Restrict who can create ClusterRoles with rbac.kyverno.io/aggregate-to-* labels These silently extend controller permissions, bypassing an audit of the named roles alone   Add ValidatingAdmissionPolicy on webhook configs and cluster policy resources Native admissionregistration.k8s.io objects can’t be governed by Kyverno’s own ClusterPolicy   verifyImages/ImageValidatingPolicy with required: true, mutateDigest: true Audit-mode or optional verification lets an unsigned image through with no error   Sign policy bundles with cosign + HSM keys, verify on every cluster before apply Signing without verification (or the reverse) stops nothing   Separate registry write access for app images vs. policy bundles One compromised CI credential shouldn’t be able to tamper both the payload and the check meant to catch it   Scope apiCall.service to in-cluster targets, use --httpBlocklist/egress NetworkPolicy ClusterPolicy write access alone is enough to turn the admission controller into an SSRF client    None of this needed a zero-day. Every path in the report starts from a default Kyverno ships with, or a flag someone flipped during a rollout and never went back to. That’s the uncomfortable part — the fix isn’t a patch, it’s going back through settings you probably haven’t looked at since the day you installed the chart.\n",
+  "wordCount" : "2572",
+  "inLanguage": "en",
+  "datePublished": "2026-09-09T00:00:00+03:00",
+  "dateModified": "2026-09-09T00:00:00+03:00",
+  "author":{
+    "@type": "Person",
+    "name": "Oleksandr Kulbida"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://okulbida.com/posts/kyverno-threat-model-hardening-guide/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Oleksandr Kulbida",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://okulbida.com" accesskey="h" title="Oleksandr Kulbida (Alt + H)">
+                <img src="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png" alt="logo" aria-label="logo"
+                    height="45">Oleksandr Kulbida</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://okulbida.com/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://okulbida.com/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://okulbida.com/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://okulbida.com">Home</a>&nbsp;»&nbsp;<a href="https://okulbida.com/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Kyverno threat model: the defaults that make enforcement optional
+    </h1>
+    <div class="post-meta">September 9, 2026&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Oleksandr Kulbida
+</div>
+  </header> 
+  <div class="post-content"><ul>
+<li><a href="#fail-open-by-default">Fail open, by default</a></li>
+<li><a href="#audit-mode-is-not-enforcement">Audit mode is not enforcement</a></li>
+<li><a href="#policyexception-the-quiet-bypass">PolicyException: the quiet bypass</a></li>
+<li><a href="#kyverno-doesnt-watch-its-own-namespace">Kyverno doesn&rsquo;t watch its own namespace</a></li>
+<li><a href="#what-kyverno-can-never-protect">What Kyverno can never protect</a></li>
+<li><a href="#sign-and-verify-not-either">Sign and verify, not either</a></li>
+<li><a href="#turning-the-admission-controller-into-an-ssrf-probe">Turning the admission controller into an SSRF probe</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+<hr>
+<p>ControlPlane published a <a href="https://kyverno.io/blog/controlplane-threat-model/assets/kyverno-end-user-threat-model-and-hardening-guide.pdf">threat model and hardening guide for Kyverno</a> in April 2026, done with the CNCF and reviewed by Kyverno&rsquo;s own maintainers (Jim Bugwadia and Shuting Zhao among them). It&rsquo;s 75 pages, written by Samuel Holmes and Tom Cope and signed off by ControlPlane CEO Andrew Martin, and it targets Kyverno v1.17.1. That&rsquo;s about a month after Kyverno hit CNCF Graduated status.</p>
+<p>It walks through two reference deployments, a single soft-multi-tenant cluster and a hub-and-spoke multi-cluster fleet, both deliberately seeded with the kind of misconfiguration real platform teams actually ship. From there it derives thirteen threats, four attack trees, and thirteen hardening recommendations. Not one of them is a bug in Kyverno&rsquo;s code. There&rsquo;s exactly one CVE cited in the whole document. Every other finding is a default, a flag, or a permission somebody forgot to lock down. The report says as much outright in its first paragraph: &ldquo;the most significant risks often arise from misconfigurations rather than underlying software vulnerabilities.&rdquo;</p>
+<p>If you run Kyverno anywhere near production, here&rsquo;s what actually matters out of it.</p>
+<hr>
+<h2 id="fail-open-by-default">Fail open, by default<a hidden class="anchor" aria-hidden="true" href="#fail-open-by-default">#</a></h2>
+<p>Kyverno enforces at admission time through a webhook the API server calls before a resource gets persisted. If that webhook is configured with <code>failurePolicy: Ignore</code> and the admission controller fails to respond in time, the API server admits the request as if no webhook existed at all. Not a warning, not a retry — silent pass-through.</p>
+<p>That makes Kyverno&rsquo;s own uptime a security control, which is an easy thing to miss until someone points it out. An attacker doesn&rsquo;t need to compromise Kyverno to exploit this. Exhausting resources in the <code>kyverno</code> namespace, or just an unlucky dependency failure during a rollout, is enough to open the window. Every unsigned image, every privileged pod, everything gets through for as long as the outage lasts.</p>
+<p>Two settings get you into this state without anyone touching <code>failurePolicy</code> directly: <code>--autoUpdateWebhooks=false</code> defaults every webhook config to <code>Ignore</code>, and <code>--forceFailurePolicyIgnore</code> forces it globally, overriding whatever you set per-policy. Both show up in real installs, usually from someone trying to avoid cluster-wide admission failures during initial rollout and never revisiting it.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">kyverno.io/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterPolicy</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">require-run-as-nonroot</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">webhookConfiguration</span>:
+    <span style="color:#f92672">failurePolicy</span>: <span style="color:#ae81ff">Fail</span>
+  <span style="color:#f92672">failureAction</span>: <span style="color:#ae81ff">Enforce</span>
+  <span style="color:#f92672">rules</span>:
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">check-runasnonroot</span>
+      <span style="color:#75715e"># ...</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Run three replicas per controller, set <code>failurePolicy: Fail</code> everywhere in prod, and actually look at <code>webhookTimeoutSeconds</code>. If normal request latency is close to the timeout, you&rsquo;re one slow day away from triggering this yourself.</p>
+<hr>
+<h2 id="audit-mode-is-not-enforcement">Audit mode is not enforcement<a hidden class="anchor" aria-hidden="true" href="#audit-mode-is-not-enforcement">#</a></h2>
+<p>Here&rsquo;s the one that gets almost everyone at some point: <code>failureAction</code> defaults to <code>Audit</code>, not <code>Enforce</code>. A policy in Audit mode records violations in a <code>PolicyReport</code> and does nothing else. Kyverno&rsquo;s own sample policy library ships mostly in Audit mode too, specifically so it doesn&rsquo;t break new users' clusters on first install. Deploy those samples as-is and you&rsquo;ve got ClusterPolicy resources running, reports generating, dashboards showing green — and zero requests actually blocked.</p>
+<p>The report calls this out as a particular blind spot in regulated environments, and it&rsquo;s easy to see why: PolicyReport results get spread across namespaces and merged per-namespace, so spotting a new violation without dedicated tooling watching for it is genuinely hard. The mere presence of a ClusterPolicy is not evidence anything is enforced. You have to check <code>failureAction</code> explicitly.</p>
+<p>There&rsquo;s a wrinkle even after you flip the switch. Moving a policy from Audit to Enforce doesn&rsquo;t retroactively block resources that already violate it. They keep running until the next update, at which point the update itself gets blocked. If you don&rsquo;t want that grace period, <code>validate.allowExistingViolations: false</code> closes it.</p>
+<p>This same gap shows up across environments, not just within one cluster. A policy tested in a dev cluster running Audit mode with a pile of exceptions tells you almost nothing about how it&rsquo;ll behave in a prod cluster running Enforce with none. &ldquo;It passed in dev&rdquo; is not validation. <code>kyverno apply --cluster</code> checks a policy against live cluster resources before you flip it to Enforce, and <code>kyverno test</code> runs in your pipeline before that. Neither replaces an actual review gate between environments, but running the same YAML twice and calling it tested is worse than doing nothing.</p>
+<hr>
+<h2 id="policyexception-the-quiet-bypass">PolicyException: the quiet bypass<a hidden class="anchor" aria-hidden="true" href="#policyexception-the-quiet-bypass">#</a></h2>
+<p><code>PolicyException</code> is Kyverno&rsquo;s mechanism for exempting a workload from a policy without editing the policy itself. It&rsquo;s opt-in: you need <code>enablePolicyException</code> set. But once it&rsquo;s on, a second flag matters just as much: <code>exceptionNamespace</code>. Leave it unset and exceptions from <em>any</em> namespace get evaluated against <em>any</em> policy, which is a much bigger surface than most people creating the exception realize.</p>
+<p>This isn&rsquo;t hypothetical. <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-48921">CVE-2024-48921</a> is exactly this: without namespace scoping, a user with permission to create exceptions in one namespace could write a <code>PolicyException</code> bypassing ClusterPolicies in namespaces they didn&rsquo;t own. Straightforward privilege escalation, and it&rsquo;s the direct reason the guide treats <code>exceptionNamespace</code> as non-negotiable.</p>
+<p>It gets quieter than a normal bypass, too. A matched exception produces a &ldquo;skip&rdquo; in <code>PolicyReport</code>, not a &ldquo;fail&rdquo;. With <code>reportResult: pass</code> set, an exempted resource shows up as <em>passing</em>, indistinguishable from something that actually meets the policy. Exceptions apply to background scans by default as well, so a new exception can make an existing, already-reported violation vanish from your compliance dashboard without the underlying resource changing at all.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">kyverno.io/v2</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PolicyException</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">allow-legacy-app</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">exceptions  </span> <span style="color:#75715e"># must equal --exceptionNamespace on the controller</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">exceptions</span>:
+    - <span style="color:#f92672">policyName</span>: <span style="color:#ae81ff">require-run-as-nonroot</span>
+      <span style="color:#f92672">ruleNames</span>: [<span style="color:#e6db74">&#34;autogen-check-runasnonroot&#34;</span>]
+  <span style="color:#f92672">match</span>:
+    <span style="color:#f92672">any</span>:
+      - <span style="color:#f92672">resources</span>:
+          <span style="color:#f92672">namespaces</span>: [<span style="color:#e6db74">&#34;legacy-billing&#34;</span>]
+          <span style="color:#f92672">names</span>: [<span style="color:#e6db74">&#34;legacy-app-*&#34;</span>]
+</code></pre></td></tr></table>
+</div>
+</div><p>Restrict who can write these to platform SRE, scope them to specific names and namespaces rather than broad selectors, and put an expiry on them. Exceptions created under incident pressure to unblock a deploy have a habit of outliving the incident by a year.</p>
+<p>These three defaults compound. None of them individually requires touching Kyverno&rsquo;s code, and stacked together they add up to enforcement that looks intact from the outside while doing nothing.</p>
+
+
+<style>
+.ktm-wrap *{box-sizing:border-box;margin:0;padding:0}
+.ktm-wrap{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:1.75rem 0;padding:0.25rem 0 0.5rem}
+.ktm-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.ktm-box{padding:12px 14px;border-radius:8px;background:#fdf2f2;border:1px solid #f0c2c2;border-left:3px solid #d9534f}
+.ktm-box .ktm-label{display:block;font-size:10px;font-weight:700;color:#a33333;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.ktm-box .ktm-main{display:block;font-weight:600;color:#2a2a2a;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+.ktm-box .ktm-sub{display:block;margin-top:5px;color:#5a5a5a;font-size:11.5px;line-height:1.4}
+.ktm-arrow{text-align:center;font-size:13px;color:#999;margin:8px 0;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+.ktm-wide{padding:13px 16px;border-radius:8px;text-align:center;margin:8px 0}
+.ktm-wide.bad{background:#fbe7e7;border:1px solid #eeb3b3;color:#7a2323;font-weight:600;font-size:13px}
+.ktm-wide.warn{background:#fff7e0;border:1px solid #f0d98c;color:#6b5300;font-weight:500;font-size:12.5px}
+.ktm-divider{text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8a8a8a;margin:18px 0 10px}
+.ktm-fix .ktm-box{background:#edf9f2;border:1px solid #bfe4cc;border-left:3px solid #2fa563}
+.ktm-fix .ktm-label{color:#1c7a45}
+@media (max-width:640px){.ktm-row3{grid-template-columns:1fr}}
+</style>
+<div class="ktm-wrap">
+  <div class="ktm-row3">
+    <div class="ktm-box"><span class="ktm-label">Admission</span><span class="ktm-main">failurePolicy: Ignore</span><span class="ktm-sub">webhook times out → request admitted anyway</span></div>
+    <div class="ktm-box"><span class="ktm-label">Policy mode</span><span class="ktm-main">failureAction: Audit</span><span class="ktm-sub">the default — violation logged, nothing blocked</span></div>
+    <div class="ktm-box"><span class="ktm-label">Exception scope</span><span class="ktm-main">exceptionNamespace unset</span><span class="ktm-sub">any namespace can exempt any workload</span></div>
+  </div>
+  <div class="ktm-arrow">↓ compound ↓</div>
+  <div class="ktm-wide bad">A privileged or unsigned workload runs in production, unblocked</div>
+  <div class="ktm-arrow">↓</div>
+  <div class="ktm-wide warn">PolicyReport and dashboards still read green — nothing fires an alert</div>
+  <div class="ktm-divider">the fix</div>
+  <div class="ktm-row3 ktm-fix">
+    <div class="ktm-box"><span class="ktm-label">Admission</span><span class="ktm-main">failurePolicy: Fail</span><span class="ktm-sub">+ 3 replicas per controller</span></div>
+    <div class="ktm-box"><span class="ktm-label">Policy mode</span><span class="ktm-main">failureAction: Enforce</span><span class="ktm-sub">reviewed per policy, not left on default</span></div>
+    <div class="ktm-box"><span class="ktm-label">Exception scope</span><span class="ktm-main">exceptionNamespace set</span><span class="ktm-sub">+ RBAC-restricted, reviewed, time-boxed</span></div>
+  </div>
+</div>
+
+<hr>
+<h2 id="kyverno-doesnt-watch-its-own-namespace">Kyverno doesn&rsquo;t watch its own namespace<a hidden class="anchor" aria-hidden="true" href="#kyverno-doesnt-watch-its-own-namespace">#</a></h2>
+<p>By default, <code>kyverno</code>&rsquo;s own namespace is excluded from Kyverno&rsquo;s own admission webhook. No ClusterPolicy rule applies to anything created inside it. That&rsquo;s controlled by <code>config.excludeKyvernoNamespace</code>, and it defaults to <code>true</code> on purpose: without the exclusion, a Kyverno outage combined with <code>failurePolicy: Fail</code> could stop Kyverno&rsquo;s own pods from being recreated, locking you out of the exact tool you&rsquo;d need to fix things.</p>
+<p>Fair trade-off, but it means anyone with plain Kubernetes RBAC write access to the <code>kyverno</code> namespace operates entirely outside the policy engine. Modifying controller ConfigMaps, touching service account tokens, deploying a pod straight into the enforcement environment. None of it needs cluster-admin, none of it needs a cluster-scoped policy resource, and Kyverno&rsquo;s own policies have no say in any of it. It&rsquo;s plain RBAC or nothing.</p>
+<p>Default installs don&rsquo;t help here either. There&rsquo;s no NetworkPolicy on the <code>kyverno</code> namespace by default, so the webhook endpoint and metrics port are reachable from any tenant namespace on the same cluster, TLS-secured but with no mutual auth to confirm the caller is actually the API server. If Kyverno&rsquo;s namespace is excluded from its own enforcement, restricted RBAC and a NetworkPolicy are the only two things actually holding that door shut.</p>
+<hr>
+<h2 id="what-kyverno-can-never-protect">What Kyverno can never protect<a hidden class="anchor" aria-hidden="true" href="#what-kyverno-can-never-protect">#</a></h2>
+<p><code>ValidatingWebhookConfiguration</code> and <code>MutatingWebhookConfiguration</code> are native Kubernetes objects under <code>admissionregistration.k8s.io</code>, not Kyverno resources. Kyverno&rsquo;s own ClusterPolicy can&rsquo;t govern write access to them, structurally — there&rsquo;s nothing for a ClusterPolicy rule to intercept. Whoever can write to these objects can narrow what Kyverno intercepts, redirect a webhook to their own endpoint, shrink the timeout until it triggers the <code>Ignore</code> bypass from earlier, or just delete the config. Kubernetes RBAC is the only thing standing in the way, and a native <code>ValidatingAdmissionPolicy</code> is the only independent layer you can add on top of it.</p>
+<p>There&rsquo;s a second, less obvious version of the same problem in how Kyverno&rsquo;s RBAC is built. Controllers get their permissions through an aggregated <code>ClusterRole</code> model. Labels like <code>rbac.kyverno.io/aggregate-to-admission-controller: &quot;true&quot;</code> mark a <code>ClusterRole</code> as contributing to a controller&rsquo;s effective permissions. Any principal who can create a <code>ClusterRole</code> carrying that label silently extends what the controller can do, without ever touching the named role anyone thinks they&rsquo;re auditing. Reviewing &ldquo;who holds the admission-controller role&rdquo; misses this entirely — you have to audit who can create ClusterRoles with these labels at all.</p>
+<hr>
+<h2 id="sign-and-verify-not-either">Sign and verify, not either<a hidden class="anchor" aria-hidden="true" href="#sign-and-verify-not-either">#</a></h2>
+<p>Two different artifacts need the same treatment here: container images, and Kyverno&rsquo;s own policy bundles.</p>
+<p>For images, <code>verifyImages</code> rules or the newer CEL-based <code>ImageValidatingPolicy</code> (introduced in v1.17) check a cosign signature before admitting an image. Neither is on by default, and the ways this quietly stops working are mundane: <code>failureAction: Audit</code> left on during rollout and never flipped, <code>required: false</code> letting unsigned images through without error, an incomplete <code>imageReferences</code> glob that misses a registry someone added later, or a <code>failurePolicy: Ignore</code> on the verification rule specifically. This is separate from the <code>Ignore</code> from earlier: it skips verification if the <em>signature registry</em> is unreachable while Kyverno itself stays perfectly healthy.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">verifyImages</span>:
+  - <span style="color:#f92672">imageReferences</span>:
+      - <span style="color:#e6db74">&#34;registry.company.com/*&#34;</span>
+    <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">failurePolicy</span>: <span style="color:#ae81ff">Fail</span>
+    <span style="color:#f92672">mutateDigest</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">attestors</span>:
+      - <span style="color:#f92672">entries</span>:
+          - <span style="color:#f92672">keys</span>:
+              <span style="color:#f92672">publicKeys</span>: |-<span style="color:#e6db74">
+</span><span style="color:#e6db74">                -----BEGIN PUBLIC KEY-----
+</span><span style="color:#e6db74">                ...
+</span><span style="color:#e6db74">                -----END PUBLIC KEY-----</span>                
+</code></pre></td></tr></table>
+</div>
+</div><p><code>mutateDigest: true</code> is worth calling out specifically — it pins the image to a digest at admission time, so a tag that gets repointed after verification can&rsquo;t quietly serve different content later.</p>
+<p>Policy bundles need the identical pairing: sign before storage, verify before applying, and having only one of the two protects nothing. If bundles are unsigned, or signed but nothing checks the signature on retrieval, write access to the registry is enough to modify what gets applied fleet-wide — no cluster access required at all. The reference setup here is cosign with an HSM-backed key, then <code>cosign verify</code> on every cluster before <code>kubectl apply</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cosign verify-blob <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --key cosign.pub <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --signature policy-bundle.sig <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  policy-bundle.tar.gz <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It gets worse if the same registry principal can write to both the image repos and the policy bundle repos — a compromised CI credential can push a malicious image and edit the policy that would have caught it in one motion, with no gap between the two events for anyone to notice. Repo-level RBAC separating those two write paths matters more than it sounds like it should.</p>
+<p>In a hub-and-spoke fleet, the hub concentrates all of this in one place: signing infrastructure access, the distribution pipeline, and — in the <code>policy-reporter</code> namespace — every spoke cluster&rsquo;s API credentials, stored as ordinary Kubernetes Secrets. Kubernetes Secrets are base64, not encrypted, unless you&rsquo;ve turned on etcd encryption at rest. A hub compromise there isn&rsquo;t &ldquo;one cluster down,&rdquo; it&rsquo;s authenticated read access to every spoke in the fleet simultaneously, which is a meaningfully worse outcome than any single spoke getting popped on its own.</p>
+<hr>
+<h2 id="turning-the-admission-controller-into-an-ssrf-probe">Turning the admission controller into an SSRF probe<a hidden class="anchor" aria-hidden="true" href="#turning-the-admission-controller-into-an-ssrf-probe">#</a></h2>
+<p>This is the one I didn&rsquo;t expect going in. A <code>ClusterPolicy</code> rule can include an <code>apiCall.service</code> context entry (or the CEL equivalent via the HTTP library) that calls out to an arbitrary URL during admission evaluation.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">context</span>:
+  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">external-check</span>
+    <span style="color:#f92672">apiCall</span>:
+      <span style="color:#f92672">service</span>:
+        <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://internal-svc.default.svc.cluster.local/check</span>
+      <span style="color:#f92672">method</span>: <span style="color:#ae81ff">GET</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>If that endpoint is unreachable, you&rsquo;re stuck with the same fork from earlier: <code>failurePolicy: Fail</code> blocks legitimate deployments, <code>failurePolicy: Ignore</code> silently drops enforcement. Either way, an external dependency is now deciding your admission behavior. Worse, a <code>POST</code> call can carry fields from the admission request — labels, annotations, spec values — off-cluster, and there&rsquo;s no mutual auth on the way out, just optional custom headers.</p>
+<p>The part worth sitting with: writing a <code>ClusterPolicy</code> rule is enough to do this. No component compromise, no cluster-admin. A principal with ordinary policy-write access can point <code>apiCall.service</code> at an attacker-controlled URL, and from then on every admission request matching that rule fires an outbound HTTP call — probing internal services, reaching for a cloud metadata endpoint, or just exfiltrating whatever&rsquo;s in the request body. The admission controller becomes the SSRF client, and the attacker never has to touch it directly.</p>
+<p>Kyverno v1.17.0 shipped a default block list for cloud metadata endpoints specifically because of this, which helps with the most damaging single target. It doesn&rsquo;t help with everything else reachable on the internal network. Scope <code>apiCall.service</code> to in-cluster services where you can, use <code>--httpBlocklist</code> or <code>--httpAllowlist</code> to pin down what&rsquo;s reachable at all, and put a NetworkPolicy egress allowlist on the <code>kyverno</code> namespace so a malicious rule has nowhere to actually call.</p>
+<hr>
+<h2 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>failurePolicy: Fail</code> on every webhook, 3 replicas per controller</td>
+<td>A crashed or overloaded Kyverno should block deployments, not wave them through. Never use <code>--forceFailurePolicyIgnore</code> in prod</td>
+</tr>
+<tr>
+<td><code>failureAction: Enforce</code>, reviewed per policy</td>
+<td>The default is <code>Audit</code>. Reports without blocking is not enforcement, no matter what the dashboard implies</td>
+</tr>
+<tr>
+<td>Promote through a staging env that mirrors prod&rsquo;s <code>Enforce</code> posture</td>
+<td>&ldquo;Passed in dev&rdquo; means nothing if dev runs <code>Audit</code> with broad exceptions. Use <code>kyverno apply --cluster</code> and <code>kyverno test</code> before promoting</td>
+</tr>
+<tr>
+<td>Set <code>exceptionNamespace</code>, restrict <code>PolicyException</code> writes to platform SRE</td>
+<td>Without a fixed namespace, exceptions from anywhere bypass policy everywhere. This is CVE-2024-48921</td>
+</tr>
+<tr>
+<td>Restricted RBAC + Pod Security Admission + NetworkPolicy on <code>kyverno</code> itself</td>
+<td>The namespace is excluded from its own webhook by design; RBAC and network isolation are the only backstop</td>
+</tr>
+<tr>
+<td>Restrict who can create ClusterRoles with <code>rbac.kyverno.io/aggregate-to-*</code> labels</td>
+<td>These silently extend controller permissions, bypassing an audit of the named roles alone</td>
+</tr>
+<tr>
+<td>Add <code>ValidatingAdmissionPolicy</code> on webhook configs and cluster policy resources</td>
+<td>Native <code>admissionregistration.k8s.io</code> objects can&rsquo;t be governed by Kyverno&rsquo;s own ClusterPolicy</td>
+</tr>
+<tr>
+<td><code>verifyImages</code>/<code>ImageValidatingPolicy</code> with <code>required: true</code>, <code>mutateDigest: true</code></td>
+<td>Audit-mode or optional verification lets an unsigned image through with no error</td>
+</tr>
+<tr>
+<td>Sign policy bundles with cosign + HSM keys, verify on every cluster before apply</td>
+<td>Signing without verification (or the reverse) stops nothing</td>
+</tr>
+<tr>
+<td>Separate registry write access for app images vs. policy bundles</td>
+<td>One compromised CI credential shouldn&rsquo;t be able to tamper both the payload and the check meant to catch it</td>
+</tr>
+<tr>
+<td>Scope <code>apiCall.service</code> to in-cluster targets, use <code>--httpBlocklist</code>/egress NetworkPolicy</td>
+<td>ClusterPolicy write access alone is enough to turn the admission controller into an SSRF client</td>
+</tr>
+</tbody>
+</table>
+<p>None of this needed a zero-day. Every path in the report starts from a default Kyverno ships with, or a flag someone flipped during a rollout and never went back to. That&rsquo;s the uncomfortable part — the fix isn&rsquo;t a patch, it&rsquo;s going back through settings you probably haven&rsquo;t looked at since the day you installed the chart.</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://okulbida.com/tags/kubernetes/">kubernetes</a></li>
+      <li><a href="https://okulbida.com/tags/kyverno/">kyverno</a></li>
+      <li><a href="https://okulbida.com/tags/security/">security</a></li>
+      <li><a href="https://okulbida.com/tags/admission-control/">admission-control</a></li>
+      <li><a href="https://okulbida.com/tags/supply-chain/">supply-chain</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://okulbida.com/posts/terraform-to-opentofu-migration/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Terraform to OpenTofu: is it worth migrating?</span>
+  </a>
+</nav>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kyverno threat model: the defaults that make enforcement optional on twitter"
+        href="https://twitter.com/intent/tweet/?text=Kyverno%20threat%20model%3a%20the%20defaults%20that%20make%20enforcement%20optional&amp;url=https%3a%2f%2fokulbida.com%2fposts%2fkyverno-threat-model-hardening-guide%2f&amp;hashtags=kubernetes%2ckyverno%2csecurity%2cadmission-control%2csupply-chain">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kyverno threat model: the defaults that make enforcement optional on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fokulbida.com%2fposts%2fkyverno-threat-model-hardening-guide%2f&amp;title=Kyverno%20threat%20model%3a%20the%20defaults%20that%20make%20enforcement%20optional&amp;summary=Kyverno%20threat%20model%3a%20the%20defaults%20that%20make%20enforcement%20optional&amp;source=https%3a%2f%2fokulbida.com%2fposts%2fkyverno-threat-model-hardening-guide%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kyverno threat model: the defaults that make enforcement optional on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fokulbida.com%2fposts%2fkyverno-threat-model-hardening-guide%2f&title=Kyverno%20threat%20model%3a%20the%20defaults%20that%20make%20enforcement%20optional">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kyverno threat model: the defaults that make enforcement optional on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fokulbida.com%2fposts%2fkyverno-threat-model-hardening-guide%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kyverno threat model: the defaults that make enforcement optional on whatsapp"
+        href="https://api.whatsapp.com/send?text=Kyverno%20threat%20model%3a%20the%20defaults%20that%20make%20enforcement%20optional%20-%20https%3a%2f%2fokulbida.com%2fposts%2fkyverno-threat-model-hardening-guide%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kyverno threat model: the defaults that make enforcement optional on telegram"
+        href="https://telegram.me/share/url?text=Kyverno%20threat%20model%3a%20the%20defaults%20that%20make%20enforcement%20optional&amp;url=https%3a%2f%2fokulbida.com%2fposts%2fkyverno-threat-model-hardening-guide%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2026 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script src="https://giscus.app/client.js"
+        data-repo="y0zg/public-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzNjEzOTk2NTU="
+        data-category="General"
+        data-category-id="DIC_kwDOFYqFZ84CeLp9"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<div id="floating-subscribe" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 1000; max-width: 320px; background: var(--theme); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem;">
+    
+    <button id="close-subscribe" onclick="closeSubscribeForm()" 
+            style="position: absolute; top: 0.5rem; right: 0.5rem; background: transparent; border: none; cursor: pointer; font-size: 1.2rem; color: var(--secondary); padding: 0.25rem 0.5rem; line-height: 1;"
+            title="Close" aria-label="Close subscription form">
+        ×
+    </button>
+    
+    <div style="margin-bottom: 0.75rem;">
+        <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">📧 Subscribe</h4>
+        <p style="margin: 0; font-size: 0.85rem; opacity: 0.8; line-height: 1.4;">Get notified when new posts are published.</p>
+    </div>
+    
+    
+    <div id="mc_embed_signup">
+        <form action="https://okulbida.us14.list-manage.com/subscribe/post?u=65c0dd5d5001103ba8b4450ef&amp;id=ac0973f098&amp;f_id=00ee89e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" required 
+                           style="width: 100%; padding: 0.6rem; border: 1px solid var(--border); border-radius: 4px; background: var(--code-bg); color: var(--primary); font-size: 0.9rem; box-sizing: border-box;">
+                    
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_65c0dd5d5001103ba8b4450ef_ac0973f098" tabindex="-1" value="">
+                    </div>
+                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"
+                            style="width: 100%; padding: 0.6rem; background: var(--primary); color: var(--theme); border: none; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: 0.9rem;">
+                        Subscribe
+                    </button>
+                </div>
+                <div id="mce-responses" class="clear foot" style="margin-top: 0.5rem; font-size: 0.8rem;">
+                    <div class="response" id="mce-error-response" style="display: none; color: red;"></div>
+                    <div class="response" id="mce-success-response" style="display: none; color: green;"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+</div>
+
+<script>
+(function() {
+    
+    if (localStorage.getItem('subscribeFormClosed') === 'true') {
+        return; 
+    }
+    
+    const form = document.getElementById('floating-subscribe');
+    if (!form) return;
+    
+    let hasScrolled = false;
+    let scrollTimer = null;
+    
+    
+    function checkScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        
+        if (scrollY > 300 && !hasScrolled) {
+            hasScrolled = true;
+            
+            setTimeout(() => {
+                if (localStorage.getItem('subscribeFormClosed') !== 'true') {
+                    form.style.display = 'block';
+                    
+                    form.style.opacity = '0';
+                    form.style.transition = 'opacity 0.3s ease-in';
+                    setTimeout(() => {
+                        form.style.opacity = '1';
+                    }, 10);
+                }
+            }, 1000);
+        }
+    }
+    
+    
+    window.addEventListener('scroll', function() {
+        if (scrollTimer) {
+            clearTimeout(scrollTimer);
+        }
+        scrollTimer = setTimeout(checkScroll, 100);
+    });
+    
+    
+    if (window.scrollY > 300) {
+        checkScroll();
+    }
+})();
+
+
+function closeSubscribeForm() {
+    const form = document.getElementById('floating-subscribe');
+    if (form) {
+        form.style.transition = 'opacity 0.3s ease-out';
+        form.style.opacity = '0';
+        setTimeout(() => {
+            form.style.display = 'none';
+            localStorage.setItem('subscribeFormClosed', 'true');
+        }, 300);
+    }
+}
+</script>
+</body>
+
+</html>

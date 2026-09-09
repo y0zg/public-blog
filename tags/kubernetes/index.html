@@ -123,6 +123,17 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Kyverno threat model: the defaults that make enforcement optional</h2>
+  </header>
+  <section class="entry-content">
+    <p>Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn’t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   ControlPlane published a threat model and hardening guide for Kyverno in April 2026, done with the CNCF and reviewed by Kyverno’s own maintainers (Jim Bugwadia and Shuting Zhao among them)....</p>
+  </section>
+  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Kyverno threat model: the defaults that make enforcement optional" href="https://okulbida.com/posts/kyverno-threat-model-hardening-guide/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/k8s-tools.png" alt="kubernetes tools">
 </figure>
   <header class="entry-header">
@@ -243,18 +254,6 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   </section>
   <footer class="entry-footer">April 20, 2024&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to k8s InPlacePodVerticalScaling" href="https://okulbida.com/posts/k8s-new-features/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Resolving Helm issues after kubernetes upgrade</h2>
-  </header>
-  <section class="entry-content">
-    <p>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &#34;Deployment&#34; in version &#34;apps/v1beta1&#34;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
-1 2 3  helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt;   You may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
-  </section>
-  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Resolving Helm issues after kubernetes upgrade" href="https://okulbida.com/posts/helm-fix-after-k8s-upgrade/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
