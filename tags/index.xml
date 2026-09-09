@@ -16,6 +16,42 @@
     </item>
     
     <item>
+      <title>ai</title>
+      <link>https://okulbida.com/tags/ai/</link>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>claude</title>
+      <link>https://okulbida.com/tags/claude/</link>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/claude/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>developer-tools</title>
+      <link>https://okulbida.com/tags/developer-tools/</link>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/developer-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://okulbida.com/tags/github/</link>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>kubernetes</title>
       <link>https://okulbida.com/tags/kubernetes/</link>
       <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
@@ -84,15 +120,6 @@
       <pubDate>Fri, 07 Aug 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/terraform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai</title>
-      <link>https://okulbida.com/tags/ai/</link>
-      <pubDate>Tue, 23 Jun 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/ai/</guid>
       <description></description>
     </item>
     
@@ -268,29 +295,11 @@
     </item>
     
     <item>
-      <title>claude</title>
-      <link>https://okulbida.com/tags/claude/</link>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/claude/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>cost-optimization</title>
       <link>https://okulbida.com/tags/cost-optimization/</link>
       <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/cost-optimization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>developer-tools</title>
-      <link>https://okulbida.com/tags/developer-tools/</link>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 +0200</pubDate>
-      
-      <guid>https://okulbida.com/tags/developer-tools/</guid>
       <description></description>
     </item>
     
@@ -462,15 +471,6 @@
       <pubDate>Sat, 27 Dec 2025 13:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/governance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github</title>
-      <link>https://okulbida.com/tags/github/</link>
-      <pubDate>Sat, 27 Dec 2025 00:30:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/github/</guid>
       <description></description>
     </item>
     

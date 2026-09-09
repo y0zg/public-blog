@@ -134,6 +134,19 @@ if (!doNotTrack) {
 <main class="main"> 
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://okulbida.com/images/prometheus-dashboard-banner.jpeg" alt="PromQL cheatsheet">
+</figure>
+  <header class="entry-header">
+    <h2>PromQL cheat sheet</h2>
+  </header>
+  <section class="entry-content">
+    <p>Key functions — rate, irate, increase, histogram_quantile, absent, absent_over_time, delta, predict_linear, age Aggregations — sum, count, topk, by/without, quantile_over_time, bool, offset Label manipulation — label_replace, label_join Useful queries — CPU %, pod restarts, error rate, SLO, memory, network by AZ, nodegroup, cardinality Relabeling tricks — drop metrics, series, labels Pre-commit validation — promtool, pint Architecture — agent mode, VictoriaMetrics, Thanos, Mimir Tools   Key functions rate vs irate...</p>
+  </section>
+  <footer class="entry-footer">April 17, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to PromQL cheat sheet" href="https://okulbida.com/posts/prom-cheat-sheet/"></a>
+</article>
+
+<article class="post-entry"> 
   <header class="entry-header">
     <h2>AWS S3 Files: mount S3 bucket as file system</h2>
   </header>
@@ -251,22 +264,6 @@ Key Challenges Addressed  Multiple Organizations – Separate logins for billing
   </section>
   <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to AWS billing transfer" href="https://okulbida.com/posts/aws-billing-transfer-session-summary/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>VolSync: asynchronous data replication for Kubernetes volumes</h2>
-  </header>
-  <section class="entry-content">
-    <p>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
-Installation:
-Install VolSync via Helm:
-1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:
-VolSync provides a CLI tool (kubectl-volsync) for migrating data from external storage into Kubernetes PersistentVolumes.
-Step 1: Install VolSync CLI...</p>
-  </section>
-  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to VolSync: asynchronous data replication for Kubernetes volumes" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

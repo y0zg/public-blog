@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 09 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>GitHub Spec Kit: give the AI agent a spec, not a vibe</title>
+      <link>https://okulbida.com/posts/github-spec-kit-spec-driven-development/</link>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/github-spec-kit-spec-driven-development/</guid>
+      <description>Ask Claude, Codex, or Gemini to &amp;ldquo;build me an ERP with auth, billing, a dashboard, and a mobile app&amp;rdquo; and you&amp;rsquo;ll get something that half works and is architecturally cursed in ways you won&amp;rsquo;t notice until week three. The model isn&amp;rsquo;t bad at writing code. It&amp;rsquo;s bad at simultaneously inventing the product, the architecture, and the implementation order while also writing the code. GitHub&amp;rsquo;s Spec Kit exists to split those apart.</description>
+    </item>
+    
+    <item>
       <title>Kyverno threat model: the defaults that make enforcement optional</title>
       <link>https://okulbida.com/posts/kyverno-threat-model-hardening-guide/</link>
       <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>

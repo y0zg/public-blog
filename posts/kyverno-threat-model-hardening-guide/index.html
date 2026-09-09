@@ -235,8 +235,8 @@ if (!doNotTrack) {
 </div><p>Run three replicas per controller, set <code>failurePolicy: Fail</code> everywhere in prod, and actually look at <code>webhookTimeoutSeconds</code>. If normal request latency is close to the timeout, you&rsquo;re one slow day away from triggering this yourself.</p>
 <hr>
 <h2 id="audit-mode-is-not-enforcement">Audit mode is not enforcement<a hidden class="anchor" aria-hidden="true" href="#audit-mode-is-not-enforcement">#</a></h2>
-<p>Here&rsquo;s the one that gets almost everyone at some point: <code>failureAction</code> defaults to <code>Audit</code>, not <code>Enforce</code>. A policy in Audit mode records violations in a <code>PolicyReport</code> and does nothing else. Kyverno&rsquo;s own sample policy library ships mostly in Audit mode too, specifically so it doesn&rsquo;t break new users' clusters on first install. Deploy those samples as-is and you&rsquo;ve got ClusterPolicy resources running, reports generating, dashboards showing green — and zero requests actually blocked.</p>
-<p>The report calls this out as a particular blind spot in regulated environments, and it&rsquo;s easy to see why: PolicyReport results get spread across namespaces and merged per-namespace, so spotting a new violation without dedicated tooling watching for it is genuinely hard. The mere presence of a ClusterPolicy is not evidence anything is enforced. You have to check <code>failureAction</code> explicitly.</p>
+<p>Here&rsquo;s the one that gets almost everyone at some point: <code>failureAction</code> defaults to <code>Audit</code>, not <code>Enforce</code>. A policy in Audit mode records violations in a <code>PolicyReport</code> and does nothing else. Kyverno&rsquo;s own sample policy library ships mostly in Audit mode too, specifically so it doesn&rsquo;t break new users' clusters on first install. Deploy those samples as-is and you&rsquo;ve got <code>ClusterPolicy</code> resources running, reports generating, dashboards showing green — and zero requests actually blocked.</p>
+<p>The report calls this out as a particular blind spot in regulated environments, and it&rsquo;s easy to see why: <code>PolicyReport</code> results get spread across namespaces and merged per-namespace, so spotting a new violation without dedicated tooling watching for it is genuinely hard. The mere presence of a <code>ClusterPolicy</code> is not evidence anything is enforced. You have to check <code>failureAction</code> explicitly.</p>
 <p>There&rsquo;s a wrinkle even after you flip the switch. Moving a policy from Audit to Enforce doesn&rsquo;t retroactively block resources that already violate it. They keep running until the next update, at which point the update itself gets blocked. If you don&rsquo;t want that grace period, <code>validate.allowExistingViolations: false</code> closes it.</p>
 <p>This same gap shows up across environments, not just within one cluster. A policy tested in a dev cluster running Audit mode with a pile of exceptions tells you almost nothing about how it&rsquo;ll behave in a prod cluster running Enforce with none. &ldquo;It passed in dev&rdquo; is not validation. <code>kyverno apply --cluster</code> checks a policy against live cluster resources before you flip it to Enforce, and <code>kyverno test</code> runs in your pipeline before that. Neither replaces an actual review gate between environments, but running the same YAML twice and calling it tested is worse than doing nothing.</p>
 <hr>
@@ -319,13 +319,13 @@ if (!doNotTrack) {
 
 <hr>
 <h2 id="kyverno-doesnt-watch-its-own-namespace">Kyverno doesn&rsquo;t watch its own namespace<a hidden class="anchor" aria-hidden="true" href="#kyverno-doesnt-watch-its-own-namespace">#</a></h2>
-<p>By default, <code>kyverno</code>&rsquo;s own namespace is excluded from Kyverno&rsquo;s own admission webhook. No ClusterPolicy rule applies to anything created inside it. That&rsquo;s controlled by <code>config.excludeKyvernoNamespace</code>, and it defaults to <code>true</code> on purpose: without the exclusion, a Kyverno outage combined with <code>failurePolicy: Fail</code> could stop Kyverno&rsquo;s own pods from being recreated, locking you out of the exact tool you&rsquo;d need to fix things.</p>
+<p>By default, <code>kyverno</code>&rsquo;s own namespace is excluded from Kyverno&rsquo;s own admission webhook. No <code>ClusterPolicy</code> rule applies to anything created inside it. That&rsquo;s controlled by <code>config.excludeKyvernoNamespace</code>, and it defaults to <code>true</code> on purpose: without the exclusion, a Kyverno outage combined with <code>failurePolicy: Fail</code> could stop Kyverno&rsquo;s own pods from being recreated, locking you out of the exact tool you&rsquo;d need to fix things.</p>
 <p>Fair trade-off, but it means anyone with plain Kubernetes RBAC write access to the <code>kyverno</code> namespace operates entirely outside the policy engine. Modifying controller ConfigMaps, touching service account tokens, deploying a pod straight into the enforcement environment. None of it needs cluster-admin, none of it needs a cluster-scoped policy resource, and Kyverno&rsquo;s own policies have no say in any of it. It&rsquo;s plain RBAC or nothing.</p>
 <p>Default installs don&rsquo;t help here either. There&rsquo;s no NetworkPolicy on the <code>kyverno</code> namespace by default, so the webhook endpoint and metrics port are reachable from any tenant namespace on the same cluster, TLS-secured but with no mutual auth to confirm the caller is actually the API server. If Kyverno&rsquo;s namespace is excluded from its own enforcement, restricted RBAC and a NetworkPolicy are the only two things actually holding that door shut.</p>
 <hr>
 <h2 id="what-kyverno-can-never-protect">What Kyverno can never protect<a hidden class="anchor" aria-hidden="true" href="#what-kyverno-can-never-protect">#</a></h2>
-<p><code>ValidatingWebhookConfiguration</code> and <code>MutatingWebhookConfiguration</code> are native Kubernetes objects under <code>admissionregistration.k8s.io</code>, not Kyverno resources. Kyverno&rsquo;s own ClusterPolicy can&rsquo;t govern write access to them, structurally — there&rsquo;s nothing for a ClusterPolicy rule to intercept. Whoever can write to these objects can narrow what Kyverno intercepts, redirect a webhook to their own endpoint, shrink the timeout until it triggers the <code>Ignore</code> bypass from earlier, or just delete the config. Kubernetes RBAC is the only thing standing in the way, and a native <code>ValidatingAdmissionPolicy</code> is the only independent layer you can add on top of it.</p>
-<p>There&rsquo;s a second, less obvious version of the same problem in how Kyverno&rsquo;s RBAC is built. Controllers get their permissions through an aggregated <code>ClusterRole</code> model. Labels like <code>rbac.kyverno.io/aggregate-to-admission-controller: &quot;true&quot;</code> mark a <code>ClusterRole</code> as contributing to a controller&rsquo;s effective permissions. Any principal who can create a <code>ClusterRole</code> carrying that label silently extends what the controller can do, without ever touching the named role anyone thinks they&rsquo;re auditing. Reviewing &ldquo;who holds the admission-controller role&rdquo; misses this entirely — you have to audit who can create ClusterRoles with these labels at all.</p>
+<p><code>ValidatingWebhookConfiguration</code> and <code>MutatingWebhookConfiguration</code> are native Kubernetes objects under <code>admissionregistration.k8s.io</code>, not Kyverno resources. Kyverno&rsquo;s own <code>ClusterPolicy</code> can&rsquo;t govern write access to them, structurally — there&rsquo;s nothing for a <code>ClusterPolicy</code> rule to intercept. Whoever can write to these objects can narrow what Kyverno intercepts, redirect a webhook to their own endpoint, shrink the timeout until it triggers the <code>Ignore</code> bypass from earlier, or just delete the config. Kubernetes RBAC is the only thing standing in the way, and a native <code>ValidatingAdmissionPolicy</code> is the only independent layer you can add on top of it.</p>
+<p>There&rsquo;s a second, less obvious version of the same problem in how Kyverno&rsquo;s RBAC is built. Controllers get their permissions through an aggregated <code>ClusterRole</code> model. Labels like <code>rbac.kyverno.io/aggregate-to-admission-controller: &quot;true&quot;</code> mark a <code>ClusterRole</code> as contributing to a controller&rsquo;s effective permissions. Any principal who can create a <code>ClusterRole</code> carrying that label silently extends what the controller can do, without ever touching the named role anyone thinks they&rsquo;re auditing. Reviewing &ldquo;who holds the admission-controller role&rdquo; misses this entirely — you have to audit who can create <code>ClusterRole</code>s with these labels at all.</p>
 <hr>
 <h2 id="sign-and-verify-not-either">Sign and verify, not either<a hidden class="anchor" aria-hidden="true" href="#sign-and-verify-not-either">#</a></h2>
 <p>Two different artifacts need the same treatment here: container images, and Kyverno&rsquo;s own policy bundles.</p>
@@ -435,12 +435,12 @@ if (!doNotTrack) {
 <td>The namespace is excluded from its own webhook by design; RBAC and network isolation are the only backstop</td>
 </tr>
 <tr>
-<td>Restrict who can create ClusterRoles with <code>rbac.kyverno.io/aggregate-to-*</code> labels</td>
+<td>Restrict who can create <code>ClusterRole</code>s with <code>rbac.kyverno.io/aggregate-to-*</code> labels</td>
 <td>These silently extend controller permissions, bypassing an audit of the named roles alone</td>
 </tr>
 <tr>
 <td>Add <code>ValidatingAdmissionPolicy</code> on webhook configs and cluster policy resources</td>
-<td>Native <code>admissionregistration.k8s.io</code> objects can&rsquo;t be governed by Kyverno&rsquo;s own ClusterPolicy</td>
+<td>Native <code>admissionregistration.k8s.io</code> objects can&rsquo;t be governed by Kyverno&rsquo;s own <code>ClusterPolicy</code></td>
 </tr>
 <tr>
 <td><code>verifyImages</code>/<code>ImageValidatingPolicy</code> with <code>required: true</code>, <code>mutateDigest: true</code></td>
@@ -456,7 +456,7 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td>Scope <code>apiCall.service</code> to in-cluster targets, use <code>--httpBlocklist</code>/egress NetworkPolicy</td>
-<td>ClusterPolicy write access alone is enough to turn the admission controller into an SSRF client</td>
+<td><code>ClusterPolicy</code> write access alone is enough to turn the admission controller into an SSRF client</td>
 </tr>
 </tbody>
 </table>
@@ -472,6 +472,11 @@ if (!doNotTrack) {
       <li><a href="https://okulbida.com/tags/supply-chain/">supply-chain</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://okulbida.com/posts/github-spec-kit-spec-driven-development/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>GitHub Spec Kit: give the AI agent a spec, not a vibe</span>
+  </a>
   <a class="next" href="https://okulbida.com/posts/terraform-to-opentofu-migration/">
     <span class="title">Next Page »</span>
     <br>
