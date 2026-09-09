@@ -154,9 +154,10 @@ if (!doNotTrack) {
   </header>
   <section class="entry-content">
     <p>Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
- .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you’ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you’re not paying attention....</p>
+The API surface itself tells a tighter story than the enhancement count does. I traced the actual version history of every API resource that changed in 1.37, back to 1.34, instead of trusting a changelog summary:
+ .kv-wrap{margin:1.5rem 0;border:1px solid #e3e3e6;border-radius:10px;padding:2px;overflow-x:auto} ....</p>
   </section>
-  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Kubernetes 1.37 (Garhwal): what&#39;s worth knowing" href="https://okulbida.com/posts/kubernetes-1-37-garhwal-release/"></a>
 </article>
 
