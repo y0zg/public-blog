@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 09 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Kubernetes 1.37 (Garhwal): what&#39;s worth knowing</title>
+      <link>https://okulbida.com/posts/kubernetes-1-37-garhwal-release/</link>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/kubernetes-1-37-garhwal-release/</guid>
+      <description>Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
+ .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you&amp;rsquo;ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you&amp;rsquo;re not paying attention.</description>
+    </item>
+    
+    <item>
       <title>Kyverno threat model: the defaults that make enforcement optional</title>
       <link>https://okulbida.com/posts/kyverno-threat-model-hardening-guide/</link>
       <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>

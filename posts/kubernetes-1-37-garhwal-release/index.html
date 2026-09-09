@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Kubernetes 1.37 (Garhwal): what&#39;s worth knowing | Oleksandr Kulbida</title>
+<meta name="keywords" content="kubernetes, admission-control, scheduling, security" />
+<meta name="description" content="Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
+ .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you&rsquo;ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you&rsquo;re not paying attention.">
+<meta name="author" content="Oleksandr Kulbida">
+<link rel="canonical" href="https://okulbida.com/posts/kubernetes-1-37-garhwal-release/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<link rel="mask-icon" href="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Kubernetes 1.37 (Garhwal): what&#39;s worth knowing" />
+<meta property="og:description" content="Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
+ .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you&rsquo;ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you&rsquo;re not paying attention." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://okulbida.com/posts/kubernetes-1-37-garhwal-release/" /><meta property="og:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-09-09T00:00:00&#43;03:00" />
+<meta property="article:modified_time" content="2026-09-09T00:00:00&#43;03:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"/>
+
+<meta name="twitter:title" content="Kubernetes 1.37 (Garhwal): what&#39;s worth knowing"/>
+<meta name="twitter:description" content="Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
+ .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you&rsquo;ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you&rsquo;re not paying attention."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://okulbida.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Kubernetes 1.37 (Garhwal): what's worth knowing",
+      "item": "https://okulbida.com/posts/kubernetes-1-37-garhwal-release/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Kubernetes 1.37 (Garhwal): what's worth knowing",
+  "name": "Kubernetes 1.37 (Garhwal): what\u0027s worth knowing",
+  "description": "Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.\n .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you\u0026rsquo;ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you\u0026rsquo;re not paying attention.",
+  "keywords": [
+    "kubernetes", "admission-control", "scheduling", "security"
+  ],
+  "articleBody": "Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.\n .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you’ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you’re not paying attention. Here’s the part worth reading.\n The control plane gets harder to knock over Three separate features in this release attack the same failure window: cluster startup and recovery, when the control plane is doing the most work and has the least room to absorb mistakes.\nResilient watchcache initialization goes Stable. It’s one of the release team’s own four spotlight picks, and it earns it: kube-apiserver used to let watchcache init or re-init fire expensive List/Watch requests straight at etcd, which is exactly how a large cluster restart turns into a control-plane outage. Now those requests get routed through API Priority and Fairness with a bound on how much they can consume, and anything over that bound gets a flat 429 with a Retry-After header instead of piling onto etcd. Well-behaved clients back off; badly-behaved ones just get throttled instead of taking the API server down with them.\nManifest-based admission control configuration reaches Beta. Admission webhooks and CEL-based policies have always lived in the API, which means they depend on the API server and etcd both being up before they can do anything, and can’t defend their own configuration from being modified by someone with enough access. A new staticManifestsDir field lets you load webhooks and policies from files on disk instead. The project’s own description is worth quoting directly: “policies loaded this way are enforced from API server startup, keep working while etcd is unavailable, and can protect the API-based admission resources themselves from modification.” The files are watched for changes; a bad edit gets rejected and the previous config keeps running. This closes a bootstrap gap that’s been there since admission webhooks existed.\nPod certificates and Cluster Trust Bundles go Stable. This is first-class X.509 identity for workloads: an admin picks a signer name and runs a signer controller that watches PodCertificateRequest objects and issues and rotates certs, while maintaining the matching ClusterTrustBundle as the trust anchor. A workload opts in with a podCertificate projected volume, and can mount the ClusterTrustBundle as its own projected volume to get the anchor without a separate distribution mechanism. If you’ve been running a homegrown cert-issuance sidecar for workload identity, this is the API that was missing.\nSELinuxMount and SELinuxChangePolicy also go Stable, both enabled by default, and this one comes with an actual gotcha. Volumes now get mounted with -o context= instead of being recursively relabeled, but only on CSI drivers that opt in via .spec.seLinuxMount: true. The catch: a single mount can only carry one SELinux context. Two pods with different SELinux labels sharing a volume on the same node used to coexist fine under recursive relabeling. After this change, on an opted-in driver, the second one can fail to start. If that’s your setup, set .spec.seLinuxChangePolicy: Recursive on the pod to keep the old behavior — it’s not locked cluster-wide until 1.38, so you have one more release to catch this before it’s mandatory.\n Scheduling gets a concept of “the whole workload” The scheduler has always thought in pods. This release is the point where it starts thinking in groups of pods, which is what AI/ML training and batch jobs have needed for a while.\nBase gang scheduling goes Beta: a PodGroup on top of the Workload API gives you all-or-nothing scheduling, so a group only gets placed once the cluster can fit every member, instead of half the group landing and the rest queuing forever. It also fixes a real livelock case where competing workloads kept interfering with each other without either one making progress.\nWorkload-aware preemption, Beta as well, is the natural extension: the scheduler now considers the whole PodGroup when deciding what to evict, instead of preempting individual pods that don’t actually free enough capacity for the workload waiting behind them.\nThe new CompositePodGroup API, Alpha, is the part built specifically for the messier AI/ML case: workloads structured as a hierarchy of groups, not a flat set of pods. The release notes frame it plainly — this is what enables multi-level gang scheduling, workload-aware preemption, and topology-aware scheduling for training jobs that don’t fit the flat model.\nDRA picked up several pieces of the same story. Device taints and tolerations go Stable, so a driver can pull a specific device out of scheduling consideration, or an admin can taint a whole class of devices with a DeviceTaintRule. Extended resource requests via a DRA driver go Stable too, meaning something like abc.example/gpu: 3 can now be satisfied by a DeviceClass directly, without a separate device plugin. And ResourceClaim support for workloads reaches Beta, letting a ResourceClaimTemplate associate claims with an entire PodGroup instead of wiring up one claim per pod by hand.\n Also worth knowing  Memory QoS on cgroups v2 graduates to Beta, on by default. It uses memory.min, memory.low, and memory.high for tiered protection: requests get shielded from reclaim, and anything over memory.high gets throttled instead of OOM-killed outright. Tunable through kubelet’s memoryReservationPolicy and memoryThrottlingFactor if the defaults are too aggressive for your workloads. Pod-level checkpoint and restore lands in Alpha, the other spotlight feature. New CRI RPCs, CheckpointPod and RestorePod, let kubelet checkpoint an entire pod and restore it later. It needs a container runtime that implements the new RPCs, so this isn’t something you can flip on with an arbitrary runtime yet. The metrics.k8s.io API finally goes Stable after almost nine years in Beta. It’s the thing powering HPA and kubectl top, and it took nearly a decade to graduate. HorizontalPodAutoscaler scale to zero reaches Beta: for object or external metrics (not CPU/memory, which need running pods to measure), HPA can now scale a workload to zero replicas when idle and back up on demand. There’s a ScaledToZero condition so the controller can tell “I did this on purpose” from a manual scale-down. Named use cases: queue consumers, batch jobs, GPU workloads sitting idle between runs. etcd RangeStream support and concurrent watch object decode (flipped on by default this release, Beta since 1.31) attack the same large-cluster startup cost from different angles: RangeStream streams etcd’s List responses in chunks instead of building the whole thing in memory first, and concurrent decode spreads per-event processing across a worker pool instead of one goroutine. The two together are benchmarked at roughly 55% faster watch-cache initialization over 150k pods. KYAML goes Stable: a safer, less ambiguous YAML subset for manifests, where every valid KYAML file is still ordinary YAML, so nothing you already have breaks. kubectl get -o kyaml is stable alongside it.   What’s being phased out kube-dns is deprecated, no new packages expected after 1.40 — CoreDNS has been the default since 1.13 anyway. kube-proxy’s ipvs mode is deprecated, disabled by default from 1.40 and removed by 1.43. kubectl run --filename/-f is on its way out. Static pods can no longer reference Secrets or ConfigMaps at all — this was always a bug, since static pods were never meant to read API resources, and the opt-out gate that let it slide has been removed entirely. And cgroup v1 support keeps shrinking: failCgroupV1 has defaulted to true since 1.35, the override is explicitly called a short-term fix, and features like Memory QoS only work on v2 to begin with.\n None of these individually looks dramatic in a changelog. What ties them together is where they sit: watch cache resilience, manifest-based admission, and gang scheduling are all reactions to the same moment — a cluster doing a lot of work at once during startup, recovery, or a mass scheduling event, with less margin for the control plane to make a bad call. If anything you run fans out fast — a big batch job, an autoscaler event, a rolling restart across a large fleet — this release was built with exactly that window in mind.\n",
+  "wordCount" : "1383",
+  "inLanguage": "en",
+  "datePublished": "2026-09-09T00:00:00+03:00",
+  "dateModified": "2026-09-09T00:00:00+03:00",
+  "author":{
+    "@type": "Person",
+    "name": "Oleksandr Kulbida"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://okulbida.com/posts/kubernetes-1-37-garhwal-release/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Oleksandr Kulbida",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://okulbida.com" accesskey="h" title="Oleksandr Kulbida (Alt + H)">
+                <img src="https://raw.githubusercontent.com/y0zg/public-blog/static/icongrey.png" alt="logo" aria-label="logo"
+                    height="45">Oleksandr Kulbida</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://okulbida.com/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://okulbida.com/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://okulbida.com/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://okulbida.com">Home</a>&nbsp;»&nbsp;<a href="https://okulbida.com/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Kubernetes 1.37 (Garhwal): what&#39;s worth knowing
+    </h1>
+    <div class="post-meta">September 9, 2026&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Oleksandr Kulbida
+</div>
+  </header> 
+  <div class="post-content"><p>Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. <a href="https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/">Full release notes here</a>.</p>
+
+
+<style>
+.k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700}
+.k137-stable{background:#059669;flex:16}
+.k137-beta{background:#2563EB;flex:23}
+.k137-alpha{background:#CA8A04;flex:27}
+.k137-dep{background:#DC2626;flex:1}
+.k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.k137-legend span{display:inline-flex;align-items:center;gap:5px}
+.k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}
+</style>
+<div class="k137-bar">
+  <div class="k137-seg k137-stable">16</div>
+  <div class="k137-seg k137-beta">23</div>
+  <div class="k137-seg k137-alpha">27</div>
+  <div class="k137-seg k137-dep"></div>
+</div>
+<div class="k137-legend">
+  <span><i class="k137-dot" style="background:#059669"></i>Stable</span>
+  <span><i class="k137-dot" style="background:#2563EB"></i>Beta</span>
+  <span><i class="k137-dot" style="background:#CA8A04"></i>Alpha</span>
+  <span><i class="k137-dot" style="background:#DC2626"></i>Deprecation track</span>
+</div>
+
+<p>Most of that is routine churn you&rsquo;ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you&rsquo;re not paying attention. Here&rsquo;s the part worth reading.</p>
+<hr>
+<h2 id="the-control-plane-gets-harder-to-knock-over">The control plane gets harder to knock over<a hidden class="anchor" aria-hidden="true" href="#the-control-plane-gets-harder-to-knock-over">#</a></h2>
+<p>Three separate features in this release attack the same failure window: cluster startup and recovery, when the control plane is doing the most work and has the least room to absorb mistakes.</p>
+<p><strong>Resilient watchcache initialization</strong> goes Stable. It&rsquo;s one of the release team&rsquo;s own four spotlight picks, and it earns it: kube-apiserver used to let watchcache init or re-init fire expensive List/Watch requests straight at etcd, which is exactly how a large cluster restart turns into a control-plane outage. Now those requests get routed through API Priority and Fairness with a bound on how much they can consume, and anything over that bound gets a flat <code>429</code> with a <code>Retry-After</code> header instead of piling onto etcd. Well-behaved clients back off; badly-behaved ones just get throttled instead of taking the API server down with them.</p>
+<p><strong>Manifest-based admission control configuration</strong> reaches Beta. Admission webhooks and CEL-based policies have always lived in the API, which means they depend on the API server and etcd both being up before they can do anything, and can&rsquo;t defend their own configuration from being modified by someone with enough access. A new <code>staticManifestsDir</code> field lets you load webhooks and policies from files on disk instead. The project&rsquo;s own description is worth quoting directly: &ldquo;policies loaded this way are enforced from API server startup, keep working while etcd is unavailable, and can protect the API-based admission resources themselves from modification.&rdquo; The files are watched for changes; a bad edit gets rejected and the previous config keeps running. This closes a bootstrap gap that&rsquo;s been there since admission webhooks existed.</p>
+<p><strong>Pod certificates and Cluster Trust Bundles</strong> go Stable. This is first-class X.509 identity for workloads: an admin picks a signer name and runs a signer controller that watches <code>PodCertificateRequest</code> objects and issues and rotates certs, while maintaining the matching <code>ClusterTrustBundle</code> as the trust anchor. A workload opts in with a <code>podCertificate</code> projected volume, and can mount the <code>ClusterTrustBundle</code> as its own projected volume to get the anchor without a separate distribution mechanism. If you&rsquo;ve been running a homegrown cert-issuance sidecar for workload identity, this is the API that was missing.</p>
+<p><strong>SELinuxMount and SELinuxChangePolicy</strong> also go Stable, both enabled by default, and this one comes with an actual gotcha. Volumes now get mounted with <code>-o context=&lt;label&gt;</code> instead of being recursively relabeled, but only on CSI drivers that opt in via <code>.spec.seLinuxMount: true</code>. The catch: a single mount can only carry one SELinux context. Two pods with different SELinux labels sharing a volume on the same node used to coexist fine under recursive relabeling. After this change, on an opted-in driver, the second one can fail to start. If that&rsquo;s your setup, set <code>.spec.seLinuxChangePolicy: Recursive</code> on the pod to keep the old behavior — it&rsquo;s not locked cluster-wide until 1.38, so you have one more release to catch this before it&rsquo;s mandatory.</p>
+<hr>
+<h2 id="scheduling-gets-a-concept-of-the-whole-workload">Scheduling gets a concept of &ldquo;the whole workload&rdquo;<a hidden class="anchor" aria-hidden="true" href="#scheduling-gets-a-concept-of-the-whole-workload">#</a></h2>
+<p>The scheduler has always thought in pods. This release is the point where it starts thinking in groups of pods, which is what AI/ML training and batch jobs have needed for a while.</p>
+<p>Base <strong>gang scheduling</strong> goes Beta: a <code>PodGroup</code> on top of the Workload API gives you all-or-nothing scheduling, so a group only gets placed once the cluster can fit every member, instead of half the group landing and the rest queuing forever. It also fixes a real livelock case where competing workloads kept interfering with each other without either one making progress.</p>
+<p><strong>Workload-aware preemption</strong>, Beta as well, is the natural extension: the scheduler now considers the whole <code>PodGroup</code> when deciding what to evict, instead of preempting individual pods that don&rsquo;t actually free enough capacity for the workload waiting behind them.</p>
+<p>The new <strong>CompositePodGroup</strong> API, Alpha, is the part built specifically for the messier AI/ML case: workloads structured as a hierarchy of groups, not a flat set of pods. The release notes frame it plainly — this is what enables multi-level gang scheduling, workload-aware preemption, and topology-aware scheduling for training jobs that don&rsquo;t fit the flat model.</p>
+<p>DRA picked up several pieces of the same story. <strong>Device taints and tolerations</strong> go Stable, so a driver can pull a specific device out of scheduling consideration, or an admin can taint a whole class of devices with a <code>DeviceTaintRule</code>. <strong>Extended resource requests via a DRA driver</strong> go Stable too, meaning something like <code>abc.example/gpu: 3</code> can now be satisfied by a <code>DeviceClass</code> directly, without a separate device plugin. And <strong>ResourceClaim support for workloads</strong> reaches Beta, letting a <code>ResourceClaimTemplate</code> associate claims with an entire <code>PodGroup</code> instead of wiring up one claim per pod by hand.</p>
+<hr>
+<h2 id="also-worth-knowing">Also worth knowing<a hidden class="anchor" aria-hidden="true" href="#also-worth-knowing">#</a></h2>
+<ul>
+<li><strong>Memory QoS on cgroups v2</strong> graduates to Beta, on by default. It uses <code>memory.min</code>, <code>memory.low</code>, and <code>memory.high</code> for tiered protection: requests get shielded from reclaim, and anything over <code>memory.high</code> gets throttled instead of OOM-killed outright. Tunable through kubelet&rsquo;s <code>memoryReservationPolicy</code> and <code>memoryThrottlingFactor</code> if the defaults are too aggressive for your workloads.</li>
+<li><strong>Pod-level checkpoint and restore</strong> lands in Alpha, the other spotlight feature. New CRI RPCs, <code>CheckpointPod</code> and <code>RestorePod</code>, let kubelet checkpoint an entire pod and restore it later. It needs a container runtime that implements the new RPCs, so this isn&rsquo;t something you can flip on with an arbitrary runtime yet.</li>
+<li>The <strong>metrics.k8s.io API</strong> finally goes Stable after almost nine years in Beta. It&rsquo;s the thing powering HPA and <code>kubectl top</code>, and it took nearly a decade to graduate.</li>
+<li><strong>HorizontalPodAutoscaler scale to zero</strong> reaches Beta: for object or external metrics (not CPU/memory, which need running pods to measure), HPA can now scale a workload to zero replicas when idle and back up on demand. There&rsquo;s a <code>ScaledToZero</code> condition so the controller can tell &ldquo;I did this on purpose&rdquo; from a manual scale-down. Named use cases: queue consumers, batch jobs, GPU workloads sitting idle between runs.</li>
+<li><strong>etcd RangeStream</strong> support and <strong>concurrent watch object decode</strong> (flipped on by default this release, Beta since 1.31) attack the same large-cluster startup cost from different angles: RangeStream streams etcd&rsquo;s List responses in chunks instead of building the whole thing in memory first, and concurrent decode spreads per-event processing across a worker pool instead of one goroutine. The two together are benchmarked at roughly 55% faster watch-cache initialization over 150k pods.</li>
+<li><strong>KYAML</strong> goes Stable: a safer, less ambiguous YAML subset for manifests, where every valid KYAML file is still ordinary YAML, so nothing you already have breaks. <code>kubectl get -o kyaml</code> is stable alongside it.</li>
+</ul>
+<hr>
+<h2 id="whats-being-phased-out">What&rsquo;s being phased out<a hidden class="anchor" aria-hidden="true" href="#whats-being-phased-out">#</a></h2>
+<p>kube-dns is deprecated, no new packages expected after 1.40 — CoreDNS has been the default since 1.13 anyway. kube-proxy&rsquo;s ipvs mode is deprecated, disabled by default from 1.40 and removed by 1.43. <code>kubectl run --filename/-f</code> is on its way out. Static pods can no longer reference Secrets or ConfigMaps at all — this was always a bug, since static pods were never meant to read API resources, and the opt-out gate that let it slide has been removed entirely. And cgroup v1 support keeps shrinking: <code>failCgroupV1</code> has defaulted to <code>true</code> since 1.35, the override is explicitly called a short-term fix, and features like Memory QoS only work on v2 to begin with.</p>
+<hr>
+<p>None of these individually looks dramatic in a changelog. What ties them together is where they sit: watch cache resilience, manifest-based admission, and gang scheduling are all reactions to the same moment — a cluster doing a lot of work at once during startup, recovery, or a mass scheduling event, with less margin for the control plane to make a bad call. If anything you run fans out fast — a big batch job, an autoscaler event, a rolling restart across a large fleet — this release was built with exactly that window in mind.</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://okulbida.com/tags/kubernetes/">kubernetes</a></li>
+      <li><a href="https://okulbida.com/tags/admission-control/">admission-control</a></li>
+      <li><a href="https://okulbida.com/tags/scheduling/">scheduling</a></li>
+      <li><a href="https://okulbida.com/tags/security/">security</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://okulbida.com/posts/github-spec-kit-spec-driven-development/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>GitHub Spec Kit: give the AI agent a spec, not a vibe</span>
+  </a>
+  <a class="next" href="https://okulbida.com/posts/kyverno-threat-model-hardening-guide/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Kyverno threat model: the defaults that make enforcement optional</span>
+  </a>
+</nav>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kubernetes 1.37 (Garhwal): what&#39;s worth knowing on twitter"
+        href="https://twitter.com/intent/tweet/?text=Kubernetes%201.37%20%28Garhwal%29%3a%20what%27s%20worth%20knowing&amp;url=https%3a%2f%2fokulbida.com%2fposts%2fkubernetes-1-37-garhwal-release%2f&amp;hashtags=kubernetes%2cadmission-control%2cscheduling%2csecurity">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kubernetes 1.37 (Garhwal): what&#39;s worth knowing on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fokulbida.com%2fposts%2fkubernetes-1-37-garhwal-release%2f&amp;title=Kubernetes%201.37%20%28Garhwal%29%3a%20what%27s%20worth%20knowing&amp;summary=Kubernetes%201.37%20%28Garhwal%29%3a%20what%27s%20worth%20knowing&amp;source=https%3a%2f%2fokulbida.com%2fposts%2fkubernetes-1-37-garhwal-release%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kubernetes 1.37 (Garhwal): what&#39;s worth knowing on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fokulbida.com%2fposts%2fkubernetes-1-37-garhwal-release%2f&title=Kubernetes%201.37%20%28Garhwal%29%3a%20what%27s%20worth%20knowing">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kubernetes 1.37 (Garhwal): what&#39;s worth knowing on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fokulbida.com%2fposts%2fkubernetes-1-37-garhwal-release%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kubernetes 1.37 (Garhwal): what&#39;s worth knowing on whatsapp"
+        href="https://api.whatsapp.com/send?text=Kubernetes%201.37%20%28Garhwal%29%3a%20what%27s%20worth%20knowing%20-%20https%3a%2f%2fokulbida.com%2fposts%2fkubernetes-1-37-garhwal-release%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kubernetes 1.37 (Garhwal): what&#39;s worth knowing on telegram"
+        href="https://telegram.me/share/url?text=Kubernetes%201.37%20%28Garhwal%29%3a%20what%27s%20worth%20knowing&amp;url=https%3a%2f%2fokulbida.com%2fposts%2fkubernetes-1-37-garhwal-release%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2026 <a href="https://okulbida.com">Oleksandr Kulbida</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script src="https://giscus.app/client.js"
+        data-repo="y0zg/public-blog"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzNjEzOTk2NTU="
+        data-category="General"
+        data-category-id="DIC_kwDOFYqFZ84CeLp9"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<div id="floating-subscribe" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 1000; max-width: 320px; background: var(--theme); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem;">
+    
+    <button id="close-subscribe" onclick="closeSubscribeForm()" 
+            style="position: absolute; top: 0.5rem; right: 0.5rem; background: transparent; border: none; cursor: pointer; font-size: 1.2rem; color: var(--secondary); padding: 0.25rem 0.5rem; line-height: 1;"
+            title="Close" aria-label="Close subscription form">
+        ×
+    </button>
+    
+    <div style="margin-bottom: 0.75rem;">
+        <h4 style="margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 600;">📧 Subscribe</h4>
+        <p style="margin: 0; font-size: 0.85rem; opacity: 0.8; line-height: 1.4;">Get notified when new posts are published.</p>
+    </div>
+    
+    
+    <div id="mc_embed_signup">
+        <form action="https://okulbida.us14.list-manage.com/subscribe/post?u=65c0dd5d5001103ba8b4450ef&amp;id=ac0973f098&amp;f_id=00ee89e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" required 
+                           style="width: 100%; padding: 0.6rem; border: 1px solid var(--border); border-radius: 4px; background: var(--code-bg); color: var(--primary); font-size: 0.9rem; box-sizing: border-box;">
+                    
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text" name="b_65c0dd5d5001103ba8b4450ef_ac0973f098" tabindex="-1" value="">
+                    </div>
+                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button"
+                            style="width: 100%; padding: 0.6rem; background: var(--primary); color: var(--theme); border: none; border-radius: 4px; cursor: pointer; font-weight: 500; font-size: 0.9rem;">
+                        Subscribe
+                    </button>
+                </div>
+                <div id="mce-responses" class="clear foot" style="margin-top: 0.5rem; font-size: 0.8rem;">
+                    <div class="response" id="mce-error-response" style="display: none; color: red;"></div>
+                    <div class="response" id="mce-success-response" style="display: none; color: green;"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+</div>
+
+<script>
+(function() {
+    
+    if (localStorage.getItem('subscribeFormClosed') === 'true') {
+        return; 
+    }
+    
+    const form = document.getElementById('floating-subscribe');
+    if (!form) return;
+    
+    let hasScrolled = false;
+    let scrollTimer = null;
+    
+    
+    function checkScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        
+        if (scrollY > 300 && !hasScrolled) {
+            hasScrolled = true;
+            
+            setTimeout(() => {
+                if (localStorage.getItem('subscribeFormClosed') !== 'true') {
+                    form.style.display = 'block';
+                    
+                    form.style.opacity = '0';
+                    form.style.transition = 'opacity 0.3s ease-in';
+                    setTimeout(() => {
+                        form.style.opacity = '1';
+                    }, 10);
+                }
+            }, 1000);
+        }
+    }
+    
+    
+    window.addEventListener('scroll', function() {
+        if (scrollTimer) {
+            clearTimeout(scrollTimer);
+        }
+        scrollTimer = setTimeout(checkScroll, 100);
+    });
+    
+    
+    if (window.scrollY > 300) {
+        checkScroll();
+    }
+})();
+
+
+function closeSubscribeForm() {
+    const form = document.getElementById('floating-subscribe');
+    if (form) {
+        form.style.transition = 'opacity 0.3s ease-out';
+        form.style.opacity = '0';
+        setTimeout(() => {
+            form.style.display = 'none';
+            localStorage.setItem('subscribeFormClosed', 'true');
+        }, 300);
+    }
+}
+</script>
+</body>
+
+</html>

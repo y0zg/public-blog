@@ -150,6 +150,18 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Kubernetes 1.37 (Garhwal): what&#39;s worth knowing</h2>
+  </header>
+  <section class="entry-content">
+    <p>Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
+ .k137-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:16px 0 8px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-seg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700} .k137-stable{background:#059669;flex:16} .k137-beta{background:#2563EB;flex:23} .k137-alpha{background:#CA8A04;flex:27} .k137-dep{background:#DC2626;flex:1} .k137-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:11.5px;color:#666;margin-bottom:6px;font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,sans-serif} .k137-legend span{display:inline-flex;align-items:center;gap:5px} .k137-dot{width:9px;height:9px;border-radius:2px;display:inline-block}  16 23 27   Stable Beta Alpha Deprecation track  Most of that is routine churn you’ll never touch directly. A smaller set of it changes how the control plane behaves under load, how AI/ML batch workloads get scheduled, and in one case will break pods on upgrade if you’re not paying attention....</p>
+  </section>
+  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Kubernetes 1.37 (Garhwal): what&#39;s worth knowing" href="https://okulbida.com/posts/kubernetes-1-37-garhwal-release/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Kyverno threat model: the defaults that make enforcement optional</h2>
   </header>
   <section class="entry-content">
@@ -249,19 +261,6 @@ This post covers the main tools people are using to solve these problems in 2025
   </section>
   <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Harden-Runner: visibility into what your CI runner does on the network</h2>
-  </header>
-  <section class="entry-content">
-    <p>Most teams have no idea what their CI runners connect to during a build. Packages get installed, scripts run, network calls go out — and none of it is logged. That is a real blind spot.
-Harden-Runner from StepSecurity is a GitHub Action that monitors and optionally blocks outbound network connections at the runner level, in real time. Think of it as an EDR for your CI pipeline.
-It caught the axios supply chain attack in real time — any connection to sfrclak....</p>
-  </section>
-  <footer class="entry-footer">April 24, 2026&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Harden-Runner: visibility into what your CI runner does on the network" href="https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
