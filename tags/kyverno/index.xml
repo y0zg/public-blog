@@ -12,7 +12,7 @@
       <pubDate>Wed, 09 Sep 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/posts/kyverno-threat-model-hardening-guide/</guid>
-      <description>Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn&amp;rsquo;t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   ControlPlane published a threat model and hardening guide for Kyverno in April 2026, done with the CNCF and reviewed by Kyverno&amp;rsquo;s own maintainers (Jim Bugwadia and Shuting Zhao among them).</description>
+      <description>Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn&amp;rsquo;t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   Kyverno released a threat model and hardening guide in April 2026, produced by the security consultancy ControlPlane in partnership with the CNCF and reviewed by Kyverno&amp;rsquo;s own maintainers (Jim Bugwadia and Shuting Zhao among them).</description>
     </item>
     
   </channel>
