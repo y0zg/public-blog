@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/posts/agent-plugins-open-standard-skills-mcp/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/agents/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/ai/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/developer-tools/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/mcp/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-09-12T00:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/admission-control/</loc>
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/tags/ai/</loc>
-    <lastmod>2026-09-09T00:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/claude/</loc>
-    <lastmod>2026-09-09T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/developer-tools/</loc>
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/github/</loc>
@@ -32,12 +50,6 @@
     <loc>https://okulbida.com/posts/kyverno-threat-model-hardening-guide/</loc>
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-09-09T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-09-09T00:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/scheduling/</loc>
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
@@ -45,9 +57,6 @@
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/supply-chain/</loc>
-    <lastmod>2026-09-09T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/iac/</loc>
@@ -85,9 +94,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/serverless/</loc>
     <lastmod>2026-06-23T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/agents/</loc>
-    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/ai-agents-knowledge-base-obsidian-local-llm/</loc>
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
