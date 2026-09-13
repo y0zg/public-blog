@@ -5,7 +5,18 @@
     <link>https://okulbida.com/tags/agents/</link>
     <description>Recent content in agents on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SkillsMP</title>
+      <link>https://okulbida.com/posts/skillsmp-agent-skills-catalog/</link>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/skillsmp-agent-skills-catalog/</guid>
+      <description>SkillsMP is a searchable catalog of Agent Skills for Claude Code and Codex
+SkillsMP indexes Agent Skills pulled from public GitHub repositories and puts them behind a search box, a category browser, and per-skill cards that link back to the source repo
+Its own FAQ says it has collected 200,000+ skills so far (marketing copy elsewhere on the site claims over 2 million, so treat exact counts loosely). Categories run from backend, machine-learning, and llm-ai to security, devops, and web3-tools — around 70 in total, plus browsing by occupation and a timeline view</description>
+    </item>
+    
     <item>
       <title>Agent Plugins: one folder for skills and MCP servers, minus Claude</title>
       <link>https://okulbida.com/posts/agent-plugins-open-standard-skills-mcp/</link>
