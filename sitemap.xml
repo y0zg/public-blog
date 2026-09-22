@@ -3,10 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://okulbida.com/tags/agents/</loc>
-    <lastmod>2026-09-13T00:00:00+03:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/ai/</loc>
-    <lastmod>2026-09-13T00:00:00+03:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/claude/</loc>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/claude-opus-5-5-release/</loc>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/llm/</loc>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-09-22T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/claude-code/</loc>
     <lastmod>2026-09-13T00:00:00+03:00</lastmod>
@@ -14,16 +32,7 @@
     <loc>https://okulbida.com/tags/developer-tools/</loc>
     <lastmod>2026-09-13T00:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-09-13T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-09-13T00:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/posts/skillsmp-agent-skills-catalog/</loc>
-    <lastmod>2026-09-13T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-09-13T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/agent-plugins-open-standard-skills-mcp/</loc>
@@ -33,9 +42,6 @@
     <lastmod>2026-09-12T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/admission-control/</loc>
-    <lastmod>2026-09-09T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/claude/</loc>
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/github/</loc>
@@ -111,9 +117,6 @@
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/github-actions/</loc>
-    <lastmod>2026-05-15T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/llm/</loc>
     <lastmod>2026-05-15T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/npm/</loc>
