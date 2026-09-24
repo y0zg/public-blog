@@ -5,11 +5,11 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>agents</title>
       <link>https://okulbida.com/tags/agents/</link>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0300</pubDate>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/agents/</guid>
       <description></description>
@@ -18,7 +18,7 @@
     <item>
       <title>ai</title>
       <link>https://okulbida.com/tags/ai/</link>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0300</pubDate>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/ai/</guid>
       <description></description>
@@ -27,9 +27,18 @@
     <item>
       <title>claude</title>
       <link>https://okulbida.com/tags/claude/</link>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0300</pubDate>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/claude/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>claude-code</title>
+      <link>https://okulbida.com/tags/claude-code/</link>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/claude-code/</guid>
       <description></description>
     </item>
     
@@ -39,15 +48,6 @@
       <pubDate>Tue, 22 Sep 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>claude-code</title>
-      <link>https://okulbida.com/tags/claude-code/</link>
-      <pubDate>Sun, 13 Sep 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/claude-code/</guid>
       <description></description>
     </item>
     
