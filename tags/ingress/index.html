@@ -124,6 +124,18 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Moving a Kubernetes service to another namespace without downtime</h2>
+  </header>
+  <section class="entry-content">
+    <p>CNCF published a nice write-up by George Sims: Migrating a critical Kubernetes deployment from the default namespace without any downtime. The story is about an auth service that lived in default for years, but the approach works for moving any service from one namespace to another. default is just the example.
+The main idea is simple. You keep the old DNS name alive as a compatibility point. In the old namespace you leave a Service of type ExternalName that points to the service in its new namespace, and callers keep working without changing anything....</p>
+  </section>
+  <footer class="entry-footer">September 25, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Moving a Kubernetes service to another namespace without downtime" href="https://okulbida.com/posts/kubernetes-namespace-migration-externalname/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</h2>
   </header>
   <section class="entry-content">

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ingress on Oleksandr Kulbida</title>
-    <link>https://okulbida.com/tags/ingress/</link>
-    <description>Recent content in ingress on Oleksandr Kulbida</description>
+    <title>dns on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/dns/</link>
+    <description>Recent content in dns on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 25 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/ingress/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/dns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Moving a Kubernetes service to another namespace without downtime</title>
       <link>https://okulbida.com/posts/kubernetes-namespace-migration-externalname/</link>
@@ -14,15 +14,6 @@
       <guid>https://okulbida.com/posts/kubernetes-namespace-migration-externalname/</guid>
       <description>CNCF published a nice write-up by George Sims: Migrating a critical Kubernetes deployment from the default namespace without any downtime. The story is about an auth service that lived in default for years, but the approach works for moving any service from one namespace to another. default is just the example.
 The main idea is simple. You keep the old DNS name alive as a compatibility point. In the old namespace you leave a Service of type ExternalName that points to the service in its new namespace, and callers keep working without changing anything.</description>
-    </item>
-    
-    <item>
-      <title>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</title>
-      <link>https://okulbida.com/posts/aws-lb-controller-nlb-support/</link>
-      <pubDate>Mon, 24 May 2021 16:16:34 +0300</pubDate>
-      
-      <guid>https://okulbida.com/posts/aws-lb-controller-nlb-support/</guid>
-      <description>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</description>
     </item>
     
   </channel>
