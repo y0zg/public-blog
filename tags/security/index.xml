@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 29 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>systemd-report: signed, timestamped system snapshots built into systemd</title>
+      <title>systemd-report: a new systemd subsystem and lower-level alternative to node_exporter</title>
       <link>https://okulbida.com/posts/systemd-report-fleet-reporting/</link>
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0300</pubDate>
       
