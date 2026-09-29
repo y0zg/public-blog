@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/tags/linux/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/monitoring/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/observability/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/security/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/systemd/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/systemd-report-fleet-reporting/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/dns/</loc>
     <lastmod>2026-09-25T00:00:00+03:00</lastmod>
   </url><url>
@@ -18,15 +45,6 @@
     <lastmod>2026-09-25T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/namespaces/</loc>
-    <lastmod>2026-09-25T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-09-25T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-09-25T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-09-25T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/agents/</loc>
@@ -81,9 +99,6 @@
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/scheduling/</loc>
-    <lastmod>2026-09-09T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/security/</loc>
     <lastmod>2026-09-09T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/supply-chain/</loc>
@@ -169,9 +184,6 @@
   </url><url>
     <loc>https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/</loc>
     <lastmod>2026-04-24T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/monitoring/</loc>
-    <lastmod>2026-04-17T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/prometheus/</loc>
     <lastmod>2026-04-17T00:00:00+02:00</lastmod>

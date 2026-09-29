@@ -5,7 +5,18 @@
     <link>https://okulbida.com/tags/security/</link>
     <description>Recent content in security on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Sep 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>systemd-report: signed, timestamped system snapshots built into systemd</title>
+      <link>https://okulbida.com/posts/systemd-report-fleet-reporting/</link>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/systemd-report-fleet-reporting/</guid>
+      <description>systemd has a new tool called systemd-report. It gathers facts and metrics about a machine, writes them into one timestamped JSON document, optionally signs it, and can upload it to a server you choose.
+This is for people running fleets of servers. If you have one laptop, you&amp;rsquo;ll probably never touch it.
+What goes into a report There are two kinds of data. The first is stuff that barely changes, which systemd calls &amp;ldquo;facts&amp;rdquo;:</description>
+    </item>
+    
     <item>
       <title>Kubernetes 1.37 (Garhwal): what&#39;s worth knowing</title>
       <link>https://okulbida.com/posts/kubernetes-1-37-garhwal-release/</link>
