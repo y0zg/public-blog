@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/tags/agents/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/ai/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/containers/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/docker/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/docker-sandbox-kit-spec/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/security/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/linux/</loc>
     <lastmod>2026-09-29T00:00:00+03:00</lastmod>
   </url><url>
@@ -11,22 +38,10 @@
     <loc>https://okulbida.com/tags/observability/</loc>
     <lastmod>2026-09-29T00:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/security/</loc>
-    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/systemd/</loc>
     <lastmod>2026-09-29T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/systemd-report-fleet-reporting/</loc>
-    <lastmod>2026-09-29T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-09-29T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/dns/</loc>
@@ -46,12 +61,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/namespaces/</loc>
     <lastmod>2026-09-25T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/agents/</loc>
-    <lastmod>2026-09-24T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/ai/</loc>
-    <lastmod>2026-09-24T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/claude/</loc>
     <lastmod>2026-09-24T00:00:00+03:00</lastmod>

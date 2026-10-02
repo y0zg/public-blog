@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/docker/</link>
+    <description>Recent content in docker on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Sandbox Kits: a Dockerfile for what your agent is allowed to touch</title>
+      <link>https://okulbida.com/posts/docker-sandbox-kit-spec/</link>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/docker-sandbox-kit-spec/</guid>
+      <description>Docker published the Sandbox Kit Specification, an open format for packaging an environment for an AI agent together with a list of what that environment needs from the outside world.
+A Dockerfile tells you what&amp;rsquo;s inside the image. A Kit also says what the image will want from outside: network destinations, credentials, volumes, tools, and context for the agent. The Kit doesn&amp;rsquo;t grant any of it, though. It asks. The runtime decides what to give and enforces the limits.</description>
+    </item>
+    
+  </channel>
+</rss>
