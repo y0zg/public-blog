@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>learning on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/learning/</link>
+    <description>Recent content in learning on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 03 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>50 ChatGPT &#34;commands&#34; for learning faster from books, articles and lectures</title>
+      <link>https://okulbida.com/posts/chatgpt-study-commands-learn-faster/</link>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/chatgpt-study-commands-learn-faster/</guid>
+      <description>Most people use ChatGPT for reading the same way. Paste an article, type &amp;ldquo;summarize this&amp;rdquo;, get back a wall of text that&amp;rsquo;s about 70% as long as the original. Then you don&amp;rsquo;t read that either.
+A while ago I came across a list of short &amp;ldquo;commands&amp;rdquo; that change what the answer looks like. Instead of &amp;ldquo;summarize&amp;rdquo;, you write /flashcards or /argumentmap or /actionplan, and the output comes back in a format you can actually use.</description>
+    </item>
+    
+  </channel>
+</rss>
