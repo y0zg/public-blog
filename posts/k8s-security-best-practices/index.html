@@ -8,18 +8,19 @@
 <title>k8s security best practices | Oleksandr Kulbida</title>
 <meta name="keywords" content="kubernetes" />
 <meta name="description" content="Keep the cloud provider platform secure
- Least privilege Secure traffic into cluster    Run security test in development environments
- Mirror environments    Cluster authentication &amp; authorization
- Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation
- Prevent namespace-to-namespace communication Network policy    Policy &amp; Governance
-  k8s admission controllers
- Read only Non-privileges ports    Runtime security &amp; monitoring">
+Least privilege Secure traffic into cluster Run security test in development environments
+Mirror environments Cluster authentication &amp; authorization
+Leverage OIDC for k8s authentication RBAC - define roles In cluster network/security/micro segmentation
+Prevent namespace-to-namespace communication Network policy Policy &amp; Governance
+k8s admission controllers
+Read only Non-privileges ports Runtime security &amp; monitoring
+Identity security privilege not needed Track anomalies Falco &amp; Twistlock Application secret management">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/k8s-security-best-practices/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
@@ -28,7 +29,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.82.0" />
+<meta name="generator" content="Hugo 0.109.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -46,12 +47,13 @@ if (!doNotTrack) {
 }
 </script><meta property="og:title" content="k8s security best practices" />
 <meta property="og:description" content="Keep the cloud provider platform secure
- Least privilege Secure traffic into cluster    Run security test in development environments
- Mirror environments    Cluster authentication &amp; authorization
- Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation
- Prevent namespace-to-namespace communication Network policy    Policy &amp; Governance
-  k8s admission controllers
- Read only Non-privileges ports    Runtime security &amp; monitoring" />
+Least privilege Secure traffic into cluster Run security test in development environments
+Mirror environments Cluster authentication &amp; authorization
+Leverage OIDC for k8s authentication RBAC - define roles In cluster network/security/micro segmentation
+Prevent namespace-to-namespace communication Network policy Policy &amp; Governance
+k8s admission controllers
+Read only Non-privileges ports Runtime security &amp; monitoring
+Identity security privilege not needed Track anomalies Falco &amp; Twistlock Application secret management" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/k8s-security-best-practices/" /><meta property="og:image" content="https://okulbida.com/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-07T01:04:09&#43;03:00" />
@@ -62,12 +64,13 @@ if (!doNotTrack) {
 
 <meta name="twitter:title" content="k8s security best practices"/>
 <meta name="twitter:description" content="Keep the cloud provider platform secure
- Least privilege Secure traffic into cluster    Run security test in development environments
- Mirror environments    Cluster authentication &amp; authorization
- Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation
- Prevent namespace-to-namespace communication Network policy    Policy &amp; Governance
-  k8s admission controllers
- Read only Non-privileges ports    Runtime security &amp; monitoring"/>
+Least privilege Secure traffic into cluster Run security test in development environments
+Mirror environments Cluster authentication &amp; authorization
+Leverage OIDC for k8s authentication RBAC - define roles In cluster network/security/micro segmentation
+Prevent namespace-to-namespace communication Network policy Policy &amp; Governance
+k8s admission controllers
+Read only Non-privileges ports Runtime security &amp; monitoring
+Identity security privilege not needed Track anomalies Falco &amp; Twistlock Application secret management"/>
 
 
 <script type="application/ld+json">
@@ -96,11 +99,11 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "k8s security best practices",
   "name": "k8s security best practices",
-  "description": "Keep the cloud provider platform secure\n Least privilege Secure traffic into cluster    Run security test in development environments\n Mirror environments    Cluster authentication \u0026amp; authorization\n Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation\n Prevent namespace-to-namespace communication Network policy    Policy \u0026amp; Governance\n  k8s admission controllers\n Read only Non-privileges ports    Runtime security \u0026amp; monitoring",
+  "description": "Keep the cloud provider platform secure\nLeast privilege Secure traffic into cluster Run security test in development environments\nMirror environments Cluster authentication \u0026amp; authorization\nLeverage OIDC for k8s authentication RBAC - define roles In cluster network/security/micro segmentation\nPrevent namespace-to-namespace communication Network policy Policy \u0026amp; Governance\nk8s admission controllers\nRead only Non-privileges ports Runtime security \u0026amp; monitoring\nIdentity security privilege not needed Track anomalies Falco \u0026amp; Twistlock Application secret management",
   "keywords": [
     "kubernetes"
   ],
-  "articleBody": "  Keep the cloud provider platform secure\n Least privilege Secure traffic into cluster    Run security test in development environments\n Mirror environments    Cluster authentication \u0026 authorization\n Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation\n Prevent namespace-to-namespace communication Network policy    Policy \u0026 Governance\n  k8s admission controllers\n Read only Non-privileges ports    Runtime security \u0026 monitoring\n Identity security privilege not needed Track anomalies Falco \u0026 Twistlock    Application secret management\n Encrypt Vault Sealed secrets SOPS    Data protection \u0026 CVE remediation\n Approved API versions Review release notes Restric ingress/egress Allow approved docker images    Auditing\n Define policies Trigger alerts Store audit logs    Container security\n Vulnerability scanning in pipeline MTLS - adhere to k8s pod security standards    ",
+  "articleBody": " Keep the cloud provider platform secure\nLeast privilege Secure traffic into cluster Run security test in development environments\nMirror environments Cluster authentication \u0026 authorization\nLeverage OIDC for k8s authentication RBAC - define roles In cluster network/security/micro segmentation\nPrevent namespace-to-namespace communication Network policy Policy \u0026 Governance\nk8s admission controllers\nRead only Non-privileges ports Runtime security \u0026 monitoring\nIdentity security privilege not needed Track anomalies Falco \u0026 Twistlock Application secret management\nEncrypt Vault Sealed secrets SOPS Data protection \u0026 CVE remediation\nApproved API versions Review release notes Restric ingress/egress Allow approved docker images Auditing\nDefine policies Trigger alerts Store audit logs Container security\nVulnerability scanning in pipeline MTLS - adhere to k8s pod security standards ",
   "wordCount" : "113",
   "inLanguage": "en",
   "datePublished": "2022-08-07T01:04:09+03:00",

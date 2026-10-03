@@ -9,13 +9,13 @@
 <meta name="keywords" content="aws, eks, terraform" />
 <meta name="description" content="Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI. To use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 Terraform example:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [&#34;r6id.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 eks-dev-instance-store = { instance_types = [&#34;r6id.">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/eks-instance-store/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
@@ -24,7 +24,7 @@ Terraform example:
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.82.0" />
+<meta name="generator" content="Hugo 0.109.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@ if (!doNotTrack) {
 </script><meta property="og:title" content="EKS with instance-store nitro-based node-group" />
 <meta property="og:description" content="Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI. To use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 Terraform example:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [&#34;r6id." />
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 eks-dev-instance-store = { instance_types = [&#34;r6id." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/eks-instance-store/" /><meta property="og:image" content="https://okulbida.com/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-16T17:00:51&#43;02:00" />
@@ -55,7 +55,7 @@ Terraform example:
 <meta name="twitter:title" content="EKS with instance-store nitro-based node-group"/>
 <meta name="twitter:description" content="Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI. To use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 Terraform example:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [&#34;r6id."/>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 eks-dev-instance-store = { instance_types = [&#34;r6id."/>
 
 
 <script type="application/ld+json">
@@ -84,12 +84,12 @@ Terraform example:
   "@type": "BlogPosting",
   "headline": "EKS with instance-store nitro-based node-group",
   "name": "EKS with instance-store nitro-based node-group",
-  "description": "Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI. To use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner\nTerraform example:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [\u0026#34;r6id.",
+  "description": "Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI. To use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner\nTerraform example:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 eks-dev-instance-store = { instance_types = [\u0026#34;r6id.",
   "keywords": [
     "aws", "eks", "terraform"
   ],
-  "articleBody": "Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI. To use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner\nTerraform example:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94  eks-dev-instance-store = { instance_types = [\"r6id.large\"] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = {# Root volume  xvda = { device_name = \"/dev/xvda\" ebs = { volume_size = 24 volume_type = \"gp3\" iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.aws_ami.ubuntu.image_id# The virtual device name (ephemeralN). Instance store volumes are numbered # starting from 0. An instance type with 2 available instance store volumes # can specify mappings for ephemeral0 and ephemeral1. The number of available # instance store volumes depends on the instance type. After you connect to # the instance, you must mount the volume - here, we are using user data to automatically # mount the volume(s) during instance creation. # # NVMe instance store volumes are automatically enumerated and assigned a device # name. Including them in your block device mapping has no effect. # post_bootstrap_user_data  enable_bootstrap_user_data = true# NVMe instance store volumes are automatically enumerated and assigned a device  pre_bootstrap_user_data = EOT echo \"Running a custom user data script\" set -ex apt-get update apt-get install -y nvme-cli mdadm xfsprogs# Fetch the list of NVMe devices  DEVICES=$(lsblk -d -o NAME | grep nvme) DISK_ARRAY=() for DEV in $DEVICES do# Exclude the root disk, /dev/nvme0n1, from the list of devices  if [[ $${DEV} != \"nvme0n1\" ]]; then NVME_INFO=$(nvme id-ctrl --raw-binary \"/dev/$${DEV}\" | cut -c3073-3104 | tr -s ' ' | sed 's/ $//g')# Check if the device is Amazon EC2 NVMe Instance Storage  if [[ $${NVME_INFO} == *\"ephemeral\"* ]]; then DISK_ARRAY+=(\"/dev/$${DEV}\") fi fi done DISK_COUNT=$${#DISK_ARRAY[@]} if [ $${DISK_COUNT} -eq 0 ]; then echo \"No NVMe SSD disks available. No further action needed.\" else if [ $${DISK_COUNT} -eq 1 ]; then TARGET_DEV=$${DISK_ARRAY[0]} mkfs.xfs $${TARGET_DEV} else mdadm --create --verbose /dev/md0 --level=0 --raid-devices=$${DISK_COUNT} $${DISK_ARRAY[@]} mkfs.xfs /dev/md0 TARGET_DEV=/dev/md0 fi mkdir -p /local1 echo $${TARGET_DEV} /local1 xfs defaults,noatime 1 2  /etc/fstab mount -a /usr/bin/chown -hR +999:+1000 /local1 fi EOT labels = { group = \"instance-store\" } taints = { dedicated = { key = \"group\" value = \"instance-store\" effect = \"NO_SCHEDULE\" } } update_config = { max_unavailable_percentage = 25 } tags = { ExtraTag = \"instance-store\" \"k8s.io/cluster-autoscaler/enabled\" = \"true\" \"k8s.io/cluster-autoscaler/${local.name}\" = \"owned\" } }   ",
-  "wordCount" : "488",
+  "articleBody": "Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI. To use instance-store you also need to install local-static-provisioner - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner\nTerraform example:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 eks-dev-instance-store = { instance_types = [\"r6id.large\"] min_size = 1 max_size = 3 desired_size = 1 block_device_mappings = { # Root volume xvda = { device_name = \"/dev/xvda\" ebs = { volume_size = 24 volume_type = \"gp3\" iops = 3000 encrypted = false delete_on_termination = true } } } ami_id = data.aws_ami.ubuntu.image_id # The virtual device name (ephemeralN). Instance store volumes are numbered # starting from 0. An instance type with 2 available instance store volumes # can specify mappings for ephemeral0 and ephemeral1. The number of available # instance store volumes depends on the instance type. After you connect to # the instance, you must mount the volume - here, we are using user data to automatically # mount the volume(s) during instance creation. # # NVMe instance store volumes are automatically enumerated and assigned a device # name. Including them in your block device mapping has no effect. # post_bootstrap_user_data enable_bootstrap_user_data = true # NVMe instance store volumes are automatically enumerated and assigned a device pre_bootstrap_user_data = \u003c\u003c-EOT echo \"Running a custom user data script\" set -ex apt-get update apt-get install -y nvme-cli mdadm xfsprogs # Fetch the list of NVMe devices DEVICES=$(lsblk -d -o NAME | grep nvme) DISK_ARRAY=() for DEV in $DEVICES do # Exclude the root disk, /dev/nvme0n1, from the list of devices if [[ $${DEV} != \"nvme0n1\" ]]; then NVME_INFO=$(nvme id-ctrl --raw-binary \"/dev/$${DEV}\" | cut -c3073-3104 | tr -s ' ' | sed 's/ $//g') # Check if the device is Amazon EC2 NVMe Instance Storage if [[ $${NVME_INFO} == *\"ephemeral\"* ]]; then DISK_ARRAY+=(\"/dev/$${DEV}\") fi fi done DISK_COUNT=$${#DISK_ARRAY[@]} if [ $${DISK_COUNT} -eq 0 ]; then echo \"No NVMe SSD disks available. No further action needed.\" else if [ $${DISK_COUNT} -eq 1 ]; then TARGET_DEV=$${DISK_ARRAY[0]} mkfs.xfs $${TARGET_DEV} else mdadm --create --verbose /dev/md0 --level=0 --raid-devices=$${DISK_COUNT} $${DISK_ARRAY[@]} mkfs.xfs /dev/md0 TARGET_DEV=/dev/md0 fi mkdir -p /local1 echo $${TARGET_DEV} /local1 xfs defaults,noatime 1 2 \u003e\u003e /etc/fstab mount -a /usr/bin/chown -hR +999:+1000 /local1 fi EOT labels = { group = \"instance-store\" } taints = { dedicated = { key = \"group\" value = \"instance-store\" effect = \"NO_SCHEDULE\" } } update_config = { max_unavailable_percentage = 25 } tags = { ExtraTag = \"instance-store\" \"k8s.io/cluster-autoscaler/enabled\" = \"true\" \"k8s.io/cluster-autoscaler/${local.name}\" = \"owned\" } } ",
+  "wordCount" : "494",
   "inLanguage": "en",
   "datePublished": "2024-03-16T17:00:51+02:00",
   "dateModified": "2024-03-16T17:00:51+02:00",
@@ -194,199 +194,199 @@ Terraform example:
   <div class="post-content"><p>Userdata is compatible with the standard AWS EKS Terraform module, the only recommendation is to use a custom AMI.
 To use instance-store you also need to install <code>local-static-provisioner</code> - <a href="https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner">https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner</a></p>
 <p>Terraform example:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">94
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">90
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">91
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">92
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">94
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl"> eks-dev-instance-store <span style="color:#f92672">=</span> {
-      instance_types <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;r6id.large&#34;</span>]
-
-      min_size     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-      max_size     <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-      desired_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-
-      block_device_mappings <span style="color:#f92672">=</span> {<span style="color:#75715e">
-</span><span style="color:#75715e">        # Root volume
-</span><span style="color:#75715e"></span>        xvda <span style="color:#f92672">=</span> {
-          device_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/dev/xvda&#34;</span>
-          ebs <span style="color:#f92672">=</span> {
-            volume_size           <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>
-            volume_type           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gp3&#34;</span>
-            iops                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>
-            encrypted             <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
-            delete_on_termination <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
-          }
-        }
-      }
-
-      ami_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">data</span>.<span style="color:#66d9ef">aws_ami</span>.<span style="color:#66d9ef">ubuntu</span>.<span style="color:#66d9ef">image_id</span><span style="color:#75715e">
-</span><span style="color:#75715e">      # The virtual device name (ephemeralN). Instance store volumes are numbered
-</span><span style="color:#75715e">      # starting from 0. An instance type with 2 available instance store volumes
-</span><span style="color:#75715e">      # can specify mappings for ephemeral0 and ephemeral1. The number of available
-</span><span style="color:#75715e">      # instance store volumes depends on the instance type. After you connect to
-</span><span style="color:#75715e">      # the instance, you must mount the volume - here, we are using user data to automatically
-</span><span style="color:#75715e">      # mount the volume(s) during instance creation.
-</span><span style="color:#75715e">      #
-</span><span style="color:#75715e">      # NVMe instance store volumes are automatically enumerated and assigned a device
-</span><span style="color:#75715e">      # name. Including them in your block device mapping has no effect.
-</span><span style="color:#75715e">      # post_bootstrap_user_data
-</span><span style="color:#75715e"></span>
-      enable_bootstrap_user_data <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#75715e">
-</span><span style="color:#75715e">      # NVMe instance store volumes are automatically enumerated and assigned a device
-</span><span style="color:#75715e"></span>      pre_bootstrap_user_data <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&lt;&lt;-</span><span style="color:#66d9ef">EOT</span>
-      <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;Running a custom user data script&#34;</span>
-      <span style="color:#66d9ef">set</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">ex</span>
-      <span style="color:#66d9ef">apt</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">get</span> <span style="color:#66d9ef">update</span>
-      <span style="color:#66d9ef">apt</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">get</span> <span style="color:#66d9ef">install</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">y</span> <span style="color:#66d9ef">nvme</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">cli</span> <span style="color:#66d9ef">mdadm</span> <span style="color:#66d9ef">xfsprogs</span><span style="color:#75715e">
-</span><span style="color:#75715e">      # Fetch the list of NVMe devices
-</span><span style="color:#75715e"></span>      DEVICES<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>(<span style="color:#66d9ef">lsblk</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">d</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">o</span> <span style="color:#66d9ef">NAME</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">grep</span> <span style="color:#66d9ef">nvme</span>)
-      DISK_ARRAY<span style="color:#f92672">=</span>()
-      <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">DEV</span> <span style="color:#66d9ef">in</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">DEVICES</span>
-      <span style="color:#66d9ef">do</span><span style="color:#75715e">
-</span><span style="color:#75715e">        # Exclude the root disk, /dev/nvme0n1, from the list of devices
-</span><span style="color:#75715e"></span>        if [[ $${DEV} !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;nvme0n1&#34;</span> ]]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
-          NVME_INFO<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>(<span style="color:#66d9ef">nvme</span> <span style="color:#66d9ef">id</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">ctrl</span> <span style="color:#960050;background-color:#1e0010">--</span><span style="color:#66d9ef">raw</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">binary</span> <span style="color:#e6db74">&#34;/dev/$${DEV}&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">cut</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">c3073</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#ae81ff">3104</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">tr</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">s</span> <span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">sed</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#66d9ef">s</span><span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">$//</span><span style="color:#66d9ef">g</span><span style="color:#960050;background-color:#1e0010">&#39;</span>)<span style="color:#75715e">
-</span><span style="color:#75715e">          # Check if the device is Amazon EC2 NVMe Instance Storage
-</span><span style="color:#75715e"></span>          if [[ $${NVME_INFO} <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#e6db74">&#34;ephemeral&#34;</span><span style="color:#960050;background-color:#1e0010">*</span> ]]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
-            DISK_ARRAY+<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;/dev/$${DEV}&#34;</span>)
-          <span style="color:#66d9ef">fi</span>
-        <span style="color:#66d9ef">fi</span>
-      <span style="color:#66d9ef">done</span>
-      DISK_COUNT<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">#DISK_ARRAY</span>[<span style="color:#960050;background-color:#1e0010">@</span>]<span style="color:#e6db74">}</span>
-      <span style="color:#66d9ef">if</span> [ <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_COUNT</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">eq</span> <span style="color:#ae81ff">0</span> ]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
-        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;No NVMe SSD disks available. No further action needed.&#34;</span>
-      <span style="color:#66d9ef">else</span>
-        <span style="color:#66d9ef">if</span> [ <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_COUNT</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">eq</span> <span style="color:#ae81ff">1</span> ]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
-          TARGET_DEV<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_ARRAY</span>[<span style="color:#960050;background-color:#1e0010">0</span>]<span style="color:#e6db74">}</span>
-          <span style="color:#66d9ef">mkfs</span>.<span style="color:#66d9ef">xfs</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">TARGET_DEV</span><span style="color:#e6db74">}</span>
-        <span style="color:#66d9ef">else</span>
-          mdadm --create --verbose /dev/md0 --level<span style="color:#f92672">=</span>0 --raid-devices<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_COUNT</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_ARRAY</span>[<span style="color:#960050;background-color:#1e0010">@</span>]<span style="color:#e6db74">}</span>
-          <span style="color:#66d9ef">mkfs</span>.<span style="color:#66d9ef">xfs</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">dev</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">md0</span>
-          TARGET_DEV<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">dev</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">md0</span>
-        <span style="color:#66d9ef">fi</span>
-        <span style="color:#66d9ef">mkdir</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">p</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">local1</span>
-        <span style="color:#66d9ef">echo</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">TARGET_DEV</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">local1</span> <span style="color:#66d9ef">xfs</span> <span style="color:#66d9ef">defaults</span>,<span style="color:#66d9ef">noatime</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">&gt;&gt;</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">etc</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">fstab</span>
-        <span style="color:#66d9ef">mount</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">a</span>
-        <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">usr</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">bin</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">chown</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">hR</span> <span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">999</span><span style="color:#960050;background-color:#1e0010">:+</span><span style="color:#ae81ff">1000</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">local1</span>
-      <span style="color:#66d9ef">fi</span>
-      <span style="color:#66d9ef">EOT</span>
-
-      labels <span style="color:#f92672">=</span> {
-        group <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;instance-store&#34;</span>
-      }
-
-      taints <span style="color:#f92672">=</span> {
-        dedicated <span style="color:#f92672">=</span> {
-          key    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;group&#34;</span>
-          value  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;instance-store&#34;</span>
-          effect <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;NO_SCHEDULE&#34;</span>
-        }
-      }
-      update_config <span style="color:#f92672">=</span> {
-        max_unavailable_percentage <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>
-      }
-
-      tags <span style="color:#f92672">=</span> {
-        ExtraTag                                  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;instance-store&#34;</span>
-        &#34;k8s.io/cluster-autoscaler/enabled&#34;       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span>
-        &#34;k8s.io/cluster-autoscaler/${local.name}&#34; <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;owned&#34;</span>
-      }
-    }
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span> eks-dev-instance-store <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      instance_types <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;r6id.large&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      min_size     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      max_size     <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      desired_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      block_device_mappings <span style="color:#f92672">=</span> {<span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        # Root volume
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        xvda <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>          device_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/dev/xvda&#34;</span>
+</span></span><span style="display:flex;"><span>          ebs <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            volume_size           <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>            volume_type           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gp3&#34;</span>
+</span></span><span style="display:flex;"><span>            iops                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>            encrypted             <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>            delete_on_termination <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      ami_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">data</span>.<span style="color:#66d9ef">aws_ami</span>.<span style="color:#66d9ef">ubuntu</span>.<span style="color:#66d9ef">image_id</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # The virtual device name (ephemeralN). Instance store volumes are numbered
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # starting from 0. An instance type with 2 available instance store volumes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # can specify mappings for ephemeral0 and ephemeral1. The number of available
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # instance store volumes depends on the instance type. After you connect to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # the instance, you must mount the volume - here, we are using user data to automatically
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # mount the volume(s) during instance creation.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      #
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # NVMe instance store volumes are automatically enumerated and assigned a device
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # name. Including them in your block device mapping has no effect.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # post_bootstrap_user_data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>      enable_bootstrap_user_data <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # NVMe instance store volumes are automatically enumerated and assigned a device
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      pre_bootstrap_user_data <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&lt;&lt;-</span><span style="color:#66d9ef">EOT</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;Running a custom user data script&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">set</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">ex</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">apt</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">get</span> <span style="color:#66d9ef">update</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">apt</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">get</span> <span style="color:#66d9ef">install</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">y</span> <span style="color:#66d9ef">nvme</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">cli</span> <span style="color:#66d9ef">mdadm</span> <span style="color:#66d9ef">xfsprogs</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      # Fetch the list of NVMe devices
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      DEVICES<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>(<span style="color:#66d9ef">lsblk</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">d</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">o</span> <span style="color:#66d9ef">NAME</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">grep</span> <span style="color:#66d9ef">nvme</span>)
+</span></span><span style="display:flex;"><span>      DISK_ARRAY<span style="color:#f92672">=</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">DEV</span> <span style="color:#66d9ef">in</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#66d9ef">DEVICES</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">do</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        # Exclude the root disk, /dev/nvme0n1, from the list of devices
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        if [[ $${DEV} !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;nvme0n1&#34;</span> ]]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>          NVME_INFO<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span>(<span style="color:#66d9ef">nvme</span> <span style="color:#66d9ef">id</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">ctrl</span> <span style="color:#960050;background-color:#1e0010">--</span><span style="color:#66d9ef">raw</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">binary</span> <span style="color:#e6db74">&#34;/dev/$${DEV}&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">cut</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">c3073</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#ae81ff">3104</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">tr</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">s</span> <span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#66d9ef">sed</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#66d9ef">s</span><span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">$//</span><span style="color:#66d9ef">g</span><span style="color:#960050;background-color:#1e0010">&#39;</span>)<span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          # Check if the device is Amazon EC2 NVMe Instance Storage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          if [[ $${NVME_INFO} <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#e6db74">&#34;ephemeral&#34;</span><span style="color:#960050;background-color:#1e0010">*</span> ]]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            DISK_ARRAY+<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;/dev/$${DEV}&#34;</span>)
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>      DISK_COUNT<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">#DISK_ARRAY</span>[<span style="color:#960050;background-color:#1e0010">@</span>]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> [ <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_COUNT</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">eq</span> <span style="color:#ae81ff">0</span> ]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;No NVMe SSD disks available. No further action needed.&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> [ <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_COUNT</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">eq</span> <span style="color:#ae81ff">1</span> ]<span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>          TARGET_DEV<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_ARRAY</span>[<span style="color:#960050;background-color:#1e0010">0</span>]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">mkfs</span>.<span style="color:#66d9ef">xfs</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">TARGET_DEV</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>          mdadm --create --verbose /dev/md0 --level<span style="color:#f92672">=</span>0 --raid-devices<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_COUNT</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">DISK_ARRAY</span>[<span style="color:#960050;background-color:#1e0010">@</span>]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">mkfs</span>.<span style="color:#66d9ef">xfs</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">dev</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">md0</span>
+</span></span><span style="display:flex;"><span>          TARGET_DEV<span style="color:#f92672">=</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">dev</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">md0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">mkdir</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">p</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">local1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">echo</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">${</span><span style="color:#960050;background-color:#1e0010">TARGET_DEV</span><span style="color:#e6db74">}</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">local1</span> <span style="color:#66d9ef">xfs</span> <span style="color:#66d9ef">defaults</span>,<span style="color:#66d9ef">noatime</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">&gt;&gt;</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">etc</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">fstab</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">mount</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">a</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">usr</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">bin</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">chown</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#66d9ef">hR</span> <span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">999</span><span style="color:#960050;background-color:#1e0010">:+</span><span style="color:#ae81ff">1000</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#66d9ef">local1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">EOT</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      labels <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        group <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;instance-store&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      taints <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        dedicated <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>          key    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;group&#34;</span>
+</span></span><span style="display:flex;"><span>          value  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;instance-store&#34;</span>
+</span></span><span style="display:flex;"><span>          effect <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;NO_SCHEDULE&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      update_config <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        max_unavailable_percentage <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      tags <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        ExtraTag                                  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;instance-store&#34;</span>
+</span></span><span style="display:flex;"><span>        &#34;k8s.io/cluster-autoscaler/enabled&#34;       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>        &#34;k8s.io/cluster-autoscaler/${local.name}&#34; <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;owned&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>

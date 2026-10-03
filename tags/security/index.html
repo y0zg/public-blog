@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://okulbida.com/tags/security/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/images/logo.png">
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.82.0" />
+<meta name="generator" content="Hugo 0.109.0">
 <link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/security/index.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +154,7 @@ What goes into a report There are two kinds of data. The first is stuff that bar
   <section class="entry-content">
     <p>Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
 The API surface itself tells a tighter story than the enhancement count does. I traced the actual version history of every API resource that changed in 1.37, back to 1.34, instead of trusting a changelog summary:
- .kv-wrap{margin:1.5rem 0;border:1px solid #e3e3e6;border-radius:10px;padding:2px;overflow-x:auto} ....</p>
+1.341.351.361.37 scheduling.k8s.ioPodGroupv1alpha2v1beta1v1alpha3 Workloadv1alpha1v1alpha2v1beta1v1alpha3 CompositePodGroupv1alpha3 certificates....</p>
   </section>
   <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Kubernetes 1.37 (Garhwal): what&#39;s worth knowing" href="https://okulbida.com/posts/kubernetes-1-37-garhwal-release/"></a>
@@ -165,9 +165,9 @@ The API surface itself tells a tighter story than the enhancement count does. I 
     <h2>Kyverno threat model: the defaults that make enforcement optional</h2>
   </header>
   <section class="entry-content">
-    <p>Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn’t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   Kyverno released a threat model and hardening guide in April 2026, produced by the security consultancy ControlPlane in partnership with the CNCF and reviewed by Kyverno’s own maintainers (Jim Bugwadia and Shuting Zhao among them)....</p>
+    <p>Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn’t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary Kyverno released a threat model and hardening guide in April 2026, produced by the security consultancy ControlPlane in partnership with the CNCF and reviewed by Kyverno’s own maintainers (Jim Bugwadia and Shuting Zhao among them)....</p>
   </section>
-  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Kyverno threat model: the defaults that make enforcement optional" href="https://okulbida.com/posts/kyverno-threat-model-hardening-guide/"></a>
 </article>
 
@@ -176,7 +176,7 @@ The API surface itself tells a tighter story than the enhancement count does. I 
     <h2>Supply Chain Attacks in 2026: How to Harden Your Pipeline</h2>
   </header>
   <section class="entry-content">
-    <p>npm min-release-age Use npm ci, not npm install Lock down npm with .npmrc Hardening GitHub Actions Summary   In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a plain npm install could pull down far more than an HTTP client. This is a pattern seen before in registry incidents, not a bug in axios’ normal code....</p>
+    <p>npm min-release-age Use npm ci, not npm install Lock down npm with .npmrc Hardening GitHub Actions Summary In late March 2026, compromised axios builds briefly appeared on the npm registry (for example 1.14.1 and 0.30.4 on affected release lines). Attackers added a malicious dependency and used lifecycle scripts so a plain npm install could pull down far more than an HTTP client. This is a pattern seen before in registry incidents, not a bug in axios’ normal code....</p>
   </section>
   <footer class="entry-footer">May 15, 2026&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Supply Chain Attacks in 2026: How to Harden Your Pipeline" href="https://okulbida.com/posts/axios-npm-supply-chain-min-release-age/"></a>
@@ -188,7 +188,8 @@ The API surface itself tells a tighter story than the enhancement count does. I 
   </header>
   <section class="entry-content">
     <p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:
-1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394....</p>
+1 2 3 4 5 urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
+What’s actually going on Python 3....</p>
   </section>
   <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
@@ -213,8 +214,8 @@ It caught the axios supply chain attack in real time — any connection to sfrcl
   </header>
   <section class="entry-content">
     <p>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
- Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/....</p>
+Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 { &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/....</p>
   </section>
   <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
@@ -225,7 +226,7 @@ It caught the axios supply chain attack in real time — any connection to sfrcl
     <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
   </header>
   <section class="entry-content">
-    <p>Click to enlarge      GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it’s not a hacked cluster.
+    <p>Click to enlarge GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it’s not a hacked cluster.
 The uncomfortable part: if you resolve or fetch any user URL with no checks, you also open the door to SSRF — for example a link to 169....</p>
   </section>
   <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>

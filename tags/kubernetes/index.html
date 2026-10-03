@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://okulbida.com/tags/kubernetes/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/images/logo.png">
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.82.0" />
+<meta name="generator" content="Hugo 0.109.0">
 <link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/kubernetes/index.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,7 +143,7 @@ The main idea is simple. You keep the old DNS name alive as a compatibility poin
   <section class="entry-content">
     <p>Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
 The API surface itself tells a tighter story than the enhancement count does. I traced the actual version history of every API resource that changed in 1.37, back to 1.34, instead of trusting a changelog summary:
- .kv-wrap{margin:1.5rem 0;border:1px solid #e3e3e6;border-radius:10px;padding:2px;overflow-x:auto} ....</p>
+1.341.351.361.37 scheduling.k8s.ioPodGroupv1alpha2v1beta1v1alpha3 Workloadv1alpha1v1alpha2v1beta1v1alpha3 CompositePodGroupv1alpha3 certificates....</p>
   </section>
   <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Kubernetes 1.37 (Garhwal): what&#39;s worth knowing" href="https://okulbida.com/posts/kubernetes-1-37-garhwal-release/"></a>
@@ -154,9 +154,9 @@ The API surface itself tells a tighter story than the enhancement count does. I 
     <h2>Kyverno threat model: the defaults that make enforcement optional</h2>
   </header>
   <section class="entry-content">
-    <p>Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn’t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary   Kyverno released a threat model and hardening guide in April 2026, produced by the security consultancy ControlPlane in partnership with the CNCF and reviewed by Kyverno’s own maintainers (Jim Bugwadia and Shuting Zhao among them)....</p>
+    <p>Fail open, by default Audit mode is not enforcement PolicyException: the quiet bypass Kyverno doesn’t watch its own namespace What Kyverno can never protect Sign and verify, not either Turning the admission controller into an SSRF probe Summary Kyverno released a threat model and hardening guide in April 2026, produced by the security consultancy ControlPlane in partnership with the CNCF and reviewed by Kyverno’s own maintainers (Jim Bugwadia and Shuting Zhao among them)....</p>
   </section>
-  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Kyverno threat model: the defaults that make enforcement optional" href="https://okulbida.com/posts/kyverno-threat-model-hardening-guide/"></a>
 </article>
 
@@ -168,7 +168,7 @@ The API surface itself tells a tighter story than the enhancement count does. I 
   </header>
   <section class="entry-content">
     <p>This list is being updated on regular basis
-General info  https://kubernetesreadme.com/  UI / Desktop Clients  K9s — terminal UI for navigating clusters, resources, events, logs, and metrics https://k9scli.io/ Freelens — free and open-source IDE for Kubernetes (community fork of Lens, no account required) https://github.com/freelensapp/freelens Lens — full-featured Kubernetes desktop IDE with workload, metrics, and troubleshooting views https://k8slens.dev/ Headlamp — web-based Kubernetes UI, good for remote admin https://headlamp.dev/ Kubevious — maps cluster relationships and highlights configuration issues visually https://kubevious....</p>
+General info https://kubernetesreadme.com/ UI / Desktop Clients K9s — terminal UI for navigating clusters, resources, events, logs, and metrics https://k9scli.io/ Freelens — free and open-source IDE for Kubernetes (community fork of Lens, no account required) https://github.com/freelensapp/freelens Lens — full-featured Kubernetes desktop IDE with workload, metrics, and troubleshooting views https://k8slens.dev/ Headlamp — web-based Kubernetes UI, good for remote admin https://headlamp.dev/ Kubevious — maps cluster relationships and highlights configuration issues visually https://kubevious....</p>
   </section>
   <footer class="entry-footer">June 27, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Kubernetes tools" href="https://okulbida.com/posts/kubernetes_tools/"></a>
@@ -180,7 +180,8 @@ General info  https://kubernetesreadme.com/  UI / Desktop Clients  K9s — termi
   </header>
   <section class="entry-content">
     <p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:
-1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394....</p>
+1 2 3 4 5 urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;))) Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394.
+What’s actually going on Python 3....</p>
   </section>
   <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
@@ -223,9 +224,10 @@ In this post, we’ll walk through how to assemble a tiny but realistic containe
     <p>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
 Installation:
 Install VolSync via Helm:
-1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:
+1 2 helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync Migrating Data into Kubernetes:
 VolSync provides a CLI tool (kubectl-volsync) for migrating data from external storage into Kubernetes PersistentVolumes.
-Step 1: Install VolSync CLI...</p>
+Step 1: Install VolSync CLI
+Install the CLI using Krew:...</p>
   </section>
   <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to VolSync: asynchronous data replication for Kubernetes volumes" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/"></a>

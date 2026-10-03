@@ -8,13 +8,13 @@
 <title>Simple RDS access | Oleksandr Kulbida</title>
 <meta name="keywords" content="rds, aws" />
 <meta name="description" content="There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It&rsquo;s not perfect, but it&rsquo;s secure, quick to set up, and needs almost no maintenance. Here&rsquo;s the basic idea:
-1  socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.">
+1 socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/simple-rds-access/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
@@ -23,7 +23,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.82.0" />
+<meta name="generator" content="Hugo 0.109.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ if (!doNotTrack) {
 }
 </script><meta property="og:title" content="Simple RDS access" />
 <meta property="og:description" content="There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It&rsquo;s not perfect, but it&rsquo;s secure, quick to set up, and needs almost no maintenance. Here&rsquo;s the basic idea:
-1  socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx." />
+1 socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/simple-rds-access/" /><meta property="og:image" content="https://okulbida.com/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-12-23T16:37:19&#43;02:00" />
@@ -52,7 +52,7 @@ if (!doNotTrack) {
 
 <meta name="twitter:title" content="Simple RDS access"/>
 <meta name="twitter:description" content="There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It&rsquo;s not perfect, but it&rsquo;s secure, quick to set up, and needs almost no maintenance. Here&rsquo;s the basic idea:
-1  socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx."/>
+1 socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx."/>
 
 
 <script type="application/ld+json">
@@ -81,11 +81,11 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "Simple RDS access",
   "name": "Simple RDS access",
-  "description": "There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It\u0026rsquo;s not perfect, but it\u0026rsquo;s secure, quick to set up, and needs almost no maintenance. Here\u0026rsquo;s the basic idea:\n1  socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.",
+  "description": "There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It\u0026rsquo;s not perfect, but it\u0026rsquo;s secure, quick to set up, and needs almost no maintenance. Here\u0026rsquo;s the basic idea:\n1 socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.",
   "keywords": [
     "rds", "aws"
   ],
-  "articleBody": "There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It’s not perfect, but it’s secure, quick to set up, and needs almost no maintenance. Here’s the basic idea:\n1  socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.us-east-1.rds.amazonaws.com:5432   Run the socat command on an instance or pod, then forward the port to your local machine\n",
+  "articleBody": " There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It’s not perfect, but it’s secure, quick to set up, and needs almost no maintenance. Here’s the basic idea:\n1 socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.us-east-1.rds.amazonaws.com:5432 Run the socat command on an instance or pod, then forward the port to your local machine\n",
   "wordCount" : "89",
   "inLanguage": "en",
   "datePublished": "2023-12-23T16:37:19+02:00",
@@ -191,13 +191,13 @@ if (!doNotTrack) {
   <div class="post-content"><p><img loading="lazy" src="/images/simple-rds-access-diagram.png" alt="Simple RDS Access Architecture"  />
 </p>
 <p>There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It&rsquo;s not perfect, but it&rsquo;s secure, quick to set up, and needs almost no maintenance. Here&rsquo;s the basic idea:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.us-east-1.rds.amazonaws.com:5432
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx.us-east-1.rds.amazonaws.com:5432
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Run the <code>socat</code> command on an instance or pod, then forward the port to your local machine</p>
 
