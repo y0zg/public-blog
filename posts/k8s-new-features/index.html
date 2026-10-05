@@ -15,8 +15,8 @@ In this example for pod memory resources configuration, the resizePolicy indicat
 <link rel="canonical" href="https://okulbida.com/posts/k8s-new-features/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
@@ -25,7 +25,7 @@ In this example for pod memory resources configuration, the resizePolicy indicat
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.109.0">
+<meta name="generator" content="Hugo 0.82.0" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -91,7 +91,7 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   "keywords": [
     "kubernetes"
   ],
-  "articleBody": "Kubernetes InPlacePodVerticalScaling feature\nKubernetes v1.27 introduces InPlacePodVerticalScaling, allowing pod resource resizing without restarts\nThis eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since InPlacePodVerticalScaling lets you allocate resources precisely as needed\nIn this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 cat \u003c",
+  "articleBody": "Kubernetes InPlacePodVerticalScaling feature\nKubernetes v1.27 introduces InPlacePodVerticalScaling, allowing pod resource resizing without restarts\nThis eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since InPlacePodVerticalScaling lets you allocate resources precisely as needed\nIn this example for pod memory resources configuration, the resizePolicy indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  cat --- apiVersion: v1 kind: Pod metadata: labels: run: nginx name: nginx spec: containers: - image: nginx name: nginx resizePolicy: - resourceName: \"memory\" restartPolicy: \"RestartContainer\" - resourceName: \"cpu\" restartPolicy: \"NotRequired\" resources: limits: cpu: \"300m\" memory: \"1Gi\" requests: cpu: \"100m\" memory: \"500Mi\" EOF   ",
   "wordCount" : "146",
   "inLanguage": "en",
   "datePublished": "2024-04-20T23:25:05+03:00",
@@ -198,61 +198,61 @@ In this example for pod memory resources configuration, the resizePolicy indicat
 <p>Kubernetes v1.27 introduces <a href="https://kubernetes.io/blog/2023/05/12/in-place-pod-resize-alpha/"><em>InPlacePodVerticalScaling</em></a>, allowing pod resource resizing without restarts</p>
 <p>This eliminates the downtime and potential data loss caused by pod restarts. It also helps avoid overprovisioning, since <em>InPlacePodVerticalScaling</em> lets you allocate resources precisely as needed</p>
 <p>In this example for pod memory resources configuration, the <em>resizePolicy</em> indicates that changes to the memory allocation require a restart of the container, and for CPU resources the restart is not necessary during resizing.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">cat &lt;&lt;EOF | kubectl apply -f -</span>
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">nginx</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containers</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resizePolicy</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">resourceName</span>: <span style="color:#e6db74">&#34;memory&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">restartPolicy</span>: <span style="color:#e6db74">&#34;RestartContainer&#34;</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">resourceName</span>: <span style="color:#e6db74">&#34;cpu&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">restartPolicy</span>: <span style="color:#e6db74">&#34;NotRequired&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resources</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">limits</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;300m&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;1Gi&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">requests</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;100m&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;500Mi&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">EOF</span>
-</span></span></code></pre></td></tr></table>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">cat &lt;&lt;EOF | kubectl apply -f -</span>
+---
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">nginx</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">containers</span>:
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
+    <span style="color:#f92672">resizePolicy</span>:
+    - <span style="color:#f92672">resourceName</span>: <span style="color:#e6db74">&#34;memory&#34;</span>
+      <span style="color:#f92672">restartPolicy</span>: <span style="color:#e6db74">&#34;RestartContainer&#34;</span>
+    - <span style="color:#f92672">resourceName</span>: <span style="color:#e6db74">&#34;cpu&#34;</span>
+      <span style="color:#f92672">restartPolicy</span>: <span style="color:#e6db74">&#34;NotRequired&#34;</span>
+    <span style="color:#f92672">resources</span>:
+      <span style="color:#f92672">limits</span>:
+        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;300m&#34;</span>
+        <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;1Gi&#34;</span>
+      <span style="color:#f92672">requests</span>:
+        <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;100m&#34;</span>
+        <span style="color:#f92672">memory</span>: <span style="color:#e6db74">&#34;500Mi&#34;</span>
+<span style="color:#ae81ff">EOF</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 </div>

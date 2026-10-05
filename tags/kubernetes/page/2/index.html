@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://okulbida.com/tags/kubernetes/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/images/logo.png">
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.109.0">
+<meta name="generator" content="Hugo 0.82.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/kubernetes/index.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,6 +123,20 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://res.cloudinary.com/codersociety/image/fetch/https://cdn.development.codersociety.com/uploads/the-twelve-factor-app-1.png" alt="12 Factors">
+</figure>
+  <header class="entry-header">
+    <h2>12 Factors vs kubernetes world</h2>
+  </header>
+  <section class="entry-content">
+    <p>Disclaimer: here you might not find something new if you know 12 factors app.
+The 12-factor app methodology 12factor.net, is a set of principles designed to enable applications to be built with portability and resilience when deployed to the web. These principles focus on declarative formats for automation, clean contracts with the operating system, and suitability for deployment on modern cloud platforms, thus minimizing divergence between development and production, enabling continuous deployment for maximum agility....</p>
+  </section>
+  <footer class="entry-footer">May 8, 2024&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to 12 Factors vs kubernetes world" href="https://okulbida.com/posts/12-factors/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
   <header class="entry-header">
     <h2>k8s 1.30 version</h2>
   </header>
@@ -153,7 +167,7 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   </header>
   <section class="entry-content">
     <p>After upgrading Kubernetes (k8s), you might encounter errors such as no matches for kind &#34;Deployment&#34; in version &#34;apps/v1beta1&#34;. These errors typically indicate that certain resources have become deprecated. To resolve these issues without the need to delete your Helm chart, you can follow this simple solution:
-1 2 3 helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt; You may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
+1 2 3  helm plugin install https://github.com/helm/helm-mapkubeapis helm mapkubeapis &lt;releasename&gt; helm upgrade &lt;releasename&gt;   You may still need to update your Helm chart templates, especially if there have been structural changes between versions....</p>
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Resolving Helm issues after kubernetes upgrade" href="https://okulbida.com/posts/helm-fix-after-k8s-upgrade/"></a>
@@ -165,7 +179,7 @@ In this example for pod memory resources configuration, the resizePolicy indicat
   </header>
   <section class="entry-content">
     <p>Expose Amazon EKS pods through cross-account load balancer
-https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-account-load-balancer/ </p>
+ https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-account-load-balancer/  </p>
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS expose pods through cross-account load balancer" href="https://okulbida.com/posts/eks-expose-pods-through-cross-account-lb/"></a>
@@ -177,7 +191,7 @@ https://aws.amazon.com/blogs/containers/expose-amazon-eks-pods-through-cross-acc
   </header>
   <section class="entry-content">
     <p>Simplified EKS access
-https://aws.amazon.com/about-aws/whats-new/2023/12/amazon-eks-controls-iam-cluster-access-management/ https://aws.amazon.com/blogs/containers/a-deep-dive-into-simplified-amazon-eks-access-management-controls/ https://github.com/hashicorp/terraform-provider-aws/issues/34982 </p>
+ https://aws.amazon.com/about-aws/whats-new/2023/12/amazon-eks-controls-iam-cluster-access-management/ https://aws.amazon.com/blogs/containers/a-deep-dive-into-simplified-amazon-eks-access-management-controls/ https://github.com/hashicorp/terraform-provider-aws/issues/34982  </p>
   </section>
   <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS simplified access" href="https://okulbida.com/posts/eks-access/"></a>
@@ -189,13 +203,12 @@ https://aws.amazon.com/about-aws/whats-new/2023/12/amazon-eks-controls-iam-clust
   </header>
   <section class="entry-content">
     <p>Keep the cloud provider platform secure
-Least privilege Secure traffic into cluster Run security test in development environments
-Mirror environments Cluster authentication &amp; authorization
-Leverage OIDC for k8s authentication RBAC - define roles In cluster network/security/micro segmentation
-Prevent namespace-to-namespace communication Network policy Policy &amp; Governance
-k8s admission controllers
-Read only Non-privileges ports Runtime security &amp; monitoring
-Identity security privilege not needed Track anomalies Falco &amp; Twistlock Application secret management...</p>
+ Least privilege Secure traffic into cluster    Run security test in development environments
+ Mirror environments    Cluster authentication &amp; authorization
+ Leverage OIDC for k8s authentication RBAC - define roles    In cluster network/security/micro segmentation
+ Prevent namespace-to-namespace communication Network policy    Policy &amp; Governance
+  k8s admission controllers
+ Read only Non-privileges ports    Runtime security &amp; monitoring...</p>
   </section>
   <footer class="entry-footer">August 7, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to k8s security best practices" href="https://okulbida.com/posts/k8s-security-best-practices/"></a>

@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://okulbida.com/tags/monitoring/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/images/logo.png">
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.109.0">
+<meta name="generator" content="Hugo 0.82.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/monitoring/index.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,8 +142,7 @@ What goes into a report There are two kinds of data. The first is stuff that bar
     <h2>PromQL cheat sheet</h2>
   </header>
   <section class="entry-content">
-    <p>Key functions — rate, irate, increase, histogram_quantile, absent, absent_over_time, delta, predict_linear, age Aggregations — sum, count, topk, by/without, quantile_over_time, bool, offset Label manipulation — label_replace, label_join Useful queries — CPU %, pod restarts, error rate, SLO, memory, network by AZ, nodegroup, cardinality Relabeling tricks — drop metrics, series, labels Pre-commit validation — promtool, pint Architecture — agent mode, VictoriaMetrics, Thanos, Mimir Tools Key functions rate vs irate
-rate calculates per-second increase averaged over the whole range....</p>
+    <p>Key functions — rate, irate, increase, histogram_quantile, absent, absent_over_time, delta, predict_linear, age Aggregations — sum, count, topk, by/without, quantile_over_time, bool, offset Label manipulation — label_replace, label_join Useful queries — CPU %, pod restarts, error rate, SLO, memory, network by AZ, nodegroup, cardinality Relabeling tricks — drop metrics, series, labels Pre-commit validation — promtool, pint Architecture — agent mode, VictoriaMetrics, Thanos, Mimir Tools   Key functions rate vs irate...</p>
   </section>
   <footer class="entry-footer">April 17, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to PromQL cheat sheet" href="https://okulbida.com/posts/prom-cheat-sheet/"></a>
@@ -155,7 +154,7 @@ rate calculates per-second increase averaged over the whole range....</p>
   </header>
   <section class="entry-content">
     <p>While using Loki with S3 and Dynamodb it’s mandatory to add provision_config details as default might affect your budget https://grafana.com/docs/loki/latest/configuration/#provision_config
-1 2 3 4 5 [provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300] </p>
+1 2 3 4 5  [provisioned_write_throughput: &lt;int&gt; | default = 3000] # DynamoDB table default read throughput. # CLI flag: -&lt;prefix&gt;.read-throughput [provisioned_read_throughput: &lt;int&gt; | default = 300]   </p>
   </section>
   <footer class="entry-footer">October 26, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Loki S3 dynamodb" href="https://okulbida.com/posts/loki-s3-dynamodb/"></a>
@@ -167,9 +166,9 @@ rate calculates per-second increase averaged over the whole range....</p>
   </header>
   <section class="entry-content">
     <p>What’s new in Grafana v8.0
-Grafana includes built-in support for Prometheus Alertmanager. Once you add it as a data source, you can use the Grafana alerting UI to manage silences, contact points as well as notification policies. A drop down option in these pages allows you to switch between Grafana and any configured Alertmanager data sources. https://grafana.com/docs/grafana/latest/datasources/alertmanager/
-Prometheus metrics browser https://grafana.com/docs/grafana/latest/datasources/prometheus/#metrics-browser
-More details: https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v8-0/</p>
+  Grafana includes built-in support for Prometheus Alertmanager. Once you add it as a data source, you can use the Grafana alerting UI to manage silences, contact points as well as notification policies. A drop down option in these pages allows you to switch between Grafana and any configured Alertmanager data sources. https://grafana.com/docs/grafana/latest/datasources/alertmanager/
+  Prometheus metrics browser https://grafana.com/docs/grafana/latest/datasources/prometheus/#metrics-browser
+  More details: https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v8-0/</p>
   </section>
   <footer class="entry-footer">June 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to What’s new in Grafana v8.0" href="https://okulbida.com/posts/grafana-8-released/"></a>

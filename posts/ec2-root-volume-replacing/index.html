@@ -8,14 +8,14 @@
 <title>EC2 root volume replacing | Oleksandr Kulbida</title>
 <meta name="keywords" content="aws, ec2" />
 <meta name="description" content="Amazon EC2 enables you to replace the root EBS volume for a running instance
-Limitations: You can&rsquo;t replace the root volume if it is an instance store volume. You can&rsquo;t replace the root volume for metal instances. More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
+Limitations:  You can&rsquo;t replace the root volume if it is an instance store volume. You can&rsquo;t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">
 <meta name="author" content="Oleksandr Kulbida">
 <link rel="canonical" href="https://okulbida.com/posts/ec2-root-volume-replacing/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
@@ -24,7 +24,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#re
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.109.0">
+<meta name="generator" content="Hugo 0.82.0" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@ if (!doNotTrack) {
 }
 </script><meta property="og:title" content="EC2 root volume replacing" />
 <meta property="og:description" content="Amazon EC2 enables you to replace the root EBS volume for a running instance
-Limitations: You can&rsquo;t replace the root volume if it is an instance store volume. You can&rsquo;t replace the root volume for metal instances. More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
+Limitations:  You can&rsquo;t replace the root volume if it is an instance store volume. You can&rsquo;t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okulbida.com/posts/ec2-root-volume-replacing/" /><meta property="og:image" content="https://okulbida.com/images/logo.png"/><meta property="article:section" content="posts" />
@@ -54,7 +54,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#re
 
 <meta name="twitter:title" content="EC2 root volume replacing"/>
 <meta name="twitter:description" content="Amazon EC2 enables you to replace the root EBS volume for a running instance
-Limitations: You can&rsquo;t replace the root volume if it is an instance store volume. You can&rsquo;t replace the root volume for metal instances. More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
+Limitations:  You can&rsquo;t replace the root volume if it is an instance store volume. You can&rsquo;t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root"/>
 
 
@@ -84,11 +84,11 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#re
   "@type": "BlogPosting",
   "headline": "EC2 root volume replacing",
   "name": "EC2 root volume replacing",
-  "description": "Amazon EC2 enables you to replace the root EBS volume for a running instance\nLimitations: You can\u0026rsquo;t replace the root volume if it is an instance store volume. You can\u0026rsquo;t replace the root volume for metal instances. More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root",
+  "description": "Amazon EC2 enables you to replace the root EBS volume for a running instance\nLimitations:  You can\u0026rsquo;t replace the root volume if it is an instance store volume. You can\u0026rsquo;t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root",
   "keywords": [
     "aws", "ec2"
   ],
-  "articleBody": "Amazon EC2 enables you to replace the root EBS volume for a running instance\nLimitations: You can’t replace the root volume if it is an instance store volume. You can’t replace the root volume for metal instances. More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root\n",
+  "articleBody": "Amazon EC2 enables you to replace the root EBS volume for a running instance\nLimitations:  You can’t replace the root volume if it is an instance store volume. You can’t replace the root volume for metal instances.  More details: https://aws.amazon.com/about-aws/whats-new/2021/04/ec2-enables-replacing-root-volumes-for-quick-restoration-and-troubleshooting/\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root\n",
   "wordCount" : "41",
   "inLanguage": "en",
   "datePublished": "2021-04-30T11:44:11+03:00",

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sbom on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/sbom/</link>
+    <description>Recent content in sbom on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/sbom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s-aibom: finding out which AI workloads are actually running in your cluster</title>
+      <link>https://okulbida.com/posts/k8s-aibom-runtime-ai-inventory/</link>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/k8s-aibom-runtime-ai-inventory/</guid>
+      <description>At some point someone from security or compliance asks the platform team a simple question: &amp;ldquo;Which models are we running in production, and where?&amp;rdquo; Usually nobody has a good answer. There&amp;rsquo;s a spreadsheet that was correct six months ago, a few Helm charts that mention vLLM, and that one team that deployed Ollama in a dev namespace &amp;ldquo;just to try something&amp;rdquo; and forgot about it.
+k8s-aibom is an open source controller from Google Cloud that tries to answer this question by looking at the cluster itself.</description>
+    </item>
+    
+  </channel>
+</rss>

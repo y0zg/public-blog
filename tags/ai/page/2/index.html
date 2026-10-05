@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://okulbida.com/tags/ai/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/images/logo.png">
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.109.0">
+<meta name="generator" content="Hugo 0.82.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/tags/ai/index.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,6 +123,19 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Hardening Claude Code: permissions, hooks, and custom commands</h2>
+  </header>
+  <section class="entry-content">
+    <p>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
+ Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/....</p>
+  </section>
+  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&amp;q=80" alt="Software engineering and AI">
 </figure>
   <header class="entry-header">
@@ -131,7 +144,7 @@ if (!doNotTrack) {
   <section class="entry-content">
     <p>Martin Fowler published a fascinating report from a February 2026 retreat where senior engineering practitioners from major tech companies gathered to discuss how AI is reshaping software development. It’s dense, so here’s what stood out to me.
 Where Does the Rigor Go? The biggest question of the retreat: if AI writes the code, where does the engineering discipline move? The answer is that it doesn’t disappear, it migrates:
-Upstream to specs: bad specs produce bad code at scale....</p>
+ Upstream to specs: bad specs produce bad code at scale....</p>
   </section>
   <footer class="entry-footer">March 12, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to The future of software engineering: key takeaways from Martin Fowler&#39;s retreat" href="https://okulbida.com/posts/future-of-software-engineering-thoughtworks-2026/"></a>

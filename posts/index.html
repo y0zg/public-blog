@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://okulbida.com/posts/" />
 <meta name="google-site-verification" content="XYZabc" />
 <meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a60a0141f418414e79e15993586318b3368162a172b26409f1809709cff5711f.css" integrity="sha256-pgoBQfQYQU554VmTWGMYszaBYqFysmQJ8YCXCc/1cR8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ced524761b3366bd4843806222a113c8b4206e449fb2979f08c8ecb409a69e23.css" integrity="sha256-ztUkdhszZr1IQ4BiIqETyLQgbkSfspefCMjstAmmniM=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://okulbida.com/images/logo.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://okulbida.com/images/logo.png">
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="https://okulbida.com/images/logo.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.109.0">
+<meta name="generator" content="Hugo 0.82.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://okulbida.com/posts/index.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,6 +139,18 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>k8s-aibom: finding out which AI workloads are actually running in your cluster</h2>
+  </header>
+  <section class="entry-content">
+    <p>At some point someone from security or compliance asks the platform team a simple question: “Which models are we running in production, and where?” Usually nobody has a good answer. There’s a spreadsheet that was correct six months ago, a few Helm charts that mention vLLM, and that one team that deployed Ollama in a dev namespace “just to try something” and forgot about it.
+k8s-aibom is an open source controller from Google Cloud that tries to answer this question by looking at the cluster itself....</p>
+  </section>
+  <footer class="entry-footer">October 5, 2026&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to k8s-aibom: finding out which AI workloads are actually running in your cluster" href="https://okulbida.com/posts/k8s-aibom-runtime-ai-inventory/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>50 ChatGPT &#34;commands&#34; for learning faster from books, articles and lectures</h2>
   </header>
   <section class="entry-content">
@@ -247,19 +259,6 @@ Vercel, AWS, GitHub, Microsoft, OpenAI, and the Cursor team shipped Agent Plugin
   </section>
   <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to GitHub Spec Kit: give the AI agent a spec, not a vibe" href="https://okulbida.com/posts/github-spec-kit-spec-driven-development/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Kubernetes 1.37 (Garhwal): what&#39;s worth knowing</h2>
-  </header>
-  <section class="entry-content">
-    <p>Kubernetes 1.37, codename Garhwal, shipped August 26, 2026 after a 15-week cycle. 67 enhancements: 16 graduating to Stable, 23 to Beta, 27 new in Alpha, one deprecation track. Full release notes here.
-The API surface itself tells a tighter story than the enhancement count does. I traced the actual version history of every API resource that changed in 1.37, back to 1.34, instead of trusting a changelog summary:
-1.341.351.361.37 scheduling.k8s.ioPodGroupv1alpha2v1beta1v1alpha3 Workloadv1alpha1v1alpha2v1beta1v1alpha3 CompositePodGroupv1alpha3 certificates....</p>
-  </section>
-  <footer class="entry-footer">September 9, 2026&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Kubernetes 1.37 (Garhwal): what&#39;s worth knowing" href="https://okulbida.com/posts/kubernetes-1-37-garhwal-release/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
