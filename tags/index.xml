@@ -5,13 +5,49 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>agents</title>
+      <link>https://okulbida.com/tags/agents/</link>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/agents/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ai</title>
       <link>https://okulbida.com/tags/ai/</link>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 +0300</pubDate>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google</title>
+      <link>https://okulbida.com/tags/google/</link>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://okulbida.com/tags/kubernetes/</link>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mcp</title>
+      <link>https://okulbida.com/tags/mcp/</link>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/mcp/</guid>
       <description></description>
     </item>
     
@@ -30,15 +66,6 @@
       <pubDate>Mon, 05 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/gke/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -93,15 +120,6 @@
       <pubDate>Sat, 03 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/prompts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>agents</title>
-      <link>https://okulbida.com/tags/agents/</link>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/agents/</guid>
       <description></description>
     </item>
     
@@ -219,15 +237,6 @@
       <pubDate>Sun, 13 Sep 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/developer-tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mcp</title>
-      <link>https://okulbida.com/tags/mcp/</link>
-      <pubDate>Sat, 12 Sep 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/mcp/</guid>
       <description></description>
     </item>
     

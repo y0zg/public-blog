@@ -123,6 +123,19 @@ if (!doNotTrack) {
 </header>
 
 <article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>ACM finally automates certificate management for Kubernetes</h2>
+  </header>
+  <section class="entry-content">
+    <p>AWS Certificate Manager (ACM) now supports automated certificate management for Kubernetes workloads through AWS Controllers for Kubernetes (ACK).
+Previously, using ACM certificates in Kubernetes required manual steps: exporting certificates via API, creating Kubernetes Secrets, and manually updating them at renewal. With ACK, you can define certificates as Kubernetes resources, and the controller automates the complete lifecycle - requesting, exporting, creating Secrets, and auto-updating at renewal.
+This works for both public certificates (ACM exportable certificates) and private certificates (AWS Private CA), enabling automated certificate management for:...</p>
+  </section>
+  <footer class="entry-footer">December 27, 2025&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to ACM finally automates certificate management for Kubernetes" href="https://okulbida.com/posts/acm-automated-certificate-management-kubernetes/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="https://res.cloudinary.com/codersociety/image/fetch/https://cdn.development.codersociety.com/uploads/the-twelve-factor-app-1.png" alt="12 Factors">
 </figure>
   <header class="entry-header">
@@ -240,23 +253,10 @@ https://www.youtube.com/playlist?list=PLj6h78yzYM2MqBm19mRz9SYLsw4kfQBrC</p>
   <footer class="entry-footer">May 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Kubecon2021" href="https://okulbida.com/posts/kubecon2021/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2021/04/22/AWS-Secrets-Configuration-Provider-2021-1.png" alt="AWS Secrets CSI for kubernetes">
-</figure>
-  <header class="entry-header">
-    <h2>AWS Secrets CSI for EKS</h2>
-  </header>
-  <section class="entry-content">
-    <p>How to use AWS Secrets &amp; Configuration Provider with your Kubernetes Secrets Store CSI driver. One more example of kubernetes secrets management among vault, external-secrets and 1password operator 😅
-https://aws.amazon.com/blogs/security/how-to-use-aws-secrets-configuration-provider-with-kubernetes-secrets-store-csi-driver/</p>
-  </section>
-  <footer class="entry-footer">April 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Secrets CSI for EKS" href="https://okulbida.com/posts/aws-secrets-csi/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://okulbida.com/tags/kubernetes/">« Prev Page</a>
+    <a class="next" href="https://okulbida.com/tags/kubernetes/page/3/">Next Page »</a>
   </nav>
 </footer>
     </main>
