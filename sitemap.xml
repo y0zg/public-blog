@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/tags/agents/</loc>
+    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/ai/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
+    <loc>https://okulbida.com/tags/anthropic/</loc>
+    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/anthropic-scion-source-control-replaced-git/</loc>
+    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/devops/</loc>
+    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/posts/llm-defense-layers-activation-guardrails/</loc>
+    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/git/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/guardrails/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/llm/</loc>
+    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/monorepo/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/</loc>
@@ -28,9 +46,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/agents/</loc>
-    <lastmod>2026-10-09T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/google-ax-agent-executor-kubernetes/</loc>
     <lastmod>2026-10-09T00:00:00+03:00</lastmod>
@@ -265,9 +280,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/ssrf/</loc>
     <lastmod>2026-04-03T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/devops/</loc>
-    <lastmod>2026-03-25T10:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/ingress2gateway-1-0-migrating-from-ingress-nginx/</loc>
     <lastmod>2026-03-25T10:00:00+03:00</lastmod>
