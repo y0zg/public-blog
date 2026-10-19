@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>red-teaming on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/red-teaming/</link>
+    <description>Recent content in red-teaming on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/red-teaming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Five layers of LLM defense, and why activation guardrails won&#39;t save you alone</title>
+      <link>https://okulbida.com/posts/llm-defense-layers-activation-guardrails/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/posts/llm-defense-layers-activation-guardrails/</guid>
+      <description>If you think LLM attacks are still caught with a list of regular expressions, you&amp;rsquo;re living in 2023. A lot has changed since then. Defenses now live everywhere from the training run to the production proxy in front of the model, and some of them reach right into the model&amp;rsquo;s hidden states while it&amp;rsquo;s thinking.
+I find it useful to split all of this into five layers, from what&amp;rsquo;s baked into the weights to what happens around a deployed model:</description>
+    </item>
+    
+  </channel>
+</rss>

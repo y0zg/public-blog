@@ -124,6 +124,18 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Five layers of LLM defense, and why activation guardrails won&#39;t save you alone</h2>
+  </header>
+  <section class="entry-content">
+    <p>If you think LLM attacks are still caught with a list of regular expressions, you’re living in 2023. A lot has changed since then. Defenses now live everywhere from the training run to the production proxy in front of the model, and some of them reach right into the model’s hidden states while it’s thinking.
+I find it useful to split all of this into five layers, from what’s baked into the weights to what happens around a deployed model:...</p>
+  </section>
+  <footer class="entry-footer">October 19, 2026&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Five layers of LLM defense, and why activation guardrails won&#39;t save you alone" href="https://okulbida.com/posts/llm-defense-layers-activation-guardrails/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>k8s-aibom: finding out which AI workloads are actually running in your cluster</h2>
   </header>
   <section class="entry-content">
@@ -230,18 +242,6 @@ It caught the axios supply chain attack in real time — any connection to sfrcl
   </section>
   <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean</h2>
-  </header>
-  <section class="entry-content">
-    <p>Click to enlarge      GuardDuty screams about a phishing domain. The node looks fine — no malware, no stolen creds. Often the real story is simpler: your app looked up a URL someone pasted in a message, and that hostname is on a threat list. The alert is still “true” (DNS to a bad name happened), but it’s not a hacked cluster.
-The uncomfortable part: if you resolve or fetch any user URL with no checks, you also open the door to SSRF — for example a link to 169....</p>
-  </section>
-  <footer class="entry-footer">April 3, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to GuardDuty, phishing URLs, and SSRF: what DNS alerts really mean" href="https://okulbida.com/posts/guardduty-phishing-url-resolution-ssrf/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

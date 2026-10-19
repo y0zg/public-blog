@@ -5,22 +5,58 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai</title>
+      <link>https://okulbida.com/tags/ai/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guardrails</title>
+      <link>https://okulbida.com/tags/guardrails/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/guardrails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>llm</title>
+      <link>https://okulbida.com/tags/llm/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>red-teaming</title>
+      <link>https://okulbida.com/tags/red-teaming/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/red-teaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://okulbida.com/tags/security/</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://okulbida.com/tags/security/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>agents</title>
       <link>https://okulbida.com/tags/agents/</link>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/agents/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai</title>
-      <link>https://okulbida.com/tags/ai/</link>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/ai/</guid>
       <description></description>
     </item>
     
@@ -79,29 +115,11 @@
     </item>
     
     <item>
-      <title>security</title>
-      <link>https://okulbida.com/tags/security/</link>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>learning</title>
       <link>https://okulbida.com/tags/learning/</link>
       <pubDate>Sat, 03 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>llm</title>
-      <link>https://okulbida.com/tags/llm/</link>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/llm/</guid>
       <description></description>
     </item>
     

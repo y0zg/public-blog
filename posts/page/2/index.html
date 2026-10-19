@@ -139,6 +139,18 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Agent Plugins: one folder for skills and MCP servers, minus Claude</h2>
+  </header>
+  <section class="entry-content">
+    <p>If you’ve built an Agent Skill and wired it to an MCP server, you already know the annoying part isn’t the skill. It’s everything around it. The instructions travel fine as a markdown file. The MCP server config does not, because every client wants its own directory layout, its own manifest, its own way of saying “run this process and pass it these environment variables.”
+Vercel, AWS, GitHub, Microsoft, OpenAI, and the Cursor team shipped Agent Plugins 1....</p>
+  </section>
+  <footer class="entry-footer">September 12, 2026&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Agent Plugins: one folder for skills and MCP servers, minus Claude" href="https://okulbida.com/posts/agent-plugins-open-standard-skills-mcp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>GitHub Spec Kit: give the AI agent a spec, not a vibe</h2>
   </header>
   <section class="entry-content">
@@ -250,18 +262,6 @@ This post covers the main tools people are using to solve these problems in 2025
   </section>
   <footer class="entry-footer">May 8, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Terraform at scale: GitOps tools and the long apply problem" href="https://okulbida.com/posts/terraform-gitops-state-management-alternatives/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know</h2>
-  </header>
-  <section class="entry-content">
-    <p>Bumped to Python 3.13 and suddenly your Kubernetes automation stopped working? Here’s the error you’re probably seeing:
-1 2 3 4 5  urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;xxxx.gr7.us-east-1.eks.amazonaws.com&#39;, port=443): Max retries exceeded with url: /version/ (Caused by SSLError(SSLCertVerificationError(1, &#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1028)&#39;)))   Nothing changed on the cluster side. The problem is on your machine — specifically the combination of Python 3.13 and urllib3 2.4.0. Tracked in kubernetes-client/python#2394....</p>
-  </section>
-  <footer class="entry-footer">April 29, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to urllib3 2.4.0 &#43; Python 3.13 breaks SSL against Kubernetes: what you need to know" href="https://okulbida.com/posts/eks-python-urllib3-ssl-certificate-verify-failed/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
