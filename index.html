@@ -191,9 +191,9 @@ if (!doNotTrack) {
   </header>
   <section class="entry-content">
     <p>Run docker build twice on the same Dockerfile, with no changes in between, and compare the results:
-1 2  docker build -t app:v1 . &amp;&amp; docker save app:v1 | sha256sum docker build -t app:v2 . &amp;&amp; docker save app:v2 | sha256sum   The two hashes won’t match. Nothing in your code changed, but the image did. That’s the starting point of Lab 18 in the Innopolis DevOps Core Course, and it’s a good demo....</p>
+1 2  docker build -t app:v1 . &amp;&amp; docker save app:v1 | sha256sum docker build -t app:v2 . &amp;&amp; docker save app:v2 | sha256sum   The two hashes won’t match. Nothing in your code changed, but the image did. I’ve been building images with Nix for a while, and it fixes exactly this....</p>
   </section>
-  <footer class="entry-footer">November 1, 2026&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <footer class="entry-footer">November 1, 2026&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Building Docker images with Nix: same inputs, same hash" href="https://okulbida.com/posts/nix-docker-images-reproducible-builds/"></a>
 </article>
 
