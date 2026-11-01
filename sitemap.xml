@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://okulbida.com/posts/nix-docker-images-reproducible-builds/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/ci/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/containers/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/devops/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/docker/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/nix/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/posts/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/reproducibility/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://okulbida.com/tags/</loc>
+    <lastmod>2026-11-01T00:00:00+02:00</lastmod>
+  </url><url>
     <loc>https://okulbida.com/tags/agents/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
@@ -12,9 +42,6 @@
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/anthropic-scion-source-control-replaced-git/</loc>
-    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/devops/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/llm-defense-layers-activation-guardrails/</loc>
@@ -32,19 +59,10 @@
     <loc>https://okulbida.com/tags/monorepo/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
-    <loc>https://okulbida.com/</loc>
-    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/posts/</loc>
-    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
-  </url><url>
     <loc>https://okulbida.com/tags/red-teaming/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/tags/security/</loc>
-    <lastmod>2026-10-19T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/</loc>
     <lastmod>2026-10-19T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/google-ax-agent-executor-kubernetes/</loc>
@@ -82,12 +100,6 @@
   </url><url>
     <loc>https://okulbida.com/tags/prompts/</loc>
     <lastmod>2026-10-03T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/containers/</loc>
-    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
-  </url><url>
-    <loc>https://okulbida.com/tags/docker/</loc>
-    <lastmod>2026-10-02T00:00:00+03:00</lastmod>
   </url><url>
     <loc>https://okulbida.com/posts/docker-sandbox-kit-spec/</loc>
     <lastmod>2026-10-02T00:00:00+03:00</lastmod>

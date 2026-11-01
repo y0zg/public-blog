@@ -5,7 +5,17 @@
     <link>https://okulbida.com/tags/docker/</link>
     <description>Recent content in docker on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 02 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Docker images with Nix: same inputs, same hash</title>
+      <link>https://okulbida.com/posts/nix-docker-images-reproducible-builds/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/nix-docker-images-reproducible-builds/</guid>
+      <description>Run docker build twice on the same Dockerfile, with no changes in between, and compare the results:
+1 2  docker build -t app:v1 . &amp;amp;&amp;amp; docker save app:v1 | sha256sum docker build -t app:v2 . &amp;amp;&amp;amp; docker save app:v2 | sha256sum   The two hashes won&amp;rsquo;t match. Nothing in your code changed, but the image did. That&amp;rsquo;s the starting point of Lab 18 in the Innopolis DevOps Core Course, and it&amp;rsquo;s a good demo.</description>
+    </item>
+    
     <item>
       <title>Docker Sandbox Kits: a Dockerfile for what your agent is allowed to touch</title>
       <link>https://okulbida.com/posts/docker-sandbox-kit-spec/</link>

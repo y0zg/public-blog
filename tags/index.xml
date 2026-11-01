@@ -5,7 +5,61 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ci</title>
+      <link>https://okulbida.com/tags/ci/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>containers</title>
+      <link>https://okulbida.com/tags/containers/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://okulbida.com/tags/devops/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://okulbida.com/tags/docker/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nix</title>
+      <link>https://okulbida.com/tags/nix/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/nix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducibility</title>
+      <link>https://okulbida.com/tags/reproducibility/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/reproducibility/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>agents</title>
       <link>https://okulbida.com/tags/agents/</link>
@@ -30,15 +84,6 @@
       <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/anthropic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>devops</title>
-      <link>https://okulbida.com/tags/devops/</link>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/devops/</guid>
       <description></description>
     </item>
     
@@ -174,24 +219,6 @@
       <pubDate>Sat, 03 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/prompts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>containers</title>
-      <link>https://okulbida.com/tags/containers/</link>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/containers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://okulbida.com/tags/docker/</link>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/docker/</guid>
       <description></description>
     </item>
     
