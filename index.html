@@ -187,6 +187,19 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Kubernetes pod hardening: a container is still a Linux process</h2>
+  </header>
+  <section class="entry-content">
+    <p>Start with a quick check on one of your clusters:
+1 2  kubectl run probe --rm -it --restart=Never --image=busybox:1.37 -- \  grep -E &#39;Seccomp:|CapEff&#39; /proc/self/status   Unless someone has already changed the defaults, you’ll see something like this:
+1 2  CapEff: 00000000a80425fb Seccomp: 0   Seccomp: 0 means no syscall filter at all. The process can ask the kernel for anything its capabilities allow, and that kernel is shared with every other pod on the node....</p>
+  </section>
+  <footer class="entry-footer">November 5, 2026&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Kubernetes pod hardening: a container is still a Linux process" href="https://okulbida.com/posts/kubernetes-pod-hardening-linux-kernel/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Building Docker images with Nix: same inputs, same hash</h2>
   </header>
   <section class="entry-content">
@@ -296,19 +309,6 @@ The main idea is simple. You keep the old DNS name alive as a compatibility poin
   </section>
   <footer class="entry-footer">September 25, 2026&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Moving a Kubernetes service to another namespace without downtime" href="https://okulbida.com/posts/kubernetes-namespace-migration-externalname/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Claude Code cloud sessions are out of preview, with a $100 / $250 credit to try them</h2>
-  </header>
-  <section class="entry-content">
-    <p>Anthropic announced today that Claude Code cloud sessions are generally available and no longer a research preview. The one-line pitch: Claude Code keeps working even when your laptop is closed.
-To get people to try it, existing Pro and Max subscribers get a one-time credit: $100 on Pro, $250 on Max.
-What a cloud session is A normal Claude Code session runs on your machine. If the laptop goes to sleep, loses Wi-Fi, or you just close the lid to go home, the session stops with it....</p>
-  </section>
-  <footer class="entry-footer">September 24, 2026&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Claude Code cloud sessions are out of preview, with a $100 / $250 credit to try them" href="https://okulbida.com/posts/claude-code-cloud-sessions-ga/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

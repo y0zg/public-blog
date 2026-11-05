@@ -124,6 +124,22 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>VolSync: asynchronous data replication for Kubernetes volumes</h2>
+  </header>
+  <section class="entry-content">
+    <p>VolSync is a Kubernetes operator that asynchronously replicates persistent volumes between clusters using rsync or rclone. It also supports creating backups of persistent volumes via restic.
+Installation:
+Install VolSync via Helm:
+1 2  helm repo add backube https://backube.github.io/helm-charts/ helm install --create-namespace -n volsync-system volsync backube/volsync   Migrating Data into Kubernetes:
+VolSync provides a CLI tool (kubectl-volsync) for migrating data from external storage into Kubernetes PersistentVolumes.
+Step 1: Install VolSync CLI...</p>
+  </section>
+  <footer class="entry-footer">December 28, 2025&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to VolSync: asynchronous data replication for Kubernetes volumes" href="https://okulbida.com/posts/volsync-kubernetes-volume-migration/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>ACM finally automates certificate management for Kubernetes</h2>
   </header>
   <section class="entry-content">
@@ -238,20 +254,6 @@ https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html</p>
   </section>
   <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to EKS add-ons now supports CoreDNS and kube-proxy" href="https://okulbida.com/posts/awsekscoredns/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://cdn.haproxy.com/wp-content/uploads/2021/03/KubeCon-EU-2021.png" alt="kubecon 2021">
-</figure>
-  <header class="entry-header">
-    <h2>Kubecon2021</h2>
-  </header>
-  <section class="entry-content">
-    <p>Full list of videos from KubeCon 2021 Europe
-https://www.youtube.com/playlist?list=PLj6h78yzYM2MqBm19mRz9SYLsw4kfQBrC</p>
-  </section>
-  <footer class="entry-footer">May 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Kubecon2021" href="https://okulbida.com/posts/kubecon2021/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

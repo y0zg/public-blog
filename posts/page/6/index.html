@@ -139,6 +139,18 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Simple RDS access</h2>
+  </header>
+  <section class="entry-content">
+    <p>There are plenty of ways to access private RDS instances, and most need careful design. The one I use sometimes is simple: deploy it as a Helm chart inside a k8s cluster. Access to the RDS then depends on having access to the k8s cluster with the right RBAC. It’s not perfect, but it’s secure, quick to set up, and needs almost no maintenance. Here’s the basic idea:
+1  socat TCP4-LISTEN:8888,fork TCP4:xxxxxxxx....</p>
+  </section>
+  <footer class="entry-footer">December 23, 2023&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Simple RDS access" href="https://okulbida.com/posts/simple-rds-access/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Resolving Helm issues after kubernetes upgrade</h2>
   </header>
   <section class="entry-content">
@@ -248,17 +260,6 @@ More details: https://aws.amazon.com/about-aws/whats-new/2021/06/aws-removes-nat
   </section>
   <footer class="entry-footer">June 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to What’s new in Grafana v8.0" href="https://okulbida.com/posts/grafana-8-released/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting</h2>
-  </header>
-  <section class="entry-content">
-    <p>https://aws.amazon.com/about-aws/whats-new/2021/05/aws-load-balancer-controller-version-2-2-available-support-nlb-instance/</p>
-  </section>
-  <footer class="entry-footer">May 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to AWS Load Balancer Controller version 2.2 now available with support for NLB instance targeting" href="https://okulbida.com/posts/aws-lb-controller-nlb-support/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

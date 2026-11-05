@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apparmor on Oleksandr Kulbida</title>
+    <link>https://okulbida.com/tags/apparmor/</link>
+    <description>Recent content in apparmor on Oleksandr Kulbida</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 05 Nov 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/apparmor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes pod hardening: a container is still a Linux process</title>
+      <link>https://okulbida.com/posts/kubernetes-pod-hardening-linux-kernel/</link>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/posts/kubernetes-pod-hardening-linux-kernel/</guid>
+      <description>Start with a quick check on one of your clusters:
+1 2  kubectl run probe --rm -it --restart=Never --image=busybox:1.37 -- \  grep -E &amp;#39;Seccomp:|CapEff&amp;#39; /proc/self/status   Unless someone has already changed the defaults, you&amp;rsquo;ll see something like this:
+1 2  CapEff: 00000000a80425fb Seccomp: 0   Seccomp: 0 means no syscall filter at all. The process can ask the kernel for anything its capabilities allow, and that kernel is shared with every other pod on the node.</description>
+    </item>
+    
+  </channel>
+</rss>

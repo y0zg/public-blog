@@ -5,22 +5,67 @@
     <link>https://okulbida.com/tags/</link>
     <description>Recent content in Tags on Oleksandr Kulbida</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Nov 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://okulbida.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ci</title>
-      <link>https://okulbida.com/tags/ci/</link>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      <title>apparmor</title>
+      <link>https://okulbida.com/tags/apparmor/</link>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0200</pubDate>
       
-      <guid>https://okulbida.com/tags/ci/</guid>
+      <guid>https://okulbida.com/tags/apparmor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>containers</title>
       <link>https://okulbida.com/tags/containers/</link>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0200</pubDate>
       
       <guid>https://okulbida.com/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://okulbida.com/tags/kubernetes/</link>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://okulbida.com/tags/linux/</link>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seccomp</title>
+      <link>https://okulbida.com/tags/seccomp/</link>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/seccomp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://okulbida.com/tags/security/</link>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ci</title>
+      <link>https://okulbida.com/tags/ci/</link>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0200</pubDate>
+      
+      <guid>https://okulbida.com/tags/ci/</guid>
       <description></description>
     </item>
     
@@ -133,29 +178,11 @@
     </item>
     
     <item>
-      <title>security</title>
-      <link>https://okulbida.com/tags/security/</link>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>google</title>
       <link>https://okulbida.com/tags/google/</link>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/google/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://okulbida.com/tags/kubernetes/</link>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -219,15 +246,6 @@
       <pubDate>Sat, 03 Oct 2026 00:00:00 +0300</pubDate>
       
       <guid>https://okulbida.com/tags/prompts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://okulbida.com/tags/linux/</link>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://okulbida.com/tags/linux/</guid>
       <description></description>
     </item>
     

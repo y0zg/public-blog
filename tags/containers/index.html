@@ -124,6 +124,19 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Kubernetes pod hardening: a container is still a Linux process</h2>
+  </header>
+  <section class="entry-content">
+    <p>Start with a quick check on one of your clusters:
+1 2  kubectl run probe --rm -it --restart=Never --image=busybox:1.37 -- \  grep -E &#39;Seccomp:|CapEff&#39; /proc/self/status   Unless someone has already changed the defaults, you’ll see something like this:
+1 2  CapEff: 00000000a80425fb Seccomp: 0   Seccomp: 0 means no syscall filter at all. The process can ask the kernel for anything its capabilities allow, and that kernel is shared with every other pod on the node....</p>
+  </section>
+  <footer class="entry-footer">November 5, 2026&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Kubernetes pod hardening: a container is still a Linux process" href="https://okulbida.com/posts/kubernetes-pod-hardening-linux-kernel/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Building Docker images with Nix: same inputs, same hash</h2>
   </header>
   <section class="entry-content">

@@ -124,6 +124,19 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Kubernetes pod hardening: a container is still a Linux process</h2>
+  </header>
+  <section class="entry-content">
+    <p>Start with a quick check on one of your clusters:
+1 2  kubectl run probe --rm -it --restart=Never --image=busybox:1.37 -- \  grep -E &#39;Seccomp:|CapEff&#39; /proc/self/status   Unless someone has already changed the defaults, you’ll see something like this:
+1 2  CapEff: 00000000a80425fb Seccomp: 0   Seccomp: 0 means no syscall filter at all. The process can ask the kernel for anything its capabilities allow, and that kernel is shared with every other pod on the node....</p>
+  </section>
+  <footer class="entry-footer">November 5, 2026&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
+  <a class="entry-link" aria-label="post link to Kubernetes pod hardening: a container is still a Linux process" href="https://okulbida.com/posts/kubernetes-pod-hardening-linux-kernel/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Five layers of LLM defense, and why activation guardrails won&#39;t save you alone</h2>
   </header>
   <section class="entry-content">
@@ -229,19 +242,6 @@ It caught the axios supply chain attack in real time — any connection to sfrcl
   </section>
   <footer class="entry-footer">April 24, 2026&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
   <a class="entry-link" aria-label="post link to Harden-Runner: visibility into what your CI runner does on the network" href="https://okulbida.com/posts/harden-runner-github-actions-egress-monitoring/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Hardening Claude Code: permissions, hooks, and custom commands</h2>
-  </header>
-  <section class="entry-content">
-    <p>Claude Code is a powerful local agent. By default it can read most files on your machine. Here is how to lock it down and extend it for your workflow.
- Block access to credential files Put this in your global Claude settings at ~/.claude/settings.json. Claude will refuse to read any of these paths — even if you accidentally ask it to.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;permissions&#34;: { &#34;deny&#34;: [ &#34;Read(~/....</p>
-  </section>
-  <footer class="entry-footer">April 10, 2026&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Oleksandr Kulbida</footer>
-  <a class="entry-link" aria-label="post link to Hardening Claude Code: permissions, hooks, and custom commands" href="https://okulbida.com/posts/claude-code-hardening-permissions-hooks-commands/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
